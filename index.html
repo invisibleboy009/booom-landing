@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOOM — Trénuj. Sleduj. Dominuj.</title>
+  <meta name="description" content="Prvá fitness appka novej generácie. Trénuj, sleduj pokrok a dominuj.">
+  <meta property="og:title" content="BOOOM — Trénuj. Sleduj. Dominuj.">
+  <meta property="og:description" content="Prvá fitness appka novej generácie.">
+  <meta property="og:url" content="https://booom.fit">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00e676;
+      --cyan: #00d4ff;
+      --gold: #ffd700;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #1a1a1a;
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .nav-tagline {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid #252525;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn:hover { border-color: #444; color: var(--text); }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      border-color: transparent;
+      color: #000;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 80px 24px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      width: 900px;
+      height: 900px;
+      background:
+        radial-gradient(ellipse 55% 45% at 50% 50%, rgba(0,230,118,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 30% at 60% 40%, rgba(0,212,255,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; max-width: 820px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,230,118,0.08);
+      border: 1px solid rgba(0,230,118,0.25);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 36px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 100px);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 16px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); }
+
+    .hero-stats { display: flex; justify-content: center; flex-wrap: wrap; }
+
+    .stat {
+      padding: 0 28px;
+      border-right: 1px solid #1e1e1e;
+      text-align: center;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 30px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 24px; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-header { text-align: center; margin-bottom: 64px; }
+
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-header p { font-size: 16px; color: var(--muted); }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.25s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(0,230,118,0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(0,230,118,0.08);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ── RANKS ── */
+    .ranks-section {
+      background: #0c0c0c;
+      border-top: 1px solid #161616;
+      border-bottom: 1px solid #161616;
+    }
+
+    .ranks-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .rank-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      padding: 28px 16px 22px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .rank-card:hover { transform: translateY(-6px); }
+
+    .rank-card.rank-brawler {
+      border-color: rgba(0,230,118,0.4);
+      background: rgba(0,230,118,0.04);
+    }
+
+    .rank-card.rank-monster {
+      border-color: rgba(255,215,0,0.4);
+      background: rgba(255,215,0,0.04);
+    }
+
+    .rank-number { font-size: 10px; font-weight: 700; color: #333; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .rank-icon { font-size: 32px; display: block; margin-bottom: 14px; line-height: 1; }
+    .rank-name { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+
+    .rank-card.rank-brawler .rank-name { color: var(--green); }
+    .rank-card.rank-monster .rank-name { color: var(--gold); }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #081a0d 0%, #0d2316 50%, #081a0d 100%);
+      border-top: 1px solid rgba(0,230,118,0.15);
+      border-bottom: 1px solid rgba(0,230,118,0.15);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,230,118,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .section-inner { position: relative; }
+
+    .cta-section h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .cta-section > .section-inner > p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 44px;
+    }
+
+    .btn-cta-big {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 900;
+      font-size: 18px;
+      padding: 20px 52px;
+      border-radius: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-cta-big:hover { opacity: 0.88; transform: translateY(-3px); }
+
+    /* ── FOOTER ── */
+    footer { padding: 52px 24px 36px; border-top: 1px solid #161616; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #161616;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 13px; color: #555; }
+    .footer-founder { font-size: 13px; color: #555; }
+    .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .footer-founder a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .ranks-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-tagline { display: none; }
+      .lang-btn { padding: 4px 7px; font-size: 10px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .ranks-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 0 16px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 560px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero h1 { letter-spacing: -2px; }
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons a { width: 100%; max-width: 320px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="BOOOM home">
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+    </a>
+    <div class="lang-switcher" role="navigation" aria-label="Language switcher">
+      <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
+      <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
+      <button class="lang-btn" onclick="setLanguage('CS')" aria-label="Čeština">CS</button>
+      <button class="lang-btn" onclick="setLanguage('PL')" aria-label="Polski">PL</button>
+      <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
+    </div>
+    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge" data-i18n="hero_badge">⚡ Fitness appka novej generácie</div>
+    <h1>
+      <span data-i18n="hero_h1_line1">Trénuj.</span><br>
+      <span class="gradient-text" data-i18n="hero_h1_line2">Sleduj.</span><br>
+      <span data-i18n="hero_h1_line3">Dominuj.</span>
+    </h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">
+      Prvá fitness aplikácia, ktorá ťa skutočne pozná. Sleduj pokrok, buduj návyky a dominuj na každom tréningu.
+    </p>
+    <div class="hero-buttons">
+      <a href="https://app.booom.fit" class="btn-primary" data-i18n="hero_cta1">Začni zadarmo</a>
+      <a href="#features" class="btn-secondary" data-i18n="hero_cta2">Pozri ako to funguje</a>
+    </div>
+    <div class="hero-stats" role="list" aria-label="Stats">
+      <div class="stat" role="listitem">
+        <div class="stat-value">7</div>
+        <div class="stat-label" data-i18n="stats_sections">sekcií</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">6</div>
+        <div class="stat-label" data-i18n="stats_ranks">rankov</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">∞</div>
+        <div class="stat-label" data-i18n="stats_motivation">motivácie</div>
+      </div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">0€</div>
+        <div class="stat-label" data-i18n="stats_price">štart</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 data-i18n="features_title">Všetko čo potrebuješ</h2>
+      <p data-i18n="features_subtitle">Kompletný fitness ekosystém v jednej aplikácii</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🏋️</div>
+        <h3 data-i18n="feat1_title">Tréning</h3>
+        <p data-i18n="feat1_desc">Stovky cvikov, hotové plány a AI-generované tréningy presne pre teba.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🥗</div>
+        <h3 data-i18n="feat2_title">Výživa</h3>
+        <p data-i18n="feat2_desc">Sleduj makrá, kalórie a hydratáciu. Jedz chytrejšie, nie menej.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">💪</div>
+        <h3 data-i18n="feat3_title">Telo</h3>
+        <p data-i18n="feat3_desc">Merania, fotky pokroku a body composition tracker na jednom mieste.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">👥</div>
+        <h3 data-i18n="feat4_title">Komunita</h3>
+        <p data-i18n="feat4_desc">Výzvy, rebríčky a challenge s priateľmi. Spolu ste silnejší.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🤖</div>
+        <h3 data-i18n="feat5_title">AI Coach</h3>
+        <p data-i18n="feat5_desc">Tvoj osobný tréner 24/7. Radí, motivuje a prispôsobuje plán.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🎮</div>
+        <h3 data-i18n="feat6_title">Gamifikácia</h3>
+        <p data-i18n="feat6_desc">XP, odznaky a ranky. Každý tréning ťa posúva vyššie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RANKS ── -->
+<section class="ranks-section" id="ranks">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 data-i18n="ranks_title">Tvoja cesta k vrcholu</h2>
+      <p data-i18n="ranks_subtitle">6 rankov. Každý krok ťa posúva ďalej.</p>
+    </div>
+    <div class="ranks-grid" role="list" aria-label="Ranks">
+      <div class="rank-card" role="listitem">
+        <div class="rank-number">01</div>
+        <span class="rank-icon" aria-hidden="true">🥉</span>
+        <div class="rank-name">ROOKIE</div>
+      </div>
+      <div class="rank-card" role="listitem">
+        <div class="rank-number">02</div>
+        <span class="rank-icon" aria-hidden="true">⚡</span>
+        <div class="rank-name">HUSTLER</div>
+      </div>
+      <div class="rank-card rank-brawler" role="listitem">
+        <div class="rank-number">03</div>
+        <span class="rank-icon" aria-hidden="true">🥊</span>
+        <div class="rank-name">BRAWLER</div>
+      </div>
+      <div class="rank-card" role="listitem">
+        <div class="rank-number">04</div>
+        <span class="rank-icon" aria-hidden="true">🔥</span>
+        <div class="rank-name">ENFORCER</div>
+      </div>
+      <div class="rank-card" role="listitem">
+        <div class="rank-number">05</div>
+        <span class="rank-icon" aria-hidden="true">💀</span>
+        <div class="rank-name">SAVAGE</div>
+      </div>
+      <div class="rank-card rank-monster" role="listitem">
+        <div class="rank-number">06</div>
+        <span class="rank-icon" aria-hidden="true">👑</span>
+        <div class="rank-name">BOOOM MONSTER</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2 data-i18n="cta_title">Začni svoj prvý tréning dnes</h2>
+    <p data-i18n="cta_subtitle">Zadarmo. Bez kreditky. Bez výhovoriek.</p>
+    <a href="https://app.booom.fit" class="btn-cta-big" data-i18n="cta_button">Spustiť BOOOM</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo" aria-label="BOOOM">BOOOM</span>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#" data-i18n="footer_about">O nás</a>
+        <a href="mailto:laco@booom.fit" data-i18n="footer_contact">Kontakt</a>
+        <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="#" data-i18n="footer_terms">Terms</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy" data-i18n="footer_copy">© 2026 BOOOM. Všetky práva vyhradené.</p>
+      <p class="footer-founder">
+        <a href="mailto:laco@booom.fit">laco@booom.fit</a>
+        &nbsp;—&nbsp;<span data-i18n="footer_founder">Laco, zakladateľ BOOOM</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
