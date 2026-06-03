@@ -470,35 +470,77 @@
     .nav-link:hover { color: var(--text); }
 
     /* ── STORY ── */
-    .story-card {
+    .story-accordion {
       max-width: 720px;
       margin: 0 auto;
-      background: var(--bg-card);
       border: 1px solid var(--bg-card-border);
-      border-radius: 24px;
-      padding: 52px;
+      border-radius: 20px;
+      overflow: hidden;
     }
 
-    .story-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .story-accordion-btn {
+      width: 100%;
+      background: var(--bg-card);
+      border: none;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      transition: background 0.2s;
+      text-align: left;
+    }
+
+    .story-accordion-btn:hover { background: rgba(255,255,255,0.03); }
+
+    .story-accordion-icon {
+      width: 20px;
+      height: 20px;
       color: var(--green);
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      transition: transform 0.35s ease;
+      flex-shrink: 0;
     }
 
-    .story-title {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      margin-bottom: 36px;
-      line-height: 1.2;
+    .story-accordion-btn[aria-expanded="true"] .story-accordion-icon {
+      transform: rotate(180deg);
     }
 
-    .story-body { display: flex; flex-direction: column; gap: 18px; }
+    .story-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    .story-body p {
+    .story-accordion-body.open {
+      max-height: 5000px;
+      transition: max-height 1.2s ease-in-out;
+    }
+
+    .story-content {
+      padding: 36px 36px 48px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--bg-card-border);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .story-preface {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.85;
+      font-style: italic;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .story-content p {
       font-size: 16px;
       color: rgba(255,255,255,0.72);
       line-height: 1.85;
@@ -557,7 +599,8 @@
       .ranks-grid { grid-template-columns: repeat(2, 1fr); }
       .stat { padding: 0 16px; }
       .footer-top { flex-direction: column; align-items: flex-start; }
-      .story-card { padding: 32px 24px; }
+      .story-accordion-btn { padding: 20px 24px; }
+      .story-content { padding: 24px 24px 36px; }
     }
 
     @media (max-width: 560px) {
@@ -721,27 +764,32 @@
 <!-- ── STORY ── -->
 <section id="story">
   <div class="section-inner">
-    <div class="story-card">
-      <p class="story-label">Príbeh zakladateľa</p>
-      <h2 class="story-title">Prečo som vytvoril BOOOM</h2>
-      <div class="story-body">
-        <p>Mal som 34 rokov. Cvičil som štyrikrát týždenne, bench 165 kg, mŕtvy ťah 200 kg, drep 180 kg. Vlastná reštaurácia — jedlo som mal pod kontrolou. Spánok, regenerácia, životospráva — všetko na úrovni. A napriek tomu som každým rokom nekontrolovane priberal.</p>
-        <p>Skúšal som všetko. Fasting, detoxy, rôzne diety. Výsledok? Nula. Alebo horšie — telo sa bránilo ešte viac. Vinu som hádzal na vek, stres, prácu. Každý má predsa nejakú výhovorku. Keď sa váha vyšplhala na 127,6 kg, prestal som hľadať výhovorky.</p>
-        <p>Môj gymový partner Emil — prezývaný Lord Bicepsus — mi mesiace hovoril jedno a to isté: 'Laco, toto nie je normálne. Choď na krv.' Odkladal som. Nakoniec to Emil dohodol sám. Endokrinológ. Krvné testy. Výsledky. Štítna žľaza fungovala na 20%. Navyše silný Hashimotov zápal.</p>
-        <p>Celé roky som bojoval sám so sebou kým môj vlastný organizmus ticho zlyhal. Mozog prepol telo do núdzového režimu. Každú kalóriu ukladal ako keby nebol zajtrajšok.</p>
-        <p>Čím viac som jedol, tým viac sa telo bránilo. Čím viac som cvičil, tým viac sa zavodňovalo. Nebol som lenivý. Nebol som bez vôle. Bol som chorý. A nevedel som o tom.</p>
-        <p>Prišla operácia. Mesiace čakania. A potom — bez zmeny stravy, bez nového tréningového plánu — telo začalo konečne reagovať. Zo 127,6 kg na 108 kg za necelých 10 mesiacov.</p>
-        <div class="story-highlight">Štítna žľaza je len jeden z mnohých dôvodov prečo telo nereaguje. Pečeň, srdce, cukor v krvi, hormóny, zápalové markery — pes môže byť zakopaný kdekoľvek. Kým to nevieš, žiadna diéta ti nepomôže.</div>
-        <p>Preto vznikol BOOOM. Nie ako ďalšia appka s kalkulačkou kalórií. Ale ako nástroj ktorý ťa vníma celého.</p>
-        <p>Pred akýmkoľvek plánovaním najprv počúvaj svoje telo. Choď k doktorovi. Urob si krvné testy. Skontroluj štítnu žľazu, pečeň, cukor, srdce, hormóny.</p>
-        <p>Emil, bro — dlhujem ti viac ako vieš. 🙏</p>
-        <p class="story-contact">Nie som doktor — toto sú moje osobné skúsenosti. Ale rád sa podelím. Kontakt: <a href="mailto:laco@booom.fit">laco@booom.fit</a></p>
-        <hr class="story-divider">
-        <div class="story-sig">
-          <div class="story-avatar">L</div>
-          <div>
-            <div class="story-sig-name">— Laco, zakladateľ BOOOM</div>
-            <div class="story-sig-role"><a href="mailto:laco@booom.fit">laco@booom.fit</a></div>
+    <div class="story-accordion">
+      <button class="story-accordion-btn" onclick="toggleStory(this)" aria-expanded="false" aria-controls="story-accordion-body">
+        <span>Príbeh zakladateľa</span>
+        <svg class="story-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="story-accordion-body" id="story-accordion-body">
+        <div class="story-content">
+          <p class="story-preface">Nie som motivačný rečník. Nie som influencer. Som len chlapík ktorý roky bojoval sám so sebou a nevedel prečo. Táto stránka vznikla preto, lebo som chcel vytvoriť niečo čo mi vtedy chýbalo — appku ktorá ťa vníma celého. A príbeh ktorý možno niekomu pomôže nájsť správnu otázku skôr ako ja.</p>
+          <p>Mal som 34 rokov. Cvičil som štyrikrát týždenne, bench 165 kg, mŕtvy ťah 200 kg, drep 180 kg. Vlastná reštaurácia — jedlo som mal pod kontrolou. Spánok, regenerácia, životospráva — všetko na úrovni. A napriek tomu som každým rokom nekontrolovane priberal.</p>
+          <p>Skúšal som všetko. Fasting, detoxy, rôzne diety. Výsledok? Nula. Alebo horšie — telo sa bránilo ešte viac. Vinu som hádzal na vek, stres, prácu. Každý má predsa nejakú výhovorku. Keď sa váha vyšplhala na 127,6 kg, prestal som hľadať výhovorky.</p>
+          <p>Môj gymový partner Emil — prezývaný Lord Bicepsus — mi mesiace hovoril jedno a to isté: "Laco, toto nie je normálne. Choď na krv." Odkladal som. Nakoniec to Emil dohodol sám. Endokrinológ. Krvné testy. Výsledky. Štítna žľaza fungovala na 20%. Navyše silná Hashimotova tyreoiditída.</p>
+          <p>Celé roky som bojoval sám so sebou kým môj vlastný organizmus ticho zlyhal. Mozog prepol telo do núdzového režimu. Každú kalóriu ukladal ako keby nebol zajtrajšok.</p>
+          <p>Čím menej som jedol, tým viac sa telo bránilo. Čím viac som cvičil, tým viac sa zavodňovalo. Nebol som lenivý. Nebol som bez vôle. Bol som chorý. A nevedel som o tom.</p>
+          <p>Prišla operácia. Mesiace čakania. A potom — bez zmeny stravy, bez nového tréningového plánu — telo začalo konečne reagovať. Zo 127,6 kg na 108 kg za necelých 10 mesiacov.</p>
+          <div class="story-highlight">Štítna žľaza je len jeden z mnohých dôvodov prečo telo nereaguje. Pečeň, srdce, cukor v krvi, hormóny, zápalové markery — pes môže byť zakopaný kdekoľvek. Kým to nevieš, žiadna diéta ti nepomôže.</div>
+          <p>Preto vznikol BOOOM. Nie ako ďalšia appka s kalkulačkou kalórií. Ale ako nástroj ktorý ťa vníma celého.</p>
+          <p>Pred akýmkoľvek plánovaním najprv počúvaj svoje telo. Choď k doktorovi. Urob si krvné testy. Skontroluj štítnu žľazu, pečeň, cukor, srdce, hormóny.</p>
+          <p>Emil, bro — dlhujem ti viac ako vieš. 🙏</p>
+          <p class="story-contact">Nie som doktor — toto sú moje osobné skúsenosti. Ale rád sa podelím. Kontakt: <a href="mailto:laco@booom.fit">laco@booom.fit</a></p>
+          <hr class="story-divider">
+          <div class="story-sig">
+            <div class="story-avatar">L</div>
+            <div>
+              <div class="story-sig-name">— Laco, zakladateľ BOOOM</div>
+              <div class="story-sig-role"><a href="mailto:laco@booom.fit">laco@booom.fit</a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -781,5 +829,12 @@
 </footer>
 
 <script src="lang.js"></script>
+<script>
+  function toggleStory(btn) {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    document.getElementById('story-accordion-body').classList.toggle('open', !expanded);
+  }
+</script>
 </body>
 </html>
