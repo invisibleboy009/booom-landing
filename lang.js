@@ -4,7 +4,7 @@ const translations = {
     nav_cta: 'Vyskúšaj zadarmo',
     hero_badge: '⚡ Fitness appka novej generácie',
     hero_h1_line1: 'Trénuj.',
-    hero_h1_line2: 'Sleduj.',
+    hero_h1_line2: 'Sleduj pokrok.',
     hero_h1_line3: 'Dominuj.',
     hero_subtitle: 'Prvá fitness aplikácia, ktorá ťa skutočne pozná. Sleduj pokrok, buduj návyky a dominuj na každom tréningu.',
     hero_cta1: 'Začni zadarmo',
@@ -84,7 +84,7 @@ const translations = {
     nav_cta: 'Vyzkoušej zdarma',
     hero_badge: '⚡ Fitness appka nové generace',
     hero_h1_line1: 'Trénuj.',
-    hero_h1_line2: 'Sleduj.',
+    hero_h1_line2: 'Sleduj pokrok.',
     hero_h1_line3: 'Dominuj.',
     hero_subtitle: 'První fitness aplikace, která tě skutečně zná. Sleduj pokrok, buduj návyky a dominuj na každém tréninku.',
     hero_cta1: 'Začni zdarma',
@@ -202,9 +202,9 @@ const translations = {
 };
 
 const pageTitles = {
-  SK: 'BOOOM — Trénuj. Sleduj. Dominuj.',
+  SK: 'BOOOM — Trénuj. Sleduj pokrok. Dominuj.',
   EN: 'BOOOM — Train. Track. Dominate.',
-  CS: 'BOOOM — Trénuj. Sleduj. Dominuj.',
+  CS: 'BOOOM — Trénuj. Sleduj pokrok. Dominuj.',
   PL: 'BOOOM — Trenuj. Śledź. Dominuj.',
   UK: 'BOOOM — Тренуй. Стеж. Домінуй.',
 };
