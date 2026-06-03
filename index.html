@@ -698,20 +698,20 @@
     </div>
     <div class="hero-stats" role="list" aria-label="Stats">
       <div class="stat" role="listitem">
-        <div class="stat-value">7</div>
-        <div class="stat-label" data-i18n="stats_sections">sekcií</div>
+        <div class="stat-value" id="stat-users">...</div>
+        <div class="stat-label">AKTÍVNYCH USEROV</div>
       </div>
       <div class="stat" role="listitem">
-        <div class="stat-value">6</div>
-        <div class="stat-label" data-i18n="stats_ranks">rankov</div>
+        <div class="stat-value" id="stat-tons">...</div>
+        <div class="stat-label">TON ODTRÉNOVANÝCH</div>
       </div>
       <div class="stat" role="listitem">
         <div class="stat-value">∞</div>
-        <div class="stat-label" data-i18n="stats_motivation">motivácie</div>
+        <div class="stat-label">MOTIVÁCIE</div>
       </div>
       <div class="stat" role="listitem">
         <div class="stat-value">0€</div>
-        <div class="stat-label" data-i18n="stats_price">štart</div>
+        <div class="stat-label">NAVŽDY ZADARMO</div>
       </div>
     </div>
   </div>
@@ -879,6 +879,37 @@
     btn.setAttribute('aria-expanded', String(!expanded));
     document.getElementById('story-accordion-body').classList.toggle('open', !expanded);
   }
+</script>
+<script>
+  (function () {
+    var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0d25xcGdndmNyYW15Y2tveWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMwNzA5NTcsImV4cCI6MjA1ODY0Njk1N30.tFBsqOhhpFCFKB3ByQb9ItKanBwZlLgMHCi8WNVH_9E';
+    var BASE = 'https://itwnqpggvcramyckoyiw.supabase.co/rest/v1/';
+
+    function set(id, val) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = val;
+    }
+
+    // User count via count=exact header — avoids fetching all rows
+    fetch(BASE + 'profiles?select=id&apikey=' + KEY, {
+      headers: { 'Prefer': 'count=exact', 'Range': '0-0' }
+    })
+      .then(function (r) {
+        var cr = r.headers.get('content-range');
+        var count = cr ? parseInt(cr.split('/')[1], 10) : NaN;
+        set('stat-users', isNaN(count) ? '—' : count);
+      })
+      .catch(function () { set('stat-users', '—'); });
+
+    // Total lifted volume in tons
+    fetch(BASE + 'workout_sessions?select=total_volume&limit=100000&apikey=' + KEY)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var kg = d.reduce(function (s, row) { return s + (parseFloat(row.total_volume) || 0); }, 0);
+        set('stat-tons', (kg / 1000).toFixed(1));
+      })
+      .catch(function () { set('stat-tons', '—'); });
+  }());
 </script>
 </body>
 </html>
