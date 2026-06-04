@@ -600,6 +600,30 @@
     .story-contact a { color: var(--green); text-decoration: none; font-weight: 600; }
     .story-contact a:hover { text-decoration: underline; }
 
+    .story-section-heading {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      padding-top: 8px;
+    }
+
+    .story-section-subheading {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green);
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .story-conclusion {
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.65;
+      letter-spacing: -0.3px;
+    }
+
     .story-divider { border: none; border-top: 1px solid #1e1e1e; margin: 8px 0; }
 
     .story-sig { display: flex; align-items: center; gap: 16px; }
@@ -623,6 +647,57 @@
     .story-sig-role a { color: var(--green); text-decoration: none; }
     .story-sig-role a:hover { text-decoration: underline; }
 
+    /* ── SCREENSHOTS ── */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 28px;
+      justify-items: center;
+    }
+
+    .screenshot-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .screenshot-frame {
+      width: 100%;
+      aspect-ratio: 9 / 19;
+      border-radius: 24px;
+      border: 2px solid #1e1e1e;
+      overflow: hidden;
+      background: #1a1a1a;
+      position: relative;
+    }
+
+    .screenshot-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 22px;
+    }
+
+    .screenshot-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--green);
+      text-align: center;
+      letter-spacing: -0.2px;
+      line-height: 1.4;
+    }
+
+    .screenshot-desc {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.75;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .ranks-grid { grid-template-columns: repeat(3, 1fr); }
@@ -637,6 +712,7 @@
       .lang-btn { padding: 4px 7px; font-size: 10px; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .ranks-grid { grid-template-columns: repeat(2, 1fr); }
+      .screenshots-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
       .stat { padding: 0 16px; }
       .footer-top { flex-direction: column; align-items: flex-start; }
       .story-accordion-btn { padding: 20px 24px; }
@@ -664,6 +740,7 @@
     <div class="nav-links" role="navigation" aria-label="Section navigation">
       <a href="#features" class="nav-link">Funkcie</a>
       <a href="#ranks" class="nav-link">Ranky</a>
+      <a href="#screenshots" class="nav-link">Appka</a>
       <a href="#story" class="nav-link">Príbeh</a>
       <a href="#cta" class="nav-link">Štart</a>
     </div>
@@ -716,6 +793,139 @@
     </div>
   </div>
 </section>
+<!-- ── SCREENSHOTS ── -->
+<section id="screenshots">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2>Pozri ako BOOOM funguje</h2>
+      <p>Reálne screenshoty z appky — bez PR, bez filtrov</p>
+    </div>
+    <div class="screenshots-grid">
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-01.jpg" alt="Sleduj zdravie ako pro" loading="lazy">
+        </div>
+        <div class="screenshot-title">Sleduj zdravie ako pro</div>
+        <p class="screenshot-desc">Zabudni na papierové výsledky v šuplíku. BOOOM sleduje tvoje krvné hodnoty v čase a zobrazí ti trend — čo sa zlepšuje a čo nie. Jedna červená krivka ti povie viac ako hodina s doktorom.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-02.jpg" alt="Makrá pod kontrolou" loading="lazy">
+        </div>
+        <div class="screenshot-title">Makrá pod kontrolou</div>
+        <p class="screenshot-desc">Vieš presne čo ješ — kalórie, bielkoviny, sacharidy aj tuky na každé jedlo. Raňajky, obed, večera, snack. Žiadne hádanie, žiadne tabuľky v Exceli. Len čistý prehľad či si na ceste k cieľu.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-03.jpg" alt="Tréning ako nikdy predtým" loading="lazy">
+        </div>
+        <div class="screenshot-title">Tréning ako nikdy predtým</div>
+        <p class="screenshot-desc">Živý tréning s časovačom, pauzou a automatickým sledovaním objemu. Vyber si typ — Push, Pull, Legs, Fullbody — a BOOOM vie čo robíš. Každá séria zaznamenaná, každý PR oslávený.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-04.jpg" alt="Sleduj každý kilogram" loading="lazy">
+        </div>
+        <div class="screenshot-title">Sleduj každý kilogram</div>
+        <p class="screenshot-desc">Graf váhy ti ukáže reálny trend — nie len dnešné číslo. Spolu s fotkami tela spredu, zboku a zozadu vidíš zmenu ktorú váha neukáže. Toto je motivácia ktorá funguje.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-05.jpg" alt="Suplementy pod kontrolou" loading="lazy">
+        </div>
+        <div class="screenshot-title">Suplementy pod kontrolou</div>
+        <p class="screenshot-desc">Kreatín ráno alebo pred? Proteín po? Magnézium večer? BOOOM si to pamätá za teba. Nastav čo bereš, kedy a koľko — a každý deň len odškrtni.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-06.jpg" alt="Kardio pre každého" loading="lazy">
+        </div>
+        <div class="screenshot-title">Kardio pre každého</div>
+        <p class="screenshot-desc">Beh, bicykel, AirBike, veslovanie, schody, plávanie — 6 aktivít s vlastnými ikonami a špecifickými poliami. Bežci zadajú tempo, cyklisti odpor, plavci úseky. Všetko na jednom mieste.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-07.jpg" alt="Tvoje zdravie v číslach" loading="lazy">
+        </div>
+        <div class="screenshot-title">Tvoje zdravie v číslach</div>
+        <p class="screenshot-desc">36 krvných parametrov — štítna žľaza, hormóny, cukor, cholesterol, pečeň, obličky, vitamíny. Zelená = v norme, červená = pozor. Odfotíš výsledky z papiera a AI ich automaticky vyplní.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-08.jpg" alt="Tvoj osobný AI tréner" loading="lazy">
+        </div>
+        <div class="screenshot-title">Tvoj osobný AI tréner</div>
+        <p class="screenshot-desc">Opýtaj sa čokoľvek — ako upraviť tréning, čo jesť pred výkonom, prečo stagnuješ. AI Coach pozná tvoj profil, tréningy aj výživu. Odpovie ti brutálne úprimne. Online 24/7.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-09.jpg" alt="Tvoj BOOOM profil" loading="lazy">
+        </div>
+        <div class="screenshot-title">Tvoj BOOOM profil</div>
+        <p class="screenshot-desc">XP, rank, streak, počet tréningov, sledovatelia. Nastav si ciele — koľko tréningov za mesiac, koľko kalórií, koľko bielkovín. BOOOM ťa drží na kurze a motivuje ďalej.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-10.jpg" alt="AI ti povie čo robiť" loading="lazy">
+        </div>
+        <div class="screenshot-title">AI ti povie čo robiť</div>
+        <p class="screenshot-desc">Po zadaní krvných hodnôt dostaneš konkrétne odporúčania — čo obmedziť, čo pridať, aké suplementy a v akej dávke. A ak niečo nesedí, AI ti povie priamo: choď k doktorovi. Bez okrášľovania.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-11.jpg" alt="Hydratácia pod kontrolou" loading="lazy">
+        </div>
+        <div class="screenshot-title">Hydratácia pod kontrolou</div>
+        <p class="screenshot-desc">3.73L z 4.5L — vieš presne kde si. Jedno kliknutie pridá 250ml, 500ml alebo 1L. Denná história ti ukáže vzor — piješ dosť alebo len myslíš že piješ dosť?</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-12.jpg" alt="Vidíš reálny pokrok" loading="lazy">
+        </div>
+        <div class="screenshot-title">Vidíš reálny pokrok</div>
+        <p class="screenshot-desc">Grafy váhy, hrudníka, rúk — všetko v jednom pohľade. Krivka dole pri váhe a krivka hore pri rukách. To je výsledok ktorý ťa ráno vytiahne z postele do gymu.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-13.jpg" alt="Každý centimeter sa počíta" loading="lazy">
+        </div>
+        <div class="screenshot-title">Každý centimeter sa počíta</div>
+        <p class="screenshot-desc">Hrudník, ruky, pás, stehná — merania s históriou a fotkami. Vidíš kde rastieš a kde ubúdaš. Toto je presnosť ktorú váha nikdy nedá.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-14.jpg" alt="GPS Tracking — beh a cyklo" loading="lazy">
+        </div>
+        <div class="screenshot-title">GPS Tracking — beh a cyklo</div>
+        <p class="screenshot-desc">Vyrazíš von a BOOOM ide s tebou. Live mapa ukazuje tvoju trasu v reálnom čase, aktuálne tempo, vzdialenosť a čas. Po skončení dostaneš kompletnú analýzu — mapa trasy, výškový profil a split časy každého kilometra. Strava nepotrebuješ.</p>
+      </div>
+
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="/screenshots/screenshot-15.jpg" alt="Tréningové zóny" loading="lazy">
+        </div>
+        <div class="screenshot-title">Tréningové zóny</div>
+        <p class="screenshot-desc">Vieš v akej zóne trénuješ? BOOOM vypočíta tvoju maximálnu srdcovú frekvenciu a počas kardio aktivity ti ukáže či spaľuješ tuky, buduješ kondíciu alebo ideš naplno. Zóna 1 až 5 — farebne, jasne, v reálnom čase.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── STORY ── -->
 <section id="story">
   <div class="section-inner">
@@ -726,22 +936,56 @@
       </button>
       <div class="story-accordion-body" id="story-accordion-body">
         <div class="story-content">
-          <p class="story-preface">Nie som motivačný rečník. Nie som influencer. Som len chlapík ktorý roky bojoval sám so sebou a nevedel prečo. Táto stránka vznikla preto, lebo som chcel vytvoriť niečo čo mi vtedy chýbalo — appku ktorá ťa vníma celého. A príbeh ktorý možno niekomu pomôže nájsť správnu otázku skôr ako ja.</p>
-          <p>Športujem odkedy si pamätám. Od 10 rokov kanoistika — najprv na Draždiaku, neskôr na Dunaji. Krásne roky mladosti strávené pri vode, tvrdými tréningami a v spoločnosti skvelých ľudí a trénerov. Dvojfázové tréningy v tínedžerských rokoch, preteky po celom Slovensku — každá medaila bola odmenou za hodiny driny. Skončil som keď prišlo rozsiahle zranenie trapézového svalu, mal som asi 18 rokov. Ale šport som nikdy neopustil. Po kanoistike posilňovňa. Vždy aktívny, vždy v pohybe.</p>
-          <h3 class="story-subheading">Od kajaku až po problémy s váhou</h3>
-          <p>Ale poďme k veci. Vo veku približne 34 rokov som cvičil štyrikrát týždenne — silový tréning na slušnej úrovni, pre predstavu: bench 165 kg, mŕtvy ťah 200 kg, drep 180 kg. Vlastná reštaurácia — jedlo som mal pod kontrolou. Spánok, regenerácia, životospráva — všetko na úrovni. A napriek tomu som každým rokom nekontrolovane priberal.</p>
-          <p>Skúšal som všetko. Fasting, detoxy, rôzne diety. Výsledok? Nula. Alebo horšie — telo sa bránilo ešte viac. Vinu som hádzal na vek, stres, prácu. Každý má predsa nejakú výhovorku.</p>
-          <p>A k tomu neustála únava. Ospalosť ktorá nešla prekonať ani po 8 hodinách spánku. Ráno som vstával unavený, cez deň bojoval so sústredením. Pripisoval som to pracovnému tempu. Veď kto dnes nie je unavený? Keď sa váha vyšplhala na 127,6 kg, prestal som hľadať výhovorky.</p>
-          <p>Môj gymový partner Emil — prezývaný Lord Bicepsus — mi mesiace hovoril jedno a to isté: "Laco, toto nie je normálne. Choď na krv." Odkladal som. Kto má rád doktorov? Nakoniec to Emil dohodol sám. Bez opýtania. Endokrinológ. Krvné testy. Výsledky. Štítna žľaza fungovala na 20%. Navyše Hashimotova tyreoiditída.</p>
-          <p>Celé roky som bojoval sám so sebou kým môj vlastný organizmus ticho zlyhával. Mozog prepol telo do núdzového režimu. Každú kalóriu ukladal ako keby nebol zajtrajšok. Čím menej som jedol, tým viac sa telo bránilo. Čím viac som cvičil, tým viac sa zavodňovalo. A tá únava? Nie stres. Nie vek. Štítna žľaza riadi energiu, metabolizmus, telesnú teplotu, náladu. Keď nefunguje — telo spomalí všetko. Každý deň je ako bežať s olovom v nohách.</p>
-          <p class="story-key-phrase">Nebol som lenivý. Nebol som bez vôle. Bol som chorý. A nevedel som o tom.</p>
-          <p>Prišla operácia. Mesiace čakania kým sa hormóny ustália a liečba zaberá. A potom — bez zmeny stravy, bez nového tréningového plánu — telo začalo konečne reagovať. Zo 127,6 kg na 108 kg za necelých 10 mesiacov.</p>
-          <p class="story-key-phrase">Telo nie je nepriateľ. Telo volá o pomoc.</p>
-          <p>Štítna žľaza je len jeden z mnohých dôvodov prečo telo nereaguje. Pečeň, srdce, cukor v krvi, hormóny, zápalové markery — pes môže byť zakopaný kdekoľvek. Kým to nevieš, žiadna diéta ti nepomôže. Preto vznikol BOOOM. Nie ako ďalšia appka ktorá ti povie koľko kalórií má avokádo. Ale ako nástroj ktorý ťa vníma celého — tréning, výživa, telo, pokrok.</p>
-          <p class="story-italic">Pred akýmkoľvek plánom najprv počúvaj seba. Keď cítiš, že niečo nefunguje ako má a že všetky možné pokusy zlyhávajú, choď k doktorovi. Urob si krvné testy. Skontroluj štítnu žľazu, pečeň, cukor, srdce, hormóny. Mne to zmenilo život. Možno zmení aj tvoj.</p>
-          <div class="story-emil-box">A Emilovi — Lord Bicepsusovi — ktorý ma mesiac čo mesiac presviedčal, a nakoniec to dohodol sám keď som ja stále odkladal: Emil, bro — dlhujem ti viac ako si dokážeš predstaviť. 🙏</div>
-          <p class="story-disclaimer">Nie som doktor. Toto sú výlučne moje osobné skúsenosti. Ale ak máš pocit že niečo nesedí — rád sa podelím o to čo som prešiel.</p>
+
+          <h2 class="story-section-heading">Prečo vznikla aplikácia BOOOM?</h2>
+          <p class="story-section-subheading">Makáš na 120 %, ale tvoje telo ťa ignoruje? Viem, aké to je.</p>
+
+          <p>Poznáš to? Cvičíš štyrikrát týždenne. Strava uprataná, spánok ako-tak v norme, v gyme nechávaš dušu. No namiesto formy prichádza len frustrácia, nevysvetliteľná únava a váha, ktorá nekontrolovateľne stúpa.</p>
+          <p>Začneš pochybovať o sebe. Pridáš kardio, uberieš jedlo. Telo sa zatne ešte viac. Okolie ti povie, že málo makáš, alebo že už na to máš vek.</p>
+          <p>Stop. Nie si v tom sám. Chcem ti vyrozprávať príbeh o tom, ako som takmer zničil sám seba, kým som pochopil, že telo nie je nepriateľ, ale spojenec, ktorý občas ticho volá o pomoc.</p>
+
+          <hr class="story-divider">
+
+          <h2 class="story-section-heading">Chlap ako hora, no bez energie</h2>
+
+          <p>Športujem odmalička. Od 10 rokov tvrdá kanoistika na Draždiaku a Dunaji, neskôr silový tréning v gyme. Okolo 34-ky som bol na svojom silovom vrchole. Pre predstavu: benchpress 165 kg, mŕtvy ťah 200 kg, drep 180 kg. Mal som vlastnú reštauráciu, jedlo pod absolútnou kontrolou a čistú hlavu.</p>
+          <p>Napriek tomu som priberal. Každé ráno som vstával dolámaný, cez deň bojoval s hmlou v hlave a neprekonateľnou ospalosťou. Skúšal som fasting, detoxy, brutálne low-carb diéty. Výsledok? Telo sa zavodňovalo a ja som sa psychicky opúšťal. Keď ručička váhy ukázala 127,6 kg, bol som na dne. Vinu som hádzal na stres a prácu. Veď kto dnes nie je unavený, však?</p>
+
+          <div class="story-emil-box">Vtedy zakročil môj sparingový partner Emil, ktorého v gyme voláme Lord Biceps. Mesiace mi hustil do hlavy: <em>„Laco, toto nie je normálne. Kašli na ego a choď na krv."</em> Keďže som to ako správny chlap odkladal, objednal ma k doktorovi sám. Bez opýtania.</div>
+
+          <hr class="story-divider">
+
+          <h2 class="story-section-heading">Šok na endokrinológii: Telo v núdzovom režime</h2>
+
+          <p>Výsledky krvných testov mi vyrazili dych. Moja štítna žlaza fungovala len na 20 % a k tomu mi diagnostikovali Hashimotovu tyreoiditídu.</p>
+          <p>Môj mozog prepol organizmus do núdzového režimu. Každú jednu kalóriu ukladal, akoby zajtra nemal prísť koniec sveta. Čím menej som jedol, tým viac sa telo bránilo.</p>
+          <p class="story-key-phrase">Nebol som lenivý. Nemal som slabú vôľu. Bol som chorý a nevedel som o tom.</p>
+
+          <hr class="story-divider">
+
+          <h2 class="story-section-heading">Dôležité upozornenie: Nie som lekár</h2>
+
+          <p>Chcem to povedať úplne na rovinu a jasne — nie som doktor, expert na medicínu ani biely plášť. Neponúkam ti lekárske diagnózy ani zázračné recepty na počkanie. Všetky zdravotné problémy, podozrenia a tvoje reálne symptómy musíš v prvom rade komunikovať s odborníkmi a lekármi.</p>
+          <p>Ja ti ponúkam „len" niečo iné — poznatky z mojej vlastnej tvrdej cesty a systém, ktorý mi vtedy na trhu chýbal. Nástroj, ktorý ti pomôže sledovať tvoje telo ako jeden prepojený celok.</p>
+
+          <hr class="story-divider">
+
+          <h2 class="story-section-heading">Prečo BOOOM?</h2>
+
+          <p>Keď bojuješ so stagnáciou, pes môže byť zakopaný kdekoľvek — pečeň, srdce, cukor v krvi, hormóny či skryté zápaly. Kým nespoznáš signály svojho tela, žiadna univerzálna diéta z internetu ti nepomôže.</p>
+          <p>Preto som vytvoril BOOOM. Nie je to len ďalšia nudná appka, ktorá ti povie, koľko kalórií má avokádo.</p>
+
+          <div class="story-highlight">BOOOM je komplexný fitness denník pre ľudí, ktorí chcú mať pod kontrolou nielen svoje tréningové výkony a výživu, ale aj regeneráciu, pocity a reálny pokrok. Je to nástroj, ktorý ťa naučí sledovať vlastné telo, aby si presne vedel, kedy pritvrdiť a kedy naopak spomaliť a zájsť za lekárom.</div>
+
+          <p>Skôr než odpáliš ďalší drastický plán, začni počúvať sám seba. Ak cítiš, že niečo dlhodobo nehrá, nečakaj na zázrak a choď na krvné testy. Mne to zachránilo zdravie.</p>
+          <p>A Emilovi (Lordovi Bicepsovi) verejne ďakujem. Bro, dlhujem ti viac, než si dokážeš predstaviť.</p>
+
+          <hr class="story-divider">
+
+          <p class="story-conclusion">Ak máš pocit, že tvoje telo stagnuje a hľadáš systém, ktorý ti dá odpovede, BOOOM je pre teba. Začni sledovať. Začni chápať. Začni dominovať.</p>
+
           <p class="story-contact"><a href="mailto:laco@booom.fit">laco@booom.fit</a></p>
+
           <hr class="story-divider">
           <div class="story-sig">
             <div class="story-avatar">L</div>
@@ -750,6 +994,7 @@
               <div class="story-sig-role"><a href="mailto:laco@booom.fit">laco@booom.fit</a></div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
