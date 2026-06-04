@@ -7,7 +7,7 @@ const translations = {
     hero_h1_line2: 'Sleduj pokrok.',
     hero_h1_line3: 'Dominuj.',
     hero_subtitle: 'Prvá fitness aplikácia, ktorá ťa skutočne pozná. Sleduj pokrok, buduj návyky a dominuj na každom tréningu.',
-    hero_cta1: 'Začni zadarmo',
+    hero_cta1: 'Stiahnuť BOOOM',
     hero_cta2: 'Pozri ako to funguje',
     stats_sections: 'sekcií',
     stats_ranks: 'rankov',
