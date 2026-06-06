@@ -726,6 +726,148 @@
       .hero-buttons { flex-direction: column; align-items: center; }
       .hero-buttons a { width: 100%; max-width: 320px; text-align: center; }
     }
+
+    /* ── ŠTÍTNA ŽĽAZA ── */
+    .thyroid-disclaimer {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255,107,53,0.07);
+      border: 1px solid rgba(255,107,53,0.45);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .thyroid-disclaimer-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .thyroid-disclaimer strong { display: block; font-size: 14px; font-weight: 800; color: #ff6b35; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .thyroid-disclaimer p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .thyroid-disclaimer-bottom { margin-top: 40px; margin-bottom: 0; }
+
+    .thyroid-subsection {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 20px;
+    }
+    .thyroid-subsection-title {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .thyroid-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 24px; }
+
+    .thyroid-system-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+    .thyroid-step { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 18px 20px; }
+    .thyroid-step-label { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .thyroid-step p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+    .thyroid-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: #080808;
+      border: 1px solid #1a1a1a;
+      border-radius: 14px;
+      padding: 22px 24px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .thyroid-flow-node { background: rgba(0,255,136,0.07); border: 1px solid rgba(0,255,136,0.3); color: #00ff88; font-size: 12px; font-weight: 700; padding: 7px 13px; border-radius: 8px; white-space: nowrap; }
+    .thyroid-flow-arrow { color: #00ff88; font-size: 13px; padding: 0 4px; white-space: nowrap; opacity: 0.7; }
+
+    .thyroid-hormones-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .thyroid-hormone-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 18px 14px; text-align: center; transition: border-color 0.2s; }
+    .thyroid-hormone-card:hover { border-color: rgba(0,230,118,0.25); }
+    .thyroid-hormone-card span { font-size: 26px; display: block; margin-bottom: 8px; }
+    .thyroid-hormone-card strong { font-size: 13px; font-weight: 700; color: var(--text); display: block; margin-bottom: 4px; }
+    .thyroid-hormone-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .thyroid-hypo { border-color: rgba(0,212,255,0.2); }
+    .thyroid-hypo-title { color: #00d4ff; }
+    .thyroid-hyper { border-color: rgba(255,68,68,0.2); }
+    .thyroid-hyper-title { color: #ff4444; }
+    .thyroid-hashimoto { border-color: rgba(179,136,255,0.2); }
+    .thyroid-hashimoto-title { color: #b388ff; }
+
+    .thyroid-subheading { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin: 4px 0 14px; }
+
+    .thyroid-symptoms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 28px; }
+    .thyroid-symptom { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 10px; padding: 11px 13px; line-height: 1.5; }
+    .thyroid-check { color: #333; flex-shrink: 0; font-size: 15px; }
+
+    .thyroid-food-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .thyroid-food-panel { border-radius: 14px; padding: 20px; }
+    .thyroid-food-eat { background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.2); }
+    .thyroid-food-avoid { background: rgba(255,68,68,0.04); border: 1px solid rgba(255,68,68,0.2); }
+    .thyroid-food-panel h4 { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .thyroid-food-eat h4 { color: var(--green); }
+    .thyroid-food-avoid h4 { color: #ff4444; }
+    .thyroid-food-panel ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .thyroid-food-panel li { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+
+    .thyroid-quote {
+      border-left: 3px solid var(--green);
+      padding: 18px 22px;
+      background: rgba(0,230,118,0.04);
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0 24px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.85;
+      font-style: italic;
+    }
+    .thyroid-quote cite { display: block; margin-top: 10px; font-size: 13px; font-weight: 700; font-style: normal; color: var(--green); }
+
+    .thyroid-diagnosis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    .thyroid-diagnosis-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 20px; }
+    .thyroid-diagnosis-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .thyroid-diagnosis-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+    .thyroid-science-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .thyroid-science-card { background: rgba(0,255,136,0.025); border: 1px solid rgba(0,255,136,0.18); border-radius: 16px; padding: 26px; }
+    .thyroid-science-icon { font-size: 26px; margin-bottom: 12px; }
+    .thyroid-science-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+    .thyroid-science-card p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+    .thyroid-source { font-size: 11px !important; color: rgba(0,255,136,0.45) !important; margin-top: 10px !important; font-style: italic; }
+
+    .thyroid-supps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .thyroid-supp-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 20px; transition: border-color 0.2s, transform 0.2s; }
+    .thyroid-supp-card:hover { border-color: rgba(0,230,118,0.3); transform: translateY(-3px); }
+    .thyroid-supp-icon { font-size: 24px; margin-bottom: 10px; }
+    .thyroid-supp-card h4 { font-size: 13px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
+    .thyroid-supp-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    .thyroid-booom-callout {
+      background: linear-gradient(135deg, #081a0d 0%, #0d2316 50%, #081a0d 100%);
+      border: 1px solid rgba(0,230,118,0.2);
+      border-radius: 20px;
+      padding: 52px 48px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .thyroid-booom-callout h3 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .thyroid-booom-callout p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.85; max-width: 640px; margin: 0 auto 32px; }
+
+    @media (max-width: 900px) {
+      .thyroid-science-grid { grid-template-columns: 1fr; }
+      .thyroid-hormones-grid { grid-template-columns: repeat(2, 1fr); }
+      .thyroid-system-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .thyroid-subsection { padding: 24px 20px; }
+      .thyroid-symptoms-grid { grid-template-columns: 1fr; }
+      .thyroid-food-panels { grid-template-columns: 1fr; }
+      .thyroid-diagnosis-grid { grid-template-columns: 1fr; }
+      .thyroid-supps-grid { grid-template-columns: repeat(2, 1fr); }
+      .thyroid-booom-callout { padding: 36px 24px; }
+    }
+    @media (max-width: 560px) {
+      .thyroid-hormones-grid { grid-template-columns: repeat(2, 1fr); }
+      .thyroid-supps-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1002,6 +1144,256 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ── ŠTÍTNA ŽĽAZA ── -->
+<section id="stitna-zlaza">
+  <div class="section-inner">
+
+    <!-- TOP DISCLAIMER -->
+    <div class="thyroid-disclaimer">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Dôležité upozornenie</strong>
+        <p>Nie som lekár, ani odborník na medicínu. Všetko čo tu píšem vychádza z mojej osobnej skúsenosti a verejne dostupných informácií vrátane vedeckých publikácií. Toto nie sú lekárske odporúčania. Akékoľvek zdravotné problémy vždy konzultuj so svojím lekárom alebo endokrinológom.</p>
+      </div>
+    </div>
+
+    <!-- MAIN HEADING -->
+    <div class="section-header">
+      <h2>🦋 Štítna žľaza — čo o nej (ne)vieš</h2>
+      <p>Váži len 20–30 gramov. Sedí si ticho na prednej strane krku. A napriek tomu riadi tvoj metabolizmus, teplotu tela, srdcový rytmus, náladu, váhu aj koncentráciu. Keď prestane fungovať správne, celé telo sa začne správať inak — a ty často nevieš prečo.</p>
+    </div>
+
+    <!-- CONTROL SYSTEM -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🧠 Riadiaci systém tela</h3>
+      <p class="thyroid-text">Štítna žľaza nepracuje sama. Je súčasťou trojstupňového riadiaceho systému.</p>
+
+      <div class="thyroid-system-steps">
+        <div class="thyroid-step">
+          <div class="thyroid-step-label">Hypotalamus</div>
+          <p>Malá oblasť hlboko v mozgu, "veliteľský stan" celého endokrinného systému. Sleduje teplotu, hladinu hormónov, stres, spánok aj svetlo. Keď zistí že štítna žľaza produkuje málo, vyšle signál — hormón TRH (tyreotropín uvoľňujúci hormón).</p>
+        </div>
+        <div class="thyroid-step">
+          <div class="thyroid-step-label">Hypofýza</div>
+          <p>Žľaza veľká ako hrach na spodnej strane mozgu. Prijíma TRH a odpovedá produkciou TSH (tyreotropného hormónu). TSH putuje krvou k štítnej žľaze s jedinou správou: "Pracuj. Produkuj hormóny."</p>
+        </div>
+        <div class="thyroid-step">
+          <div class="thyroid-step-label">Štítna žľaza</div>
+          <p>Prijíma TSH a produkuje T4 (tyroxín) a T3 (trijódtyronín). T4 je zásobná forma, T3 je aktívna — premena prebieha hlavne v pečeni a črevách. Práve T3 vstupuje do každej bunky a určuje rýchlosť metabolizmu.</p>
+        </div>
+        <div class="thyroid-step">
+          <div class="thyroid-step-label">Spätná väzba</div>
+          <p>Keď je T3 a T4 v krvi dostatok, hypotalamus a hypofýza znížia produkciu TSH. Keď hormónov chýba, TSH stúpa. Preto TSH je taký dôležitý ukazovateľ — je to zrkadlo celého systému.</p>
+        </div>
+      </div>
+
+      <!-- Flow diagram -->
+      <div class="thyroid-flow" role="img" aria-label="Diagram: Hypotalamus → TRH → Hypofýza → TSH → Štítna žľaza → T3/T4 → Každá bunka tela">
+        <div class="thyroid-flow-node">Hypotalamus</div>
+        <div class="thyroid-flow-arrow">→ TRH →</div>
+        <div class="thyroid-flow-node">Hypofýza</div>
+        <div class="thyroid-flow-arrow">→ TSH →</div>
+        <div class="thyroid-flow-node">Štítna žľaza</div>
+        <div class="thyroid-flow-arrow">→ T3/T4 →</div>
+        <div class="thyroid-flow-node">Každá bunka tela</div>
+      </div>
+    </div>
+
+    <!-- WHAT HORMONES CONTROL -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Čo riadia hormóny štítnej žľazy</h3>
+      <div class="thyroid-hormones-grid">
+        <div class="thyroid-hormone-card"><span>⚡</span><strong>Metabolizmus</strong><p>rýchlosť spaľovania kalórií</p></div>
+        <div class="thyroid-hormone-card"><span>❤️</span><strong>Srdce</strong><p>tepová frekvencia a sila</p></div>
+        <div class="thyroid-hormone-card"><span>🧠</span><strong>Mozog</strong><p>koncentrácia, pamäť, nálada</p></div>
+        <div class="thyroid-hormone-card"><span>🍽️</span><strong>Trávenie</strong><p>rýchlosť trávenia</p></div>
+        <div class="thyroid-hormone-card"><span>💪</span><strong>Svaly a kosti</strong><p>sila, regenerácia, hustota</p></div>
+        <div class="thyroid-hormone-card"><span>🌡️</span><strong>Telesná teplota</strong><p>zimomravosť alebo potenie</p></div>
+        <div class="thyroid-hormone-card"><span>👶</span><strong>Reprodukcia</strong><p>menštruácia, plodnosť</p></div>
+        <div class="thyroid-hormone-card"><span>💆</span><strong>Koža a vlasy</strong><p>hydratácia, rast</p></div>
+      </div>
+    </div>
+
+    <!-- HYPOTHYROIDISM -->
+    <div class="thyroid-subsection thyroid-hypo">
+      <h3 class="thyroid-subsection-title thyroid-hypo-title">🔵 Hypotyreóza — spomalená štítna žľaza</h3>
+      <p class="thyroid-text">Štítna žľaza neprodukuje dostatok T3 a T4. TSH stúpa pretože hypofýza sa snaží žľazu "nakopnúť" — ale žľaza nereaguje. Metabolizmus sa spomaľuje. Telo začne šetriť každú kalóriu, ukladá tuk, spomaľuje trávenie, znižuje teplotu tela.</p>
+
+      <div class="thyroid-subheading">Príznaky</div>
+      <div class="thyroid-symptoms-grid">
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 😴 Únava aj po 10 hodinách spánku</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> ⚖️ Priberanie aj napriek diéte a cvičeniu</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🥶 Zimomravosť — stále ti je zima</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🧴 Suchá pokožka, lámavé nechty, vypadávanie vlasov</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🌫️ Hmla v hlave, zhoršená pamäť</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🚽 Zápcha, pomalé trávenie</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🫧 Opuchy — najmä okolo očí</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 😔 Depresívne stavy, podráždenosť</div>
+      </div>
+
+      <div class="thyroid-food-panels">
+        <div class="thyroid-food-panel thyroid-food-eat">
+          <h4>✅ Čo jesť</h4>
+          <ul>
+            <li>🐟 Morské ryby — jód + selén</li>
+            <li>🥚 Vajcia — jód, selén, vitamín D</li>
+            <li>🌰 Para orechy — 1–2 denne = denná potreba selénu</li>
+            <li>🎃 Tekvicové semienka — zinok</li>
+            <li>🥛 Mliečne výrobky — jód</li>
+            <li>🥩 Červené mäso — zinok, železo, B12</li>
+          </ul>
+        </div>
+        <div class="thyroid-food-panel thyroid-food-avoid">
+          <h4>🚫 Čo obmedziť</h4>
+          <ul>
+            <li>🥦 Surová kapusta, brokolica — strumigény blokujú jód</li>
+            <li>🫘 Sója — interferuje s liečbou levotyroxínom</li>
+            <li>🌾 Glutén — časť pacientov reaguje lepšie bez neho</li>
+            <li>🍬 Cukor a spracované potraviny — zhoršujú zápal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HYPERTHYROIDISM -->
+    <div class="thyroid-subsection thyroid-hyper">
+      <h3 class="thyroid-subsection-title thyroid-hyper-title">🔴 Hypertyreóza — zrýchlená štítna žľaza</h3>
+      <p class="thyroid-text">Opak hypotyreózy — žľaza produkuje príliš veľa T3 a T4. TSH klesá. Metabolizmus ide na plné obrátky — telo spaľuje všetko vrátane svalov. Najčastejšou príčinou je Gravesova-Basedowova choroba.</p>
+
+      <div class="thyroid-subheading">Príznaky</div>
+      <div class="thyroid-symptoms-grid">
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 📉 Chudnutie aj pri zvýšenom príjme jedla</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 💓 Búšenie srdca, rýchly pulz</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 😰 Nervozita, úzkosť, tras rúk</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 😵 Nespavosť</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 🥵 Neznášanlivosť tepla, nadmerné potenie</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 💪 Slabosť svalov</div>
+        <div class="thyroid-symptom"><span class="thyroid-check">☐</span> 👁️ Vypúlené oči (pri Gravesovej chorobe)</div>
+      </div>
+
+      <div class="thyroid-food-panels">
+        <div class="thyroid-food-panel thyroid-food-eat">
+          <h4>✅ Čo jesť</h4>
+          <ul>
+            <li>🥦 Kapustová zelenina — tu paradoxne pomáha, spomaľuje žľazu</li>
+            <li>🫒 Olivový olej, orechy, ľanové semienka — protizápalové</li>
+            <li>🦴 Potraviny bohaté na vápnik — zvýšená funkcia oslabuje kosti</li>
+          </ul>
+        </div>
+        <div class="thyroid-food-panel thyroid-food-avoid">
+          <h4>🚫 Čo obmedziť</h4>
+          <ul>
+            <li>🐟 Morské riasy, morské ryby — obsahujú veľa jódu</li>
+            <li>☕ Kofeín — zhoršuje búšenie srdca</li>
+            <li>🍬 Cukor, alkohol</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HASHIMOTO -->
+    <div class="thyroid-subsection thyroid-hashimoto">
+      <h3 class="thyroid-subsection-title thyroid-hashimoto-title">🧬 Hashimotova tyreoiditída — keď telo útočí samo na seba</h3>
+      <p class="thyroid-text">Imunitný systém omylom identifikuje štítnu žľazu ako nepriateľa a produkuje protilátky — typicky anti-TPO (proti enzýmu tyreoperoxidáze). Žľaza sa postupne zápalí a ničí. Výsledkom je hypotyreóza s autoimunitným zápalom navyše. Ochorenie sa rozvíja pomaly — roky môže prebiehať bez výrazných príznakov.</p>
+
+      <blockquote class="thyroid-quote">
+        "Keď mi doktor ukázal výsledky — TSH 6.2 a protilátky TPO cez strop — konečne som pochopil prečo som sa cítil tak zle napriek tomu, že som cvičil 4x týždenne a jedol zdravo. Chyba nebola vo mne. Chyba bola v mojom imunitnom systéme."
+        <cite>— Laco, zakladateľ BOOOM</cite>
+      </blockquote>
+
+      <div class="thyroid-diagnosis-grid">
+        <div class="thyroid-diagnosis-card">
+          <h4>🔬 Diagnóza</h4>
+          <p>Kombinácia troch vecí — krvné testy (TSH, T3, T4, anti-TPO protilátky), sonografia štítnej žľazy a klinické príznaky.</p>
+        </div>
+        <div class="thyroid-diagnosis-card">
+          <h4>💊 Liečba</h4>
+          <p>Levotyroxín (Euthyrox, L-Thyroxin) — doživotná substitúcia hormónov. Dávka sa nastavuje podľa TSH každých 6 mesiacov u endokrinológa.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCIENCE -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🔬 Čo hovorí veda</h3>
+      <div class="thyroid-science-grid">
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">💊</div>
+          <h4>Selén znižuje TSH</h4>
+          <p>Systematická analýza 35 štúdií (687 prehľadaných článkov) publikovaná v časopise Thyroid (2024) zistila, že suplementácia selénom znižuje TSH u pacientov s Hashimotovou tyreoiditídou.</p>
+          <p class="thyroid-source">Huwiler VV et al. Thyroid, 2024. doi: 10.1089/thy.2023.0556</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🛡️</div>
+          <h4>Selén znižuje protilátky anti-TPO</h4>
+          <p>Cochrane review potvrdil, že selenometionín v dávke 200 μg denne štatisticky významne znížil hladiny protilátok anti-TPO v porovnaní s placebom.</p>
+          <p class="thyroid-source">Cochrane Database: "Selenium supplementation for Hashimoto's thyroiditis." cochrane.org/CD010223</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">☀️</div>
+          <h4>Vitamín D znižuje zápal</h4>
+          <p>Štúdia v International Journal of Molecular Sciences (2024) potvrdila, že suplementácia vitamínom D u pacientov s deficitom viedla k štatisticky významnému poklesu titrov protilátok.</p>
+          <p class="thyroid-source">Durá-Travé T et al. Int J Mol Sci. 2024;25(6):3154. doi: 10.3390/ijms25063154</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPLEMENTATION -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">💊 Suplementácia pri Hashimoto</h3>
+      <div class="thyroid-supps-grid">
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">🌿</div>
+          <h4>Selén</h4>
+          <p>100–200 mcg denne (selenometionín) — znižuje anti-TPO protilátky</p>
+        </div>
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">☀️</div>
+          <h4>Vitamín D3 + K2</h4>
+          <p>2000–4000 IU denne — dávku určí lekár podľa krvných testov</p>
+        </div>
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">🐟</div>
+          <h4>Omega-3</h4>
+          <p>1–2 g denne — protizápalový efekt</p>
+        </div>
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">⚡</div>
+          <h4>Zinok</h4>
+          <p>15–30 mg denne — imunitný systém + premena T4 na T3</p>
+        </div>
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">💤</div>
+          <h4>Horčík</h4>
+          <p>300–400 mg denne — únava, spánok, svaly</p>
+        </div>
+        <div class="thyroid-supp-card">
+          <div class="thyroid-supp-icon">🔋</div>
+          <h4>Vitamíny skupiny B</h4>
+          <p>B12, B6, folát — energia a nervový systém</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOOM CALLOUT -->
+    <div class="thyroid-booom-callout">
+      <h3>Ako ti BOOOM pomáha</h3>
+      <p>V sekcii Zdravie sleduješ TSH, T3, T4 a protilátky anti-TPO v čase. Vidíš trend — či sa hodnoty po zmene stravy alebo suplementácie zlepšujú. AI ti po zadaní hodnôt povie čo je mimo normy a kedy ísť k endokrinológovi. Môžeš si odfotiť výsledky z papiera a appka ich automaticky rozpozná a vyplní.</p>
+      <a href="https://app.booom.fit" class="btn-primary">Stiahnuť BOOOM zadarmo</a>
+    </div>
+
+    <!-- BOTTOM DISCLAIMER -->
+    <div class="thyroid-disclaimer thyroid-disclaimer-bottom">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Záverečné upozornenie</strong>
+        <p>Všetky informácie na tejto stránke sú len informačného charakteru a vychádzajú z osobnej skúsenosti a verejne dostupných vedeckých zdrojov. Nie som lekár. Citované štúdie sú reálne publikácie — odkazy sú uvedené pre každú z nich. Nikdy nenahrádzaj lekársku starostlivosť radami z internetu — vrátane tejto stránky. Ak máš podozrenie na ochorenie štítnej žľazy, choď na krvné testy a navštív endokrinológa.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
