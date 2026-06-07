@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bezlaktózová diéta — kompletný sprievodca | BOOOM</title>
+  <meta name="description" content="Bezlaktózová diéta: čo jesť, čo vynechať a ako nezísť o dôležité živiny. Kompletný sprievodca pre ľudí s laktózovou intoleranciou. Zadarmo od BOOOM.">
+  <meta name="keywords" content="bezlaktózová diéta, laktózová intolerancia, čo jesť pri laktózovej intolerancii, bezlaktózový jedálniček, laktáza">
+  <meta property="og:title" content="Bezlaktózová diéta — kompletný sprievodca | BOOOM">
+  <meta property="og:description" content="Bezlaktózová diéta: čo jesť, čo vynechať a ako nezísť o dôležité živiny. Kompletný sprievodca pre ľudí s laktózovou intoleranciou.">
+  <meta property="og:url" content="https://booom.fit/dieta/bezlaktozova">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='34' fill='%230d0d0d'/%3E%3Ctext x='90' y='130' font-family='Arial,sans-serif' font-size='120' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00e676;
+      --cyan: #00d4ff;
+      --gold: #ffd700;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #1a1a1a;
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .nav-tagline {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid #252525;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn:hover { border-color: #444; color: var(--text); }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      border-color: transparent;
+      color: #000;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.18s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover { color: var(--text); }
+    .nav-link-active { color: var(--green) !important; }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-toggle {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.18s;
+      white-space: nowrap;
+      cursor: default;
+      user-select: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-toggle { color: var(--text); }
+    .nav-dropdown-toggle.nav-link-active { color: var(--green); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10,10,10,0.98);
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 6px;
+      min-width: 215px;
+      z-index: 200;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 9px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      display: block;
+    }
+    .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-dropdown-item-active { color: var(--green) !important; }
+
+    /* ── PAGE INTRO ── */
+    .page-intro {
+      padding: 64px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-intro::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,230,118,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-intro-inner { position: relative; max-width: 760px; margin: 0 auto; }
+
+    .page-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+
+    .page-breadcrumb a { color: var(--muted); text-decoration: none; }
+    .page-breadcrumb a:hover { color: var(--text); }
+    .page-breadcrumb span { color: var(--green); }
+
+    .page-intro h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .page-intro p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 0 24px 80px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ── BTN ── */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { padding: 52px 24px 36px; border-top: 1px solid #161616; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #161616;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 13px; color: #555; }
+    .footer-founder { font-size: 13px; color: #555; }
+    .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .footer-founder a:hover { text-decoration: underline; }
+
+    /* ── SHARED STYLES ── */
+    .thyroid-disclaimer {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255,107,53,0.07);
+      border: 1px solid rgba(255,107,53,0.45);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .thyroid-disclaimer-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .thyroid-disclaimer strong { display: block; font-size: 14px; font-weight: 800; color: #ff6b35; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .thyroid-disclaimer p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .thyroid-disclaimer-bottom { margin-top: 40px; margin-bottom: 0; }
+
+    .thyroid-subsection {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 20px;
+    }
+    .thyroid-subsection-title {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .thyroid-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 24px; }
+
+    .thyroid-symptoms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 28px; }
+    .thyroid-symptom { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 10px; padding: 11px 13px; line-height: 1.5; }
+
+    .thyroid-science-card { background: rgba(0,255,136,0.025); border: 1px solid rgba(0,255,136,0.18); border-radius: 16px; padding: 26px; }
+    .thyroid-science-icon { font-size: 26px; margin-bottom: 12px; }
+    .thyroid-science-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+    .thyroid-science-card p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+    .thyroid-source { font-size: 11px !important; color: rgba(0,255,136,0.45) !important; margin-top: 10px !important; font-style: italic; }
+
+    .thyroid-booom-callout {
+      background: linear-gradient(135deg, #081a0d 0%, #0d2316 50%, #081a0d 100%);
+      border: 1px solid rgba(0,230,118,0.2);
+      border-radius: 20px;
+      padding: 52px 48px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .thyroid-booom-callout h3 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .thyroid-booom-callout p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.85; max-width: 640px; margin: 0 auto 32px; }
+
+    /* ── BEZLAKTÓZOVÁ DIÉTA ── */
+    .lact-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    .lact-stat-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 24px 20px; text-align: center; }
+    .lact-stat-icon { font-size: 28px; margin-bottom: 10px; }
+    .lact-stat-number { font-size: 32px; font-weight: 900; letter-spacing: -1.5px; color: var(--green); margin-bottom: 6px; display: block; }
+    .lact-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    .lact-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lact-type-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 24px; transition: border-color 0.2s; }
+    .lact-type-card:hover { border-color: rgba(0,230,118,0.25); }
+    .lact-type-label { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .lact-type-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+    .lact-type-card p { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.65; }
+
+    .lact-diag-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .lact-diag-item { display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 16px; }
+    .lact-diag-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .lact-diag-item strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .lact-diag-item p { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.6; }
+
+    .lact-food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lact-food-panel { border-radius: 14px; padding: 20px; }
+    .lact-food-panel h4 { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .lact-food-panel ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .lact-food-panel li { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+    .lact-food-note { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+    .lact-food-free { background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.2); }
+    .lact-food-free h4 { color: var(--green); }
+    .lact-food-moderate { background: rgba(255,170,51,0.05); border: 1px solid rgba(255,170,51,0.2); }
+    .lact-food-moderate h4 { color: #ffaa33; }
+    .lact-food-avoid { background: rgba(255,68,68,0.04); border: 1px solid rgba(255,68,68,0.2); }
+    .lact-food-avoid h4 { color: #ff4444; }
+    .lact-food-hidden { background: rgba(255,214,0,0.04); border: 1px solid rgba(255,214,0,0.25); }
+    .lact-food-hidden h4 { color: var(--gold); }
+
+    .lact-meals-list { display: flex; flex-direction: column; gap: 10px; }
+    .lact-meal-item { display: flex; gap: 20px; align-items: center; background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 18px; }
+    .lact-meal-time { font-size: 13px; font-weight: 700; color: var(--green); min-width: 120px; flex-shrink: 0; }
+    .lact-meal-content { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+    .lact-nutrients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lact-nutrient-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 24px; }
+    .lact-nutrient-icon { font-size: 26px; margin-bottom: 10px; }
+    .lact-nutrient-card h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+    .lact-nutrient-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+    .lact-nutrient-card ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .lact-nutrient-card li { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; padding-left: 14px; position: relative; }
+    .lact-nutrient-card li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-size: 11px; top: 2px; }
+
+    .lact-science-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .lact-enzyme-box { background: rgba(0,212,255,0.04); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 28px; }
+    .lact-enzyme-box h4 { font-size: 15px; font-weight: 800; color: var(--cyan); margin-bottom: 12px; }
+    .lact-enzyme-box p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.8; }
+    .lact-enzyme-box p + p { margin-top: 12px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .lact-stats-grid { grid-template-columns: 1fr 1fr; }
+      .lact-types-grid { grid-template-columns: 1fr 1fr; }
+      .lact-science-grid { grid-template-columns: 1fr; }
+      .lact-nutrients-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-tagline { display: none; }
+      .lang-btn { padding: 4px 7px; font-size: 10px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .thyroid-subsection { padding: 24px 20px; }
+      .thyroid-symptoms-grid { grid-template-columns: 1fr; }
+      .lact-food-grid { grid-template-columns: 1fr; }
+      .lact-stats-grid { grid-template-columns: 1fr; }
+      .lact-types-grid { grid-template-columns: 1fr; }
+      .lact-nutrients-grid { grid-template-columns: 1fr; }
+      .lact-meal-item { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .lact-meal-time { min-width: auto; }
+      .thyroid-booom-callout { padding: 36px 24px; }
+    }
+    @media (max-width: 560px) {
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="BOOOM home">
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+    </a>
+    <div class="nav-links" role="navigation" aria-label="Section navigation">
+      <a href="/#features" class="nav-link">Funkcie</a>
+      <a href="/#ranks" class="nav-link">Ranky</a>
+      <a href="/#story" class="nav-link">Príbeh</a>
+      <a href="/#screenshots" class="nav-link">Appka</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle nav-link-active">Diéty &amp; intolerancie ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/stitna-zlaza" class="nav-dropdown-item">🦋 Štítna žľaza</a>
+          <a href="/dieta/bezlaktozova" class="nav-dropdown-item nav-dropdown-item-active">🥛 Bezlaktózová diéta</a>
+        </div>
+      </div>
+      <a href="/#cta" class="nav-link">Štart</a>
+    </div>
+    <div class="lang-switcher" role="navigation" aria-label="Language switcher">
+      <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
+      <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
+      <button class="lang-btn" onclick="setLanguage('CS')" aria-label="Čeština">CS</button>
+      <button class="lang-btn" onclick="setLanguage('PL')" aria-label="Polski">PL</button>
+      <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
+    </div>
+    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+  </div>
+</nav>
+
+<!-- ── PAGE INTRO ── -->
+<div class="page-intro">
+  <div class="page-intro-inner">
+    <div class="page-breadcrumb">
+      <a href="/">BOOOM</a>
+      <span>›</span>
+      <a href="/">Diéty &amp; intolerancie</a>
+      <span>›</span>
+      <span>Bezlaktózová diéta</span>
+    </div>
+    <h1>🥛 Bezlaktózová diéta — kompletný sprievodca</h1>
+    <p>Bolí ťa brucho po mlieku? Nafukuješ sa po jogurte? Nie si sám. Odhaduje sa že laktózovou intoleranciou trpí až 65 % svetovej populácie — a väčšina z nich o tom ani nevie.</p>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ── -->
+<section>
+  <div class="section-inner">
+
+    <!-- TOP DISCLAIMER -->
+    <div class="thyroid-disclaimer">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Dôležité upozornenie</strong>
+        <p>Nie som lekár ani odborník na medicínu. Obsah tejto stránky je len informačného charakteru a nevynahrádza odborné lekárske poradenstvo. Ak máš podozrenie na laktózovú intoleranciu, navštív svojho lekára.</p>
+      </div>
+    </div>
+
+    <!-- ČO JE LAKTÓZOVÁ INTOLERANCIA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Čo je laktózová intolerancia?</h3>
+      <p class="thyroid-text">Laktózová intolerancia je stav charakterizovaný neschopnosťou tráviť laktózu — mliečny cukor — v dôsledku nedostatku enzýmu laktáza, ktorý je zodpovedný za rozklad laktózy na glukózu a galaktózu.</p>
+      <p class="thyroid-text">Zjednodušene: tvoje telo nevie rozložiť mliečny cukor. Ten putuje nestrávený do hrubého čreva kde ho spracujú baktérie — a výsledkom je plynatosť, nadúvanie a bolesti brucha.</p>
+      <p class="thyroid-text" style="margin-bottom:0">Laktózová intolerancia nie je alergické ochorenie, ale enzymatická porucha pri ktorej chýba alebo nefunguje enzým laktáza. Deficit laktázy môže byť vrodený alebo získaný.</p>
+    </div>
+
+    <!-- AKO ROZŠÍRENÁ JE -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Ako rozšírená je?</h3>
+      <div class="lact-stats-grid">
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">🌍</div>
+          <span class="lact-stat-number">65 %</span>
+          <div class="lact-stat-label">svetovej populácie trpí laktózovou intoleranciou</div>
+        </div>
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">🇪🇺</div>
+          <span class="lact-stat-number">5–17 %</span>
+          <div class="lact-stat-label">Európanov má potvrdenú laktózovú intoleranciu</div>
+        </div>
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">🌏</div>
+          <span class="lact-stat-number">60–80 %</span>
+          <div class="lact-stat-label">Aziatov a Afričanov má laktózovú intoleranciu</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(0,255,136,0.4);font-style:italic;margin-top:8px">Zdroj: SN Comprehensive Clinical Medicine, 2021. doi: 10.1007/s42399-021-00792-9</p>
+    </div>
+
+    <!-- TYPY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Typy laktózovej intolerancie</h3>
+      <div class="lact-types-grid">
+        <div class="lact-type-card">
+          <div class="lact-type-label">Typ 1</div>
+          <h4>Primárna</h4>
+          <p>Najčastejšia. Znižovanie funkcie enzýmu laktáza ktoré dochádza postupne s narastajúcim vekom. Čiastočne geneticky podmienená.</p>
+        </div>
+        <div class="lact-type-card">
+          <div class="lact-type-label">Typ 2</div>
+          <h4>Sekundárna</h4>
+          <p>Získaný prechodný deficit laktázy. Môže byť komplikáciou akútnych hnačkovitých ochorení alebo po poškodení črevnej sliznice liekmi. Môže byť dočasná.</p>
+        </div>
+        <div class="lact-type-card">
+          <div class="lact-type-label">Typ 3</div>
+          <h4>Vrodená</h4>
+          <p>Vzácna forma prítomná od narodenia. Dieťa nie je schopné tráviť laktózu od prvých dní života.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÍZNAKY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Príznaky — ako ich spoznáš</h3>
+      <p class="thyroid-text">Príznaky sa obvykle objavujú do niekoľkých hodín po konzumácii laktózy.</p>
+      <div class="thyroid-symptoms-grid">
+        <div class="thyroid-symptom">
+          <span>🤰</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Nafukovanie a plynatosť</strong>najčastejší príznak</div>
+        </div>
+        <div class="thyroid-symptom">
+          <span>😣</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Bolesti a kŕče brucha</strong>po konzumácii mlieka</div>
+        </div>
+        <div class="thyroid-symptom">
+          <span>💩</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Hnačka</strong>kyslasto zapáchajúca</div>
+        </div>
+        <div class="thyroid-symptom">
+          <span>🤮</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Nevoľnosť</strong>hlavne po väčšom množstve</div>
+        </div>
+        <div class="thyroid-symptom">
+          <span>🔊</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Škvŕkanie v bruchu</strong>prelievanie a hluky</div>
+        </div>
+        <div class="thyroid-symptom">
+          <span>😮‍💨</span>
+          <div><strong style="display:block;font-size:13px;margin-bottom:2px">Zvýšený odchod plynov</strong>časté a nepríjemné</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIAGNÓZA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Diagnóza</h3>
+      <p class="thyroid-text">Bezbolestný dychový test na diagnostiku laktózovej intolerancie funguje na základe stanovenia koncentrácie vodíka vo vydychovanom vzduchu, ktorý vzniká v dôsledku poruchy absorpcie laktózy v čreve.</p>
+      <div class="lact-diag-list">
+        <div class="lact-diag-item">
+          <span class="lact-diag-icon">✅</span>
+          <div>
+            <strong>Vodíkový dychový test — zlatý štandard</strong>
+            <p>Presný a neinvazívny. Meria koncentráciu vodíka vo vydychovanom vzduchu po podaní laktózy.</p>
+          </div>
+        </div>
+        <div class="lact-diag-item">
+          <span class="lact-diag-icon">✅</span>
+          <div>
+            <strong>Laktózový tolerančný test</strong>
+            <p>Meranie hladiny glukózy v krvi pred a po konzumácii laktózy.</p>
+          </div>
+        </div>
+        <div class="lact-diag-item">
+          <span class="lact-diag-icon">✅</span>
+          <div>
+            <strong>Genetický test</strong>
+            <p>Odhalí genetickú predispozíciu k primárnej laktózovej intolerancii.</p>
+          </div>
+        </div>
+        <div class="lact-diag-item">
+          <span class="lact-diag-icon">✅</span>
+          <div>
+            <strong>Eliminačná diéta</strong>
+            <p>2 týždne bez laktózy a sledovanie príznakov — jednoduchý prvý krok.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ČO JESŤ -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Bezlaktózová diéta — čo jesť a čo nie</h3>
+      <div class="lact-food-grid">
+
+        <div class="lact-food-panel lact-food-free">
+          <h4>✅ Čo môžeš jesť slobodne</h4>
+          <ul>
+            <li>🥩 Mäso a ryby — všetky druhy bez obmedzení</li>
+            <li>🥚 Vajcia — laktózu neobsahujú</li>
+            <li>🥦 Zelenina a ovocie — všetka čerstvá</li>
+            <li>🌾 Obilniny — ryža, quinoa, ovos, cestoviny bez mlieka</li>
+            <li>🫒 Tuky — olivový olej, kokosový olej, avokádo</li>
+            <li>🥛 Rastlinné mlieka — mandľové, ovsené, sójové, ryžové, kokosové</li>
+            <li>🏷️ Bezlaktózové produkty — mlieko, jogurty, syry označené "bez laktózy"</li>
+          </ul>
+        </div>
+
+        <div class="lact-food-panel lact-food-moderate">
+          <h4>⚠️ Čo môžeš v malom množstve</h4>
+          <p class="lact-food-note">Aj pri laktózovej intolerancii existujú potraviny ktoré telo dokáže dobre tolerovať. Kľúčom nie je prísny zákaz, ale pochopenie vlastného trávenia.</p>
+          <ul>
+            <li>Tvrdé syry (parmezán, eidam, čedar) — prirodzene nízky obsah laktózy</li>
+            <li>Maslo a ghee — minimálny obsah laktózy</li>
+            <li>Fermentované jogurty — živé kultúry pomáhajú tráviť laktózu</li>
+          </ul>
+        </div>
+
+        <div class="lact-food-panel lact-food-avoid">
+          <h4>❌ Čo vynechať</h4>
+          <ul>
+            <li>Kravské mlieko (plnotučné, polotučné, sušené)</li>
+            <li>Smotana a šľahačka</li>
+            <li>Zmrzlina (klasická)</li>
+            <li>Mäkké syry (ricotta, cottage, camembert)</li>
+            <li>Pudingové dezerty</li>
+          </ul>
+        </div>
+
+        <div class="lact-food-panel lact-food-hidden">
+          <h4>🔍 Pozor na skrytú laktózu</h4>
+          <p class="lact-food-note">Do nemliečnych výrobkov sa pridáva mlieko alebo srvátka. Skrytá laktóza sa nachádza v:</p>
+          <ul>
+            <li>Chleboch a pečive</li>
+            <li>Instantných polievkach</li>
+            <li>Údeninách</li>
+            <li>Čipsoch a snackoch</li>
+            <li>Liekoch (až 20 % liekov na predpis)</li>
+            <li>Žuvačkách</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JEDÁLNIČEK -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🍽️ Ukážkový jedálniček na deň</h3>
+      <div class="lact-meals-list">
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌅 Raňajky</div>
+          <div class="lact-meal-content">Ovsená kaša na mandľovom mlieku + banán + mandle</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🍎 Desiata</div>
+          <div class="lact-meal-content">Jablko + hrsť vlašských orechov</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">☀️ Obed</div>
+          <div class="lact-meal-content">Grilované kuracie prsia + ryža + brokolica s olivovým olejom</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🕐 Olovrant</div>
+          <div class="lact-meal-content">Bezlaktózový jogurt + bobuľové ovocie</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌙 Večera</div>
+          <div class="lact-meal-content">Losos na panvici + pečená zelenina + quinoa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VÝŽIVA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Na čo si dávať pozor — výživa</h3>
+      <p class="thyroid-text">Vynechaním mliečnych produktov môže chýbať:</p>
+      <div class="lact-nutrients-grid">
+        <div class="lact-nutrient-card">
+          <div class="lact-nutrient-icon">🦴</div>
+          <h4>Vápnik</h4>
+          <div class="lact-nutrient-sub">Normálne ho prijímaš z mlieka. Náhrady:</div>
+          <ul>
+            <li>Brokolica, kel, špenát</li>
+            <li>Mandle, sezamové semienka</li>
+            <li>Sardinky s kosťami</li>
+            <li>Obohatené rastlinné mlieka</li>
+            <li>Tofu</li>
+          </ul>
+        </div>
+        <div class="lact-nutrient-card">
+          <div class="lact-nutrient-icon">☀️</div>
+          <h4>Vitamín D</h4>
+          <div class="lact-nutrient-sub">Pomáha vstrebávať vápnik:</div>
+          <ul>
+            <li>Tučné ryby (losos, tuniak)</li>
+            <li>Vajcia</li>
+            <li>Slnečné žiarenie</li>
+            <li>Suplementy D3</li>
+          </ul>
+        </div>
+        <div class="lact-nutrient-card">
+          <div class="lact-nutrient-icon">⚡</div>
+          <h4>Vitamín B12</h4>
+          <div class="lact-nutrient-sub">Najmä ak vynechávaš aj mäso:</div>
+          <ul>
+            <li>Vajcia, mäso, ryby</li>
+            <li>Suplementy B12</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEDA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🔬 Čo hovorí veda</h3>
+      <div class="lact-science-grid">
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">📄</div>
+          <h4>Diagnostika a klinický obraz</h4>
+          <p>Prehľad literatúry publikovaný v Portuguese Journal of Gastroenterology (2023) potvrdzuje že laktózová intolerancia je bežný stav ktorý zdieľa príznaky s viacerými inými ochoreniami. Na diagnostiku sú dostupné rôzne testy vrátane vodíkového dychového testu, laktózového tolerančného testu a genetického testovania.</p>
+          <p class="thyroid-source">Zdroj: Karger Publishers, GE — Portuguese Journal of Gastroenterology, 2023. doi: 10.1159/000925950</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🧪</div>
+          <h4>Mechanizmus a epidemiológia</h4>
+          <p>Podľa prehľadovej štúdie publikovanej v SN Comprehensive Clinical Medicine (2021) absencia laktázy spôsobuje nadmernú osmotickú záťaž v tenkom čreve a fermentáciu laktózy črevnými baktériami s následnou produkciou mastných kyselín.</p>
+          <p class="thyroid-source">Zdroj: Springer Nature, SN Comprehensive Clinical Medicine, 2021. doi: 10.1007/s42399-021-00792-9</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENZÝMY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">💊 Enzýmové doplnky — pomôže laktáza v tabletke?</h3>
+      <p class="thyroid-text">Farmaceutické prípravky vo forme tabliet obsahujú enzým laktázu a zlepšujú tak toleranciu produktov ktoré obsahujú veľa laktózy.</p>
+      <div class="lact-enzyme-box">
+        <h4>Ako to funguje</h4>
+        <p>Pred jedlom obsahujúcim laktózu vezmeš tabletu s laktázou. Enzým pomôže rozložiť laktózu predtým než spôsobí problémy.</p>
+        <p>Nie je to liek, len pomôcka na príležitostné situácie (reštaurácia, oslava). Pre každodenné použitie je lepšie upraviť jedálniček.</p>
+      </div>
+    </div>
+
+    <!-- BOOOM CALLOUT -->
+    <div class="thyroid-booom-callout">
+      <h3>Ako ti BOOOM pomáha</h3>
+      <p>V BOOOM sleduješ dennú výživu vrátane kalórií, bielkovín, sacharidov a tukov. Môžeš sledovať či prijímaš dostatok vápnika, vitamínu D a B12. AI Coach ti poradí ako nahradiť chýbajúce živiny z mliečnych produktov inými zdrojmi.</p>
+      <a href="https://app.booom.fit" class="btn-primary">Stiahnuť BOOOM zadarmo →</a>
+    </div>
+
+    <!-- BOTTOM DISCLAIMER -->
+    <div class="thyroid-disclaimer thyroid-disclaimer-bottom">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Záverečné upozornenie</strong>
+        <p>Informácie na tejto stránke sú len informačného charakteru. Nie som lekár. Ak máš príznaky laktózovej intolerancie, navštív gastroenterológa pre správnu diagnostiku a individuálne odporúčania.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">BOOOM</span>
+      <div class="footer-links">
+        <a href="/#features" data-i18n="footer_about">O nás</a>
+        <a href="mailto:info@booom.fit" data-i18n="footer_contact">Kontakt</a>
+        <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="/terms" data-i18n="footer_terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2026 BOOOM. Všetky práva vyhradené.</span>
+      <span class="footer-founder">Made with ❤️ by <a href="https://www.instagram.com/lacoo.v/" target="_blank" rel="noopener" data-i18n="footer_founder">Laco, zakladateľ BOOOM</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/lang.js"></script>
+</body>
+</html>

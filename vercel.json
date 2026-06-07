@@ -1,1 +1,1 @@
-{"rewrites": [{"source": "/stitna-zlaza", "destination": "/stitna-zlaza.html"}, {"source": "/(.*)", "destination": "/index.html"}]}
+{"rewrites": [{"source": "/stitna-zlaza", "destination": "/stitna-zlaza.html"}, {"source": "/dieta/bezlaktozova", "destination": "/dieta/bezlaktozova.html"}, {"source": "/(.*)", "destination": "/index.html"}]}

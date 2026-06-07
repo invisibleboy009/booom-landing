@@ -133,6 +133,49 @@
     .nav-link:hover { color: var(--text); }
     .nav-link-active { color: var(--green) !important; }
 
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-toggle {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.18s;
+      white-space: nowrap;
+      cursor: default;
+      user-select: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-toggle { color: var(--text); }
+    .nav-dropdown-toggle.nav-link-active { color: var(--green); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10,10,10,0.98);
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 6px;
+      min-width: 215px;
+      z-index: 200;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 9px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      display: block;
+    }
+    .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-dropdown-item-active { color: var(--green) !important; }
+
     /* ── PAGE INTRO ── */
     .page-intro {
       padding: 64px 24px 48px;
@@ -428,7 +471,13 @@
       <a href="/#ranks" class="nav-link">Ranky</a>
       <a href="/#story" class="nav-link">Príbeh</a>
       <a href="/#screenshots" class="nav-link">Appka</a>
-      <a href="/stitna-zlaza" class="nav-link nav-link-active">Štítna žľaza</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle nav-link-active">Diéty &amp; intolerancie ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/stitna-zlaza" class="nav-dropdown-item nav-dropdown-item-active">🦋 Štítna žľaza</a>
+          <a href="/dieta/bezlaktozova" class="nav-dropdown-item">🥛 Bezlaktózová diéta</a>
+        </div>
+      </div>
       <a href="/#cta" class="nav-link">Štart</a>
     </div>
     <div class="lang-switcher" role="navigation" aria-label="Language switcher">
