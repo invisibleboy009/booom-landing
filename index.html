@@ -741,12 +741,143 @@
     }
 
     /* ── RESPONSIVE ── */
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: var(--text);
+      font-size: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.18s;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+    .nav-hamburger:hover { border-color: #555; }
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(320px, 88vw);
+      height: 100%;
+      background: #0d0d0d;
+      border-left: 1px solid #1a1a1a;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-mobile-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .nav-mobile-logo {
+      font-size: 20px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-mobile-close {
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: var(--muted);
+      font-size: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.18s, color 0.18s;
+      font-family: inherit;
+    }
+    .nav-mobile-close:hover { border-color: #555; color: var(--text); }
+    .nav-mobile-links { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .nav-mobile-link {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 11px 14px;
+      border-radius: 10px;
+      transition: background 0.15s, color 0.15s;
+      display: block;
+    }
+    .nav-mobile-link:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-link-active { color: var(--green) !important; }
+    .nav-mobile-sep { height: 1px; background: #1e1e1e; margin: 8px 0; }
+    .nav-mobile-dd-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 11px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+      text-align: left;
+    }
+    .nav-mobile-dd-toggle:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-dd-toggle-active { color: var(--green) !important; }
+    .nav-mobile-dd-arrow { font-size: 11px; transition: transform 0.2s; flex-shrink: 0; }
+    .nav-mobile-dd.open .nav-mobile-dd-arrow { transform: rotate(180deg); }
+    .nav-mobile-dd-menu { display: none; padding: 3px 0 3px 12px; }
+    .nav-mobile-dd.open .nav-mobile-dd-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mobile-dd-item {
+      color: rgba(255,255,255,0.58);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 9px;
+      transition: background 0.15s, color 0.15s;
+      display: block;
+    }
+    .nav-mobile-dd-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-mobile-dd-item-active { color: var(--green) !important; }
+    .nav-mobile-cta {
+      display: block;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 20px;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-mobile-cta:hover { opacity: 0.88; }
+
     @media (max-width: 1024px) {
       .ranks-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 900px) {
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
     }
 
     @media (max-width: 768px) {
@@ -817,6 +948,7 @@
         </div>
       </div>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
     <div class="lang-switcher" role="navigation" aria-label="Language switcher">
       <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
       <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
@@ -827,6 +959,34 @@
     <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
   </div>
 </nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-panel">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-logo">BOOOM</span>
+      <button class="nav-mobile-close" id="navMobileClose" aria-label="Zavrieť menu">✕</button>
+    </div>
+    <nav class="nav-mobile-links">
+      <a href="#features" class="nav-mobile-link">Funkcie</a>
+      <a href="#ranks" class="nav-mobile-link">Ranky</a>
+      <a href="#story" class="nav-mobile-link">Príbeh</a>
+      <a href="#screenshots" class="nav-mobile-link">Appka</a>
+      <div class="nav-mobile-sep"></div>
+      <a href="/stitna-zlaza" class="nav-mobile-link">🦋 Štítna žľaza</a>
+      <div class="nav-mobile-dd">
+        <button class="nav-mobile-dd-toggle">
+          Diéty &amp; intolerancie
+          <span class="nav-mobile-dd-arrow">▾</span>
+        </button>
+        <div class="nav-mobile-dd-menu">
+          <a href="/dieta/bezlaktozova" class="nav-mobile-dd-item">🥛 Bezlaktózová diéta</a>
+        </div>
+      </div>
+    </nav>
+    <a href="https://app.booom.fit" class="nav-mobile-cta">Stiahnuť BOOOM zadarmo →</a>
+  </div>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero" aria-label="Hero">
@@ -1225,6 +1385,19 @@
     btn.setAttribute('aria-expanded', String(!expanded));
     document.getElementById('story-accordion-body').classList.toggle('open', !expanded);
   }
+  (function() {
+    var btn = document.getElementById('navHamburger');
+    var menu = document.getElementById('navMobile');
+    var closeBtn = document.getElementById('navMobileClose');
+    if (!btn || !menu) return;
+    function openMenu() { menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeMenu() { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    btn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
+    menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
+    menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+  }());
 </script>
 </body>
 </html>
