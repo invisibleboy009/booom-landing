@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bezlepková diéta — kompletný sprievodca pre celiatikov | BOOOM</title>
+  <meta name="description" content="Bezlepková diéta pri celiakii: čo jesť, čo vylúčiť, skryté zdroje lepku, ukážkový jedálniček a vedecky podložené informácie. Zadarmo od BOOOM.">
+  <meta name="keywords" content="bezlepková diéta, celiakia, glutén, čo jesť pri celiakii, bezlepkový jedálniček, lepok">
+  <meta property="og:title" content="Bezlepková diéta — kompletný sprievodca pre celiatikov | BOOOM">
+  <meta property="og:description" content="Bezlepková diéta pri celiakii: čo jesť, čo vylúčiť, skryté zdroje lepku, ukážkový jedálniček a vedecky podložené informácie.">
+  <meta property="og:url" content="https://booom.fit/dieta/bezlepkova">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='34' fill='%230d0d0d'/%3E%3Ctext x='90' y='130' font-family='Arial,sans-serif' font-size='120' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00e676;
+      --cyan: #00d4ff;
+      --gold: #ffd700;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #1a1a1a;
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .nav-tagline {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid #252525;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 9px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn:hover { border-color: #444; color: var(--text); }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      border-color: transparent;
+      color: #000;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.18s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover { color: var(--text); }
+    .nav-link-active { color: var(--green) !important; }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-toggle {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.18s;
+      white-space: nowrap;
+      cursor: default;
+      user-select: none;
+    }
+    .nav-dropdown:hover .nav-dropdown-toggle { color: var(--text); }
+    .nav-dropdown-toggle.nav-link-active { color: var(--green); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10,10,10,0.98);
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 6px;
+      min-width: 215px;
+      z-index: 200;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 9px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+      display: block;
+    }
+    .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-dropdown-item-active { color: var(--green) !important; }
+
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: var(--text);
+      font-size: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.18s;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+    .nav-hamburger:hover { border-color: #555; }
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(320px, 88vw);
+      height: 100%;
+      background: #0d0d0d;
+      border-left: 1px solid #1a1a1a;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-mobile-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .nav-mobile-logo {
+      font-size: 20px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-mobile-close {
+      background: none;
+      border: 1px solid #2a2a2a;
+      color: var(--muted);
+      font-size: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.18s, color 0.18s;
+      font-family: inherit;
+    }
+    .nav-mobile-close:hover { border-color: #555; color: var(--text); }
+    .nav-mobile-links { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .nav-mobile-link {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 11px 14px;
+      border-radius: 10px;
+      transition: background 0.15s, color 0.15s;
+      display: block;
+    }
+    .nav-mobile-link:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-link-active { color: var(--green) !important; }
+    .nav-mobile-sep { height: 1px; background: #1e1e1e; margin: 8px 0; }
+    .nav-mobile-dd-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.72);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 11px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+      text-align: left;
+    }
+    .nav-mobile-dd-toggle:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-dd-toggle-active { color: var(--green) !important; }
+    .nav-mobile-dd-arrow { font-size: 11px; transition: transform 0.2s; flex-shrink: 0; }
+    .nav-mobile-dd.open .nav-mobile-dd-arrow { transform: rotate(180deg); }
+    .nav-mobile-dd-menu { display: none; padding: 3px 0 3px 12px; }
+    .nav-mobile-dd.open .nav-mobile-dd-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mobile-dd-item {
+      color: rgba(255,255,255,0.58);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 9px;
+      transition: background 0.15s, color 0.15s;
+      display: block;
+    }
+    .nav-mobile-dd-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-mobile-dd-item-active { color: var(--green) !important; }
+    .nav-mobile-cta {
+      display: block;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 20px;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-mobile-cta:hover { opacity: 0.88; }
+
+    /* ── PAGE INTRO ── */
+    .page-intro {
+      padding: 64px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-intro::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,230,118,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-intro-inner { position: relative; max-width: 760px; margin: 0 auto; }
+
+    .page-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+
+    .page-breadcrumb a { color: var(--muted); text-decoration: none; }
+    .page-breadcrumb a:hover { color: var(--text); }
+    .page-breadcrumb span { color: var(--green); }
+
+    .page-intro h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .page-intro p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 0 24px 80px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ── BTN ── */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { padding: 52px 24px 36px; border-top: 1px solid #161616; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #161616;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 13px; color: #555; }
+    .footer-founder { font-size: 13px; color: #555; }
+    .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .footer-founder a:hover { text-decoration: underline; }
+
+    /* ── SHARED CONTENT STYLES ── */
+    .thyroid-disclaimer {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255,107,53,0.07);
+      border: 1px solid rgba(255,107,53,0.45);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .thyroid-disclaimer-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .thyroid-disclaimer strong { display: block; font-size: 14px; font-weight: 800; color: #ff6b35; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .thyroid-disclaimer p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .thyroid-disclaimer-bottom { margin-top: 40px; margin-bottom: 0; }
+
+    .thyroid-subsection {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 20px;
+    }
+    .thyroid-subsection-title {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .thyroid-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 20px; }
+
+    .thyroid-symptoms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 16px; }
+    .thyroid-symptom { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 10px; padding: 11px 13px; line-height: 1.5; }
+
+    .thyroid-quote {
+      border-left: 3px solid var(--green);
+      padding: 18px 22px;
+      background: rgba(0,230,118,0.04);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 16px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.85;
+      font-style: italic;
+    }
+    .thyroid-quote cite { display: block; margin-top: 10px; font-size: 13px; font-weight: 700; font-style: normal; color: var(--green); }
+
+    .thyroid-science-card { background: rgba(0,255,136,0.025); border: 1px solid rgba(0,255,136,0.18); border-radius: 16px; padding: 26px; }
+    .thyroid-science-icon { font-size: 26px; margin-bottom: 12px; }
+    .thyroid-science-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+    .thyroid-science-card p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+    .thyroid-source { font-size: 11px !important; color: rgba(0,255,136,0.45) !important; margin-top: 10px !important; font-style: italic; }
+
+    .thyroid-booom-callout {
+      background: linear-gradient(135deg, #081a0d 0%, #0d2316 50%, #081a0d 100%);
+      border: 1px solid rgba(0,230,118,0.2);
+      border-radius: 20px;
+      padding: 52px 48px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .thyroid-booom-callout h3 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .thyroid-booom-callout p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.85; max-width: 640px; margin: 0 auto 32px; }
+
+    /* ── SHARED FOOD PANELS (from bezlaktozova) ── */
+    .lact-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    .lact-stat-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 24px 20px; text-align: center; }
+    .lact-stat-icon { font-size: 28px; margin-bottom: 10px; }
+    .lact-stat-number { font-size: 32px; font-weight: 900; letter-spacing: -1.5px; color: var(--green); margin-bottom: 6px; display: block; }
+    .lact-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    .lact-food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .lact-food-panel { border-radius: 14px; padding: 20px; }
+    .lact-food-panel h4 { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .lact-food-panel ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .lact-food-panel li { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+    .lact-food-note { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 12px; font-style: italic; }
+    .lact-food-free { background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.2); }
+    .lact-food-free h4 { color: var(--green); }
+    .lact-food-moderate { background: rgba(255,170,51,0.05); border: 1px solid rgba(255,170,51,0.2); }
+    .lact-food-moderate h4 { color: #ffaa33; }
+    .lact-food-avoid { background: rgba(255,68,68,0.04); border: 1px solid rgba(255,68,68,0.2); }
+    .lact-food-avoid h4 { color: #ff4444; }
+    .lact-food-hidden { background: rgba(255,214,0,0.04); border: 1px solid rgba(255,214,0,0.25); }
+    .lact-food-hidden h4 { color: var(--gold); }
+
+    .lact-meals-list { display: flex; flex-direction: column; gap: 10px; }
+    .lact-meal-item { display: flex; gap: 20px; align-items: center; background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 18px; }
+    .lact-meal-time { font-size: 13px; font-weight: 700; color: var(--green); min-width: 120px; flex-shrink: 0; }
+    .lact-meal-content { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+    /* ── BEZLEPKOVÁ DIÉTA ── */
+    .glut-hidden-symptoms {
+      background: rgba(255,170,51,0.05);
+      border: 1px solid rgba(255,170,51,0.2);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 12px;
+    }
+    .glut-hidden-symptoms h4 { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #ffaa33; margin-bottom: 12px; }
+    .glut-hidden-symptoms ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .glut-hidden-symptoms li { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+    .glut-symptoms-note { font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; margin-top: 14px; line-height: 1.65; }
+
+    .glut-diag-steps { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .glut-diag-step { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 16px; }
+    .glut-diag-num { font-size: 18px; font-weight: 900; color: var(--green); flex-shrink: 0; min-width: 24px; line-height: 1.3; }
+    .glut-diag-step strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .glut-diag-step p { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.65; }
+
+    .glut-warning-box {
+      background: rgba(255,68,68,0.07);
+      border: 1px solid rgba(255,68,68,0.4);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-top: 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .glut-warning-box-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .glut-warning-box strong { display: block; font-size: 13px; font-weight: 800; color: #ff4444; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .glut-warning-box p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+    .glut-food-sublabel { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin: 10px 0 6px; }
+    .glut-food-warning { font-size: 12px; color: #ffaa33; font-style: italic; margin-top: 8px; padding: 7px 10px; background: rgba(255,170,51,0.06); border-radius: 8px; border: 1px solid rgba(255,170,51,0.15); }
+    .glut-food-rule { font-size: 12px; color: var(--green); font-style: italic; margin-top: 10px; padding: 8px 12px; background: rgba(0,230,118,0.04); border-radius: 8px; border: 1px solid rgba(0,230,118,0.15); }
+
+    .glut-nutrients-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .glut-nutrient-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 22px 18px; }
+    .glut-nutrient-icon { font-size: 26px; margin-bottom: 10px; }
+    .glut-nutrient-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+    .glut-nutrient-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .glut-nutrient-card ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .glut-nutrient-card li { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; padding-left: 12px; position: relative; }
+    .glut-nutrient-card li::before { content: "→"; position: absolute; left: 0; color: var(--green); font-size: 10px; top: 3px; }
+    .glut-nutrient-tip { font-size: 11px; color: rgba(0,230,118,0.6); font-style: italic; margin-top: 8px; }
+
+    .glut-science-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .glut-tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .glut-tip-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 22px; transition: border-color 0.2s; }
+    .glut-tip-card:hover { border-color: rgba(0,230,118,0.25); }
+    .glut-tip-label { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .glut-tip-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .glut-tip-card strong { color: var(--text); font-weight: 700; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .lact-stats-grid { grid-template-columns: 1fr 1fr; }
+      .glut-nutrients-grid { grid-template-columns: repeat(3, 1fr); }
+      .glut-science-grid { grid-template-columns: 1fr; }
+      .glut-tips-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-tagline { display: none; }
+      .lang-btn { padding: 4px 7px; font-size: 10px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .thyroid-subsection { padding: 24px 20px; }
+      .thyroid-symptoms-grid { grid-template-columns: 1fr; }
+      .lact-food-grid { grid-template-columns: 1fr; }
+      .lact-stats-grid { grid-template-columns: 1fr; }
+      .glut-nutrients-grid { grid-template-columns: 1fr 1fr; }
+      .glut-tips-grid { grid-template-columns: 1fr; }
+      .lact-meal-item { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .lact-meal-time { min-width: auto; }
+      .thyroid-booom-callout { padding: 36px 24px; }
+    }
+    @media (max-width: 560px) {
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+      .glut-nutrients-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="BOOOM home">
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+    </a>
+    <div class="nav-links" role="navigation" aria-label="Section navigation">
+      <a href="/#features" class="nav-link">Funkcie</a>
+      <a href="/#ranks" class="nav-link">Ranky</a>
+      <a href="/#story" class="nav-link">Príbeh</a>
+      <a href="/#screenshots" class="nav-link">Appka</a>
+      <a href="/stitna-zlaza" class="nav-link">Štítna žľaza</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle nav-link-active">Diéty &amp; intolerancie ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/dieta/bezlaktozova" class="nav-dropdown-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-dropdown-item nav-dropdown-item-active">🌾 Bezlepková diéta</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
+    <div class="lang-switcher" role="navigation" aria-label="Language switcher">
+      <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
+      <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
+      <button class="lang-btn" onclick="setLanguage('CS')" aria-label="Čeština">CS</button>
+      <button class="lang-btn" onclick="setLanguage('PL')" aria-label="Polski">PL</button>
+      <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
+    </div>
+    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-panel">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-logo">BOOOM</span>
+      <button class="nav-mobile-close" id="navMobileClose" aria-label="Zavrieť menu">✕</button>
+    </div>
+    <nav class="nav-mobile-links">
+      <a href="/#features" class="nav-mobile-link">Funkcie</a>
+      <a href="/#ranks" class="nav-mobile-link">Ranky</a>
+      <a href="/#story" class="nav-mobile-link">Príbeh</a>
+      <a href="/#screenshots" class="nav-mobile-link">Appka</a>
+      <div class="nav-mobile-sep"></div>
+      <a href="/stitna-zlaza" class="nav-mobile-link">🦋 Štítna žľaza</a>
+      <div class="nav-mobile-dd open">
+        <button class="nav-mobile-dd-toggle nav-mobile-dd-toggle-active">
+          Diéty &amp; intolerancie
+          <span class="nav-mobile-dd-arrow">▾</span>
+        </button>
+        <div class="nav-mobile-dd-menu">
+          <a href="/dieta/bezlaktozova" class="nav-mobile-dd-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-mobile-dd-item nav-mobile-dd-item-active">🌾 Bezlepková diéta</a>
+        </div>
+      </div>
+    </nav>
+    <a href="https://app.booom.fit" class="nav-mobile-cta">Stiahnuť BOOOM zadarmo →</a>
+  </div>
+</div>
+
+<!-- ── PAGE INTRO ── -->
+<div class="page-intro">
+  <div class="page-intro-inner">
+    <div class="page-breadcrumb">
+      <a href="/">BOOOM</a>
+      <span>›</span>
+      <a href="/">Diéty &amp; intolerancie</a>
+      <span>›</span>
+      <span>Bezlepková diéta</span>
+    </div>
+    <h1>🌾 Bezlepková diéta — kompletný sprievodca pre celiatikov</h1>
+    <p>Bolí ťa brucho po chlebe? Unavený si aj keď spíš dosť? Máš anémiu bez zjavnej príčiny? Možno to nie je stres ani nedostatok pohybu. Možno je to lepok.</p>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ── -->
+<section>
+  <div class="section-inner">
+
+    <!-- TOP DISCLAIMER -->
+    <div class="thyroid-disclaimer">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Dôležité upozornenie</strong>
+        <p>Nie som lekár ani odborník na medicínu. Obsah tejto stránky je len informačného charakteru a nevynahrádza odborné lekárske poradenstvo. Ak máš podozrenie na celiakiu, navštív gastroenterológa. <strong style="color:#ff6b35">DÔLEŽITÉ:</strong> Pred testovaním neprestaň jesť lepok — mohlo by to skresliť výsledky testov.</p>
+      </div>
+    </div>
+
+    <!-- ČO JE CELIAKIA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Čo je celiakia?</h3>
+      <p class="thyroid-text">Celiakia, inak nazývaná ako gluténová enteropatia, je autoimunitné ochorenie tenkého čreva. Jedinec trpiaci celiakiou nie je schopný vhodne stráviť glutén. Pri konzumácii jedla s obsahom gluténu dochádza k patologickej reakcii organizmu — k zápalovému procesu a vyplaveniu toxínov, ktoré ničia klky, výbežky sliznice tenkého čreva.</p>
+      <p class="thyroid-text">Tieto klky sú zodpovedné za vstrebávanie živín. Keď sú poškodené — telo prestáva vstrebávať vitamíny, minerály a živiny. A ty sa cítiš vyčerpaný, anemický, podvyživený — aj keď ješ normálne.</p>
+      <p class="thyroid-text" style="margin-bottom:0">Celiakia ako ochorenie sa vyliečiť nedá. V súčasnosti zatiaľ nie je uvedený žiaden liek ktorý by celiakiu dokázal vyliečiť. Aktuálne je jedinou a najúčinnejšou liečbou bezlepková diéta.</p>
+    </div>
+
+    <!-- ŠTATISTIKY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Ako rozšírená je?</h3>
+      <div class="lact-stats-grid">
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">🌍</div>
+          <span class="lact-stat-number">1,4 %</span>
+          <div class="lact-stat-label">svetovej populácie má celiakiu (meta-analýza 275 818 jedincov)</div>
+        </div>
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">👨‍👩‍👧</div>
+          <span class="lact-stat-number">11 %</span>
+          <div class="lact-stat-label">príbuzných celiatika má tiež celiakiu</div>
+        </div>
+        <div class="lact-stat-card">
+          <div class="lact-stat-icon">👩</div>
+          <span class="lact-stat-number">23 %</span>
+          <div class="lact-stat-label">dcér a sestier celiatika má rovnakú diagnózu</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(0,255,136,0.4);font-style:italic;margin-top:4px">Zdroj: American Journal of Gastroenterology, 2024. doi: 10.14309/ajg.0000000000003227</p>
+    </div>
+
+    <!-- PRÍZNAKY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Príznaky — klasické aj skryté</h3>
+      <p class="thyroid-text">Celiakia je zákerná pretože má dve tváre.</p>
+
+      <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Klasické príznaky</p>
+      <div class="thyroid-symptoms-grid">
+        <div class="thyroid-symptom"><span>💩</span><div><strong style="display:block;font-size:13px;margin-bottom:2px">Chronická hnačka alebo zápcha</strong>tráviace ťažkosti</div></div>
+        <div class="thyroid-symptom"><span>🤰</span><div><strong style="display:block;font-size:13px;margin-bottom:2px">Nadúvanie a plynatosť</strong>po každom jedle s lepkom</div></div>
+        <div class="thyroid-symptom"><span>😣</span><div><strong style="display:block;font-size:13px;margin-bottom:2px">Bolesti brucha a kŕče</strong>zápaly tenkého čreva</div></div>
+        <div class="thyroid-symptom"><span>🤮</span><div><strong style="display:block;font-size:13px;margin-bottom:2px">Nevoľnosť, vracanie</strong>reakcia na glutén</div></div>
+        <div class="thyroid-symptom"><span>⚖️</span><div><strong style="display:block;font-size:13px;margin-bottom:2px">Chudnutie alebo problémy s váhou</strong>malabsorpcia živín</div></div>
+      </div>
+
+      <div class="glut-hidden-symptoms">
+        <h4>😷 Skryté príznaky — tichá forma</h4>
+        <ul>
+          <li>😴 Chronická únava a vyčerpanosť</li>
+          <li>🧠 Hmla v hlave, problémy s koncentráciou</li>
+          <li>😔 Depresie, úzkosť, podráždenosť</li>
+          <li>🦴 Bolesti kostí a kĺbov, osteoporóza</li>
+          <li>💊 Anémia nereagujúca na liečbu</li>
+          <li>🔴 Kožné vyrážky (dermatitis herpetiformis)</li>
+          <li>👩 Poruchy menštruácie, problémy s plodnosťou</li>
+        </ul>
+      </div>
+      <p class="glut-symptoms-note">U časti pacientov sa celiakia dlhé roky neprejavuje žiadnymi viditeľnými príznakmi — tzv. tichá forma ochorenia.</p>
+    </div>
+
+    <!-- SKÚSENOSTI -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Skúsenosti celiatikov</h3>
+      <blockquote class="thyroid-quote">
+        „Roky som myslela že som len citlivá. Bolelo ma brucho po každom jedle, bola som unavená, mala som anémiu. Lekári mi hovorili že je to stres. Až vo veku 34 rokov mi diagnostikovali celiakiu. Po 3 mesiacoch bezlepkovej diéty som bola ako znovuzrodená."
+        <cite>— Marta, 37 rokov, Bratislava</cite>
+      </blockquote>
+      <blockquote class="thyroid-quote" style="margin-bottom:0">
+        „Najťažšie bolo na začiatku — čítať etikety, pýtať sa v reštauráciách, odmietnuť tortu na narodeninách. Dnes mi to príde prirodzené. A cítim sa lepšie ako v 20-ke."
+        <cite>— Tomáš, 29 rokov, Košice</cite>
+      </blockquote>
+    </div>
+
+    <!-- DIAGNÓZA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Diagnóza — ako sa zistí celiakia</h3>
+      <p class="thyroid-text">Diagnóza celiakie sa určuje na základe odborného vyšetrenia u gastroenterológa.</p>
+      <div class="glut-diag-steps">
+        <div class="glut-diag-step">
+          <div class="glut-diag-num">1</div>
+          <div>
+            <strong>Krvný test — anti-tTG protilátky IgA</strong>
+            <p>Základný skríning. Rýchly a dostupný test ktorý odhalí imunologickú reakciu na glutén.</p>
+          </div>
+        </div>
+        <div class="glut-diag-step">
+          <div class="glut-diag-num">2</div>
+          <div>
+            <strong>Biopsia tenkého čreva — zlatý štandard diagnostiky</strong>
+            <p>Gastroenterológ odeberie vzorku sliznice tenkého čreva endoskopom. <em style="color:rgba(255,255,255,0.5)">Poznámka: Podľa aktuálnych európskych usmernení ESPGHAN sa u detí a mladistvých môže od biopsie upustiť ak sú protilátky anti-tTG IgA viac ako 10-násobok normy a potvrdí sa to EMA protilátkami.</em></p>
+          </div>
+        </div>
+        <div class="glut-diag-step">
+          <div class="glut-diag-num">3</div>
+          <div>
+            <strong>Histologická analýza</strong>
+            <p>Potvrdenie poškodenia klkov sliznice tenkého čreva pod mikroskopom.</p>
+          </div>
+        </div>
+        <div class="glut-diag-step">
+          <div class="glut-diag-num">4</div>
+          <div>
+            <strong>Odpoveď na bezlepkovú diétu</strong>
+            <p>Zlepšenie stavu po nasadení diéty potvrdzuje správnosť diagnózy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="glut-warning-box">
+        <span class="glut-warning-box-icon">🚨</span>
+        <div>
+          <strong>Pred testovaním NEPRESTAŇ jesť lepok!</strong>
+          <p>Ak prestaneš jesť lepok pred odberom krvi alebo biopsiou, protilátky klesnú a výsledky môžu byť falošne negatívne. Bezlepkovú diétu začni <strong>AŽ PO</strong> potvrdení diagnózy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ČO JESŤ -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Bezlepková diéta — čo jesť a čo nie</h3>
+      <div class="lact-food-grid">
+
+        <div class="lact-food-panel lact-food-avoid">
+          <h4>❌ Čo musíš vylúčiť úplne</h4>
+          <p class="glut-food-sublabel">Obilniny s lepkom:</p>
+          <ul>
+            <li>Pšenica (vrátane špaldy, kamut, einkorn)</li>
+            <li>Jačmeň</li>
+            <li>Raž</li>
+          </ul>
+          <p class="glut-food-warning">⚠️ Pozor na špaldu — mnoho ľudí si myslí že je bezlepková. Nie je!</p>
+          <p class="glut-food-sublabel" style="margin-top:12px">Výrobky:</p>
+          <ul>
+            <li>Chlieb, pečivo, cestoviny, pizza</li>
+            <li>Müsli, cereálie, sušienky</li>
+            <li>Pivo, strúhanka, obalované jedlá</li>
+          </ul>
+        </div>
+
+        <div class="lact-food-panel lact-food-free">
+          <h4>✅ Čo môžeš jesť slobodne</h4>
+          <p class="glut-food-sublabel">Bezlepkové obilniny:</p>
+          <ul>
+            <li>Ryža | Kukurica | Quinoa</li>
+            <li>Pohánka | Proso | Amarant | Tapióka</li>
+          </ul>
+          <p class="glut-food-sublabel" style="margin-top:10px">Ďalšie potraviny:</p>
+          <ul>
+            <li>Mäso, ryby, vajcia — prírodné bez obaľovania</li>
+            <li>Zelenina a ovocie — všetka čerstvá</li>
+            <li>Mliečne výrobky — prírodné, neochutené</li>
+            <li>Strukoviny, orechy, semienka</li>
+          </ul>
+          <p class="glut-food-rule">🌾 Hľadaj symbol preškrtnutého klasu — garantuje obsah lepku pod 20 ppm</p>
+        </div>
+
+        <div class="lact-food-panel lact-food-hidden">
+          <h4>🔍 Pozor na skrytý lepok</h4>
+          <p class="lact-food-note">Lepok sa skrýva tam kde ho nečakáš:</p>
+          <ul>
+            <li>Omáčky, kečup, majonéza</li>
+            <li>Instantné polievky a bujóny</li>
+            <li>Údeniny a salámy</li>
+            <li>Čokoláda a cukrovinky</li>
+            <li>Lieky a výživové doplnky</li>
+          </ul>
+        </div>
+
+        <div class="lact-food-panel lact-food-moderate">
+          <h4>⚠️ Kontaminácia — aj stopa lepku škodí</h4>
+          <p class="lact-food-note">Na rozdiel od laktózovej intolerancie, pri celiakii aj minimálne množstvo lepku spôsobuje poškodenie.</p>
+          <ul>
+            <li>Samostatný toastovač na bezlepkový chlieb</li>
+            <li>Oddelené dosky, nože, panvice</li>
+            <li>V reštaurácii — upozorniť obsluhu, pýtať sa na prípravu</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JEDÁLNIČEK -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🍽️ Ukážkový jedálniček na deň</h3>
+      <div class="lact-meals-list">
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌅 Raňajky</div>
+          <div class="lact-meal-content">Ryžové chlebíky s avokádom + vajcia na tvrdo + čaj</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🍎 Desiata</div>
+          <div class="lact-meal-content">Jablko + mandle + hrsť čučoriedok</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">☀️ Obed</div>
+          <div class="lact-meal-content">Grilované kuracie stehno + ryža + dusená brokolica pokvapkaná olivovým olejom s cesnakom</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🕐 Olovrant</div>
+          <div class="lact-meal-content">Prírodný jogurt + banán + pohánkové vločky</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌙 Večera</div>
+          <div class="lact-meal-content">Losos pečený v rúre + pečená zelenina + quinoa šalát</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VÝŽIVA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">⚠️ Na čo si dávať pozor — výživa pri bezlepkovej diéte</h3>
+      <p class="thyroid-text">Štúdie preukázali deficit u až 30 % celiatikov pre vitamín B12, 40 % pre železo, 20 % pre kyselinu listovú, 25 % pre vitamín D a 40 % pre zinok — aj u tých ktorí dodržiavajú bezlepkovú diétu.</p>
+      <div class="glut-nutrients-grid">
+        <div class="glut-nutrient-card">
+          <div class="glut-nutrient-icon">🩸</div>
+          <h4>Železo</h4>
+          <div class="glut-nutrient-sub">Najčastejší deficit pri celiakii</div>
+          <ul>
+            <li>Červené mäso</li>
+            <li>Šošovica, špenát</li>
+            <li>Tekvicové semienka</li>
+          </ul>
+          <p class="glut-nutrient-tip">Kombinuj so vitamínom C</p>
+        </div>
+        <div class="glut-nutrient-card">
+          <div class="glut-nutrient-icon">🦴</div>
+          <h4>Vápnik + Vitamín D</h4>
+          <div class="glut-nutrient-sub">Kritické pre kosti, riziko osteoporózy</div>
+          <ul>
+            <li>Mliečne výrobky, mandle</li>
+            <li>Brokolica, sardinky</li>
+            <li>Losos, vajcia, slnko</li>
+            <li>Suplementy D3+K2</li>
+          </ul>
+        </div>
+        <div class="glut-nutrient-card">
+          <div class="glut-nutrient-icon">🧠</div>
+          <h4>Vitamín B12 + Folát</h4>
+          <div class="glut-nutrient-sub">Neurologické a kardiovaskulárne riziká</div>
+          <ul>
+            <li>Mäso, ryby, vajcia</li>
+            <li>Listová zelenina</li>
+            <li>Strukoviny</li>
+          </ul>
+        </div>
+        <div class="glut-nutrient-card">
+          <div class="glut-nutrient-icon">⚡</div>
+          <h4>Zinok</h4>
+          <div class="glut-nutrient-sub">Imunita, hojenie, energia</div>
+          <ul>
+            <li>Mäso, morské plody</li>
+            <li>Tekvicové semienka</li>
+            <li>Orechy</li>
+          </ul>
+        </div>
+        <div class="glut-nutrient-card">
+          <div class="glut-nutrient-icon">🌿</div>
+          <h4>Vláknina</h4>
+          <div class="glut-nutrient-sub">Bezlepkové produkty ju majú menej</div>
+          <ul>
+            <li>Zelenina a strukoviny</li>
+            <li>Quinoa, pohánka</li>
+            <li>Ovocie</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.38);font-style:italic;margin-top:12px">Zdroj: Celiac Disease Foundation / Medicina journal</p>
+    </div>
+
+    <!-- VEDA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🔬 Čo hovorí veda</h3>
+      <div class="glut-science-grid">
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">📊</div>
+          <h4>Globálna prevalencia celiakie</h4>
+          <p>Systematická meta-analýza zahrnujúca 275 818 jedincov potvrdila globálnu prevalenciu celiakie 1,4 % na základe sérológie.</p>
+          <p class="thyroid-source">Rubio-Tapia A et al. Clin Gastroenterol Hepatol. 2018. doi: 10.1016/j.cgh.2017.06.043</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🩸</div>
+          <h4>Hematologický status pri celiakii</h4>
+          <p>Prehľadová štúdia (MDPI Nutrients, 2024) potvrdzuje že hematologické profily vrátane statusu železa a folátu by mali byť hodnotené pri diagnostike a monitorované počas bezlepkovej diéty.</p>
+          <p class="thyroid-source">MDPI Nutrients, 2024. doi: 10.3390/nu15040061</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">👨‍👩‍👧</div>
+          <h4>Celiakia u príbuzných</h4>
+          <p>Meta-analýza v American Journal of Gastroenterology (2024) zahrnujúca 34 štúdií s 10 016 príbuznými celiatikov zistila seroprevalenciu 11 % a biopsiou potvrdenú celiakiu v 7 % prípadov.</p>
+          <p class="thyroid-source">Karimzadhagh S et al. Am J Gastroenterol. 2024. doi: 10.14309/ajg.0000000000003227</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">💡 Praktické tipy od celiatikov</h3>
+      <div class="glut-tips-grid">
+        <div class="glut-tip-card">
+          <div class="glut-tip-label">Reštaurácia</div>
+          <p>Vždy sa opýtaj na prípravu — aj <strong>"bezlepkové"</strong> jedlo môže byť kontaminované ak sa varí na rovnakej panvici ako jedlo s lepkom.</p>
+        </div>
+        <div class="glut-tip-card">
+          <div class="glut-tip-label">Cestovanie</div>
+          <p>Nauč sa povedať <strong>"Mám celiakiu, nemôžem jesť pšenicu, jačmeň ani raž"</strong> v jazyku krajiny kam cestuješ.</p>
+        </div>
+        <div class="glut-tip-card">
+          <div class="glut-tip-label">Etikety</div>
+          <p>Lepok má mnoho názvov — <strong>pšeničný škrob, sladový extrakt, modifikovaný potravinársky škrob</strong>. Naučíš sa ich časom čítať automaticky.</p>
+        </div>
+        <div class="glut-tip-card">
+          <div class="glut-tip-label">Rodina</div>
+          <p>Ak celiakiou trpí jeden člen rodiny, daj sa vyšetriť aj ty — pravdepodobnosť u príbuzných je <strong>až 11 %</strong>.</p>
+        </div>
+        <div class="glut-tip-card">
+          <div class="glut-tip-label">Ovsené vločky</div>
+          <p>Kontroverzné — ovos sám o sebe lepok neobsahuje, ale je často kontaminovaný pri výrobe. Hľadaj <strong>certifikované bezlepkové ovsené vločky</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOOM CALLOUT -->
+    <div class="thyroid-booom-callout">
+      <h3>Ako ti BOOOM pomáha</h3>
+      <p>V BOOOM môžeš sledovať dennú výživu a kontrolovať či prijímaš dostatok železa, vápnika, vitamínu D, B12 a zinku — živín ktoré celiatici najčastejšie nemajú. AI Coach ti poradí ako optimalizovať jedálniček pri bezlepkovej diéte.</p>
+      <a href="https://app.booom.fit" class="btn-primary">Stiahnuť BOOOM zadarmo →</a>
+    </div>
+
+    <!-- BOTTOM DISCLAIMER -->
+    <div class="thyroid-disclaimer thyroid-disclaimer-bottom">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Záverečné upozornenie</strong>
+        <p>Všetky informácie na tejto stránke sú len informačného charakteru a vychádzajú z verejne dostupných vedeckých zdrojov. Nie som lekár. Citované štúdie sú reálne publikácie. Celiakia vyžaduje presnú diagnostiku u gastroenterológa — nikdy nezačínaj bezlepkovú diétu pred vyšetrením, mohlo by to skresliť výsledky testov.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">BOOOM</span>
+      <div class="footer-links">
+        <a href="/#features" data-i18n="footer_about">O nás</a>
+        <a href="mailto:info@booom.fit" data-i18n="footer_contact">Kontakt</a>
+        <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="/terms" data-i18n="footer_terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2026 BOOOM. Všetky práva vyhradené.</span>
+      <span class="footer-founder">Made with ❤️ by <a href="https://www.instagram.com/lacoo.v/" target="_blank" rel="noopener" data-i18n="footer_founder">Laco, zakladateľ BOOOM</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/lang.js"></script>
+<script>
+(function() {
+  var btn = document.getElementById('navHamburger');
+  var menu = document.getElementById('navMobile');
+  var closeBtn = document.getElementById('navMobileClose');
+  if (!btn || !menu) return;
+  function openMenu() { menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu() { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
+  menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
+  menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+}());
+</script>
+</body>
+</html>
