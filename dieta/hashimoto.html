@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hashimotova tyreoiditída — diéta, suplementácia a liečba | BOOOM</title>
+  <meta name="description" content="Hashimotova tyreoiditída: príznaky, diagnostika, diéta, suplementácia selénom a myo-inozitolom. Vedecky podložené informácie a osobná skúsenosť zakladateľa BOOOM.">
+  <meta name="keywords" content="Hashimoto, Hashimotova tyreoiditída, diéta pri Hashimoto, selén, myo-inozitol, TSH, TPO protilátky, štítna žľaza">
+  <meta property="og:title" content="Hashimotova tyreoiditída — diéta, suplementácia a liečba | BOOOM">
+  <meta property="og:description" content="Hashimotova tyreoiditída: príznaky, diagnostika, diéta, suplementácia selénom a myo-inozitolom. Vedecky podložené informácie.">
+  <meta property="og:url" content="https://booom.fit/dieta/hashimoto">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='34' fill='%230d0d0d'/%3E%3Ctext x='90' y='130' font-family='Arial,sans-serif' font-size='120' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00e676;
+      --cyan: #00d4ff;
+      --gold: #ffd700;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #1a1a1a; padding: 0 24px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .nav-logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .nav-tagline { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; color: var(--muted); text-transform: uppercase; }
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+    .lang-btn { background: none; border: 1px solid #252525; color: var(--muted); font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 7px; cursor: pointer; transition: all 0.18s; font-family: inherit; letter-spacing: 0.5px; }
+    .lang-btn:hover { border-color: #444; color: var(--text); }
+    .lang-btn.active { background: linear-gradient(135deg, var(--green), var(--cyan)); border-color: transparent; color: #000; }
+    .nav-cta { background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 13px; padding: 10px 20px; border-radius: 10px; text-decoration: none; white-space: nowrap; transition: opacity 0.2s, transform 0.2s; }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; transition: color 0.18s; white-space: nowrap; }
+    .nav-link:hover { color: var(--text); }
+    .nav-link-active { color: var(--green) !important; }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown:hover::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 16px; }
+    .nav-dropdown-toggle { color: var(--muted); font-size: 13px; font-weight: 600; transition: color 0.18s; white-space: nowrap; cursor: default; user-select: none; }
+    .nav-dropdown:hover .nav-dropdown-toggle { color: var(--text); }
+    .nav-dropdown-toggle.nav-link-active { color: var(--green); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: rgba(10,10,10,0.98); border: 1px solid #222; border-radius: 14px; padding: 6px; min-width: 250px; z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 14px; border-radius: 9px; transition: background 0.15s, color 0.15s; white-space: nowrap; display: block; }
+    .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-dropdown-item-active { color: var(--green) !important; }
+
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .nav-hamburger { display: none; background: none; border: 1px solid #2a2a2a; color: var(--text); font-size: 18px; width: 38px; height: 38px; border-radius: 9px; cursor: pointer; align-items: center; justify-content: center; transition: border-color 0.18s; font-family: inherit; flex-shrink: 0; }
+    .nav-hamburger:hover { border-color: #555; }
+    .nav-mobile { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .nav-mobile.open { display: block; }
+    .nav-mobile-panel { position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%; background: #0d0d0d; border-left: 1px solid #1a1a1a; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; }
+    .nav-mobile-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .nav-mobile-logo { font-size: 20px; font-weight: 900; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-mobile-close { background: none; border: 1px solid #2a2a2a; color: var(--muted); font-size: 16px; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.18s, color 0.18s; font-family: inherit; }
+    .nav-mobile-close:hover { border-color: #555; color: var(--text); }
+    .nav-mobile-links { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .nav-mobile-link { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 14px; border-radius: 10px; transition: background 0.15s, color 0.15s; display: block; }
+    .nav-mobile-link:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-link-active { color: var(--green) !important; }
+    .nav-mobile-sep { height: 1px; background: #1e1e1e; margin: 8px 0; }
+    .nav-mobile-dd-toggle { width: 100%; background: none; border: none; color: rgba(255,255,255,0.72); font-size: 15px; font-weight: 600; padding: 11px 14px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-family: inherit; transition: background 0.15s, color 0.15s; text-align: left; }
+    .nav-mobile-dd-toggle:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-dd-toggle-active { color: var(--green) !important; }
+    .nav-mobile-dd-arrow { font-size: 11px; transition: transform 0.2s; flex-shrink: 0; }
+    .nav-mobile-dd.open .nav-mobile-dd-arrow { transform: rotate(180deg); }
+    .nav-mobile-dd-menu { display: none; padding: 3px 0 3px 12px; }
+    .nav-mobile-dd.open .nav-mobile-dd-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mobile-dd-item { color: rgba(255,255,255,0.58); text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 9px; transition: background 0.15s, color 0.15s; display: block; }
+    .nav-mobile-dd-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-mobile-dd-item-active { color: var(--green) !important; }
+    .nav-mobile-cta { display: block; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 15px; padding: 14px 20px; border-radius: 12px; text-decoration: none; text-align: center; margin-top: 20px; transition: opacity 0.2s; flex-shrink: 0; }
+    .nav-mobile-cta:hover { opacity: 0.88; }
+
+    /* ── PAGE INTRO ── */
+    .page-intro { padding: 64px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+    .page-intro::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(0,230,118,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-intro-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .page-breadcrumb { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.3px; margin-bottom: 24px; }
+    .page-breadcrumb a { color: var(--muted); text-decoration: none; }
+    .page-breadcrumb a:hover { color: var(--text); }
+    .page-breadcrumb span { color: var(--green); }
+    .page-intro h1 { font-size: clamp(28px, 4.5vw, 50px); font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: 18px; }
+    .page-intro p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 620px; margin: 0 auto; }
+
+    /* ── SECTIONS / LAYOUT ── */
+    section { padding: 0 24px 80px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .btn-primary { background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 16px; padding: 16px 34px; border-radius: 14px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; display: inline-block; }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { padding: 52px 24px 36px; border-top: 1px solid #161616; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid #161616; }
+    .footer-logo { font-size: 26px; font-weight: 900; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.5px; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.18s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: #555; }
+    .footer-founder { font-size: 13px; color: #555; }
+    .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .footer-founder a:hover { text-decoration: underline; }
+
+    /* ── SHARED CONTENT STYLES ── */
+    .thyroid-disclaimer { display: flex; gap: 16px; align-items: flex-start; background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.45); border-radius: 16px; padding: 20px 24px; margin-bottom: 40px; }
+    .thyroid-disclaimer-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .thyroid-disclaimer strong { display: block; font-size: 14px; font-weight: 800; color: #ff6b35; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .thyroid-disclaimer p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .thyroid-disclaimer-bottom { margin-top: 40px; margin-bottom: 0; }
+
+    .thyroid-subsection { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 20px; padding: 40px; margin-bottom: 20px; }
+    .thyroid-subsection-title { font-size: clamp(20px, 2.5vw, 26px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .thyroid-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 16px; }
+
+    .thyroid-quote { border-left: 3px solid var(--green); padding: 18px 22px; background: rgba(0,230,118,0.04); border-radius: 0 12px 12px 0; margin: 16px 0; font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.85; font-style: italic; }
+    .thyroid-quote cite { display: block; margin-top: 10px; font-size: 13px; font-weight: 700; font-style: normal; color: var(--green); }
+
+    .thyroid-science-card { background: rgba(0,255,136,0.025); border: 1px solid rgba(0,255,136,0.18); border-radius: 16px; padding: 26px; }
+    .thyroid-science-icon { font-size: 26px; margin-bottom: 12px; }
+    .thyroid-science-card h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+    .thyroid-science-card p { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+    .thyroid-source { font-size: 11px !important; color: rgba(0,255,136,0.45) !important; margin-top: 10px !important; font-style: italic; }
+
+    .thyroid-booom-callout { background: linear-gradient(135deg, #081a0d 0%, #0d2316 50%, #081a0d 100%); border: 1px solid rgba(0,230,118,0.2); border-radius: 20px; padding: 52px 48px; text-align: center; margin-top: 20px; }
+    .thyroid-booom-callout h3 { font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .thyroid-booom-callout p { font-size: 15px; color: rgba(255,255,255,0.62); line-height: 1.85; max-width: 640px; margin: 0 auto 32px; }
+
+    .lact-food-panel { border-radius: 14px; padding: 20px; }
+    .lact-food-panel h4 { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .lact-food-panel ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .lact-food-panel li { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+    .lact-food-avoid { background: rgba(255,68,68,0.04); border: 1px solid rgba(255,68,68,0.2); }
+    .lact-food-avoid h4 { color: #ff4444; }
+
+    .lact-meals-list { display: flex; flex-direction: column; gap: 10px; }
+    .lact-meal-item { display: flex; gap: 20px; align-items: center; background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px 18px; }
+    .lact-meal-time { font-size: 13px; font-weight: 700; color: var(--green); min-width: 180px; flex-shrink: 0; }
+    .lact-meal-content { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+    /* ── HASHIMOTO-SPECIFIC ── */
+
+    /* Phases */
+    .hash-phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+    .hash-phase-card { border-radius: 14px; padding: 18px; }
+    .hash-phase-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+    .hash-phase-card p { font-size: 12px; color: rgba(255,255,255,0.62); line-height: 1.55; }
+    .hash-phase-1 { background: rgba(0,230,118,0.05); border: 1px solid rgba(0,230,118,0.2); }
+    .hash-phase-1 h4 { color: var(--green); }
+    .hash-phase-2 { background: rgba(255,214,0,0.05); border: 1px solid rgba(255,214,0,0.2); }
+    .hash-phase-2 h4 { color: var(--gold); }
+    .hash-phase-3 { background: rgba(255,68,68,0.05); border: 1px solid rgba(255,68,68,0.2); }
+    .hash-phase-3 h4 { color: #ff4444; }
+    .hash-phase-4 { background: rgba(255,170,51,0.05); border: 1px solid rgba(255,170,51,0.2); }
+    .hash-phase-4 h4 { color: #ffaa33; }
+
+    /* Symptoms */
+    .hash-symptoms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .hash-symptom-group { border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.07); }
+    .hash-symptom-group h4 { font-size: 12px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .hash-symptom-group ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .hash-symptom-group li { font-size: 12px; color: rgba(255,255,255,0.62); line-height: 1.5; }
+    .hash-sg-meta { background: rgba(255,170,51,0.05); border-color: rgba(255,170,51,0.18) !important; }
+    .hash-sg-meta h4 { color: #ffaa33; }
+    .hash-sg-neuro { background: rgba(156,100,255,0.05); border-color: rgba(156,100,255,0.2) !important; }
+    .hash-sg-neuro h4 { color: #9c64ff; }
+    .hash-sg-skin { background: rgba(255,68,68,0.04); border-color: rgba(255,68,68,0.18) !important; }
+    .hash-sg-skin h4 { color: #ff4444; }
+    .hash-sg-digest { background: rgba(0,212,255,0.04); border-color: rgba(0,212,255,0.15) !important; }
+    .hash-sg-digest h4 { color: var(--cyan); }
+    .hash-sg-women { background: rgba(0,230,118,0.03); border-color: rgba(0,230,118,0.15) !important; }
+    .hash-sg-women h4 { color: var(--green); }
+    .hash-sg-cardio { background: rgba(255,60,120,0.04); border-color: rgba(255,60,120,0.18) !important; }
+    .hash-sg-cardio h4 { color: #ff3c78; }
+
+    /* Diagnosis table */
+    .hash-diag-table { width: 100%; border-collapse: collapse; margin: 14px 0; border-radius: 12px; overflow: hidden; }
+    .hash-diag-table th { font-size: 12px; font-weight: 800; padding: 11px 14px; text-align: left; border-bottom: 1px solid #1e1e1e; letter-spacing: 0.3px; }
+    .hash-diag-table th:nth-child(1) { background: rgba(0,230,118,0.05); color: var(--green); }
+    .hash-diag-table th:nth-child(2) { background: rgba(0,212,255,0.04); color: var(--cyan); }
+    .hash-diag-table th:nth-child(3) { background: rgba(255,170,51,0.04); color: #ffaa33; }
+    .hash-diag-table td { font-size: 13px; color: rgba(255,255,255,0.7); padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .hash-diag-table tr:last-child td { border-bottom: none; }
+    .hash-diag-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .hash-diag-table td:first-child { font-weight: 700; color: rgba(255,255,255,0.88); }
+
+    /* Warning boxes */
+    .hash-biotin-warning { display: flex; gap: 12px; align-items: flex-start; background: rgba(255,214,0,0.05); border: 1px solid rgba(255,214,0,0.25); border-radius: 12px; padding: 14px 16px; margin-top: 16px; }
+    .hash-biotin-warning strong { display: block; font-size: 12px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+    .hash-biotin-warning p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    .hash-critical-warning { background: rgba(255,68,68,0.07); border: 1px solid rgba(255,68,68,0.4); border-radius: 14px; padding: 18px 22px; margin: 16px 0; display: flex; gap: 14px; align-items: flex-start; }
+    .hash-critical-warning-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .hash-critical-warning strong { display: block; font-size: 13px; font-weight: 800; color: #ff4444; margin-bottom: 6px; letter-spacing: 0.3px; }
+    .hash-critical-warning p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+    /* Suplementácia */
+    .hash-supps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .hash-supp-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 16px; padding: 22px; transition: border-color 0.2s; }
+    .hash-supp-card:hover { border-color: rgba(0,230,118,0.2); }
+    .hash-supp-icon { font-size: 22px; margin-bottom: 10px; }
+    .hash-supp-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 6px; }
+    .hash-supp-card p { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.65; }
+    .hash-supp-no { background: rgba(255,68,68,0.04); border: 1px solid rgba(255,68,68,0.2); border-radius: 14px; padding: 18px; margin-top: 14px; }
+    .hash-supp-no strong { display: block; font-size: 12px; font-weight: 800; color: #ff4444; margin-bottom: 8px; letter-spacing: 0.5px; }
+    .hash-supp-no ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .hash-supp-no li { font-size: 13px; color: rgba(255,255,255,0.62); padding-left: 14px; position: relative; }
+    .hash-supp-no li::before { content: '✗'; position: absolute; left: 0; color: #ff4444; font-size: 11px; top: 2px; }
+
+    /* Intolerancie highlight */
+    .hash-intol-stat { display: flex; gap: 20px; align-items: center; background: rgba(0,230,118,0.04); border: 1px solid rgba(0,230,118,0.15); border-radius: 14px; padding: 20px 24px; margin: 16px 0; }
+    .hash-intol-number { font-size: 48px; font-weight: 900; color: var(--green); letter-spacing: -2px; flex-shrink: 0; line-height: 1; }
+    .hash-intol-text { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .hash-intol-text strong { color: var(--text); }
+
+    /* Lifestyle */
+    .hash-lifestyle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .hash-lifestyle-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 20px; }
+    .hash-lifestyle-icon { font-size: 24px; margin-bottom: 10px; }
+    .hash-lifestyle-card h4 { font-size: 13px; font-weight: 800; margin-bottom: 6px; }
+    .hash-lifestyle-card p { font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.6; }
+
+    /* Science */
+    .hash-science-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hash-phase-grid { grid-template-columns: 1fr 1fr; }
+      .hash-symptoms-grid { grid-template-columns: 1fr 1fr; }
+      .hash-supps-grid { grid-template-columns: 1fr 1fr; }
+      .hash-lifestyle-grid { grid-template-columns: 1fr 1fr; }
+      .hash-science-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-tagline { display: none; }
+      .lang-btn { padding: 4px 7px; font-size: 10px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .thyroid-subsection { padding: 24px 20px; }
+      .hash-phase-grid { grid-template-columns: 1fr; }
+      .hash-symptoms-grid { grid-template-columns: 1fr; }
+      .hash-supps-grid { grid-template-columns: 1fr; }
+      .hash-lifestyle-grid { grid-template-columns: 1fr 1fr; }
+      .lact-meal-item { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .lact-meal-time { min-width: auto; }
+      .thyroid-booom-callout { padding: 36px 24px; }
+      .hash-intol-stat { flex-direction: column; gap: 8px; }
+      .hash-intol-number { font-size: 36px; }
+    }
+    @media (max-width: 560px) {
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+      .hash-lifestyle-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="BOOOM home">
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+    </a>
+    <div class="nav-links" role="navigation" aria-label="Section navigation">
+      <a href="/#features" class="nav-link">Funkcie</a>
+      <a href="/#ranks" class="nav-link">Ranky</a>
+      <a href="/#story" class="nav-link">Príbeh</a>
+      <a href="/#screenshots" class="nav-link">Appka</a>
+      <a href="/stitna-zlaza" class="nav-link">Štítna žľaza</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle nav-link-active">Diéty &amp; intolerancie ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/dieta/bezlaktozova" class="nav-dropdown-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-dropdown-item">🌾 Bezlepková diéta</a>
+          <a href="/dieta/histaminova" class="nav-dropdown-item">🧪 Histamínová intolerancia</a>
+          <a href="/dieta/hashimoto" class="nav-dropdown-item nav-dropdown-item-active">🧬 Hashimotova tyreoiditída</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
+    <div class="lang-switcher" role="navigation" aria-label="Language switcher">
+      <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
+      <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
+      <button class="lang-btn" onclick="setLanguage('CS')" aria-label="Čeština">CS</button>
+      <button class="lang-btn" onclick="setLanguage('PL')" aria-label="Polski">PL</button>
+      <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
+    </div>
+    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-panel">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-logo">BOOOM</span>
+      <button class="nav-mobile-close" id="navMobileClose" aria-label="Zavrieť menu">✕</button>
+    </div>
+    <nav class="nav-mobile-links">
+      <a href="/#features" class="nav-mobile-link">Funkcie</a>
+      <a href="/#ranks" class="nav-mobile-link">Ranky</a>
+      <a href="/#story" class="nav-mobile-link">Príbeh</a>
+      <a href="/#screenshots" class="nav-mobile-link">Appka</a>
+      <div class="nav-mobile-sep"></div>
+      <a href="/stitna-zlaza" class="nav-mobile-link">🦋 Štítna žľaza</a>
+      <div class="nav-mobile-dd open">
+        <button class="nav-mobile-dd-toggle nav-mobile-dd-toggle-active">
+          Diéty &amp; intolerancie
+          <span class="nav-mobile-dd-arrow">▾</span>
+        </button>
+        <div class="nav-mobile-dd-menu">
+          <a href="/dieta/bezlaktozova" class="nav-mobile-dd-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-mobile-dd-item">🌾 Bezlepková diéta</a>
+          <a href="/dieta/histaminova" class="nav-mobile-dd-item">🧪 Histamínová intolerancia</a>
+          <a href="/dieta/hashimoto" class="nav-mobile-dd-item nav-mobile-dd-item-active">🧬 Hashimotova tyreoiditída</a>
+        </div>
+      </div>
+    </nav>
+    <a href="https://app.booom.fit" class="nav-mobile-cta">Stiahnuť BOOOM zadarmo →</a>
+  </div>
+</div>
+
+<!-- ── PAGE INTRO ── -->
+<div class="page-intro">
+  <div class="page-intro-inner">
+    <div class="page-breadcrumb">
+      <a href="/">BOOOM</a>
+      <span>›</span>
+      <a href="/">Diéty &amp; intolerancie</a>
+      <span>›</span>
+      <span>Hashimotova tyreoiditída</span>
+    </div>
+    <h1>🧬 Hashimotova tyreoiditída — keď telo bojuje samo so sebou</h1>
+    <p>Cvičíš, ješ zdravo, spíš dosť. A napriek tomu si vyčerpaný, priberal si a nevieš prečo. Možno problém nie je v tvojej vôli. Možno je to Hashimoto. Toto je moja osobná skúsenosť — a preto som vytvoril BOOOM.</p>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ── -->
+<section>
+  <div class="section-inner">
+
+    <!-- TOP DISCLAIMER -->
+    <div class="thyroid-disclaimer">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Dôležité upozornenie</strong>
+        <p>Nie som lekár ani odborník na medicínu. Toto nie sú lekárske odporúčania. Všetky zdravotné rozhodnutia konzultuj s endokrinológom. Tento článok vychádza z osobnej skúsenosti a vedecky recenzovaných publikácií.</p>
+      </div>
+    </div>
+
+    <!-- ČO JE HASHIMOTO -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Čo je Hashimotova tyreoiditída?</h3>
+      <p class="thyroid-text">Hashimotova tyreoiditída (HT) je najčastejšie autoimunitné ochorenie štítnej žľazy na svete a najčastejšia príčina hypotyreózy v krajinách s dostatočným príjmom jódu. Postihuje približne 1–2 % bežnej populácie, s vyššou prevalenciou u žien a narastajúcim výskytom s vekom.</p>
+      <p class="thyroid-text">Pri Hashimote imunitný systém omylom identifikuje štítnu žľazu ako nepriateľa a útočí na ňu pomocou protilátok — najčastejšie <strong style="color:rgba(255,255,255,0.9)">anti-TPO</strong> (proti enzýmu tyreoperoxidáze) a <strong style="color:rgba(255,255,255,0.9)">anti-TG</strong> (proti tyreoglobulínu). Žľaza sa postupne zápalí, poškodzuje a stráca schopnosť produkovať hormóny.</p>
+      <p class="thyroid-text" style="margin-bottom:0">Ochorenie je <strong style="color:rgba(255,255,255,0.9)">7–10-krát častejšie u žien ako u mužov</strong> a môže sa rozvinúť v akomkoľvek veku.</p>
+    </div>
+
+    <!-- PREČO JE ZÁKERNÉ -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Prečo je Hashimoto také zákerné?</h3>
+      <p class="thyroid-text">Hashimoto sa vyvíja roky až desaťročia bez nápadných príznakov.</p>
+      <blockquote class="thyroid-quote">
+        „Keď mi doktor ukázal výsledky — TSH 6,2 a protilátky TPO cez strop — konečne som pochopil prečo som sa cítil tak zle napriek tomu, že som cvičil 4× týždenne a jedol zdravo. Chyba nebola vo mne. Chyba bola v mojom imunitnom systéme."
+        <cite>— Laco, zakladateľ BOOOM</cite>
+      </blockquote>
+      <p class="thyroid-text">Ochorenie prechádza niekoľkými fázami:</p>
+      <div class="hash-phase-grid">
+        <div class="hash-phase-card hash-phase-1">
+          <h4>🟢 Fáza 1 — Tichá fáza</h4>
+          <p>Roky až desaťročia. Protilátky sú prítomné, žľaza je zápalená, ale TSH je ešte v norme. Príznaky mierne alebo žiadne.</p>
+        </div>
+        <div class="hash-phase-card hash-phase-2">
+          <h4>🟡 Fáza 2 — Subklinická hypotyreóza</h4>
+          <p>TSH začína stúpať (4–10 mU/L), ale voľné hormóny fT3 a fT4 sú ešte v norme. Únava, prírastok hmotnosti, hmla v hlave.</p>
+        </div>
+        <div class="hash-phase-card hash-phase-3">
+          <h4>🔴 Fáza 3 — Manifestná hypotyreóza</h4>
+          <p>TSH výrazne zvýšené (&gt; 10 mU/L), fT4 klesá. Všetky klasické príznaky hypotyreózy.</p>
+        </div>
+        <div class="hash-phase-card hash-phase-4">
+          <h4>🟠 Hashitoxikóza</h4>
+          <p>Prechodné obdobie zvýšenej funkcie žľazy (podobné hypertyreóze) pred rozvojom hypotyreózy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRÍZNAKY -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Príznaky — všetky tváre Hashimota</h3>
+      <div class="hash-symptoms-grid">
+        <div class="hash-symptom-group hash-sg-meta">
+          <h4>⚖️ Metabolické a fyzické</h4>
+          <ul>
+            <li>Priberanie napriek diéte a cvičeniu</li>
+            <li>Extrémna únava nereagujúca na spánok</li>
+            <li>Zimomravosť — stále cítiš chlad</li>
+            <li>Svalová slabosť, bolesti svalov a kĺbov</li>
+            <li>Vysoký LDL cholesterol</li>
+          </ul>
+        </div>
+        <div class="hash-symptom-group hash-sg-neuro">
+          <h4>🧠 Neurologické a psychické</h4>
+          <ul>
+            <li>Hmla v hlave, problémy s koncentráciou</li>
+            <li>Depresie, úzkosť, podráždenosť</li>
+            <li>Nadmerná ospalosť cez deň</li>
+          </ul>
+        </div>
+        <div class="hash-symptom-group hash-sg-skin">
+          <h4>🧴 Kožné a vlasové</h4>
+          <ul>
+            <li>Vypadávanie vlasov (difúzne)</li>
+            <li>Suchá, hrubá pokožka</li>
+            <li>Opuchy tváre, rúk a nôh</li>
+          </ul>
+        </div>
+        <div class="hash-symptom-group hash-sg-digest">
+          <h4>🚽 Tráviace</h4>
+          <ul>
+            <li>Zápcha</li>
+            <li>Pomalé trávenie</li>
+          </ul>
+        </div>
+        <div class="hash-symptom-group hash-sg-women">
+          <h4>👩 U žien</h4>
+          <ul>
+            <li>Nepravidelná menštruácia</li>
+            <li>Problémy s plodnosťou</li>
+            <li>Zvýšené riziko potratov</li>
+          </ul>
+        </div>
+        <div class="hash-symptom-group hash-sg-cardio">
+          <h4>❤️ Kardiovaskulárne</h4>
+          <ul>
+            <li>Pomalý srdcový tep (bradykardia)</li>
+            <li>Zvýšený krvný tlak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIAGNÓZA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Diagnóza — čo hľadáme v krvi</h3>
+      <table class="hash-diag-table">
+        <thead>
+          <tr>
+            <th>Test</th>
+            <th>Normálne hodnoty</th>
+            <th>Čo znamená odchýlka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TSH</td>
+            <td>0,4–4,0 mU/L</td>
+            <td>TSH &gt; 4 → hypotyreóza</td>
+          </tr>
+          <tr>
+            <td>T4 voľný (fT4)</td>
+            <td>12–22 pmol/L</td>
+            <td>Nízky = nedostatočná produkcia</td>
+          </tr>
+          <tr>
+            <td>T3 voľný (fT3)</td>
+            <td>3,1–6,8 pmol/L</td>
+            <td>Aktívna forma hormónu</td>
+          </tr>
+          <tr>
+            <td>Anti-TPO</td>
+            <td>&lt; 34 IU/mL</td>
+            <td>Zvýšené = autoimunitný zápal</td>
+          </tr>
+          <tr>
+            <td>Anti-TG</td>
+            <td>&lt; 115 IU/mL</td>
+            <td>Protilátky proti tyreoglobulínu</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="thyroid-text">Sonografia štítnej žľazy zobrazí zápal, zníženú echogenitu a objem žľazy. Diagnóza sa stanovuje kombináciou krvných testov a sonografie — samotné protilátky nestačia, niektorí ľudia majú zvýšené protilátky bez klinických príznakov.</p>
+      <div class="hash-biotin-warning">
+        <span style="font-size:20px;flex-shrink:0">⚠️</span>
+        <div>
+          <strong>Biotín pozor! (vitamín B7)</strong>
+          <p>Ak užívaš biotín, preruš užívanie aspoň <strong style="color:rgba(255,255,255,0.9)">48 hodín pred odberom krvi</strong> — biotín môže skresliť výsledky testov štítnej žľazy, vrátane TSH.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIEČBA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Liečba — čo funguje</h3>
+      <p class="thyroid-text"><strong style="color:rgba(255,255,255,0.9)">1. Levotyroxín (Euthyrox, L-Thyroxin)</strong> — štandardná liečba hypotyreózy. Syntetický T4 hormón.</p>
+      <div class="hash-critical-warning">
+        <span class="hash-critical-warning-icon">🚨</span>
+        <div>
+          <strong>Kriticky dôležité pravidlo</strong>
+          <p>Liek ber vždy <strong style="color:#ff4444">ráno nalačno</strong> a zapíjaj iba čistou vodou. Počkaj aspoň <strong style="color:#ff4444">30 minút</strong> pred raňajkami, kávou alebo inými doplnkami. Vápnik a železo užité príliš skoro po lieku výrazne znižujú jeho vstrebávanie. Dávka sa nastavuje postupne podľa TSH — kontroly každých 6–8 týždňov na začiatku, potom ročne.</p>
+        </div>
+      </div>
+      <p class="thyroid-text" style="margin-top:16px;margin-bottom:0"><strong style="color:rgba(255,255,255,0.9)">2. Kombinácia T4 + T3</strong> — časť pacientov sa cíti lepšie na kombinovanej terapii T4+T3. Konzultuj s endokrinológom.</p>
+    </div>
+
+    <!-- DIÉTA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Diéta pri Hashimote — čo hovorí veda</h3>
+      <p class="thyroid-text"><strong style="color:rgba(255,255,255,0.9)">Bezlepková diéta:</strong> Znižuje koncentráciu protilátok a reguluje autoimunizáciu štítnej žľazy. Randomizovaná štúdia na 40 pacientkách s Hashimotom (12 týždňov) zistila štatisticky významný rozdiel v hladinách TSH po bezlepkovej intervencii. Prevalencia celiakie je vyššia u pacientov s Hashimotom — odporúčame dať sa otestovať. Ak je výsledok negatívny, skús bezlepkovú diétu na 3 mesiace a sleduj ako sa cítiš.</p>
+      <p class="thyroid-text"><strong style="color:rgba(255,255,255,0.9)">Mediteránska diéta:</strong> Omega-3 mastné kyseliny znižujú oxidačný stres a majú protizápalový účinok. Mediteránska diéta je pre Hashimoto pacientov bezpečná a prospešná.</p>
+      <div class="lact-food-panel lact-food-avoid">
+        <h4>🚫 Čo obmedziť</h4>
+        <ul>
+          <li>🍬 Spracované potraviny a cukor — zhoršujú zápal</li>
+          <li>🫘 Sója — nekonzumuj v blízkom čase po levotyroxíne, znižuje vstrebávanie</li>
+          <li>🥦 Surová kapusta, brokolica, kel — strumigény vo veľkom množstve môžu blokovať jód; tepelnou úpravou sa tento efekt bezpečne eliminuje</li>
+          <li>🧂 Jód v nadmerných dávkach — môže zhoršiť autoimunitný zápal; konzultuj s lekárom</li>
+          <li>🍷 Alkohol — zhoršuje funkciu imunitného systému</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- JEDÁLNIČEK -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🍽️ Ukážkový jedálniček na deň</h3>
+      <div class="lact-meals-list">
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌅 Raňajky <span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.4)">(30+ min po lieky)</span></div>
+          <div class="lact-meal-content">Vajíčka na tvrdo + avokádo na ryžových chlebíkoch + zelený čaj</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌰 Desiata</div>
+          <div class="lact-meal-content">Para orechy (2–3 kusy = denná potreba selénu) + jablko</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">☀️ Obed</div>
+          <div class="lact-meal-content">Losos na grile + quinoa + dusená brokolica (tepelne upravená) s olivovým olejom a cesnakom</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🕐 Olovrant</div>
+          <div class="lact-meal-content">Prírodný jogurt + čučoriedky + ľanové semienka</div>
+        </div>
+        <div class="lact-meal-item">
+          <div class="lact-meal-time">🌙 Večera</div>
+          <div class="lact-meal-content">Kuracie stehno pečené + batáty + šalát s olivovým olejom</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPLEMENTÁCIA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">💊 Suplementácia — čo skutočne funguje</h3>
+      <div class="hash-supps-grid">
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">🥇</div>
+          <h4>Selén — najdôležitejší</h4>
+          <p>Meta-analýza 21 štúdií (1 610 subjektov) potvrdila štatisticky významné zníženie TPOAb po 3 aj 6 mesiacoch. Selenometionín 100–200 mcg denne — nie seleničitan, jeho biologická dostupnosť je nižšia.</p>
+        </div>
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">🔬</div>
+          <h4>Myo-inozitol + Selén</h4>
+          <p>6-mesačná štúdia: kombinácia stabilizovala TSH o 42 % rýchlejšie, znížila TSH o 31–38 % a TgAb o 51 % v porovnaní so selénom samotným. Myo-inozitol 600 mg + Selén 100–200 mcg denne.</p>
+        </div>
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">☀️</div>
+          <h4>Vitamín D3 + K2</h4>
+          <p>Vitamín D zabraňuje imunitnému systému útočiť na štítnu žľazu. Väčšina Hashimoto pacientov má deficit. Skontroluj hladiny krvným testom. D3 2 000–4 000 IU denne + K2.</p>
+        </div>
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">🐟</div>
+          <h4>Omega-3</h4>
+          <p>Protizápalový účinok, podpora imunitnej rovnováhy. 1–2 g EPA+DHA denne.</p>
+        </div>
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">💪</div>
+          <h4>Horčík</h4>
+          <p>Dôležitý pre energiu, spánok a svalový tonus. Horčík bisglycínát alebo citrát — 300–400 mg večer.</p>
+        </div>
+        <div class="hash-supp-card">
+          <div class="hash-supp-icon">🧠</div>
+          <h4>Vitamíny skupiny B</h4>
+          <p>B12 a B6 pre energiu a nervový systém. Deficit B12 je pri hypotyreóze častý. Methylcobalamín — aktívna forma B12.</p>
+        </div>
+      </div>
+      <div class="hash-supp-no">
+        <strong>⛔ Čo NESUPLEMENTOVAŤ bez lekára</strong>
+        <ul>
+          <li>Jód — môže zhoršiť autoimunitný zápal pri Hashimote</li>
+          <li>Biotín — skreslí výsledky testov štítnej žľazy</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INTOLERANCIE -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Hashimoto a potravinové intolerancie</h3>
+      <div class="hash-intol-stat">
+        <div class="hash-intol-number">97,65 %</div>
+        <div class="hash-intol-text">Štúdia na 85 pacientoch s Hashimotovou tyreoiditídou zistila, že <strong>97,65 % z nich vykazovalo potravinovú intoleranciu</strong>, s priemerným počtom 15,76 typov intolerancie na pacienta. Najčastejšie boli intolerancia vajec (75,29 %) a mlieka (65,88 %).</div>
+      </div>
+      <p class="thyroid-text">Takmer všetci Hashimoto pacienti majú viacnásobné potravinové intolerancie. Individualizovaná eliminačná diéta môže byť kľúčom k zlepšeniu stavu — ale bez poctivého sledovania nemáš šancu zistiť ktorá potravina ti robí zle.</p>
+      <p style="font-size:12px;color:rgba(0,255,136,0.4);font-style:italic">Zdroj: Frontiers in Nutrition, 2024. doi: 10.3389/fnut.2024.1452371</p>
+    </div>
+
+    <!-- LIFESTYLE -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">Lifestyle — čo okrem diéty</h3>
+      <div class="hash-lifestyle-grid">
+        <div class="hash-lifestyle-card">
+          <div class="hash-lifestyle-icon">😤</div>
+          <h4>Stres a kortizol</h4>
+          <p>Kortizol priamo narúša funkciu štítnej žľazy a zhoršuje autoimunitný zápal. Chronický stres je jeden z hlavných spúšťačov Hashimota.</p>
+        </div>
+        <div class="hash-lifestyle-card">
+          <div class="hash-lifestyle-icon">😴</div>
+          <h4>Spánok</h4>
+          <p>Minimálne 7–8 hodín. Počas spánku prebieha regenerácia a regulácia imunitného systému.</p>
+        </div>
+        <div class="hash-lifestyle-card">
+          <div class="hash-lifestyle-icon">🏃</div>
+          <h4>Pohyb</h4>
+          <p>Mierna aeróbna aktivita (chôdza, plávanie, joga) pomáha. Extrémne záťaže môžu zhoršiť príznaky pri aktívnom zápale.</p>
+        </div>
+        <div class="hash-lifestyle-card">
+          <div class="hash-lifestyle-icon">🦠</div>
+          <h4>Črevný mikrobióm</h4>
+          <p>Zdravé črevné baktérie regulujú imunitný systém. Viac vlákniny, fermentované potraviny (kefír, kimchi, kyslá kapusta).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEDA -->
+    <div class="thyroid-subsection">
+      <h3 class="thyroid-subsection-title">🔬 Čo hovorí veda</h3>
+      <div class="hash-science-grid">
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🥇</div>
+          <h4>Selén znižuje protilátky — silný dôkaz</h4>
+          <p>Meta-analýza 21 štúdií zahrnujúca 1 610 subjektov potvrdila štatisticky významné zníženie TPOAb po 3 mesiacoch (SMD = -0,46) aj po 6 mesiacoch (SMD = -0,80) suplementácie selénom.</p>
+          <p class="thyroid-source">Clinical Evidence, PubMed 2024. doi: 10.1097/MD.0000000000039668</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🔬</div>
+          <h4>Myo-inozitol + Selén — silnejšia kombinácia</h4>
+          <p>6-mesačná štúdia: kombinácia stabilizovala TSH o 42 % rýchlejšie ako selén samotný a znížila TgAb o 51 %.</p>
+          <p class="thyroid-source">Sagepub Journals, 2024. doi: 10.1177/11795514241300998</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">📊</div>
+          <h4>Sieťová meta-analýza suplementov</h4>
+          <p>Sieťová meta-analýza (Frontiers in Endocrinology, 2024) odporúča pacientom s Hashimotovou tyreoiditídou podávanie selénu ako pomocnej liečby. Selén štatisticky významne znížil TPOAb (SMD: -2,44) a TgAb (SMD: -2,76).</p>
+          <p class="thyroid-source">Peng B et al. Front Endocrinol. 2024. doi: 10.3389/fendo.2024.1445878</p>
+        </div>
+        <div class="thyroid-science-card">
+          <div class="thyroid-science-icon">🥗</div>
+          <h4>Bezlepková + mediteránska diéta</h4>
+          <p>Randomizovaná štúdia na 40 pacientkách (12 týždňov) zistila štatisticky významný rozdiel v hladinách TSH u skupín dodržiavajúcich bezlepkovú a mediteránsku diétu.</p>
+          <p class="thyroid-source">Ülker MT et al. Food Sci Nutr. 2024;12:1180–1188. doi: 10.1002/fsn3.3833</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOOM CALLOUT -->
+    <div class="thyroid-booom-callout">
+      <h3>Ako ti BOOOM pomáha</h3>
+      <p>V BOOOM sleduješ TSH, T4, T3, anti-TPO a anti-TG protilátky v čase. Vidíš trend — či sa hodnoty po zmene stravy alebo suplementácie zlepšujú. AI Coach ti poradí ako optimalizovať jedálniček. Sekcia OCR ti umožní odfotiť výsledky z papiera a appka ich automaticky vyplní. Už viac nemusíš prepisovať každé číslo ručne.</p>
+      <a href="https://app.booom.fit" class="btn-primary">Stiahnuť BOOOM zadarmo →</a>
+    </div>
+
+    <!-- BOTTOM DISCLAIMER -->
+    <div class="thyroid-disclaimer thyroid-disclaimer-bottom">
+      <span class="thyroid-disclaimer-icon">⚠️</span>
+      <div>
+        <strong>Záverečné upozornenie</strong>
+        <p>Všetky informácie na tejto stránke sú len informačného charakteru a vychádzajú z vedecky recenzovaných publikácií a osobnej skúsenosti zakladateľa BOOOM. Nie som lekár. Hashimotova tyreoiditída vyžaduje pravidelnú starostlivosť endokrinológa. Nikdy nemeň dávky liekov bez konzultácie s lekárom.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">BOOOM</span>
+      <div class="footer-links">
+        <a href="/#features" data-i18n="footer_about">O nás</a>
+        <a href="mailto:info@booom.fit" data-i18n="footer_contact">Kontakt</a>
+        <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="/terms" data-i18n="footer_terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2026 BOOOM. Všetky práva vyhradené.</span>
+      <span class="footer-founder">Made with ❤️ by <a href="https://www.instagram.com/lacoo.v/" target="_blank" rel="noopener" data-i18n="footer_founder">Laco, zakladateľ BOOOM</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/lang.js"></script>
+<script>
+(function() {
+  var btn = document.getElementById('navHamburger');
+  var menu = document.getElementById('navMobile');
+  var closeBtn = document.getElementById('navMobileClose');
+  if (!btn || !menu) return;
+  function openMenu() { menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu() { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
+  menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
+  menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+}());
+</script>
+</body>
+</html>
