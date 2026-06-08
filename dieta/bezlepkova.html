@@ -573,6 +573,48 @@
     .glut-tip-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
     .glut-tip-card strong { color: var(--text); font-weight: 700; }
 
+    /* ── 7-DAY MEAL PLAN ── */
+    .mealplan-header { padding: 40px 40px 24px; }
+    .mealplan-toggle-wrap { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+    .mealplan-toggle-btn { background: rgba(255,255,255,0.04); border: 1px solid #2a2a2a; color: rgba(255,255,255,0.5); font-family: inherit; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 10px; cursor: pointer; transition: all 0.2s; line-height: 1; }
+    .mealplan-toggle-btn.active { background: rgba(0,230,118,0.1); border-color: rgba(0,230,118,0.35); color: var(--green); }
+    .mealplan-tabs { display: flex; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; background: rgba(0,0,0,0.25); }
+    .mealplan-tab { flex: 1; background: none; border: none; border-right: 1px solid #1a1a1a; color: rgba(255,255,255,0.4); font-family: inherit; font-size: 13px; font-weight: 700; padding: 13px 4px; cursor: pointer; transition: all 0.18s; letter-spacing: 0.3px; position: relative; }
+    .mealplan-tab:last-child { border-right: none; }
+    .mealplan-tab:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+    .mealplan-tab.active { color: var(--green); background: rgba(0,230,118,0.05); }
+    .mealplan-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--green); }
+    .mealplan-days { padding: 28px 40px 0; }
+    .mealplan-day { display: none; }
+    .mealplan-day.active { display: block; }
+    .meal-card { background: rgba(255,255,255,0.025); border: 1px solid #1e1e1e; border-radius: 14px; padding: 16px 20px; margin-bottom: 10px; transition: border-color 0.18s; }
+    .meal-card:hover { border-color: #2e2e2e; }
+    .bulk-card { background: rgba(255,214,0,0.03); border-color: rgba(255,214,0,0.18) !important; }
+    .bulk-card:hover { border-color: rgba(255,214,0,0.32) !important; }
+    .meal-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .meal-emoji { font-size: 20px; flex-shrink: 0; line-height: 1.35; }
+    .meal-type { font-size: 10px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .bulk-type { color: rgba(255,214,0,0.7) !important; }
+    .meal-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .macro-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .macro-pill { font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 20px; }
+    .pill-kcal { background: rgba(0,230,118,0.1); color: var(--green); border: 1px solid rgba(0,230,118,0.22); }
+    .pill-prot { background: rgba(0,212,255,0.08); color: var(--cyan); border: 1px solid rgba(0,212,255,0.18); }
+    .pill-carb { background: rgba(255,214,0,0.07); color: var(--gold); border: 1px solid rgba(255,214,0,0.18); }
+    .pill-fat { background: rgba(255,150,0,0.07); color: #ff9932; border: 1px solid rgba(255,150,0,0.18); }
+    .bulk-extra { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px dashed rgba(255,214,0,0.18); }
+    .bulk-extra-title { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,214,0,0.55); margin-bottom: 8px; padding-left: 2px; }
+    .mealplan-total { background: rgba(0,230,118,0.03); border: 1px solid rgba(0,230,118,0.12); border-radius: 14px; padding: 18px 22px; margin-top: 14px; }
+    .total-row-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,230,118,0.5); margin-bottom: 12px; }
+    .total-macros { display: flex; }
+    .total-macro { flex: 1; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+    .total-macro:last-child { border-right: none; }
+    .total-val { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.5px; color: var(--green); line-height: 1.1; }
+    .total-lab { display: block; font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 4px; }
+    .mealplan-disclaimer { margin: 24px 40px 40px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; background: rgba(255,255,255,0.02); border: 1px solid #1a1a1a; border-radius: 12px; padding: 14px 18px; }
+    .mealplan-special-note { margin: 16px 40px 0; font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.7; background: rgba(0,255,136,0.05); border: 1px solid #00ff88; border-radius: 8px; padding: 12px 16px; }
+    @media (max-width: 768px) { .mealplan-header { padding: 24px 20px 20px; } .mealplan-days { padding: 20px 20px 0; } .mealplan-disclaimer { margin: 20px 20px 30px; } .mealplan-special-note { margin: 16px 20px 0; } .total-val { font-size: 17px; } .total-lab { font-size: 10px; } }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -905,6 +947,149 @@
       </div>
     </div>
 
+    <!-- 7-DŇOVÝ JEDÁLNIČEK -->
+    <div class="thyroid-subsection" style="padding:0;overflow:hidden;">
+      <div class="mealplan-header">
+        <h3 class="thyroid-subsection-title" style="margin-bottom:10px">📅 7-dňový jedálniček bez lepku</h3>
+        <p class="thyroid-text" style="margin-bottom:0">Kompletný týždenný plán pre celiatikov a ľudí s intoleranciou lepku. Prepni medzi udržiavacím a bulking režimom.</p>
+        <div class="mealplan-toggle-wrap">
+          <button class="mealplan-toggle-btn active" id="btnMaint" onclick="setMealMode('maint')">🥗 Udržiavacia (~1950 kcal)</button>
+          <button class="mealplan-toggle-btn" id="btnBulk" onclick="setMealMode('bulk')">💪 Bulking (~2570 kcal)</button>
+        </div>
+      </div>
+      <div class="mealplan-tabs">
+        <button class="mealplan-tab active" onclick="setMealDay(0)">Po</button>
+        <button class="mealplan-tab" onclick="setMealDay(1)">Ut</button>
+        <button class="mealplan-tab" onclick="setMealDay(2)">St</button>
+        <button class="mealplan-tab" onclick="setMealDay(3)">Št</button>
+        <button class="mealplan-tab" onclick="setMealDay(4)">Pi</button>
+        <button class="mealplan-tab" onclick="setMealDay(5)">So</button>
+        <button class="mealplan-tab" onclick="setMealDay(6)">Ne</button>
+      </div>
+      <div class="mealplan-days">
+        <div class="mealplan-day active" id="mp-day-0">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Ryžová kaša + kokosové mlieko + čučoriedky + med</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">390 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 72g</span><span class="macro-pill pill-fat">T: 8g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Ryžové chlebíky + avokádo + vajce</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">290 kcal</span><span class="macro-pill pill-prot">B: 12g</span><span class="macro-pill pill-carb">S: 24g</span><span class="macro-pill pill-fat">T: 16g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Kuracie prsia 200g + zemiaky pečené + šalát</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">520 kcal</span><span class="macro-pill pill-prot">B: 48g</span><span class="macro-pill pill-carb">S: 50g</span><span class="macro-pill pill-fat">T: 12g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Bezlepkový jogurt + mandle 30g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">260 kcal</span><span class="macro-pill pill-prot">B: 12g</span><span class="macro-pill pill-carb">S: 18g</span><span class="macro-pill pill-fat">T: 16g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Losos 180g + quinoa 100g + brokolica</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">470 kcal</span><span class="macro-pill pill-prot">B: 42g</span><span class="macro-pill pill-carb">S: 48g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1930" data-m-b="122g" data-m-s="212g" data-m-t="66g" data-b-kcal="2550" data-b-b="176g" data-b-s="250g" data-b-t="98g">
+            <div class="total-row-label">Denný súhrn — Pondelok</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1930</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">122g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">212g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">66g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-1">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Omeleta 3 vajcia + špenát + bezlepkový toast</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">400 kcal</span><span class="macro-pill pill-prot">B: 22g</span><span class="macro-pill pill-carb">S: 28g</span><span class="macro-pill pill-fat">T: 22g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Banán + arašidové maslo 20g + vlašské orechy</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">280 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 38g</span><span class="macro-pill pill-fat">T: 12g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Hovädzia polievka + ryža 150g + mrkva</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">490 kcal</span><span class="macro-pill pill-prot">B: 40g</span><span class="macro-pill pill-carb">S: 58g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Sójový proteín shake + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">290 kcal</span><span class="macro-pill pill-prot">B: 29g</span><span class="macro-pill pill-carb">S: 34g</span><span class="macro-pill pill-fat">T: 4g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Morčacie mäso 200g + pohánka + cuketa</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">440 kcal</span><span class="macro-pill pill-prot">B: 42g</span><span class="macro-pill pill-carb">S: 38g</span><span class="macro-pill pill-fat">T: 13g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1900" data-m-b="141g" data-m-s="196g" data-m-t="61g" data-b-kcal="2520" data-b-b="195g" data-b-s="234g" data-b-t="93g">
+            <div class="total-row-label">Denný súhrn — Utorok</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1900</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">141g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">196g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">61g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-2">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Smoothie bowl: bezlepkový ovos + mandľové mlieko + jahody</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">380 kcal</span><span class="macro-pill pill-prot">B: 10g</span><span class="macro-pill pill-carb">S: 68g</span><span class="macro-pill pill-fat">T: 8g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Kukuričné chlebíky + hummus + paradajky</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">240 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 34g</span><span class="macro-pill pill-fat">T: 8g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Pečená kačica 200g + bezlepková knedľa + kapusta</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">590 kcal</span><span class="macro-pill pill-prot">B: 42g</span><span class="macro-pill pill-carb">S: 64g</span><span class="macro-pill pill-fat">T: 18g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Kešu orechy 30g + pomaranč</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">270 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 22g</span><span class="macro-pill pill-fat">T: 16g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Tuniak 150g + zemiakový šalát + uhorka</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">490 kcal</span><span class="macro-pill pill-prot">B: 38g</span><span class="macro-pill pill-carb">S: 46g</span><span class="macro-pill pill-fat">T: 12g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1970" data-m-b="106g" data-m-s="234g" data-m-t="62g" data-b-kcal="2590" data-b-b="160g" data-b-s="272g" data-b-t="94g">
+            <div class="total-row-label">Denný súhrn — Streda</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1970</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">106g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">234g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">62g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-3">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Bezlepkové palacinky + čučoriedky + javorový sirup</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">460 kcal</span><span class="macro-pill pill-prot">B: 10g</span><span class="macro-pill pill-carb">S: 88g</span><span class="macro-pill pill-fat">T: 8g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Bezlepková proteínová tyčinka</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">210 kcal</span><span class="macro-pill pill-prot">B: 20g</span><span class="macro-pill pill-carb">S: 20g</span><span class="macro-pill pill-fat">T: 6g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Šošovicová polievka + bezlepkový chlieb + šalát</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">490 kcal</span><span class="macro-pill pill-prot">B: 26g</span><span class="macro-pill pill-carb">S: 72g</span><span class="macro-pill pill-fat">T: 8g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Bezlepkový jogurt + kiwi</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">220 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 32g</span><span class="macro-pill pill-fat">T: 6g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Bravčová panenka 200g + ryža + dusená zelenina</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">520 kcal</span><span class="macro-pill pill-prot">B: 48g</span><span class="macro-pill pill-carb">S: 44g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1900" data-m-b="112g" data-m-s="256g" data-m-t="42g" data-b-kcal="2520" data-b-b="166g" data-b-s="294g" data-b-t="74g">
+            <div class="total-row-label">Denný súhrn — Štvrtok</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1900</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">112g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">256g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">42g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-4">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Vajíčková nátierka + ryžové chlebíky</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">350 kcal</span><span class="macro-pill pill-prot">B: 18g</span><span class="macro-pill pill-carb">S: 28g</span><span class="macro-pill pill-fat">T: 16g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Banán + arašidové maslo 30g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">290 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 38g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Grilovaný losos 200g + bataty + dusený špenát</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">540 kcal</span><span class="macro-pill pill-prot">B: 46g</span><span class="macro-pill pill-carb">S: 48g</span><span class="macro-pill pill-fat">T: 16g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Kokosový jogurt + chia semienka</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">240 kcal</span><span class="macro-pill pill-prot">B: 6g</span><span class="macro-pill pill-carb">S: 24g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Kuracie stehná + quinoa + paprika</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">520 kcal</span><span class="macro-pill pill-prot">B: 44g</span><span class="macro-pill pill-carb">S: 50g</span><span class="macro-pill pill-fat">T: 12g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1940" data-m-b="122g" data-m-s="188g" data-m-t="72g" data-b-kcal="2560" data-b-b="176g" data-b-s="226g" data-b-t="104g">
+            <div class="total-row-label">Denný súhrn — Piatok</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1940</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">122g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">188g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">72g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-5">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Bezlepkové müsli + ryžové mlieko + čerstvé ovocie</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">400 kcal</span><span class="macro-pill pill-prot">B: 8g</span><span class="macro-pill pill-carb">S: 70g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Varené vajcia 2ks + cherry paradajky</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">190 kcal</span><span class="macro-pill pill-prot">B: 14g</span><span class="macro-pill pill-carb">S: 6g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Hovädzie na zelenine + ryža 120g + šalát</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">530 kcal</span><span class="macro-pill pill-prot">B: 44g</span><span class="macro-pill pill-carb">S: 52g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Sójový proteín shake</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">250 kcal</span><span class="macro-pill pill-prot">B: 24g</span><span class="macro-pill pill-carb">S: 22g</span><span class="macro-pill pill-fat">T: 6g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Pečená treska + zemiaky + brokolica</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">520 kcal</span><span class="macro-pill pill-prot">B: 42g</span><span class="macro-pill pill-carb">S: 54g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="1890" data-m-b="132g" data-m-s="204g" data-m-t="50g" data-b-kcal="2510" data-b-b="186g" data-b-s="242g" data-b-t="82g">
+            <div class="total-row-label">Denný súhrn — Sobota</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">1890</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">132g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">204g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">50g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+        <div class="mealplan-day" id="mp-day-6">
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌅</span><div><div class="meal-type">Raňajky</div><div class="meal-name">Bezlepkový chlieb + avokádo + údený losos</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">420 kcal</span><span class="macro-pill pill-prot">B: 22g</span><span class="macro-pill pill-carb">S: 30g</span><span class="macro-pill pill-fat">T: 22g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🍎</span><div><div class="meal-type">Desiata</div><div class="meal-name">Ovocný šalát + mandle 25g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">230 kcal</span><span class="macro-pill pill-prot">B: 6g</span><span class="macro-pill pill-carb">S: 30g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">☀️</span><div><div class="meal-type">Obed</div><div class="meal-name">Kuracie na zelenine (bez múky) + ryža + šalát</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">580 kcal</span><span class="macro-pill pill-prot">B: 50g</span><span class="macro-pill pill-carb">S: 52g</span><span class="macro-pill pill-fat">T: 14g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🕐</span><div><div class="meal-type">Olovrant</div><div class="meal-name">Kokosové mlieko smoothie + sójový proteín</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">290 kcal</span><span class="macro-pill pill-prot">B: 22g</span><span class="macro-pill pill-carb">S: 32g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="meal-card"><div class="meal-header"><span class="meal-emoji">🌙</span><div><div class="meal-type">Večera</div><div class="meal-name">Tofu na zelenine + pohánka + sezamové semienka</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">480 kcal</span><span class="macro-pill pill-prot">B: 28g</span><span class="macro-pill pill-carb">S: 58g</span><span class="macro-pill pill-fat">T: 10g</span></div></div>
+          <div class="bulk-extra">
+            <div class="bulk-extra-title">💪 Bulking doplnky</div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🥜</span><div><div class="meal-type bulk-type">Ráno do kaše</div><div class="meal-name">2 PL arašidového masla</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+190 kcal</span><span class="macro-pill pill-prot">B: +8g</span><span class="macro-pill pill-carb">S: +6g</span><span class="macro-pill pill-fat">T: +16g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">🏋️</span><div><div class="meal-type bulk-type">Po tréningu</div><div class="meal-name">Sójový proteín 40g + banán</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+250 kcal</span><span class="macro-pill pill-prot">B: +32g</span><span class="macro-pill pill-carb">S: +28g</span><span class="macro-pill pill-fat">T: +4g</span></div></div>
+            <div class="meal-card bulk-card"><div class="meal-header"><span class="meal-emoji">😴</span><div><div class="meal-type bulk-type">Pred spaním</div><div class="meal-name">100g tofu + orechy 20g</div></div></div><div class="macro-pills"><span class="macro-pill pill-kcal">+180 kcal</span><span class="macro-pill pill-prot">B: +14g</span><span class="macro-pill pill-carb">S: +4g</span><span class="macro-pill pill-fat">T: +12g</span></div></div>
+          </div>
+          <div class="mealplan-total" data-m-kcal="2000" data-m-b="128g" data-m-s="202g" data-m-t="66g" data-b-kcal="2620" data-b-b="182g" data-b-s="240g" data-b-t="98g">
+            <div class="total-row-label">Denný súhrn — Nedeľa</div>
+            <div class="total-macros"><div class="total-macro"><span class="total-val mp-kcal">2000</span><span class="total-lab">kcal</span></div><div class="total-macro"><span class="total-val mp-b">128g</span><span class="total-lab">bielkoviny</span></div><div class="total-macro"><span class="total-val mp-s">202g</span><span class="total-lab">sacharidy</span></div><div class="total-macro"><span class="total-val mp-t">66g</span><span class="total-lab">tuky</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="mealplan-disclaimer">⚕️ Jedálniček je orientačný. Presné množstvá závisia od tvojej hmotnosti, výšky a aktivity. Odporúčame konzultáciu s nutričným špecialistom.</div>
+    </div>
+
     <!-- VÝŽIVA -->
     <div class="thyroid-subsection">
       <h3 class="thyroid-subsection-title">⚠️ Na čo si dávať pozor — výživa pri bezlepkovej diéte</h3>
@@ -1072,6 +1257,27 @@
   menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
   menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
   menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+}());
+</script>
+<script>
+(function () {
+  window.setMealDay = function (idx) {
+    document.querySelectorAll('.mealplan-tab').forEach(function (t, i) { t.classList.toggle('active', i === idx); });
+    document.querySelectorAll('.mealplan-day').forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+  };
+  var isBulk = false;
+  window.setMealMode = function (mode) {
+    isBulk = (mode === 'bulk');
+    document.getElementById('btnMaint').classList.toggle('active', !isBulk);
+    document.getElementById('btnBulk').classList.toggle('active', isBulk);
+    document.querySelectorAll('.bulk-extra').forEach(function (el) { el.style.display = isBulk ? 'block' : 'none'; });
+    document.querySelectorAll('.mealplan-total').forEach(function (el) {
+      el.querySelector('.mp-kcal').textContent = isBulk ? el.dataset.bKcal : el.dataset.mKcal;
+      el.querySelector('.mp-b').textContent = isBulk ? el.dataset.bB : el.dataset.mB;
+      el.querySelector('.mp-s').textContent = isBulk ? el.dataset.bS : el.dataset.mS;
+      el.querySelector('.mp-t').textContent = isBulk ? el.dataset.bT : el.dataset.mT;
+    });
+  };
 }());
 </script>
 </body>
