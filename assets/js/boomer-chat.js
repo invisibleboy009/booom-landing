@@ -12,6 +12,16 @@
   var MAX_API_CTX = 6;
 
   // ── State ──────────────────────────────────────────────────────────────────
+  var BUBBLE_MSGS = [
+    'Ahoj, ako ti môžem pomôcť? 💪',
+    'Čau makáč! Hoď mi sem svoje max na bench a ja ti poviem kde máš rezervu. 💪',
+    'Hej! Koľko dávaš na drep? Za 10 sekúnd ti poviem či trénuješ správne.',
+    'Silák, odkedy tréningy nezapisuješ? Tvoje PR ťa čakajú v BOOOM. 🔥',
+    'Čo ťa zastavuje od ďalšieho PR? Opýtaj sa ma — som tu pre teba 24/7.',
+    'Ahoj! Zaujíma ťa ako schudnúť a pritom nestratiť svalovku? Mám odpoveď.'
+  ];
+  var bubbleIdx = 0;
+
   var supabaseClient = null;
   var displayMessages = [];      // {role:'user'|'bot', text:string}
   var chatHistory = [];          // API format, rebuilt before each fetch
@@ -147,7 +157,7 @@
       '@keyframes boomer-pulse{0%,100%{box-shadow:0 0 8px rgba(0,255,136,0.4);}50%{box-shadow:0 0 22px rgba(0,255,136,0.9),0 0 40px rgba(0,255,136,0.2);}}',
 
       /* Speech bubble */
-      '#boomer-bubble{position:fixed;bottom:32px;right:92px;background:#0d0d0d;border:1px solid #00ff88;border-radius:12px;padding:6px 10px;font-size:12px;color:#fff;white-space:nowrap;z-index:9998;font-family:"Inter",-apple-system,sans-serif;pointer-events:none;transition:opacity 0.25s;}',
+      '#boomer-bubble{position:fixed;bottom:32px;right:92px;background:#0d0d0d;border:1px solid #00ff88;border-radius:12px;padding:8px 12px;font-size:12px;color:#fff;white-space:normal;max-width:230px;line-height:1.5;z-index:9998;font-family:"Inter",-apple-system,sans-serif;pointer-events:none;transition:opacity 0.45s ease;}',
       '#boomer-bubble::after{content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:#00ff88;border-right-width:0;}',
 
       /* Panel */
@@ -795,6 +805,18 @@
 
     document.addEventListener('focusin', onFocusIn);
     document.addEventListener('focusout', onFocusOut);
+
+    /* Rotate bubble messages every 8 seconds */
+    setInterval(function () {
+      var bubble = document.getElementById('boomer-bubble');
+      if (!bubble || isPanelOpen) return;
+      bubble.style.opacity = '0';
+      setTimeout(function () {
+        bubbleIdx = (bubbleIdx + 1) % BUBBLE_MSGS.length;
+        bubble.textContent = BUBBLE_MSGS[bubbleIdx];
+        bubble.style.opacity = '1';
+      }, 460);
+    }, 8000);
   }
 
   function init() {
