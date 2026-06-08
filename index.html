@@ -367,14 +367,15 @@
     .footer-founder a:hover { text-decoration: underline; }
 
     /* ── STORY ── */
-    .story-accordion { max-width: 720px; margin: 0 auto; border: 1px solid var(--bg-card-border); border-radius: 20px; overflow: hidden; }
-    .story-accordion-btn { width: 100%; background: var(--bg-card); border: none; padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: inherit; font-size: clamp(16px, 2vw, 20px); font-weight: 800; color: var(--text); letter-spacing: -0.3px; transition: background 0.2s; text-align: left; }
+    .story-accordion { max-width: 720px; margin: 0 auto; border: 1px solid #222; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #0d0d0d, #111); transition: border-color 0.2s; }
+    .story-accordion:hover { border-color: #333; }
+    .story-accordion-btn { width: 100%; background: transparent; border: none; padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: inherit; font-size: clamp(16px, 2vw, 20px); font-weight: 800; color: var(--text); letter-spacing: -0.3px; transition: background 0.2s; text-align: left; }
     .story-accordion-btn:hover { background: rgba(255,255,255,0.03); }
-    .story-accordion-icon { width: 20px; height: 20px; color: var(--green); transition: transform 0.35s ease; flex-shrink: 0; }
+    .story-accordion-icon { font-size: 14px; color: var(--green); transition: transform 0.35s ease; flex-shrink: 0; display: inline-block; line-height: 1; }
     .story-accordion-btn[aria-expanded="true"] .story-accordion-icon { transform: rotate(180deg); }
     .story-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     .story-accordion-body.open { max-height: 5000px; transition: max-height 1.2s ease-in-out; }
-    .story-content { padding: 36px 36px 48px; background: var(--bg-card); border-top: 1px solid var(--bg-card-border); display: flex; flex-direction: column; gap: 18px; }
+    .story-content { padding: 36px 36px 48px; background: transparent; border-top: 1px solid #1e1e1e; display: flex; flex-direction: column; gap: 18px; }
     .story-preface { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.85; font-style: italic; padding-bottom: 20px; border-bottom: 1px solid #1e1e1e; }
     .story-content p { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.85; }
     .story-key-phrase { color: #00ff88 !important; font-weight: 800 !important; font-size: 18px !important; line-height: 1.6 !important; }
@@ -614,7 +615,7 @@
     <div class="story-accordion">
       <button class="story-accordion-btn" onclick="toggleStory(this)" aria-expanded="false" aria-controls="story-accordion-body">
         <span>Príbeh zakladateľa</span>
-        <svg class="story-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        <span class="story-accordion-icon" aria-hidden="true">▼</span>
       </button>
       <div class="story-accordion-body" id="story-accordion-body">
         <div class="story-content">
