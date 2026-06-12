@@ -794,14 +794,6 @@
     .story-sig-role a { color: var(--green); text-decoration: none; }
     .story-sig-role a:hover { text-decoration: underline; }
 
-    /* ── SCREENSHOTS ── */
-    .screenshots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 28px; justify-items: center; }
-    .screenshot-item { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 280px; }
-    .screenshot-frame { width: 100%; aspect-ratio: 9 / 19; border-radius: 24px; border: 2px solid #1e1e1e; overflow: hidden; background: #1a1a1a; position: relative; }
-    .screenshot-frame img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 22px; }
-    .screenshot-title { font-size: 15px; font-weight: 800; color: var(--green); text-align: center; letter-spacing: -0.2px; line-height: 1.4; }
-    .screenshot-desc { font-size: 13px; color: var(--muted); text-align: center; line-height: 1.75; }
-
     /* ── TEASER ── */
     .teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .thyroid-teaser-card { display: flex; gap: 28px; align-items: center; background: var(--bg-card); border: 1px solid rgba(0,230,118,0.3); border-radius: 20px; padding: 36px 40px; text-decoration: none; transition: border-color 0.2s, transform 0.25s, box-shadow 0.25s; }
@@ -882,7 +874,6 @@
       .features-modal-grid { grid-template-columns: 1fr; }
       .features-modal-panel { padding: 40px 24px; }
       .ranks-grid { grid-template-columns: repeat(2, 1fr); }
-      .screenshots-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .teaser-grid { grid-template-columns: 1fr; }
       .stat { padding: 0 16px; }
@@ -917,7 +908,6 @@
       <a href="#features" class="nav-link">Funkcie</a>
       <a href="#ranks" class="nav-link">Ranky</a>
       <a href="#story" class="nav-link">Príbeh</a>
-      <a href="#screenshots" class="nav-link">Appka</a>
       <a href="/stitna-zlaza" class="nav-link">Štítna žľaza</a>
       <div class="nav-dropdown">
         <span class="nav-dropdown-toggle">Diéty &amp; intolerancie ▾</span>
@@ -952,7 +942,6 @@
       <a href="#features" class="nav-mobile-link">Funkcie</a>
       <a href="#ranks" class="nav-mobile-link">Ranky</a>
       <a href="#story" class="nav-mobile-link">Príbeh</a>
-      <a href="#screenshots" class="nav-mobile-link">Appka</a>
       <div class="nav-mobile-sep"></div>
       <a href="/stitna-zlaza" class="nav-mobile-link">🦋 Štítna žľaza</a>
       <div class="nav-mobile-dd">
@@ -1506,34 +1495,6 @@
       </div>
     </div>
     <a href="https://app.booom.fit" class="btn-primary-glow">Zaregistrovať sa zadarmo →</a>
-  </div>
-</section>
-
-<!-- ── SCREENSHOTS ── -->
-<section id="screenshots" data-animate>
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag">Appka</span>
-      <h2>Pozri ako BOOOM funguje</h2>
-      <p>Reálne screenshoty z appky — bez PR, bez filtrov</p>
-    </div>
-    <div class="screenshots-grid">
-      <div class="screenshot-item" data-animate data-delay="1"><div class="screenshot-frame"><img src="/screenshots/screenshot-01.jpg" alt="Sleduj zdravie ako pro" loading="lazy"></div><div class="screenshot-title">Sleduj zdravie ako pro</div><p class="screenshot-desc">Zabudni na papierové výsledky v šuplíku. BOOOM sleduje tvoje krvné hodnoty v čase a zobrazí ti trend — čo sa zlepšuje a čo nie.</p></div>
-      <div class="screenshot-item" data-animate data-delay="2"><div class="screenshot-frame"><img src="/screenshots/screenshot-02.jpg" alt="Makrá pod kontrolou" loading="lazy"></div><div class="screenshot-title">Makrá pod kontrolou</div><p class="screenshot-desc">Vieš presne čo ješ — kalórie, bielkoviny, sacharidy aj tuky na každé jedlo. Žiadne hádanie, žiadne tabuľky v Exceli.</p></div>
-      <div class="screenshot-item" data-animate data-delay="3"><div class="screenshot-frame"><img src="/screenshots/screenshot-03.jpg" alt="Tréning ako nikdy predtým" loading="lazy"></div><div class="screenshot-title">Tréning ako nikdy predtým</div><p class="screenshot-desc">Živý tréning s časovačom, pauzou a automatickým sledovaním objemu. Každá séria zaznamenaná, každý PR oslávený.</p></div>
-      <div class="screenshot-item" data-animate data-delay="1"><div class="screenshot-frame"><img src="/screenshots/screenshot-04.jpg" alt="Sleduj každý kilogram" loading="lazy"></div><div class="screenshot-title">Sleduj každý kilogram</div><p class="screenshot-desc">Graf váhy ti ukáže reálny trend — nie len dnešné číslo. Spolu s fotkami tela vidíš zmenu, ktorú váha neukáže.</p></div>
-      <div class="screenshot-item" data-animate data-delay="2"><div class="screenshot-frame"><img src="/screenshots/screenshot-05.jpg" alt="Suplementy pod kontrolou" loading="lazy"></div><div class="screenshot-title">Suplementy pod kontrolou</div><p class="screenshot-desc">Kreatín ráno alebo pred? Proteín po? BOOOM si to pamätá za teba. Nastav čo bereš, kedy a koľko — a každý deň len odškrtni.</p></div>
-      <div class="screenshot-item" data-animate data-delay="3"><div class="screenshot-frame"><img src="/screenshots/screenshot-06.jpg" alt="Kardio pre každého" loading="lazy"></div><div class="screenshot-title">Kardio pre každého</div><p class="screenshot-desc">Beh, bicykel, AirBike, veslovanie, schody, plávanie — 6 aktivít s vlastnými ikonami a špecifickými poliami. Všetko na jednom mieste.</p></div>
-      <div class="screenshot-item" data-animate data-delay="1"><div class="screenshot-frame"><img src="/screenshots/screenshot-07.jpg" alt="Tvoje zdravie v číslach" loading="lazy"></div><div class="screenshot-title">Tvoje zdravie v číslach</div><p class="screenshot-desc">36 krvných parametrov. Zelená = v norme, červená = pozor. Odfotíš výsledky z papiera a AI ich automaticky vyplní.</p></div>
-      <div class="screenshot-item" data-animate data-delay="2"><div class="screenshot-frame"><img src="/screenshots/screenshot-08.jpg" alt="Tvoj osobný AI tréner" loading="lazy"></div><div class="screenshot-title">Tvoj osobný AI tréner</div><p class="screenshot-desc">Opýtaj sa čokoľvek — ako upraviť tréning, čo jesť pred výkonom, prečo stagnuješ. AI Coach pozná tvoj profil. Online 24/7.</p></div>
-      <div class="screenshot-item" data-animate data-delay="3"><div class="screenshot-frame"><img src="/screenshots/screenshot-09.jpg" alt="Tvoj BOOOM profil" loading="lazy"></div><div class="screenshot-title">Tvoj BOOOM profil</div><p class="screenshot-desc">XP, rank, streak, počet tréningov, sledovatelia. Nastav si ciele — koľko tréningov za mesiac, koľko kalórií, koľko bielkovín.</p></div>
-      <div class="screenshot-item" data-animate data-delay="1"><div class="screenshot-frame"><img src="/screenshots/screenshot-10.jpg" alt="AI ti povie čo robiť" loading="lazy"></div><div class="screenshot-title">AI ti povie čo robiť</div><p class="screenshot-desc">Po zadaní krvných hodnôt dostaneš konkrétne odporúčania — čo obmedziť, čo pridať, aké suplementy a v akej dávke.</p></div>
-      <div class="screenshot-item" data-animate data-delay="2"><div class="screenshot-frame"><img src="/screenshots/screenshot-11.jpg" alt="Hydratácia pod kontrolou" loading="lazy"></div><div class="screenshot-title">Hydratácia pod kontrolou</div><p class="screenshot-desc">3.73L z 4.5L — vieš presne kde si. Jedno kliknutie pridá 250ml, 500ml alebo 1L. Denná história ti ukáže vzor.</p></div>
-      <div class="screenshot-item" data-animate data-delay="3"><div class="screenshot-frame"><img src="/screenshots/screenshot-12.jpg" alt="Vidíš reálny pokrok" loading="lazy"></div><div class="screenshot-title">Vidíš reálny pokrok</div><p class="screenshot-desc">Grafy váhy, hrudníka, rúk — všetko v jednom pohľade. Krivka dole pri váhe a krivka hore pri rukách.</p></div>
-      <div class="screenshot-item" data-animate data-delay="1"><div class="screenshot-frame"><img src="/screenshots/screenshot-13.jpg" alt="Každý centimeter sa počíta" loading="lazy"></div><div class="screenshot-title">Každý centimeter sa počíta</div><p class="screenshot-desc">Hrudník, ruky, pás, stehná — merania s históriou a fotkami. Vidíš kde rastieš a kde ubúdaš.</p></div>
-      <div class="screenshot-item" data-animate data-delay="2"><div class="screenshot-frame"><img src="/screenshots/screenshot-14.jpg" alt="GPS Tracking" loading="lazy"></div><div class="screenshot-title">GPS Tracking — beh a cyklo</div><p class="screenshot-desc">Live mapa, aktuálne tempo, vzdialenosť. Po skončení kompletnú analýzu — mapa trasy, výškový profil, split časy. Strava nepotrebuješ.</p></div>
-      <div class="screenshot-item" data-animate data-delay="3"><div class="screenshot-frame"><img src="/screenshots/screenshot-15.jpg" alt="Tréningové zóny" loading="lazy"></div><div class="screenshot-title">Tréningové zóny</div><p class="screenshot-desc">BOOOM vypočíta tvoju maximálnu srdcovú frekvenciu a ukáže ti zónu spaľovania. Zóna 1 až 5 — farebne, jasne, v reálnom čase.</p></div>
-    </div>
   </div>
 </section>
 
