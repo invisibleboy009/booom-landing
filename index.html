@@ -28,6 +28,7 @@
       --cyan: #00d4ff;
       --purple: #a78bfa;
       --gold: #ffd700;
+      --red: #ff4d6d;
       --orange: #f97316;
       --bg: #0a0a0a;
       --bg-card: #111111;
@@ -447,15 +448,6 @@
     .spotlight-card-cyan { --card-line: linear-gradient(90deg, var(--cyan), #00f2ff); }
     .spotlight-card-purple { --card-line: linear-gradient(90deg, var(--purple), #c4b5fd); }
 
-    .spotlight-icon {
-      width: 64px; height: 64px; border-radius: 18px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
-    }
-    .spotlight-icon-green  { background: rgba(0,255,136,0.07); border: 1px solid rgba(0,255,136,0.18); }
-    .spotlight-icon-cyan   { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.18); }
-    .spotlight-icon-purple { background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.18); }
-    .spotlight-icon svg { width: 30px; height: 30px; }
-
     .spotlight-card h3 { font-size: 22px; font-weight: 900; letter-spacing: -0.4px; margin-bottom: 12px; }
     .spotlight-card > p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 24px; }
     .spotlight-tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -467,10 +459,105 @@
     .spotlight-tag-cyan   { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.18); color: rgba(255,255,255,0.5); }
     .spotlight-tag-purple { background: rgba(167,139,250,0.05); border: 1px solid rgba(167,139,250,0.18); color: rgba(255,255,255,0.5); }
 
+    /* ── FEATURE PHONE MOCKUPS: mini borderless device chassis for spotlight/modal cards ── */
+    .fp-frame {
+      position: relative; width: 170px; height: 300px; margin: 0 auto 26px;
+      background: linear-gradient(165deg, #161616 0%, #0a0a0a 60%);
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 0 0 1px #222, 0 24px 60px rgba(0,0,0,0.6);
+    }
+    .fp-frame::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 50px; height: 16px; background: #0a0a0a; border-radius: 0 0 10px 10px; z-index: 3;
+    }
+    .fp-screen { position: relative; width: 100%; height: 100%; padding: 26px 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+    .fp-head { display: flex; align-items: center; justify-content: space-between; }
+    .fp-logo {
+      font-size: 11px; font-weight: 900; letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .fp-pill {
+      font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 7px; border-radius: 100px; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .fp-pill-green  { color: var(--green);  background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.25); }
+    .fp-pill-cyan   { color: var(--cyan);   background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.25); }
+    .fp-pill-purple { color: var(--purple); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.25); }
+    .fp-pill-gold   { color: var(--gold);   background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.25); }
+    .fp-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: badge-dot-pulse 1.8s ease-in-out infinite; }
+
+    .fp-label { font-size: 9px; color: var(--muted); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .fp-bignum { font-size: 30px; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+    .fp-bignum small { font-size: 13px; font-weight: 700; color: var(--muted); margin-left: 3px; }
+    .fp-row { display: flex; justify-content: space-between; gap: 6px; font-size: 9px; font-weight: 700; color: var(--muted); margin-top: auto; white-space: nowrap; }
+    .fp-row .fp-accent-green { color: var(--green); }
+
+    /* weight / body trend */
+    .fp-graph { width: 100%; height: 80px; }
+    .fp-graph svg { width: 100%; height: 100%; overflow: visible; display: block; }
+    .fp-graph-line { fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linecap: round; filter: url(#fpGlowGreen); }
+    .fp-graph-node { fill: #0a0a0a; stroke: var(--green); stroke-width: 2; }
+    .fp-graph-node-active { fill: var(--green); stroke: var(--green); }
+
+    /* macro ring chart */
+    .fp-ring-wrap { position: relative; width: 110px; height: 110px; margin: 2px auto; }
+    .fp-ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
+    .fp-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+    .fp-ring-fg { fill: none; stroke: var(--purple); stroke-width: 8; stroke-linecap: round; filter: url(#fpGlowPurple); }
+    .fp-ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .fp-ring-num { font-size: 22px; font-weight: 900; letter-spacing: -1px; color: var(--purple); text-shadow: 0 0 16px rgba(167,139,250,0.6); }
+    .fp-ring-total { font-size: 9px; font-weight: 700; color: var(--muted); margin-top: 2px; }
+    .fp-macros-row { display: flex; justify-content: space-between; gap: 6px; margin-top: auto; }
+    .fp-macro-pill { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 6px 4px; text-align: center; }
+    .fp-macro-pill span { display: block; font-size: 13px; font-weight: 900; }
+    .fp-macro-pill label { display: block; font-size: 8px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin-top: 2px; }
+
+    /* active training timer log */
+    .fp-timer-display { font-size: 34px; font-weight: 900; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+    .fp-sets { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
+    .fp-set { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 10.5px; font-weight: 700; padding: 7px 10px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: var(--muted); }
+    .fp-set-done { color: var(--text); }
+    .fp-set-done .fp-set-check { color: var(--green); flex-shrink: 0; }
+    .fp-set-active { border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); color: var(--text); }
+    .fp-set-check svg { width: 13px; height: 13px; display: block; }
+    .fp-pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; box-shadow: 0 0 0 0 rgba(0,212,255,0.5); animation: badge-dot-pulse 1.8s ease-in-out infinite; }
+    .fp-cta-mini { margin-top: auto; text-align: center; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 11px; padding: 10px; border-radius: 10px; }
+
+    /* blood work trend lines */
+    .fp-blood-chart { width: 100%; height: 90px; }
+    .fp-blood-chart svg { width: 100%; height: 100%; overflow: visible; display: block; }
+    .fp-line-red { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; filter: url(#fpGlowRed); }
+    .fp-line-green { fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linecap: round; filter: url(#fpGlowGreenBlood); }
+    .fp-legend { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; font-size: 10px; font-weight: 700; color: var(--muted); }
+    .fp-legend-item { display: flex; align-items: center; gap: 6px; }
+    .fp-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .fp-dot-red { background: var(--red); box-shadow: 0 0 8px rgba(255,77,109,0.6); }
+    .fp-dot-green { background: var(--green); box-shadow: 0 0 8px rgba(0,230,118,0.6); }
+
+    /* supplements / vitamin log */
+    .fp-supp-list { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }
+    .fp-supp-item { display: flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; color: var(--muted); padding: 7px 9px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+    .fp-supp-item.fp-supp-done { color: var(--text); border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.06); }
+    .fp-supp-check { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 10px; line-height: 1; background: var(--purple); color: #0a0a0a; }
+    .fp-supp-check.fp-supp-empty { background: transparent; border: 1.5px solid rgba(255,255,255,0.15); }
+
+    /* cardio metrics tracker */
+    .fp-cardio-zones { display: flex; align-items: flex-end; gap: 5px; height: 50px; margin-top: 2px; }
+    .fp-zone { flex: 1; border-radius: 5px 5px 2px 2px; background: rgba(255,255,255,0.06); }
+    .fp-zone:nth-child(1) { height: 35%; }
+    .fp-zone:nth-child(2) { height: 55%; }
+    .fp-zone:nth-child(3) { height: 100%; background: var(--gold); box-shadow: 0 0 16px rgba(255,215,0,0.45); }
+    .fp-zone:nth-child(4) { height: 70%; }
+    .fp-zone:nth-child(5) { height: 45%; }
+
+    @media (max-width: 540px) {
+      .fp-frame { width: 150px; height: 260px; }
+    }
+
     /* ── FEATURES: gold variant, "show more" CTA, hidden-features modal ── */
     .spotlight-card-gold { --card-line: linear-gradient(90deg, var(--gold), #ffe97a); }
     .spotlight-card-gold:hover { border-color: rgba(255,215,0,0.35); box-shadow: 0 0 0 1px rgba(255,215,0,0.07), 0 24px 60px rgba(0,0,0,0.5), 0 0 50px rgba(255,215,0,0.06); }
-    .spotlight-icon-gold { background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.18); }
     .spotlight-tag-gold { background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.18); color: rgba(255,255,255,0.5); }
 
     .features-more-btn {
@@ -1273,15 +1360,32 @@
     <div class="spotlight-grid">
       <div class="spotlight-card spotlight-card-green" data-animate data-delay="1">
         <span class="spotlight-card-num" aria-hidden="true">01</span>
-        <div class="spotlight-icon spotlight-icon-green">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 10V6a2 2 0 0 1 2-2h4"/>
-            <path d="M26 10V6a2 2 0 0 0-2-2h-4"/>
-            <path d="M4 20v4a2 2 0 0 0 2 2h4"/>
-            <path d="M26 20v4a2 2 0 0 1-2 2h-4"/>
-            <circle cx="15" cy="13" r="3"/>
-            <path d="M10 23c0-3 2-5 5-5s5 2 5 5"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-green"><span class="fp-pill-dot"></span>AI SCAN</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_weight_label">TELESNÁ VÁHA</span>
+            <div class="fp-bignum">68.4<small>kg</small></div>
+            <div class="fp-graph">
+              <svg viewBox="0 0 140 60" preserveAspectRatio="none">
+                <defs>
+                  <filter id="fpGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <path class="fp-graph-line" d="M4,8 C20,14 32,20 50,26 C70,33 86,40 104,46 C118,51 128,53 136,55"/>
+                <circle class="fp-graph-node" cx="4" cy="8" r="3"/>
+                <circle class="fp-graph-node fp-graph-node-active" cx="136" cy="55" r="3.5"/>
+              </svg>
+            </div>
+            <div class="fp-row">
+              <span data-i18n="fp_weight_before">Predtým: 79 kg</span>
+              <span class="fp-accent-green" data-i18n="fp_weight_after">Teraz: 68.4 kg</span>
+            </div>
+          </div>
         </div>
         <h3 data-i18n="features_p1_title">AI Skener &amp; Telo</h3>
         <p data-i18n="features_p1_desc">Odfoť sa a AI okamžite zanalyzuje zloženie tela. Merania, fotky pokroku a presný body composition tracker na jednom mieste — vidíš zmenu, ktorú váha nikdy neukáže.</p>
@@ -1295,14 +1399,30 @@
 
       <div class="spotlight-card spotlight-card-cyan" data-animate data-delay="2">
         <span class="spotlight-card-num" aria-hidden="true">02</span>
-        <div class="spotlight-icon spotlight-icon-cyan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="9" width="4" height="6" rx="1"/>
-            <rect x="18" y="9" width="4" height="6" rx="1"/>
-            <line x1="6" y1="12" x2="18" y2="12"/>
-            <rect x="9" y="7" width="2" height="10" rx="1"/>
-            <rect x="13" y="7" width="2" height="10" rx="1"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-cyan"><span class="fp-pill-dot"></span>LIVE</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_timer_label">AKTUÁLNY CVIK</span>
+            <div class="fp-timer-display">04:12</div>
+            <div class="fp-sets">
+              <div class="fp-set fp-set-done">
+                <span data-i18n="fp_timer_set1">Séria 1 — 80 kg × 8</span>
+                <span class="fp-set-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+              </div>
+              <div class="fp-set fp-set-done">
+                <span data-i18n="fp_timer_set2">Séria 2 — 85 kg × 6</span>
+                <span class="fp-set-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+              </div>
+              <div class="fp-set fp-set-active">
+                <span data-i18n="fp_timer_set3">Séria 3 — 90 kg × 5</span>
+                <span class="fp-pulse-dot"></span>
+              </div>
+            </div>
+            <div class="fp-cta-mini" data-i18n="fp_timer_cta">Dokončiť sériu</div>
+          </div>
         </div>
         <h3 data-i18n="features_p2_title">Tréningový plán &amp; Hardcore Tracker</h3>
         <p data-i18n="features_p2_desc">Stovky cvikov, hotové plány a AI-generované tréningy presne pre teba. Časovač, pauzy a PR sledovanie — žiadne odhady, len čísla.</p>
@@ -1316,12 +1436,35 @@
 
       <div class="spotlight-card spotlight-card-purple" data-animate data-delay="3">
         <span class="spotlight-card-num" aria-hidden="true">03</span>
-        <div class="spotlight-icon spotlight-icon-purple">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 8c-5 0-8 4-8 9 0 5 3 8 8 8s8-3 8-8c0-5-3-9-8-9z" opacity="0.15" fill="#a78bfa"/>
-            <path d="M15 8c-5 0-8 4-8 9 0 5 3 8 8 8s8-3 8-8c0-5-3-9-8-9z"/>
-            <path d="M15 8c0-2 1-4 3-5"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-purple"><span class="fp-pill-dot"></span>MACROS</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_macro_label">DNEŠNÝ PRÍJEM</span>
+            <div class="fp-ring-wrap">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <filter id="fpGlowPurple" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <circle class="fp-ring-bg" cx="50" cy="50" r="40"/>
+                <circle class="fp-ring-fg" cx="50" cy="50" r="40" stroke-dasharray="125.4 251.3"/>
+              </svg>
+              <div class="fp-ring-center">
+                <span class="fp-ring-num">898</span>
+                <span class="fp-ring-total">/ 1800 kcal</span>
+              </div>
+            </div>
+            <div class="fp-macros-row">
+              <div class="fp-macro-pill"><span>112g</span><label>P</label></div>
+              <div class="fp-macro-pill"><span>96g</span><label>C</label></div>
+              <div class="fp-macro-pill"><span>34g</span><label>F</label></div>
+            </div>
+          </div>
         </div>
         <h3 data-i18n="features_p3_title">Inteligentná Výživa &amp; Biohacking Macros</h3>
         <p data-i18n="features_p3_desc">Sleduj kalórie, makrá a hydratáciu na úrovni biohackera. Jedz chytrejšie, nie menej — a optimalizuj výkon zvnútra.</p>
@@ -1351,11 +1494,34 @@
     <h3 class="features-modal-title" id="featuresModalTitle" data-i18n="features_modal_title">Ešte viac BOOOM funkcií</h3>
     <div class="features-modal-grid">
       <div class="feature-modal-card" data-animate data-delay="1">
-        <div class="spotlight-icon spotlight-icon-green">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="2,20 7,12 12,22 17,6 22,16 27,10"/>
-            <circle cx="27" cy="10" r="2" fill="#00ff88" stroke="none"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-green"><span class="fp-pill-dot"></span>LAB</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_blood_label">KRVNÉ HODNOTY</span>
+            <div class="fp-blood-chart">
+              <svg viewBox="0 0 140 70" preserveAspectRatio="none">
+                <defs>
+                  <filter id="fpGlowRed" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="fpGlowGreenBlood" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <path class="fp-line-red" d="M4,20 C24,32 40,46 60,42 C82,38 96,52 116,58 C124,60 132,60 136,60"/>
+                <path class="fp-line-green" d="M4,55 C24,48 40,40 60,34 C82,27 96,18 116,12 C124,9 132,7 136,6"/>
+              </svg>
+            </div>
+            <div class="fp-legend">
+              <span class="fp-legend-item"><i class="fp-dot fp-dot-red"></i><span data-i18n="fp_blood_chol">Cholesterol — vysoký</span></span>
+              <span class="fp-legend-item"><i class="fp-dot fp-dot-green"></i><span data-i18n="fp_blood_vitd">Vitamín D — v norme</span></span>
+            </div>
+          </div>
         </div>
         <h3 data-i18n="features_h1_title">Zdravie &amp; Krvné parametre</h3>
         <p data-i18n="features_h1_desc">36 krvných parametrov — štítna žľaza, hormóny, cukor, cholesterol, pečeň, vitamíny. Odfotíš výsledky z papiera a AI ich vyplní za 3 sekundy.</p>
@@ -1368,12 +1534,20 @@
       </div>
 
       <div class="feature-modal-card" data-animate data-delay="2">
-        <div class="spotlight-icon spotlight-icon-purple">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="15" cy="10" r="4"/>
-            <path d="M8 26 C8 21 11 18 15 18 C19 18 22 21 22 26"/>
-            <path d="M22 8 L26 6 M22 10 L26 10 M22 12 L26 14"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-purple"><span class="fp-pill-dot"></span>AI</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_supp_label">DNEŠNÉ SUPLEMENTY</span>
+            <div class="fp-supp-list">
+              <div class="fp-supp-item fp-supp-done"><span class="fp-supp-check">✓</span><span data-i18n="fp_supp_creatine">Kreatín — 5 g</span></div>
+              <div class="fp-supp-item fp-supp-done"><span class="fp-supp-check">✓</span><span data-i18n="fp_supp_protein">Whey proteín — 30 g</span></div>
+              <div class="fp-supp-item"><span class="fp-supp-check fp-supp-empty"></span><span data-i18n="fp_supp_omega">Omega-3 — 2 g</span></div>
+              <div class="fp-supp-item"><span class="fp-supp-check fp-supp-empty"></span><span data-i18n="fp_supp_vitd">Vitamín D — 4000 IU</span></div>
+            </div>
+          </div>
         </div>
         <h3 data-i18n="features_h2_title">AI Coach BOOOMER</h3>
         <p data-i18n="features_h2_desc">Tvoj osobný tréner online 24/7. Pozná tvoj profil, krvné hodnoty, tréningy aj výživu. Radí brutálne úprimne a prispôsobuje plán za teba.</p>
@@ -1386,13 +1560,22 @@
       </div>
 
       <div class="feature-modal-card" data-animate data-delay="3">
-        <div class="spotlight-icon spotlight-icon-gold">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="10" r="4"/>
-            <path d="M3 25c0-4 3.5-7 8-7s8 3 8 7"/>
-            <circle cx="22" cy="9" r="3"/>
-            <path d="M19 16c3.5 0 7 2 8 6"/>
-          </svg>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-gold"><span class="fp-pill-dot"></span>CARDIO</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_cardio_label">BEH — ZÓNA 3</span>
+            <div class="fp-bignum">5.2<small>km</small></div>
+            <div class="fp-cardio-zones">
+              <div class="fp-zone"></div><div class="fp-zone"></div><div class="fp-zone"></div><div class="fp-zone"></div><div class="fp-zone"></div>
+            </div>
+            <div class="fp-row">
+              <span data-i18n="fp_cardio_pace">Tempo 5:12/km</span>
+              <span data-i18n="fp_cardio_hr">Tep 158 bpm</span>
+            </div>
+          </div>
         </div>
         <h3 data-i18n="features_h3_title">Komunita &amp; Motivation Feed</h3>
         <p data-i18n="features_h3_desc">Výzvy, rebríčky a feed plný progresu komunity. XP, odznaky a 6 rankov ťa posúvajú bližšie k titulu BOOOM Monster.</p>
