@@ -299,19 +299,16 @@
       box-shadow: 0 0 0 0 rgba(0,230,118,0.5);
       animation: badge-dot-pulse 1.8s ease-in-out infinite;
     }
-    .hps-ring-wrap { position: relative; width: 168px; height: 168px; margin: 4px auto; }
-    .hps-ring { width: 100%; height: 100%; transform: rotate(-90deg); }
-    .hps-ring-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
-    .hps-ring-fill {
-      fill: none; stroke: url(#heroRingGradient); stroke-width: 8; stroke-linecap: round;
-      stroke-dasharray: 326.7; stroke-dashoffset: 72;
-    }
-    .hps-ring-center {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-    }
-    .hps-ring-value { font-size: 32px; font-weight: 900; letter-spacing: -1px; }
-    .hps-ring-label { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+    .hps-weight-section { display: flex; flex-direction: column; gap: 8px; }
+    .hps-weight-label { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .hps-weight-value { font-size: 46px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+    .hps-weight-value small { font-size: 20px; font-weight: 700; color: var(--muted); margin-left: 4px; }
+    .hps-weight-graph { width: 100%; height: 80px; margin-top: 6px; }
+    .hps-weight-graph svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .hps-weight-line { fill: none; stroke: var(--cyan); stroke-width: 2.5; stroke-linecap: round; filter: url(#heroWeightGlow); }
+    .hps-weight-node { fill: #0a0a0a; stroke: var(--cyan); stroke-width: 2; filter: url(#heroWeightGlow); }
+    .hps-weight-node-active { fill: var(--green); stroke: var(--green); }
+    .hps-weight-stats { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--muted); }
     .hps-macros { display: flex; justify-content: space-between; gap: 8px; }
     .hps-macro { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 12px 8px; text-align: center; }
     .hps-macro-val { display: block; font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
@@ -470,20 +467,59 @@
     .spotlight-tag-cyan   { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.18); color: rgba(255,255,255,0.5); }
     .spotlight-tag-purple { background: rgba(167,139,250,0.05); border: 1px solid rgba(167,139,250,0.18); color: rgba(255,255,255,0.5); }
 
-    /* ── FEATURES (smaller grid) ── */
-    .features-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 2.5px; color: #383838;
-      text-transform: uppercase; text-align: center; margin-bottom: 20px;
+    /* ── FEATURES: gold variant, "show more" CTA, hidden-features modal ── */
+    .spotlight-card-gold { --card-line: linear-gradient(90deg, var(--gold), #ffe97a); }
+    .spotlight-card-gold:hover { border-color: rgba(255,215,0,0.35); box-shadow: 0 0 0 1px rgba(255,215,0,0.07), 0 24px 60px rgba(0,0,0,0.5), 0 0 50px rgba(255,215,0,0.06); }
+    .spotlight-icon-gold { background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.18); }
+    .spotlight-tag-gold { background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.18); color: rgba(255,255,255,0.5); }
+
+    .features-more-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; margin-top: 8px;
+      background: rgba(0,212,255,0.05); border: 1.5px solid rgba(0,212,255,0.35);
+      color: var(--text); font-weight: 800; font-size: 16px; letter-spacing: 0.2px;
+      padding: 22px; border-radius: 16px; cursor: pointer; font-family: inherit;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s, background 0.25s;
+      box-shadow: 0 0 30px rgba(0,212,255,0.08);
     }
-    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .feature-card {
-      background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 16px;
-      padding: 24px; transition: border-color 0.2s, transform 0.25s;
+    .features-more-btn:hover {
+      border-color: rgba(0,212,255,0.6); background: rgba(0,212,255,0.09);
+      box-shadow: 0 0 50px rgba(0,212,255,0.18); transform: translateY(-2px);
     }
-    .feature-card:hover { border-color: rgba(0,230,118,0.22); transform: translateY(-3px); }
-    .feature-icon { font-size: 22px; margin-bottom: 12px; }
-    .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.2px; }
-    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .features-more-btn svg { width: 18px; height: 18px; transition: transform 0.25s; }
+    .features-more-btn:hover svg { transform: translateX(4px); }
+
+    /* Hidden-features modal */
+    .features-modal {
+      position: fixed; inset: 0; z-index: 200;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 24px;
+    }
+    .features-modal.open { display: flex; }
+    .features-modal-panel {
+      position: relative; width: 100%; max-width: 1040px; max-height: 88vh; overflow-y: auto;
+      background: var(--bg-card); border: 1px solid #1e1e1e; border-radius: 24px;
+      padding: 48px 40px;
+    }
+    .features-modal-close {
+      position: absolute; top: 20px; right: 20px; z-index: 1;
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text); display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .features-modal-close:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); transform: rotate(90deg); }
+    .features-modal-close svg { width: 18px; height: 18px; }
+    .features-modal-title { font-size: clamp(24px, 3vw, 34px); font-weight: 900; letter-spacing: -1px; text-align: center; margin-bottom: 36px; padding: 0 44px; }
+    .features-modal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-modal-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 32px 26px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .feature-modal-card h3 { font-size: 19px; font-weight: 900; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .feature-modal-card p { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 18px; }
 
     /* ── RANKS ── */
     .ranks-section { background: #0c0c0c; border-top: 1px solid #161616; border-bottom: 1px solid #161616; }
@@ -756,7 +792,8 @@
       .nav-tagline { display: none; }
       .lang-btn { padding: 4px 7px; font-size: 10px; }
       .spotlight-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
+      .features-modal-grid { grid-template-columns: 1fr; }
+      .features-modal-panel { padding: 40px 24px; }
       .ranks-grid { grid-template-columns: repeat(2, 1fr); }
       .screenshots-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -768,7 +805,7 @@
       .cta-benefits { gap: 20px; flex-direction: column; align-items: flex-start; padding: 0 24px; }
     }
     @media (max-width: 560px) {
-      .features-grid { grid-template-columns: 1fr; }
+      .features-modal-panel { padding: 32px 18px; }
       nav { padding: 0 12px; }
       .nav-inner { gap: 8px; }
       .nav-cta { display: none; }
@@ -912,20 +949,30 @@
               <span class="hps-logo">BOOOM</span>
               <span class="hps-live"><span class="hps-live-dot"></span>LIVE</span>
             </div>
-            <div class="hps-ring-wrap">
-              <svg class="hps-ring" viewBox="0 0 120 120">
-                <defs>
-                  <linearGradient id="heroRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#00e676"/>
-                    <stop offset="100%" stop-color="#00d4ff"/>
-                  </linearGradient>
-                </defs>
-                <circle class="hps-ring-track" cx="60" cy="60" r="52"/>
-                <circle class="hps-ring-fill" cx="60" cy="60" r="52"/>
-              </svg>
-              <div class="hps-ring-center">
-                <span class="hps-ring-value">2140</span>
-                <span class="hps-ring-label">kcal</span>
+            <div class="hps-weight-section">
+              <span class="hps-weight-label" data-i18n="hps_weight_label">AKTUÁLNA VÁHA</span>
+              <div class="hps-weight-value">56.3<small>kg</small></div>
+              <div class="hps-weight-graph">
+                <svg viewBox="0 0 220 80" preserveAspectRatio="none">
+                  <defs>
+                    <filter id="heroWeightGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="3" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path class="hps-weight-line" d="M8,12 C35,16 50,22 78,28 C108,35 128,40 150,48 C175,55 195,58 212,64"/>
+                  <circle class="hps-weight-node" cx="8" cy="12" r="3.5"/>
+                  <circle class="hps-weight-node" cx="78" cy="28" r="3.5"/>
+                  <circle class="hps-weight-node" cx="150" cy="48" r="3.5"/>
+                  <circle class="hps-weight-node hps-weight-node-active" cx="212" cy="64" r="4.5"/>
+                </svg>
+              </div>
+              <div class="hps-weight-stats">
+                <span data-i18n="hps_weight_start">Štart: 65 kg</span>
+                <span data-i18n="hps_weight_now">Teraz: 56.3 kg</span>
               </div>
             </div>
             <div class="hps-macros">
@@ -1222,18 +1269,96 @@
       <p data-i18n="features_subtitle">Kompletný fitness ekosystém v jednej aplikácii</p>
     </div>
 
-    <!-- 3 spotlight cards -->
+    <!-- 3 primary feature cards -->
     <div class="spotlight-grid">
       <div class="spotlight-card spotlight-card-green" data-animate data-delay="1">
         <span class="spotlight-card-num" aria-hidden="true">01</span>
+        <div class="spotlight-icon spotlight-icon-green">
+          <svg viewBox="0 0 30 30" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 10V6a2 2 0 0 1 2-2h4"/>
+            <path d="M26 10V6a2 2 0 0 0-2-2h-4"/>
+            <path d="M4 20v4a2 2 0 0 0 2 2h4"/>
+            <path d="M26 20v4a2 2 0 0 1-2 2h-4"/>
+            <circle cx="15" cy="13" r="3"/>
+            <path d="M10 23c0-3 2-5 5-5s5 2 5 5"/>
+          </svg>
+        </div>
+        <h3 data-i18n="features_p1_title">AI Skener &amp; Telo</h3>
+        <p data-i18n="features_p1_desc">Odfoť sa a AI okamžite zanalyzuje zloženie tela. Merania, fotky pokroku a presný body composition tracker na jednom mieste — vidíš zmenu, ktorú váha nikdy neukáže.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-green">AI sken</span>
+          <span class="spotlight-tag spotlight-tag-green">Body scan</span>
+          <span class="spotlight-tag spotlight-tag-green">Fotky pokroku</span>
+          <span class="spotlight-tag spotlight-tag-green">Trendy</span>
+        </div>
+      </div>
+
+      <div class="spotlight-card spotlight-card-cyan" data-animate data-delay="2">
+        <span class="spotlight-card-num" aria-hidden="true">02</span>
+        <div class="spotlight-icon spotlight-icon-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="9" width="4" height="6" rx="1"/>
+            <rect x="18" y="9" width="4" height="6" rx="1"/>
+            <line x1="6" y1="12" x2="18" y2="12"/>
+            <rect x="9" y="7" width="2" height="10" rx="1"/>
+            <rect x="13" y="7" width="2" height="10" rx="1"/>
+          </svg>
+        </div>
+        <h3 data-i18n="features_p2_title">Tréningový plán &amp; Hardcore Tracker</h3>
+        <p data-i18n="features_p2_desc">Stovky cvikov, hotové plány a AI-generované tréningy presne pre teba. Časovač, pauzy a PR sledovanie — žiadne odhady, len čísla.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-cyan">Stovky cvikov</span>
+          <span class="spotlight-tag spotlight-tag-cyan">AI plány</span>
+          <span class="spotlight-tag spotlight-tag-cyan">PR tracking</span>
+          <span class="spotlight-tag spotlight-tag-cyan">Časovač</span>
+        </div>
+      </div>
+
+      <div class="spotlight-card spotlight-card-purple" data-animate data-delay="3">
+        <span class="spotlight-card-num" aria-hidden="true">03</span>
+        <div class="spotlight-icon spotlight-icon-purple">
+          <svg viewBox="0 0 30 30" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 8c-5 0-8 4-8 9 0 5 3 8 8 8s8-3 8-8c0-5-3-9-8-9z" opacity="0.15" fill="#a78bfa"/>
+            <path d="M15 8c-5 0-8 4-8 9 0 5 3 8 8 8s8-3 8-8c0-5-3-9-8-9z"/>
+            <path d="M15 8c0-2 1-4 3-5"/>
+          </svg>
+        </div>
+        <h3 data-i18n="features_p3_title">Inteligentná Výživa &amp; Biohacking Macros</h3>
+        <p data-i18n="features_p3_desc">Sleduj kalórie, makrá a hydratáciu na úrovni biohackera. Jedz chytrejšie, nie menej — a optimalizuj výkon zvnútra.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-purple">Makrá</span>
+          <span class="spotlight-tag spotlight-tag-purple">Kalórie</span>
+          <span class="spotlight-tag spotlight-tag-purple">Hydratácia</span>
+          <span class="spotlight-tag spotlight-tag-purple">Biohacking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger: reveal the 3 hidden premium features -->
+    <button type="button" class="features-more-btn" id="featuresMoreBtn" aria-haspopup="dialog" aria-controls="features-modal">
+      <span data-i18n="show_more_features_cta">Chceš vedieť, čo vie BOOOM viac?</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ── HIDDEN FEATURES MODAL ── -->
+<div id="features-modal" class="features-modal" role="dialog" aria-modal="true" aria-labelledby="featuresModalTitle">
+  <div class="features-modal-panel">
+    <button type="button" class="features-modal-close" id="featuresModalClose" data-i18n-aria="features_modal_close" aria-label="Zavrieť">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 class="features-modal-title" id="featuresModalTitle" data-i18n="features_modal_title">Ešte viac BOOOM funkcií</h3>
+    <div class="features-modal-grid">
+      <div class="feature-modal-card" data-animate data-delay="1">
         <div class="spotlight-icon spotlight-icon-green">
           <svg viewBox="0 0 30 30" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="2,20 7,12 12,22 17,6 22,16 27,10"/>
             <circle cx="27" cy="10" r="2" fill="#00ff88" stroke="none"/>
           </svg>
         </div>
-        <h3>Blesková telemetria</h3>
-        <p>36 krvných parametrov — štítna žľaza, hormóny, cukor, cholesterol, pečeň, vitamíny. Odfotíš výsledky z papiera a AI ich vyplní za 3 sekundy. Červená krivka ti povie viac ako hodina s doktorom.</p>
+        <h3 data-i18n="features_h1_title">Zdravie &amp; Krvné parametre</h3>
+        <p data-i18n="features_h1_desc">36 krvných parametrov — štítna žľaza, hormóny, cukor, cholesterol, pečeň, vitamíny. Odfotíš výsledky z papiera a AI ich vyplní za 3 sekundy.</p>
         <div class="spotlight-tags">
           <span class="spotlight-tag spotlight-tag-green">36 parametrov</span>
           <span class="spotlight-tag spotlight-tag-green">AI sken</span>
@@ -1242,26 +1367,7 @@
         </div>
       </div>
 
-      <div class="spotlight-card spotlight-card-cyan" data-animate data-delay="2">
-        <span class="spotlight-card-num" aria-hidden="true">02</span>
-        <div class="spotlight-icon spotlight-icon-cyan">
-          <svg viewBox="0 0 30 30" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 4 C10 4 6 8 6 13 C6 18 10 22 15 26 C20 22 24 18 24 13 C24 8 20 4 15 4Z" opacity="0.3" fill="#00d4ff" stroke="#00d4ff"/>
-            <path d="M9 14 L12 17 L21 8"/>
-          </svg>
-        </div>
-        <h3>Cardio &amp; Regenerácia</h3>
-        <p>GPS tracking s live mapou a tréningovými zónami 1–5. Beh, bicykel, plavanie, AirBike. Sleduj tepovú frekvenciu, spaľovanie tukov a regeneráciu — vedz kedy pritvrdiť a kedy spomaliť.</p>
-        <div class="spotlight-tags">
-          <span class="spotlight-tag spotlight-tag-cyan">GPS Live</span>
-          <span class="spotlight-tag spotlight-tag-cyan">Srdcové zóny</span>
-          <span class="spotlight-tag spotlight-tag-cyan">6 aktivít</span>
-          <span class="spotlight-tag spotlight-tag-cyan">Výškový profil</span>
-        </div>
-      </div>
-
-      <div class="spotlight-card spotlight-card-purple" data-animate data-delay="3">
-        <span class="spotlight-card-num" aria-hidden="true">03</span>
+      <div class="feature-modal-card" data-animate data-delay="2">
         <div class="spotlight-icon spotlight-icon-purple">
           <svg viewBox="0 0 30 30" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="15" cy="10" r="4"/>
@@ -1269,8 +1375,8 @@
             <path d="M22 8 L26 6 M22 10 L26 10 M22 12 L26 14"/>
           </svg>
         </div>
-        <h3>AI Coach Boomer</h3>
-        <p>Tvoj osobný tréner online 24/7. Pozná tvoj profil, krvné hodnoty, tréningy aj výživu. Radí brutálne úprimne — koľko bielkovín, prečo stagnuješ, a keď treba, povie ti: choď k doktorovi.</p>
+        <h3 data-i18n="features_h2_title">AI Coach BOOOMER</h3>
+        <p data-i18n="features_h2_desc">Tvoj osobný tréner online 24/7. Pozná tvoj profil, krvné hodnoty, tréningy aj výživu. Radí brutálne úprimne a prispôsobuje plán za teba.</p>
         <div class="spotlight-tags">
           <span class="spotlight-tag spotlight-tag-purple">24/7 online</span>
           <span class="spotlight-tag spotlight-tag-purple">Personalizovaný</span>
@@ -1278,44 +1384,28 @@
           <span class="spotlight-tag spotlight-tag-purple">Plány tréningov</span>
         </div>
       </div>
-    </div>
 
-    <!-- 6 smaller feature cards -->
-    <p class="features-label">A oveľa viac v appke</p>
-    <div class="features-grid">
-      <div class="feature-card" data-animate data-delay="1">
-        <div class="feature-icon">🏋️</div>
-        <h3 data-i18n="feat1_title">Silový tréning</h3>
-        <p data-i18n="feat1_desc">Stovky cvikov, hotové plány a AI-generované tréningy. Časovač, pauzy, PR sledovanie.</p>
-      </div>
-      <div class="feature-card" data-animate data-delay="2">
-        <div class="feature-icon">🥗</div>
-        <h3 data-i18n="feat2_title">Výživa &amp; Makrá</h3>
-        <p data-i18n="feat2_desc">Sleduj kalórie, bielkoviny, sacharidy aj tuky na každé jedlo. Jedz chytrejšie, nie menej.</p>
-      </div>
-      <div class="feature-card" data-animate data-delay="3">
-        <div class="feature-icon">📸</div>
-        <h3 data-i18n="feat3_title">Telo &amp; Pokrok</h3>
-        <p data-i18n="feat3_desc">Merania, fotky pokroku a body composition tracker. Vidíš zmenu, ktorú váha nikdy neukáže.</p>
-      </div>
-      <div class="feature-card" data-animate data-delay="1">
-        <div class="feature-icon">💊</div>
-        <h3>Suplementy</h3>
-        <p>Nastav čo bereš, kedy a koľko. BOOOM ti každý deň pripomenie a ty len odškrtneš.</p>
-      </div>
-      <div class="feature-card" data-animate data-delay="2">
-        <div class="feature-icon">💧</div>
-        <h3>Hydratácia</h3>
-        <p>Denný cieľ, história pitia a jedno kliknutie na pridanie 250 ml, 500 ml alebo 1 L.</p>
-      </div>
-      <div class="feature-card" data-animate data-delay="3">
-        <div class="feature-icon">🎮</div>
-        <h3 data-i18n="feat6_title">Gamifikácia</h3>
-        <p data-i18n="feat6_desc">XP, odznaky a 6 rankov. Každý tréning ťa posúva bližšie k titulu BOOOM Monster.</p>
+      <div class="feature-modal-card" data-animate data-delay="3">
+        <div class="spotlight-icon spotlight-icon-gold">
+          <svg viewBox="0 0 30 30" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="10" r="4"/>
+            <path d="M3 25c0-4 3.5-7 8-7s8 3 8 7"/>
+            <circle cx="22" cy="9" r="3"/>
+            <path d="M19 16c3.5 0 7 2 8 6"/>
+          </svg>
+        </div>
+        <h3 data-i18n="features_h3_title">Komunita &amp; Motivation Feed</h3>
+        <p data-i18n="features_h3_desc">Výzvy, rebríčky a feed plný progresu komunity. XP, odznaky a 6 rankov ťa posúvajú bližšie k titulu BOOOM Monster.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-gold">Výzvy</span>
+          <span class="spotlight-tag spotlight-tag-gold">Rebríčky</span>
+          <span class="spotlight-tag spotlight-tag-gold">XP &amp; Ranky</span>
+          <span class="spotlight-tag spotlight-tag-gold">Feed</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ── RANKS ── -->
 <section class="ranks-section" id="ranks" data-animate>
@@ -1420,6 +1510,20 @@
     menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
     menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
     menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+  }());
+
+  /* Features "show more" modal */
+  (function() {
+    var btn = document.getElementById('featuresMoreBtn');
+    var modal = document.getElementById('features-modal');
+    var closeBtn = document.getElementById('featuresModalClose');
+    if (!btn || !modal) return;
+    function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+    btn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
   }());
 
   /* Scroll animations */
