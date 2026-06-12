@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V29R9X94FM');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zásady ochrany osobných údajov | BOOOM</title>
+  <meta name="description" content="Zásady ochrany osobných údajov BOOOM — aké údaje zbierame, ako ich používame, kde sú uložené a aké práva máš ako používateľ.">
+  <meta property="og:title" content="Zásady ochrany osobných údajov | BOOOM">
+  <meta property="og:description" content="Aké údaje BOOOM zbiera, ako ich používa a aké práva máš ako používateľ.">
+  <meta property="og:url" content="https://booom.fit/privacy">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='34' fill='%230d0d0d'/%3E%3Ctext x='90' y='130' font-family='Arial,sans-serif' font-size='120' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00e676;
+      --cyan: #00d4ff;
+      --gold: #ffd700;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #1a1a1a; padding: 0 24px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .nav-logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .nav-tagline { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; color: var(--muted); text-transform: uppercase; }
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+    .lang-btn { background: none; border: 1px solid #252525; color: var(--muted); font-size: 11px; font-weight: 700; padding: 5px 9px; border-radius: 7px; cursor: pointer; transition: all 0.18s; font-family: inherit; letter-spacing: 0.5px; }
+    .lang-btn:hover { border-color: #444; color: var(--text); }
+    .lang-btn.active { background: linear-gradient(135deg, var(--green), var(--cyan)); border-color: transparent; color: #000; }
+    .nav-cta { background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 13px; padding: 10px 20px; border-radius: 10px; text-decoration: none; white-space: nowrap; transition: opacity 0.2s, transform 0.2s; }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; transition: color 0.18s; white-space: nowrap; }
+    .nav-link:hover { color: var(--text); }
+    .nav-link-active { color: var(--green) !important; }
+
+    /* ── NAV DROPDOWN ── */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown:hover::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 16px; }
+    .nav-dropdown-toggle { color: var(--muted); font-size: 13px; font-weight: 600; transition: color 0.18s; white-space: nowrap; cursor: default; user-select: none; }
+    .nav-dropdown:hover .nav-dropdown-toggle { color: var(--text); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: rgba(10,10,10,0.98); border: 1px solid #222; border-radius: 14px; padding: 6px; min-width: 250px; z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-item { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 14px; border-radius: 9px; transition: background 0.15s, color 0.15s; white-space: nowrap; display: block; }
+    .nav-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .nav-hamburger { display: none; background: none; border: 1px solid #2a2a2a; color: var(--text); font-size: 18px; width: 38px; height: 38px; border-radius: 9px; cursor: pointer; align-items: center; justify-content: center; transition: border-color 0.18s; font-family: inherit; flex-shrink: 0; }
+    .nav-hamburger:hover { border-color: #555; }
+    .nav-mobile { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .nav-mobile.open { display: block; }
+    .nav-mobile-panel { position: absolute; top: 0; right: 0; width: min(320px, 88vw); height: 100%; background: #0d0d0d; border-left: 1px solid #1a1a1a; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; }
+    .nav-mobile-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .nav-mobile-logo { font-size: 20px; font-weight: 900; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-mobile-close { background: none; border: 1px solid #2a2a2a; color: var(--muted); font-size: 16px; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.18s, color 0.18s; font-family: inherit; }
+    .nav-mobile-close:hover { border-color: #555; color: var(--text); }
+    .nav-mobile-links { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .nav-mobile-link { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px 14px; border-radius: 10px; transition: background 0.15s, color 0.15s; display: block; }
+    .nav-mobile-link:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-sep { height: 1px; background: #1e1e1e; margin: 8px 0; }
+    .nav-mobile-dd-toggle { width: 100%; background: none; border: none; color: rgba(255,255,255,0.72); font-size: 15px; font-weight: 600; padding: 11px 14px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-family: inherit; transition: background 0.15s, color 0.15s; text-align: left; }
+    .nav-mobile-dd-toggle:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .nav-mobile-dd-arrow { font-size: 11px; transition: transform 0.2s; flex-shrink: 0; }
+    .nav-mobile-dd.open .nav-mobile-dd-arrow { transform: rotate(180deg); }
+    .nav-mobile-dd-menu { display: none; padding: 3px 0 3px 12px; }
+    .nav-mobile-dd.open .nav-mobile-dd-menu { display: flex; flex-direction: column; gap: 2px; }
+    .nav-mobile-dd-item { color: rgba(255,255,255,0.58); text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 9px; transition: background 0.15s, color 0.15s; display: block; }
+    .nav-mobile-dd-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .nav-mobile-cta { display: block; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 800; font-size: 15px; padding: 14px 20px; border-radius: 12px; text-decoration: none; text-align: center; margin-top: 20px; transition: opacity 0.2s; flex-shrink: 0; }
+    .nav-mobile-cta:hover { opacity: 0.88; }
+
+    /* ── PAGE INTRO ── */
+    .page-intro { padding: 64px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+    .page-intro::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(0,230,118,0.07) 0%, transparent 70%); pointer-events: none; }
+    .page-intro-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .page-breadcrumb { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.3px; margin-bottom: 24px; }
+    .page-breadcrumb a { color: var(--muted); text-decoration: none; }
+    .page-breadcrumb a:hover { color: var(--text); }
+    .page-breadcrumb span { color: var(--green); }
+    .page-intro h1 { font-size: clamp(28px, 4.5vw, 50px); font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: 18px; }
+    .page-intro p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 620px; margin: 0 auto; }
+
+    /* ── SECTIONS / LAYOUT ── */
+    section { padding: 0 24px 80px; }
+    .section-inner { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+    /* ── POLICY CARDS ── */
+    .policy-card { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 20px; padding: 36px 40px; }
+    .policy-card-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 10px; background: rgba(0,230,118,0.1); color: var(--green); font-size: 14px; font-weight: 900; margin-bottom: 14px; }
+    .policy-card-title { font-size: clamp(18px, 2.2vw, 22px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .policy-text { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 14px; }
+    .policy-text:last-child { margin-bottom: 0; }
+    .policy-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; }
+    .policy-list li { font-size: 14px; color: rgba(255,255,255,0.68); line-height: 1.7; padding-left: 22px; position: relative; }
+    .policy-list li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--green); font-size: 12px; font-weight: 800; }
+    .policy-list strong { color: var(--text); }
+    .policy-contact { display: flex; align-items: center; gap: 14px; }
+    .policy-contact a { color: var(--green); text-decoration: none; font-weight: 700; font-size: 16px; }
+    .policy-contact a:hover { text-decoration: underline; }
+    .policy-meta { font-size: 13px; color: #555; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer { padding: 52px 24px 36px; border-top: 1px solid #161616; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid #161616; }
+    .footer-logo { font-size: 26px; font-weight: 900; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.5px; }
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.18s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: #555; }
+    .footer-founder { font-size: 13px; color: #555; }
+    .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .footer-founder a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      .nav-tagline { display: none; }
+      .lang-btn { padding: 4px 7px; font-size: 10px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .policy-card { padding: 28px 24px; }
+    }
+    @media (max-width: 560px) {
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="BOOOM home">
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+    </a>
+    <div class="nav-links" role="navigation" aria-label="Section navigation">
+      <a href="/#features" class="nav-link">Funkcie</a>
+      <a href="/#ranks" class="nav-link">Ranky</a>
+      <a href="/#story" class="nav-link">Príbeh</a>
+      <a href="/stitna-zlaza" class="nav-link">Štítna žľaza</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">Diéty &amp; intolerancie ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/dieta/bezlaktozova" class="nav-dropdown-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-dropdown-item">🌾 Bezlepková diéta</a>
+          <a href="/dieta/histaminova" class="nav-dropdown-item">🧪 Histamínová intolerancia</a>
+          <a href="/dieta/hashimoto" class="nav-dropdown-item">🧬 Hashimotova tyreoiditída</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
+    <div class="lang-switcher" role="navigation" aria-label="Language switcher">
+      <button class="lang-btn active" onclick="setLanguage('SK')" aria-label="Slovenčina">SK</button>
+      <button class="lang-btn" onclick="setLanguage('EN')" aria-label="English">EN</button>
+      <button class="lang-btn" onclick="setLanguage('CS')" aria-label="Čeština">CS</button>
+      <button class="lang-btn" onclick="setLanguage('PL')" aria-label="Polski">PL</button>
+      <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
+    </div>
+    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ── -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-panel">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-logo">BOOOM</span>
+      <button class="nav-mobile-close" id="navMobileClose" aria-label="Zavrieť menu">✕</button>
+    </div>
+    <nav class="nav-mobile-links">
+      <a href="/#features" class="nav-mobile-link">Funkcie</a>
+      <a href="/#ranks" class="nav-mobile-link">Ranky</a>
+      <a href="/#story" class="nav-mobile-link">Príbeh</a>
+      <div class="nav-mobile-sep"></div>
+      <a href="/stitna-zlaza" class="nav-mobile-link">🦋 Štítna žľaza</a>
+      <div class="nav-mobile-dd">
+        <button class="nav-mobile-dd-toggle">
+          Diéty &amp; intolerancie
+          <span class="nav-mobile-dd-arrow">▾</span>
+        </button>
+        <div class="nav-mobile-dd-menu">
+          <a href="/dieta/bezlaktozova" class="nav-mobile-dd-item">🥛 Bezlaktózová diéta</a>
+          <a href="/dieta/bezlepkova" class="nav-mobile-dd-item">🌾 Bezlepková diéta</a>
+          <a href="/dieta/histaminova" class="nav-mobile-dd-item">🧪 Histamínová intolerancia</a>
+          <a href="/dieta/hashimoto" class="nav-mobile-dd-item">🧬 Hashimotova tyreoiditída</a>
+        </div>
+      </div>
+    </nav>
+    <a href="https://app.booom.fit" class="nav-mobile-cta">Stiahnuť BOOOM zadarmo →</a>
+  </div>
+</div>
+
+<!-- ── PAGE INTRO ── -->
+<div class="page-intro">
+  <div class="page-intro-inner">
+    <div class="page-breadcrumb">
+      <a href="/">BOOOM</a>
+      <span>›</span>
+      <span>Ochrana súkromia</span>
+    </div>
+    <h1>Zásady ochrany osobných údajov</h1>
+    <p>Transparentne o tom, aké údaje BOOOM zbiera, ako ich používa, kde sú uložené a aké práva máš ako používateľ.</p>
+  </div>
+</div>
+
+<!-- ── POLICY CONTENT ── -->
+<section>
+  <div class="section-inner">
+
+    <div class="policy-card">
+      <span class="policy-card-num">1</span>
+      <h2 class="policy-card-title">Aké údaje zbierame</h2>
+      <p class="policy-text">Aby BOOOM mohol fungovať a poskytovať ti personalizované odporúčania, zbierame nasledujúce typy údajov:</p>
+      <ul class="policy-list">
+        <li><strong>Meno a e-mailová adresa</strong> — pri registrácii a pre komunikáciu súvisiacu s účtom</li>
+        <li><strong>Tréningové dáta</strong> — cvičenia, série, opakovania, váhy a história tréningov</li>
+        <li><strong>GPS dáta pri kardiu</strong> — trasa, tempo, vzdialenosť a výškový profil počas behu, cyklistiky a podobných aktivít</li>
+        <li><strong>Telesné miery</strong> — telesná váha, obvody (hrudník, ruky, pás, stehná) a percento telesného tuku</li>
+        <li><strong>Záznamy o výžive</strong> — jedlá, kalórie, makronutrienty a hydratácia</li>
+        <li><strong>Fotografie</strong> — progress fotky a fotky výsledkov krvných testov, ktoré nahráš pre AI analýzu</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <span class="policy-card-num">2</span>
+      <h2 class="policy-card-title">Ako údaje používame</h2>
+      <p class="policy-text">Tvoje údaje používame výlučne na to, aby appka fungovala a aby si z nej mal/a maximálny úžitok:</p>
+      <ul class="policy-list">
+        <li><strong>Funkcionalita appky</strong> — zobrazovanie tvojich grafov, histórie, pokroku a štatistík v rámci BOOOM</li>
+        <li><strong>AI koučing</strong> — relevantné dáta (napr. krvné hodnoty, tréningový a výživový profil) posielame na <strong>Anthropic Claude API</strong>, aby ti AI Coach vedel poskytnúť personalizované odporúčania</li>
+        <li><strong>Push notifikácie</strong> — pripomienky tréningu, hydratácie, suplementov a motivačné správy</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <span class="policy-card-num">3</span>
+      <h2 class="policy-card-title">Ukladanie dát</h2>
+      <p class="policy-text">Tvoje dáta sú uložené v databáze <strong>Supabase (PostgreSQL)</strong> a appka je hostovaná na platforme <strong>Vercel</strong>. Servery, na ktorých sú tvoje dáta uložené, sa nachádzajú v <strong>Európskej únii</strong> a podliehajú nariadeniu GDPR.</p>
+      <p class="policy-text">Prenos dát medzi appkou a serverom je šifrovaný (HTTPS/TLS), rovnako ako dáta v databáze v stave uloženia.</p>
+    </div>
+
+    <div class="policy-card">
+      <span class="policy-card-num">4</span>
+      <h2 class="policy-card-title">Tretie strany</h2>
+      <p class="policy-text">Na poskytovanie služby spolupracujeme s nasledujúcimi dôveryhodnými partnermi, ktorí spracúvajú len tie údaje, ktoré sú nevyhnutné pre ich konkrétnu funkciu:</p>
+      <ul class="policy-list">
+        <li><strong>Supabase</strong> — databáza a autentifikácia používateľov</li>
+        <li><strong>Vercel</strong> — hosting webu a appky</li>
+        <li><strong>Anthropic (Claude API)</strong> — spracovanie dát pre AI Coach a personalizované odporúčania</li>
+        <li><strong>Resend</strong> — doručovanie transakčných e-mailov (napr. potvrdenie registrácie)</li>
+        <li><strong>Google OAuth</strong> — prihlásenie pomocou Google účtu</li>
+        <li><strong>Cloudflare</strong> — CDN a bezpečnostná ochrana webu</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <span class="policy-card-num">5</span>
+      <h2 class="policy-card-title">Práva používateľa</h2>
+      <p class="policy-text">V súlade s GDPR máš ako používateľ BOOOM právo na:</p>
+      <ul class="policy-list">
+        <li><strong>Prístup</strong> — kedykoľvek si môžeš pozrieť všetky údaje, ktoré o tebe uchovávame</li>
+        <li><strong>Export dát</strong> — na požiadanie ti poskytneme kópiu tvojich dát v strojovo čitateľnom formáte</li>
+        <li><strong>Vymazanie účtu</strong> — na požiadanie natrvalo vymažeme tvoj účet a všetky súvisiace údaje</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <span class="policy-card-num">6</span>
+      <h2 class="policy-card-title">Kontakt</h2>
+      <p class="policy-text">Ak máš akékoľvek otázky ohľadom ochrany osobných údajov alebo si chceš uplatniť svoje práva, napíš nám:</p>
+      <div class="policy-contact">
+        <a href="mailto:laco@booom.fit">laco@booom.fit</a>
+      </div>
+    </div>
+
+    <p class="policy-meta">Posledná aktualizácia: Jún 2026</p>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">BOOOM</span>
+      <div class="footer-links">
+        <a href="/#features" data-i18n="footer_about">O nás</a>
+        <a href="mailto:laco@booom.fit" data-i18n="footer_contact">Kontakt</a>
+        <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="/terms" data-i18n="footer_terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2026 BOOOM. Všetky práva vyhradené.</span>
+      <span class="footer-founder">Made with ❤️ by <a href="https://www.instagram.com/lacoo.v/" target="_blank" rel="noopener" data-i18n="footer_founder">Laco, zakladateľ BOOOM</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/lang.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/boomer-chat.js"></script>
+<script>
+(function() {
+  var btn = document.getElementById('navHamburger');
+  var menu = document.getElementById('navMobile');
+  var closeBtn = document.getElementById('navMobileClose');
+  if (!btn || !menu) return;
+  function openMenu() { menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu() { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  menu.addEventListener('click', function(e){ if(e.target===menu) closeMenu(); });
+  menu.querySelectorAll('.nav-mobile-link,.nav-mobile-dd-item,.nav-mobile-cta').forEach(function(el){ el.addEventListener('click', closeMenu); });
+  menu.querySelectorAll('.nav-mobile-dd-toggle').forEach(function(t){ t.addEventListener('click', function(){ this.closest('.nav-mobile-dd').classList.toggle('open'); }); });
+}());
+</script>
+</body>
+</html>
