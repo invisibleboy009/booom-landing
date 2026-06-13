@@ -832,32 +832,15 @@
         <p data-i18n="chart_tst_desc">Porovnanie prirodzených hladín testosterónu s enhanced verziou počas aktívneho cyklu</p>
       </div>
       <svg class="chart-svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <filter id="glowRed" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
         <!-- Grid lines -->
-        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="120" x2="750" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="60" x2="750" y2="60" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="120" x2="750" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="60" x2="750" y2="60" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
 
         <!-- Axes -->
-        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-        <line x1="80" y1="20" x2="80" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" display="block"/>
+        <line x1="80" y1="20" x2="80" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" display="block"/>
 
         <!-- Y-axis labels (nmol/L) -->
         <text x="60" y="245" fill="rgba(255,255,255,0.5)" font-size="12" text-anchor="end">0</text>
@@ -866,13 +849,13 @@
         <text x="60" y="65" fill="rgba(255,255,255,0.5)" font-size="12" text-anchor="end">300</text>
         <text x="20" y="140" fill="rgba(255,255,255,0.6)" font-size="13" font-weight="600" text-anchor="middle" transform="rotate(-90 20 140)">Testosterón (nmol/L)</text>
 
-        <!-- Natural TST line (flat, low) -->
-        <path d="M 80 205 L 750 205" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" filter="url(#glowBlue)"/>
-        <text x="720" y="200" fill="#3b82f6" font-size="14" font-weight="700">Natural (10-35 nmol/L)</text>
+        <!-- Natural TST line (flat, low) - BLUE -->
+        <line x1="80" y1="205" x2="750" y2="205" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" display="block" opacity="1"/>
+        <text x="680" y="200" fill="#3b82f6" font-size="13" font-weight="700">Natural (10-35 nmol/L)</text>
 
-        <!-- Enhanced TST line (high, elevated) -->
-        <path d="M 80 35 L 750 35" fill="none" stroke="#dc2626" stroke-width="5" stroke-linecap="round" filter="url(#glowRed)"/>
-        <text x="650" y="30" fill="#dc2626" font-size="14" font-weight="700">Enhanced (150-300+ nmol/L)</text>
+        <!-- Enhanced TST line (high, elevated) - RED -->
+        <line x1="80" y1="50" x2="750" y2="50" stroke="#ef4444" stroke-width="6" stroke-linecap="round" display="block" opacity="1"/>
+        <text x="620" y="42" fill="#ef4444" font-size="13" font-weight="700">Enhanced (150-300+ nmol/L)</text>
       </svg>
       <div class="chart-legend">
         <div class="legend-item">
@@ -898,24 +881,24 @@
       </div>
       <svg class="chart-svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
         <defs>
-          <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
+          <linearGradient id="gradientStrength" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#00e676;stop-opacity:1" />
+            <stop offset="58%" style="stop-color:#00e676;stop-opacity:1" />
+            <stop offset="62%" style="stop-color:#ffd700;stop-opacity:1" />
+            <stop offset="72%" style="stop-color:#f97316;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+          </linearGradient>
         </defs>
 
         <!-- Grid lines -->
-        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="120" x2="750" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="80" y1="60" x2="750" y2="60" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="120" x2="750" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
+        <line x1="80" y1="60" x2="750" y2="60" stroke="rgba(255,255,255,0.1)" stroke-width="1" display="block"/>
 
         <!-- Axes -->
-        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-        <line x1="80" y1="20" x2="80" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <line x1="80" y1="240" x2="750" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" display="block"/>
+        <line x1="80" y1="20" x2="80" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" display="block"/>
 
         <!-- Y-axis labels (relative strength) -->
         <text x="60" y="245" fill="rgba(255,255,255,0.5)" font-size="12" text-anchor="end">0%</text>
@@ -932,34 +915,26 @@
         <text x="415" y="290" fill="rgba(255,255,255,0.6)" font-size="13" font-weight="600" text-anchor="middle">Týždne</text>
 
         <!-- Baseline -->
-        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+        <line x1="80" y1="180" x2="750" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 4" display="block"/>
         <text x="40" y="185" fill="rgba(255,255,255,0.4)" font-size="11">Baseline</text>
 
         <!-- Strength curve: exponential rise weeks 0-12, then catastrophic drop weeks 12-20 -->
-        <path d="M 80 180 Q 180 140, 280 90 T 480 40 L 520 50 Q 580 120, 650 220 T 750 260"
+        <path d="M 80 180 C 150 160, 220 120, 280 80 C 340 50, 400 35, 480 30 L 500 32 C 540 60, 580 140, 620 200 C 660 240, 700 255, 750 265"
               fill="none"
               stroke="url(#gradientStrength)"
-              stroke-width="4"
+              stroke-width="6"
               stroke-linecap="round"
-              filter="url(#glowGreen)"/>
-
-        <defs>
-          <linearGradient id="gradientStrength" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#00e676;stop-opacity:1" />
-            <stop offset="60%" style="stop-color:#00e676;stop-opacity:1" />
-            <stop offset="65%" style="stop-color:#ffd700;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
-          </linearGradient>
-        </defs>
+              display="block"
+              opacity="1"/>
 
         <!-- Annotations -->
-        <text x="280" y="75" fill="#00e676" font-size="13" font-weight="700" text-anchor="middle">↑ ON CYCLE</text>
-        <text x="480" y="30" fill="#ffd700" font-size="13" font-weight="700" text-anchor="middle">PEAK</text>
-        <text x="650" y="210" fill="#dc2626" font-size="13" font-weight="700" text-anchor="middle">↓ POST-CYCLE CRASH</text>
+        <text x="280" y="70" fill="#00e676" font-size="13" font-weight="700" text-anchor="middle">↑ ON CYCLE</text>
+        <text x="480" y="20" fill="#ffd700" font-size="13" font-weight="700" text-anchor="middle">PEAK</text>
+        <text x="650" y="190" fill="#ef4444" font-size="13" font-weight="700" text-anchor="middle">↓ POST-CYCLE CRASH</text>
 
         <!-- Cycle end marker -->
-        <line x1="480" y1="40" x2="480" y2="240" stroke="rgba(255,215,0,0.4)" stroke-width="2" stroke-dasharray="6 4"/>
-        <text x="485" y="255" fill="rgba(255,215,0,0.8)" font-size="11" font-weight="600">Cycle End</text>
+        <line x1="480" y1="30" x2="480" y2="240" stroke="rgba(255,215,0,0.5)" stroke-width="2" stroke-dasharray="6 4" display="block"/>
+        <text x="485" y="255" fill="rgba(255,215,0,0.9)" font-size="11" font-weight="600">Cycle End</text>
       </svg>
       <div class="chart-legend">
         <div class="legend-item">
