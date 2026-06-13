@@ -72,6 +72,8 @@ const translations = {
     footer_copy: '© 2026 BOOOM. Všetky práva vyhradené.',
     footer_founder: 'Laco, zakladateľ BOOOM',
     footer_home: 'Domov',
+    // Navigation
+    nav_enhanced_fitness: 'Za hranicou naturalu',
     // LAB Teaser
     lab_badge: 'RESTRICTED ACCESS',
     lab_teaser_title: 'BOOOM LAB: Za hranicou naturalu',
@@ -288,6 +290,8 @@ const translations = {
     footer_copy: '© 2026 BOOOM. All rights reserved.',
     footer_founder: 'Laco, founder of BOOOM',
     footer_home: 'Home',
+    // Navigation
+    nav_enhanced_fitness: 'Beyond Natural',
     // LAB Teaser
     lab_badge: 'RESTRICTED ACCESS',
     lab_teaser_title: 'BOOOM LAB: Beyond Natural',
@@ -504,6 +508,8 @@ const translations = {
     footer_copy: '© 2026 BOOOM. Všechna práva vyhrazena.',
     footer_founder: 'Laco, zakladatel BOOOM',
     footer_home: 'Domů',
+    // Navigation
+    nav_enhanced_fitness: 'Za hranicí naturalu',
     // LAB (Czech uses same content as SK with minor spelling differences)
     lab_badge: 'RESTRICTED ACCESS',
     lab_teaser_title: 'BOOOM LAB: Za hranicí naturalu',
@@ -590,6 +596,8 @@ const translations = {
     footer_copy: '© 2026 BOOOM. Wszelkie prawa zastrzeżone.',
     footer_founder: 'Laco, założyciel BOOOM',
     footer_home: 'Strona główna',
+    // Navigation
+    nav_enhanced_fitness: 'Poza granicą naturalu',
     // LAB (Polish)
     lab_badge: 'RESTRICTED ACCESS',
     lab_teaser_title: 'BOOOM LAB: Poza naturalnym',
@@ -676,6 +684,8 @@ const translations = {
     footer_copy: '© 2026 BOOOM. Всі права захищені.',
     footer_founder: 'Laco, засновник BOOOM',
     footer_home: 'Головна',
+    // Navigation
+    nav_enhanced_fitness: 'За межами натуралу',
     // LAB (Ukrainian)
     lab_badge: 'RESTRICTED ACCESS',
     lab_teaser_title: 'BOOOM LAB: За межами натурального',
