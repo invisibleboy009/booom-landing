@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Potvrď svoju emailovú adresu – BOOOM</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+    body, table, td, a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #080808;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#080808;">
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+         style="background-color:#080808;min-height:100vh;">
+    <tr>
+      <td align="center" style="padding:48px 16px;">
+
+        <!-- Card -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+               style="max-width:600px;background-color:#0f0f0f;border-radius:16px;border:1px solid #1a1a1a;overflow:hidden;">
+
+          <!-- Top accent bar -->
+          <tr>
+            <td style="height:4px;background:linear-gradient(90deg,#00ff88 0%,#00cc6a 50%,transparent 100%);font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- Header -->
+          <tr>
+            <td align="center" style="padding:48px 48px 32px;">
+
+              <!-- Logo -->
+              <div style="font-family:'Inter',Arial,sans-serif;font-weight:900;font-size:32px;
+                          color:#00ff88;letter-spacing:2px;line-height:1;margin-bottom:10px;">
+                BOOOM
+              </div>
+
+              <!-- Tagline -->
+              <div style="font-family:'Inter',Arial,sans-serif;font-size:14px;
+                          color:#888888;letter-spacing:3px;text-transform:uppercase;">
+                Train. Track. Dominate.
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Neon divider -->
+          <tr>
+            <td style="padding:0 48px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="height:1px;background:linear-gradient(90deg,transparent 0%,#00ff88 30%,#00ff88 70%,transparent 100%);
+                              box-shadow:0 0 8px #00ff8866;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td align="center" style="padding:48px 48px 40px;">
+
+              <!-- Heading -->
+              <h1 style="font-family:'Inter',Arial,sans-serif;font-size:24px;font-weight:700;
+                         color:#ffffff;margin:0 0 20px;line-height:1.3;text-align:center;">
+                Potvrď svoju emailovú adresu
+              </h1>
+
+              <!-- Body text -->
+              <p style="font-family:'Inter',Arial,sans-serif;font-size:16px;color:#cccccc;
+                        line-height:1.7;margin:0 0 40px;text-align:center;max-width:420px;">
+                Vitaj v BOOOM komunite! Klikni na tlačidlo nižšie a potvrď svoju emailovú adresu.
+              </p>
+
+              <!-- CTA Button -->
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td align="center" style="border-radius:8px;background-color:#00ff88;">
+                    <a href="{{ .ConfirmationURL }}"
+                       style="display:inline-block;padding:16px 48px;
+                              font-family:'Inter',Arial,sans-serif;font-size:16px;
+                              font-weight:700;color:#000000;text-decoration:none;
+                              border-radius:8px;letter-spacing:0.5px;
+                              background-color:#00ff88;">
+                      Potvrdiť email
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Fallback link note -->
+              <p style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#555555;
+                        margin:32px 0 0;text-align:center;line-height:1.6;">
+                Ak tlačidlo nefunguje, skopíruj a vlož tento odkaz do prehliadača:<br/>
+                <span style="color:#00ff88;word-break:break-all;">{{ .ConfirmationURL }}</span>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- Bottom divider -->
+          <tr>
+            <td style="padding:0 48px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="height:1px;background-color:#1a1a1a;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="padding:28px 48px 40px;">
+              <p style="font-family:'Inter',Arial,sans-serif;font-size:12px;color:#555555;
+                        margin:0;line-height:1.6;text-align:center;">
+                © 2026 BOOOM. Ak si si nevytvoril účet, ignoruj tento email.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Card -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- /Wrapper -->
+
+</body>
+</html>
