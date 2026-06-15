@@ -1628,7 +1628,7 @@ const translations = {
     hero_h1_line3: 'Dominieren.',
     hero_subtitle: 'Die erste Fitness-App, die dich wirklich kennt. Tracke deinen Fortschritt, baue Gewohnheiten auf und dominiere jedes Workout.',
     hero_cta1: 'Kostenlos starten',
-    hero_cta2: 'So funktioniert's',
+    hero_cta2: 'So funktioniert\'s',
     badge1_title: '+12%',
     badge1_sub: 'Muskelmasse / 90 Tage',
     badge2_title: 'Neuer PR!',
