@@ -896,65 +896,6 @@
       .fomo-counter-wrap { padding: 18px 24px; }
       .trust-item { padding: 0 12px; font-size: 12px; }
     }
-
-    /* ── FEATURE CARDS GRID ── */
-    .feature-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .feat-card {
-      background: #111;
-      border-radius: 16px;
-      padding: 28px 24px;
-      border-top: 3px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .feat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-    .feat-card--green  { border-top-color: #00e676; }
-    .feat-card--cyan   { border-top-color: #00bcd4; }
-    .feat-card--purple { border-top-color: #9c27b0; }
-    .feat-card--gold   { border-top-color: #ffd700; }
-    .feat-card--orange { border-top-color: #ff9800; }
-    .feat-card--red    { border-top-color: #f44336; }
-    .feat-card--pink   { border-top-color: #e91e63; }
-    .feat-card__icon {
-      margin-bottom: 16px;
-    }
-    .feat-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .feat-card p {
-      font-size: 14px;
-      color: #9ca3af;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .feat-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .feat-tags span {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.07);
-      color: #ccc;
-    }
-    @media (max-width: 768px) {
-      .feature-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    }
-    @media (max-width: 480px) {
-      .feature-cards-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -1167,6 +1108,65 @@
   </div>
 </section>
 
+<!-- ── STORY ── -->
+<section id="story" data-animate>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="story_tag">Príbeh zakladateľa</span>
+    </div>
+    <div class="story-accordion">
+      <button class="story-accordion-btn" onclick="toggleStory(this)" aria-expanded="false" aria-controls="story-accordion-body">
+        <span data-i18n="story_btn">Prečo vznikol BOOOM? Môj príbeh.</span>
+        <span class="story-accordion-icon" aria-hidden="true">▼</span>
+      </button>
+      <div class="story-accordion-body" id="story-accordion-body">
+        <div class="story-content">
+          <h2 class="story-section-heading" data-i18n="story_h1">Prečo vznikla aplikácia BOOOM?</h2>
+          <p class="story-section-subheading" data-i18n="story_subh1">Makáš na 120 %, ale tvoje telo ťa ignoruje? Viem, aké to je.</p>
+          <p data-i18n="story_p1">Poznáš to? Cvičíš štyrikrát týždenne. Strava uprataná, spánok ako-tak v norme, v gyme nechávaš dušu. No namiesto formy prichádza len frustrácia, nevysvetliteľná únava a váha, ktorá nekontrolovateľne stúpa.</p>
+          <p data-i18n="story_p2">Začneš pochybovať o sebe. Pridáš kardio, uberieš jedlo. Telo sa zatne ešte viac. Okolie ti povie, že málo makáš, alebo že už na to máš vek.</p>
+          <p data-i18n="story_p3">Stop. Nie si v tom sám. Chcem ti vyrozprávať príbeh o tom, ako som takmer zničil sám seba, kým som pochopil, že telo nie je nepriateľ, ale spojenec, ktorý občas ticho volá o pomoc.</p>
+          <hr class="story-divider">
+          <h2 class="story-section-heading" data-i18n="story_h2">Chlap ako hora, no bez energie</h2>
+          <p data-i18n="story_p4">Športujem odmalička. Od 10 rokov tvrdá kanoistika na Draždiaku a Dunaji, neskôr silový tréning v gyme. Bol som na svojom silovom vrchole. Pre predstavu: benchpress 165 kg, mŕtvy ťah 200 kg, drep 180 kg. Mal som vlastnú reštauráciu, jedlo pod absolútnou kontrolou a čistú hlavu.</p>
+          <p data-i18n="story_p5">Napriek tomu som priberal. Každé ráno som vstával dolámaný, cez deň bojoval s hmlou v hlave a neprekonateľnou ospalosťou. Skúšal som fasting, detoxy, brutálne low-carb diéty. Výsledok? Telo sa zavodňovalo a ja som začínal byť bezradný — nič nezaberalo aj napriek všetkým možným radám od trénerov, youtube videám a množstvu prečítaných článkov. Nič nezaberalo. Keď ručička váhy ukázala 127,6 kg, bol som na dne. Vinu som hádzal na stres a prácu. Veď kto dnes nie je unavený, však?</p>
+          <div class="story-emil-box" data-i18n="story_emil">Vtedy zakročil môj kamarát a gym parťák Emil, ktorý má aj signifikantnú prezývku Lord Biceps. Mesiace mi hustil do hlavy: <em>„Laco, toto nie je normálne. Choď k doktorovi a choď na krv."</em> Keďže som to večne odkladal na zajtra, pozajtra, o týždeň — zobral to Lord Bicepsus do svojich rúk a vybavil doktora. Len mi jeden deň oznámil: v pondelok o 8:30 máš termín, tak ideš.</div>
+          <hr class="story-divider">
+          <h2 class="story-section-heading" data-i18n="story_h3">Šok na endokrinológii: Telo v núdzovom režime</h2>
+          <p data-i18n="story_p6">...tak prišiel pondelok. Pani sestrička u endokrinológa ma volá dnu, berie krv, následne pán doktor endokrinológ robí sono... a tam to prišlo.</p>
+          <p data-i18n="story_p7">Výsledky krvných testov a sona mi vyrazili dych. Moja štítna žľaza fungovala na necelých 20 % a k tomu mi diagnostikovali Hashimotovu tyreoiditídu. Verdikt bol jasný — žľaza musí ísť von...</p>
+          <p data-i18n="story_p8">Chyba nebola vo mne, ani v mojom nastavení. Chyba bola v organizme — ten prepol v tom čase do núdzového režimu. Každú jednu kalóriu ukladal, ako by mal prísť zajtra koniec sveta. Čím menej som jedol, tým viac sa telo bránilo.</p>
+          <p class="story-key-phrase" data-i18n="story_key1">Nebol som lenivý. Nemal som slabú vôľu. Bol som chorý a nevedel som o tom.</p>
+          <hr class="story-divider">
+          <h2 class="story-section-heading" data-i18n="story_h4">Dôležité upozornenie: Nie som lekár</h2>
+          <p data-i18n="story_p9"><strong>Chcem to povedať úplne na rovinu a jasne — nie som doktor, expert na medicínu ani biely plášť. Neponúkam ti lekárske diagnózy ani zázračné recepty na počkanie.</strong> Všetky zdravotné problémy, podozrenia a tvoje reálne symptómy musíš v prvom rade komunikovať s odborníkmi a lekármi.</p>
+          <p data-i18n="story_p10">Ja ti ponúkam „len" niečo iné — poznatky z mojej vlastnej tvrdej cesty a systém, ktorý mi vtedy na trhu chýbal. Nástroj, ktorý ti pomôže sledovať tvoje telo ako jeden prepojený celok.</p>
+          <hr class="story-divider">
+          <h2 class="story-section-heading" data-i18n="story_h5">Prečo BOOOM?</h2>
+          <p data-i18n="story_p11">Keď bojuješ so stagnáciou, pes môže byť zakopaný kdekoľvek — pečeň, srdce, cukor, lietajúci inzulín, hormóny či skryté zápaly a veľa iného. Kým nespoznáš signály svojho tela, žiadna univerzálna diéta z internetu ti nepomôže.</p>
+          <p data-i18n="story_p12">Preto som vytvoril BOOOM. Nie je to len ďalšia nudná appka, ktorá ti povie, koľko kalórií má avokádo.</p>
+          <div class="story-highlight" data-i18n="story_highlight">BOOOM je komplexný fitness denník pre ľudí, ktorí chcú mať pod kontrolou nielen svoje tréningové výkony a výživu, ale aj regeneráciu, pocity a reálny pokrok. Je to nástroj, ktorý ťa naučí sledovať vlastné telo, aby si presne vedel, kedy pritvrdiť a kedy naopak spomaliť a zájsť za lekárom.</div>
+          <p data-i18n="story_p13">Skôr než odpáliš ďalší drastický plán, začni počúvať sám seba. Ak cítiš, že niečo dlhodoho nehrá, nečakaj na zázrak a choď na krvné testy. Mne to zachránilo zdravie.</p>
+          <p data-i18n="story_p14">A Emilovi (Lordovi Bicepsovi) verejne ďakujem. Bro, dlhujem ti viac, než si dokážeš predstaviť.</p>
+          <hr class="story-divider">
+          <p class="story-key-phrase" data-i18n="story_key2">Keď sa dnes pozriem späť, viem jedno — keby som vtedy mal nástroj, ktorý by mi pomohol sledovať svoje telo ako celok, vidieť súvislosti medzi tréningom, výživou a krvnými hodnotami, ušetril by som si roky frustrácie, zbytočného trápenia a možno aj vážnejšie zdravotné následky. Nemusel by som čakať, kým mi Emil objedná doktora. Vedel by som sám.</p>
+          <p class="story-key-phrase" data-i18n="story_key3">Preto verím, že BOOOM dokáže pomôcť každému, kto sa točí v tom istom začarovanom kruhu ako som bol ja — maká naplno, ale výsledky neprichádzajú. Nie si lenivý. Nie si slabý. Možno len potrebuješ vidieť celý obraz.</p>
+          <hr class="story-divider">
+          <p class="story-conclusion" data-i18n="story_conclusion">Ak máš pocit, že tvoje telo stagnuje a hľadáš systém, ktorý ti dá odpovede, BOOOM je pre teba. Začni sledovať. Začni chápať. Začni dominovať.</p>
+          <p class="story-contact"><a href="mailto:laco@booom.fit">laco@booom.fit</a></p>
+          <hr class="story-divider">
+          <div class="story-sig">
+            <div class="story-avatar">L</div>
+            <div>
+              <div class="story-sig-name" data-i18n="story_sig_name">— Laco, zakladateľ BOOOM</div>
+              <div class="story-sig-role"><a href="mailto:laco@booom.fit">laco@booom.fit</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── FEATURES ── -->
 <section id="features">
@@ -1174,66 +1174,135 @@
     <div class="section-header" data-animate>
       <span class="section-tag" data-i18n="features_tag">Funkcie</span>
       <h2 data-i18n="features_title">Všetko čo potrebuješ</h2>
-      <p class="section-subtitle" data-i18n="features_subtitle">Kompletný fitness ekosystém v jednej aplikácii</p>
+      <p data-i18n="features_subtitle">Kompletný fitness ekosystém v jednej aplikácii</p>
     </div>
-    <div class="feature-cards-grid">
-      <div class="feat-card feat-card--green" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M15 13l2 4 2-1"/></svg>
+
+    <!-- 3 primary feature cards -->
+    <div class="spotlight-grid">
+      <div class="spotlight-card spotlight-card-green" data-animate data-delay="1">
+        <span class="spotlight-card-num" aria-hidden="true">01</span>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-green"><span class="fp-pill-dot"></span>AI SCAN</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_weight_label">TELESNÁ VÁHA</span>
+            <div class="fp-bignum">68.4<small>kg</small></div>
+            <div class="fp-graph">
+              <svg viewBox="0 0 140 60" preserveAspectRatio="none">
+                <defs>
+                  <filter id="fpGlowGreen" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <path class="fp-graph-line" d="M4,8 C20,14 32,20 50,26 C70,33 86,40 104,46 C118,51 128,53 136,55"/>
+                <circle class="fp-graph-node" cx="4" cy="8" r="3"/>
+                <circle class="fp-graph-node fp-graph-node-active" cx="136" cy="55" r="3.5"/>
+              </svg>
+            </div>
+            <div class="fp-row">
+              <span data-i18n="fp_weight_before">Predtým: 79 kg</span>
+              <span class="fp-accent-green" data-i18n="fp_weight_after">Teraz: 68.4 kg</span>
+            </div>
+          </div>
         </div>
-        <h3 data-i18n="feat_body_title">Body Skener AI</h3>
-        <p data-i18n="feat_body_desc">Foto analýza tela, krvné testy, AI odporúčania. Sleduj čo tvoje telo naozaj robí.</p>
-        <div class="feat-tags"><span>AI scan</span><span>Krvné testy</span><span>Progress foto</span></div>
+        <h3 data-i18n="features_p1_title">AI Skener &amp; Telo</h3>
+        <p data-i18n="features_p1_desc">Odfoť sa a AI okamžite zanalyzuje zloženie tela. Merania, fotky pokroku a presný body composition tracker na jednom mieste — vidíš zmenu, ktorú váha nikdy neukáže.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-green" data-i18n="feature_tag_ai_scan">AI sken</span>
+          <span class="spotlight-tag spotlight-tag-green" data-i18n="feature_tag_body_scan">Body scan</span>
+          <span class="spotlight-tag spotlight-tag-green" data-i18n="feature_tag_progress_pics">Fotky pokroku</span>
+          <span class="spotlight-tag spotlight-tag-green" data-i18n="feature_tag_trends">Trendy</span>
+        </div>
       </div>
-      <div class="feat-card feat-card--cyan" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="1.5"><path d="M6 4v16M18 4v16M6 12h12"/><circle cx="6" cy="4" r="1.5"/><circle cx="18" cy="4" r="1.5"/><circle cx="6" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+
+      <div class="spotlight-card spotlight-card-cyan" data-animate data-delay="2">
+        <span class="spotlight-card-num" aria-hidden="true">02</span>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-cyan"><span class="fp-pill-dot"></span>LIVE</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_timer_label">AKTUÁLNY CVIK</span>
+            <div class="fp-timer-display">04:12</div>
+            <div class="fp-sets">
+              <div class="fp-set fp-set-done">
+                <span data-i18n="fp_timer_set1">Séria 1 — 80 kg × 8</span>
+                <span class="fp-set-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+              </div>
+              <div class="fp-set fp-set-done">
+                <span data-i18n="fp_timer_set2">Séria 2 — 85 kg × 6</span>
+                <span class="fp-set-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+              </div>
+              <div class="fp-set fp-set-active">
+                <span data-i18n="fp_timer_set3">Séria 3 — 90 kg × 5</span>
+                <span class="fp-pulse-dot"></span>
+              </div>
+            </div>
+            <div class="fp-cta-mini" data-i18n="fp_timer_cta">Dokončiť sériu</div>
+          </div>
         </div>
-        <h3 data-i18n="feat_workout_title">Tréningový Tracker</h3>
-        <p data-i18n="feat_workout_desc">500+ cvikov, AI plány, PR tracking, timer. Každá séria zaznamenaná.</p>
-        <div class="feat-tags"><span>500+ cvikov</span><span>PR tracking</span><span>Timer</span></div>
+        <h3 data-i18n="features_p2_title">Tréningový plán &amp; Hardcore Tracker</h3>
+        <p data-i18n="features_p2_desc">Stovky cvikov, hotové plány a AI-generované tréningy presne pre teba. Časovač, pauzy a PR sledovanie — žiadne odhady, len čísla.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-cyan" data-i18n="feature_tag_exercises">Stovky cvikov</span>
+          <span class="spotlight-tag spotlight-tag-cyan" data-i18n="feature_tag_ai_plans">AI plány</span>
+          <span class="spotlight-tag spotlight-tag-cyan" data-i18n="feature_tag_pr_tracking">PR tracking</span>
+          <span class="spotlight-tag spotlight-tag-cyan" data-i18n="feature_tag_timer">Časovač</span>
+        </div>
       </div>
-      <div class="feat-card feat-card--purple" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9c27b0" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/><path d="M8 12h1m6 0h1m-5-4v1m0 6v1"/></svg>
+
+      <div class="spotlight-card spotlight-card-purple" data-animate data-delay="3">
+        <span class="spotlight-card-num" aria-hidden="true">03</span>
+        <div class="fp-frame">
+          <div class="fp-screen">
+            <div class="fp-head">
+              <span class="fp-logo">BOOOM</span>
+              <span class="fp-pill fp-pill-purple"><span class="fp-pill-dot"></span>MACROS</span>
+            </div>
+            <span class="fp-label" data-i18n="fp_macro_label">DNEŠNÝ PRÍJEM</span>
+            <div class="fp-ring-wrap">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <filter id="fpGlowPurple" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <circle class="fp-ring-bg" cx="50" cy="50" r="40"/>
+                <circle class="fp-ring-fg" cx="50" cy="50" r="40" stroke-dasharray="125.4 251.3"/>
+              </svg>
+              <div class="fp-ring-center">
+                <span class="fp-ring-num">898</span>
+                <span class="fp-ring-total">/ 1800 kcal</span>
+              </div>
+            </div>
+            <div class="fp-macros-row">
+              <div class="fp-macro-pill"><span>112g</span><label>P</label></div>
+              <div class="fp-macro-pill"><span>96g</span><label>C</label></div>
+              <div class="fp-macro-pill"><span>34g</span><label>F</label></div>
+            </div>
+          </div>
         </div>
-        <h3 data-i18n="feat_nutrition_title">Výživa & Makrá</h3>
-        <p data-i18n="feat_nutrition_desc">Kalórie, makrá, hydratácia, barcode scanner. Biohacking level výživa.</p>
-        <div class="feat-tags"><span>Makrá</span><span>Kalórie</span><span>Barcode</span></div>
-      </div>
-      <div class="feat-card feat-card--gold" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.5"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M3 20c0-3 2.7-5 6-5m6 0c3.3 0 6 2 6 5"/><path d="M9 15c0 2.8 1.3 5 3 5s3-2.2 3-5"/></svg>
+        <h3 data-i18n="features_p3_title">Inteligentná Výživa &amp; Biohacking Macros</h3>
+        <p data-i18n="features_p3_desc">Sleduj kalórie, makrá a hydratáciu na úrovni biohackera. Jedz chytrejšie, nie menej — a optimalizuj výkon zvnútra.</p>
+        <div class="spotlight-tags">
+          <span class="spotlight-tag spotlight-tag-purple" data-i18n="feature_tag_macros">Makrá</span>
+          <span class="spotlight-tag spotlight-tag-purple" data-i18n="feature_tag_calories">Kalórie</span>
+          <span class="spotlight-tag spotlight-tag-purple" data-i18n="feature_tag_hydration">Hydratácia</span>
+          <span class="spotlight-tag spotlight-tag-purple" data-i18n="feature_tag_biohacking">Biohacking</span>
         </div>
-        <h3 data-i18n="feat_community_title">InstaBooom Komunita</h3>
-        <p data-i18n="feat_community_desc">Sociálne profily, follow systém, Workout Respect, leaderboardy.</p>
-        <div class="feat-tags"><span>Follow</span><span>Leaderboard</span><span>Respect</span></div>
-      </div>
-      <div class="feat-card feat-card--orange" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 12s1 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg>
-        </div>
-        <h3 data-i18n="feat_ai_title">AI Coach Boomer</h3>
-        <p data-i18n="feat_ai_desc">Osobný AI tréner s kontextom tvojho tela, tréningov a výživy. Vždy po ruke.</p>
-        <div class="feat-tags"><span>AI chat</span><span>Kontext</span><span>História</span></div>
-      </div>
-      <div class="feat-card feat-card--red" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <h3 data-i18n="feat_export_title">Export Deck</h3>
-        <p data-i18n="feat_export_desc">9-slidový progres deck z tvojich dát. PDF & PNG, zdieľaj kdekoľvek.</p>
-        <div class="feat-tags"><span>PDF</span><span>PNG</span><span>9 slidov</span></div>
-      </div>
-      <div class="feat-card feat-card--pink" data-animate>
-        <div class="feat-card__icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e91e63" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <h3 data-i18n="feat_ranks_title">Gamifikácia & Ranky</h3>
-        <p data-i18n="feat_ranks_desc">12 rankov od Rookie po BOOOM Monster. XP systém, badges, odmeny.</p>
-        <div class="feat-tags"><span>12 rankov</span><span>XP</span><span>Badges</span></div>
       </div>
     </div>
+
+    <!-- Trigger: reveal the 3 hidden premium features -->
+    <button type="button" class="features-more-btn" id="featuresMoreBtn" aria-haspopup="dialog" aria-controls="features-modal">
+      <span data-i18n="show_more_features_cta">Chceš vedieť, čo vie BOOOM viac?</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
   </div>
 </section>
 
