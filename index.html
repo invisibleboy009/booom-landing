@@ -955,6 +955,41 @@
     @media (max-width: 480px) {
       .feature-cards-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── FEAT CARD ACCORDION ── */
+    .feat-expand-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: #9ca3af;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 8px 0;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .feat-expand-btn:hover { color: #fff; }
+    .feat-chevron { transition: transform 0.3s ease; }
+    .feat-expand-content {
+      overflow: hidden;
+    }
+    .feat-expand-content p {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.7;
+      padding: 8px 0 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 12px;
+    }
+    .feat-card--green:hover  { filter: drop-shadow(0 0 12px rgba(0, 230, 118, 0.3)); }
+    .feat-card--cyan:hover   { filter: drop-shadow(0 0 12px rgba(0, 188, 212, 0.3)); }
+    .feat-card--purple:hover { filter: drop-shadow(0 0 12px rgba(156, 39, 176, 0.3)); }
+    .feat-card--gold:hover   { filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.3)); }
+    .feat-card--orange:hover { filter: drop-shadow(0 0 12px rgba(255, 152, 0, 0.3)); }
+    .feat-card--red:hover    { filter: drop-shadow(0 0 12px rgba(244, 67, 54, 0.3)); }
+    .feat-card--pink:hover   { filter: drop-shadow(0 0 12px rgba(233, 30, 99, 0.3)); }
   </style>
 </head>
 <body>
@@ -1183,6 +1218,13 @@
         </div>
         <h3 data-i18n="feat_body_title">Body Skener AI</h3>
         <p data-i18n="feat_body_desc">Foto analýza tela, krvné testy, AI odporúčania. Sleduj čo tvoje telo naozaj robí.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_body_expand">Odfotíš telo → AI ti povie kde máš tuk, kde sval, kde sú slabiny. Pridáš krvné testy → pochopíš prečo stagneš. Dostaneš tréningový plán a jedálniček šitý na tvoju biológiu. Žiadne generické rady.</p>
+        </div>
         <div class="feat-tags"><span>AI scan</span><span>Krvné testy</span><span>Progress foto</span></div>
       </div>
       <div class="feat-card feat-card--cyan" data-animate>
@@ -1191,6 +1233,13 @@
         </div>
         <h3 data-i18n="feat_workout_title">Tréningový Tracker</h3>
         <p data-i18n="feat_workout_desc">500+ cvikov, AI plány, PR tracking, timer. Každá séria zaznamenaná.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_workout_expand">Každý cvik pamätá čo si robil minule. Vo fitku vidíš bench press — minule 80kg × 8. Tvoja jediná úloha? Prekonať to. Žiadne hádanie, len čistý progres.</p>
+        </div>
         <div class="feat-tags"><span>500+ cvikov</span><span>PR tracking</span><span>Timer</span></div>
       </div>
       <div class="feat-card feat-card--purple" data-animate>
@@ -1199,6 +1248,13 @@
         </div>
         <h3 data-i18n="feat_nutrition_title">Výživa & Makrá</h3>
         <p data-i18n="feat_nutrition_desc">Kalórie, makrá, hydratácia, barcode scanner. Biohacking level výživa.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_nutrition_expand">Kalórie, makrá, hydratácia, barcode scanner. Sleduj čo ješ na biohacking úrovni a pochop ako výživa ovplyvňuje tvoj výkon.</p>
+        </div>
         <div class="feat-tags"><span>Makrá</span><span>Kalórie</span><span>Barcode</span></div>
       </div>
       <div class="feat-card feat-card--gold" data-animate>
@@ -1207,6 +1263,13 @@
         </div>
         <h3 data-i18n="feat_community_title">InstaBooom Komunita</h3>
         <p data-i18n="feat_community_desc">Sociálne profily, follow systém, Workout Respect, leaderboardy.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_community_expand">Sociálne profily, follow systém, Workout Respect. Porovnaj sa s followersmi, vyhraj týždenný leaderboard a dokaž kto dominuje.</p>
+        </div>
         <div class="feat-tags"><span>Follow</span><span>Leaderboard</span><span>Respect</span></div>
       </div>
       <div class="feat-card feat-card--orange" data-animate>
@@ -1215,6 +1278,13 @@
         </div>
         <h3 data-i18n="feat_ai_title">AI Coach Boomer</h3>
         <p data-i18n="feat_ai_desc">Osobný AI tréner s kontextom tvojho tela, tréningov a výživy. Vždy po ruke.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_ai_expand">Žiadne prehnané pochvaly keď flákaš. Boomer analyzuje tvoju stravu a výkon v reálnom čase. Tréner ktorý ťa nenechá padnúť na dno.</p>
+        </div>
         <div class="feat-tags"><span>AI chat</span><span>Kontext</span><span>História</span></div>
       </div>
       <div class="feat-card feat-card--red" data-animate>
@@ -1223,6 +1293,13 @@
         </div>
         <h3 data-i18n="feat_export_title">Export Deck</h3>
         <p data-i18n="feat_export_desc">9-slidový progres deck z tvojich dát. PDF & PNG, zdieľaj kdekoľvek.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_export_expand">Jedným klikom vygeneruješ 9-stranový report tvojej sily a progresu. PDF & PNG, zdieľaj na sociálnych sieťach alebo ukáž trénerovi.</p>
+        </div>
         <div class="feat-tags"><span>PDF</span><span>PNG</span><span>9 slidov</span></div>
       </div>
       <div class="feat-card feat-card--pink" data-animate>
@@ -1231,6 +1308,13 @@
         </div>
         <h3 data-i18n="feat_ranks_title">Gamifikácia & Ranky</h3>
         <p data-i18n="feat_ranks_desc">12 rankov od Rookie po BOOOM Monster. XP systém, badges, odmeny.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_ranks_expand">12 rankov od Rookie po BOOOM Monster. Každý tréning ti prináša XP, každý rank odmenu. Nestagnuj — dominuj.</p>
+        </div>
         <div class="feat-tags"><span>12 rankov</span><span>XP</span><span>Badges</span></div>
       </div>
     </div>
@@ -1632,6 +1716,15 @@
     var meta = document.querySelector('.fomo-progress-meta span');
     if (meta) meta.textContent = taken + ' profilov obsadených';
   }());
+</script>
+<script>
+function toggleFeatCard(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  const content = btn.nextElementSibling;
+  btn.setAttribute('aria-expanded', !expanded);
+  if (expanded) { content.hidden = true; } else { content.hidden = false; }
+  btn.querySelector('.feat-chevron').style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+}
 </script>
 </body>
 </html>
