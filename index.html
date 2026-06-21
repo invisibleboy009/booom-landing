@@ -883,6 +883,44 @@
       .hero-float-badge:hover .hero-float-card { transform: none; }
       .hero-float-card { white-space: normal; }
     }
+    @media (max-width: 1023px) {
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 32px;
+      }
+      .hero-text {
+        width: 100%;
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-text h1,
+      .hero-text p,
+      .hero-stats,
+      .hero-subtitle,
+      .hero-subtagline {
+        text-align: center !important;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons {
+        justify-content: center !important;
+        width: 100%;
+      }
+      .hero-visual {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        max-width: 100%;
+      }
+    }
     @media (max-width: 768px) {
       .logo-b { font-size:80px; }
       .logo-aura { width:120px; height:120px; }
