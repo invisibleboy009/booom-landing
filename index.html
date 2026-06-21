@@ -63,13 +63,8 @@
       height: 64px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
-    .nav-brand { display: flex; flex-direction: row; align-items: center; gap: 8px; text-decoration: none; }
-    .nav-brand-text { display: flex; flex-direction: column; gap: 2px; }
-    .nav-logo-img {
-      width: 36px; height: 36px; border-radius: 10px;
-      animation: logo-pulse 3s ease-in-out infinite;
-    }
-    @keyframes logo-pulse {
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    @keyframes logoPulse {
       0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2); }
       50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.1); }
     }
@@ -1010,11 +1005,8 @@
 <nav role="banner">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="BOOOM home">
-      <img src="icon-512.png" class="nav-logo-img" alt="BOOOM">
-      <div class="nav-brand-text">
-        <span class="nav-logo">BOOOM</span>
-        <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
-      </div>
+      <span class="nav-logo">BOOOM</span>
+      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
     </a>
     <div class="nav-links" role="navigation" aria-label="Section navigation">
       <a href="#features" class="nav-link" data-i18n="nav_features">Funkcie</a>
@@ -1080,6 +1072,7 @@
   <div class="hero-inner">
 
     <div class="hero-text">
+      <img src="icon-512.png" alt="BOOOM" style="width:90px;height:90px;border-radius:20px;margin-bottom:24px;display:block;animation:logoPulse 3s ease-in-out infinite;">
       <div class="hero-badge" data-i18n="hero_badge">
         <span class="hero-badge-dot" aria-hidden="true"></span>
         Fitness appka novej generácie
