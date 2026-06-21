@@ -63,7 +63,16 @@
       height: 64px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
-    .nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .nav-brand { display: flex; flex-direction: row; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .nav-logo-img {
+      width: 36px; height: 36px; border-radius: 10px;
+      animation: logo-pulse 3s ease-in-out infinite;
+    }
+    @keyframes logo-pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.2); }
+      50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), 0 0 60px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.1); }
+    }
     .nav-logo {
       font-size: 22px; font-weight: 900; letter-spacing: -0.5px;
       background: linear-gradient(135deg, var(--green), var(--cyan));
@@ -182,6 +191,7 @@
     .hero-text h1 {
       font-size: clamp(44px, 6.8vw, 90px); font-weight: 900;
       line-height: 1.0; letter-spacing: -3px; margin-bottom: 16px;
+      text-shadow: 0 0 40px rgba(16, 185, 129, 0.15), 0 0 80px rgba(16, 185, 129, 0.1);
     }
     .gradient-text {
       background: linear-gradient(135deg, var(--green) 0%, var(--cyan) 55%, #90ffff 100%);
@@ -1000,8 +1010,11 @@
 <nav role="banner">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="BOOOM home">
-      <span class="nav-logo">BOOOM</span>
-      <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+      <img src="icon-512.png" class="nav-logo-img" alt="BOOOM">
+      <div class="nav-brand-text">
+        <span class="nav-logo">BOOOM</span>
+        <span class="nav-tagline" data-i18n="nav_tagline">TRAIN · TRACK · DOMINATE</span>
+      </div>
     </a>
     <div class="nav-links" role="navigation" aria-label="Section navigation">
       <a href="#features" class="nav-link" data-i18n="nav_features">Funkcie</a>
