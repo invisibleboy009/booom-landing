@@ -208,7 +208,11 @@
       font-size: 18px; color: rgba(255,255,255,0.55); max-width: 480px;
       margin: 0 0 36px; line-height: 1.75;
     }
-    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+    .app-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .app-badges a { display: block; transition: opacity 0.2s, transform 0.2s; }
+    .app-badges a:hover { opacity: 0.85; transform: translateY(-2px); }
+    .app-badges img { display: block; height: 60px; min-height: 40px; }
 
     @keyframes btn-glow-pulse {
       0%, 100% { box-shadow: 0 0 24px rgba(0,230,118,0.4), 0 8px 32px rgba(0,212,255,0.12), 0 4px 16px rgba(0,0,0,0.4); }
@@ -1142,6 +1146,11 @@
         <a href="https://app.booom.fit" class="btn-primary-glow" data-i18n="hero_cta1">Stiahnuť BOOOM →</a>
         <a href="#features" class="btn-secondary" data-i18n="hero_cta2">Pozri ako to funguje</a>
       </div>
+      <div class="app-badges">
+        <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="height: 60px;">
+        </a>
+      </div>
       <div class="hero-stats" role="list" aria-label="Stats">
         <div class="stat" role="listitem">
           <div class="stat-value">8</div>
@@ -1679,7 +1688,14 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <span class="footer-logo" aria-label="BOOOM">BOOOM</span>
+      <div>
+        <span class="footer-logo" aria-label="BOOOM">BOOOM</span>
+        <div class="footer-badge" style="margin-top: 16px;">
+          <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+            <img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="height: 50px;">
+          </a>
+        </div>
+      </div>
       <nav class="footer-links" aria-label="Footer links">
         <a href="#" data-i18n="footer_about">O nás</a>
         <a href="mailto:laco@booom.fit" data-i18n="footer_contact">Kontakt</a>
