@@ -783,6 +783,10 @@
     .footer-founder { font-size: 13px; color: #555; }
     .footer-founder a { color: var(--green); text-decoration: none; font-weight: 600; }
     .footer-founder a:hover { text-decoration: underline; }
+    .footer-social { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
+    .footer-social a:hover { background: rgba(0,230,118,0.1); border-color: rgba(0,230,118,0.3); transform: translateY(-2px); }
+    .footer-social svg { width: 20px; height: 20px; }
 
     /* ── STORY ── */
     .story-accordion { max-width: 720px; margin: 0 auto; border: 1px solid #222; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #0d0d0d, #111); transition: border-color 0.2s; }
@@ -1693,6 +1697,15 @@
         <div class="footer-badge" style="margin-top: 16px;">
           <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
             <img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="height: 50px;">
+          </a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/the.booom.app" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
           </a>
         </div>
       </div>
