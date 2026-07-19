@@ -233,6 +233,13 @@
       display: inline-block; white-space: nowrap;
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); border-color: rgba(255,255,255,0.22); }
+    .btn-secondary-web {
+      background: transparent; color: rgba(255,255,255,0.65); font-weight: 600;
+      font-size: 15px; padding: 18px 28px; border-radius: 14px; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15); transition: all 0.2s;
+      display: inline-block; white-space: nowrap;
+    }
+    .btn-secondary-web:hover { background: rgba(255,255,255,0.06); color: var(--text); border-color: rgba(255,255,255,0.25); }
 
     /* Trust strip */
     .hero-trust {
@@ -1086,7 +1093,7 @@
       <button class="lang-btn" onclick="setLanguage('UK')" aria-label="Українська">UK</button>
       <button class="lang-btn" onclick="setLanguage('DE')" aria-label="Deutsch">DE</button>
     </div>
-    <a href="https://app.booom.fit" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
+    <a href="#download" class="nav-cta" data-i18n="nav_cta">Vyskúšaj zadarmo</a>
   </div>
 </nav>
 
@@ -1146,11 +1153,12 @@
       <p class="hero-subtitle" data-i18n="hero_subtitle">
         Prvá fitness aplikácia, ktorá ťa skutočne pozná. Sleduj krvné hodnoty, tréningy, výživu a dominuj na každom tréningu.
       </p>
-      <div class="hero-buttons">
-        <a href="https://app.booom.fit" class="btn-primary-glow" data-i18n="hero_cta1">Stiahnuť BOOOM →</a>
-        <a href="#features" class="btn-secondary" data-i18n="hero_cta2">Pozri ako to funguje</a>
+      <div id="download" class="hero-buttons">
+        <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" class="btn-primary-glow" data-i18n="hero_cta1">Stiahnuť z Google Play →</a>
+        <a href="https://app.booom.fit" class="btn-secondary-web" data-i18n="hero_cta_web">Vyskúšať vo webe</a>
       </div>
       <div class="app-badges">
+        <!-- TODO: Add App Store badge here when iOS app is released -->
         <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
           <img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="height: 60px;">
         </a>
