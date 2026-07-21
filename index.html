@@ -217,10 +217,17 @@
       margin: 0 0 36px; line-height: 1.75;
     }
     .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
-    .app-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .app-badges { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
     .app-badges a { display: block; transition: opacity 0.2s, transform 0.2s; }
     .app-badges a:hover { opacity: 0.85; transform: translateY(-2px); }
     .app-badges img { display: block; height: 60px; min-height: 40px; }
+    .hero-web-link { margin-bottom: 28px; }
+    .hero-web-link a {
+      color: rgba(255,255,255,0.7); font-weight: 500; font-size: 15px;
+      text-decoration: none; transition: color 0.2s;
+      display: inline-block;
+    }
+    .hero-web-link a:hover { color: var(--green); text-decoration: underline; }
 
     @keyframes btn-glow-pulse {
       0%, 100% { box-shadow: 0 0 24px rgba(0,230,118,0.4), 0 8px 32px rgba(0,212,255,0.12), 0 4px 16px rgba(0,0,0,0.4); }
@@ -968,6 +975,10 @@
       .nav-cta { display: none; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .hero-buttons a { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
+      .app-badges { flex-direction: column; align-items: center; }
+      .app-badges a { width: 100%; max-width: 200px; }
+      .app-badges img { width: 100%; height: auto; }
+      .hero-web-link { text-align: center; }
       .thyroid-teaser-card { flex-direction: column; padding: 28px 24px; gap: 16px; }
       .fomo-counter-wrap { padding: 18px 24px; }
       .trust-item { padding: 0 12px; font-size: 12px; }
@@ -1177,17 +1188,16 @@
       <p class="hero-subtitle" data-i18n="hero_subtitle">
         Prvá fitness aplikácia, ktorá ťa skutočne pozná. Sleduj krvné hodnoty, tréningy, výživu a dominuj na každom tréningu.
       </p>
-      <div id="download" class="hero-buttons">
-        <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" class="btn-primary-glow" data-i18n="hero_cta1">Stiahnuť z Google Play →</a>
-        <a href="https://app.booom.fit" class="btn-secondary-web" data-i18n="hero_cta_web">Vyskúšať vo webe</a>
-      </div>
-      <div class="app-badges">
+      <div id="download" class="app-badges">
         <a href="https://apps.apple.com/sk/app/id6788675497" target="_blank" rel="noopener" aria-label="Download on the App Store">
           <img src="/assets/app-store-badge.svg" alt="Download on the App Store" style="height: 60px;">
         </a>
         <a href="https://play.google.com/store/apps/details?id=fit.booom.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
           <img src="/assets/google-play-badge.png" alt="Get it on Google Play" style="height: 60px;">
         </a>
+      </div>
+      <div class="hero-web-link">
+        <a href="https://app.booom.fit" data-i18n="hero_cta_web">Vyskúšať vo webe</a>
       </div>
       <div class="hero-stats" role="list" aria-label="Stats">
         <div class="stat" role="listitem">
