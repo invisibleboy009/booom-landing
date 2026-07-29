@@ -1020,6 +1020,10 @@
     .feat-card--orange { border-top-color: #ff9800; }
     .feat-card--red    { border-top-color: #f44336; }
     .feat-card--pink   { border-top-color: #e91e63; }
+    .feat-card--amber  { border-top-color: #ffc107; }
+    .feat-card--blue   { border-top-color: #2979ff; }
+    .feat-card--teal   { border-top-color: #00bfa5; }
+    .feat-card--indigo { border-top-color: #3f51b5; }
     .feat-card__icon {
       margin-bottom: 16px;
     }
@@ -1090,6 +1094,10 @@
     .feat-card--orange:hover { filter: drop-shadow(0 0 12px rgba(255, 152, 0, 0.3)); }
     .feat-card--red:hover    { filter: drop-shadow(0 0 12px rgba(244, 67, 54, 0.3)); }
     .feat-card--pink:hover   { filter: drop-shadow(0 0 12px rgba(233, 30, 99, 0.3)); }
+    .feat-card--amber:hover  { filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.3)); }
+    .feat-card--blue:hover   { filter: drop-shadow(0 0 12px rgba(41, 121, 255, 0.3)); }
+    .feat-card--teal:hover   { filter: drop-shadow(0 0 12px rgba(0, 191, 165, 0.3)); }
+    .feat-card--indigo:hover { filter: drop-shadow(0 0 12px rgba(63, 81, 181, 0.3)); }
   </style>
 </head>
 <body>
@@ -1354,7 +1362,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_body_expand">Odfotíš telo → AI ti povie kde máš tuk, kde sval, kde sú slabiny. Pridáš krvné testy → pochopíš prečo stagneš. Dostaneš tréningový plán a jedálniček šitý na tvoju biológiu. Žiadne generické rady.</p>
         </div>
-        <div class="feat-tags"><span>AI scan</span><span>Krvné testy</span><span>Progress foto</span></div>
+        <div class="feat-tags"><span data-i18n="feat_body_tag1">AI scan</span><span data-i18n="feat_body_tag2">Krvné testy</span><span data-i18n="feat_body_tag3">Progress foto</span></div>
       </div>
       <div class="feat-card feat-card--cyan" data-animate>
         <div class="feat-card__icon">
@@ -1369,7 +1377,67 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_workout_expand">Každý cvik pamätá čo si robil minule. Vo fitku vidíš bench press — minule 80kg × 8. Tvoja jediná úloha? Prekonať to. Žiadne hádanie, len čistý progres.</p>
         </div>
-        <div class="feat-tags"><span>500+ cvikov</span><span>PR tracking</span><span>Timer</span></div>
+        <div class="feat-tags"><span data-i18n="feat_workout_tag1">500+ cvikov</span><span data-i18n="feat_workout_tag2">PR tracking</span><span data-i18n="feat_workout_tag3">Timer</span></div>
+      </div>
+      <div class="feat-card feat-card--amber" data-animate>
+        <div class="feat-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="1.5"><rect x="2" y="10" width="3" height="4" rx="1"/><rect x="19" y="10" width="3" height="4" rx="1"/><rect x="6" y="8" width="2" height="8" rx="1"/><rect x="16" y="8" width="2" height="8" rx="1"/><path d="M8 12h8"/></svg>
+        </div>
+        <h3 data-i18n="feat_crossfit_title">CrossFit &amp; Benchmarky</h3>
+        <p data-i18n="feat_crossfit_desc">Fran, Grace, Cindy, Murph. Rx aj Scaled, rebríčky, časový strop.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_crossfit_expand">Odcvič legendárne WODy s presným časovačom a hneď vidíš, kde v rebríčku naozaj stojíš — nie ako sa cítiš, ale v akom poradí. Aj BOOOM Challenge dá každý, kto v CrossFit boxe nikdy nebol.</p>
+        </div>
+        <div class="feat-tags"><span data-i18n="feat_crossfit_tag1">WODy</span><span data-i18n="feat_crossfit_tag2">Rx/Scaled</span><span data-i18n="feat_crossfit_tag3">Rebríčky</span></div>
+      </div>
+      <div class="feat-card feat-card--blue" data-animate>
+        <div class="feat-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2979ff" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 13V9M9 2h6M12 2v2"/></svg>
+        </div>
+        <h3 data-i18n="feat_hyrox_title">Hyrox Simulátor</h3>
+        <p data-i18n="feat_hyrox_desc">Kompletný pretek — 8 behov, 8 staníc, oficiálne váhy podľa kategórie.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_hyrox_expand">Odmeriaš každý úsek, uvidíš presne kde strácaš čas a otestuješ si trať skôr, než zaplatíš štartovné na ostrých pretekoch. Jediná appka s reálnym Hyrox simulátorom v jednom vrecku.</p>
+        </div>
+        <div class="feat-tags"><span data-i18n="feat_hyrox_tag1">8 staníc</span><span data-i18n="feat_hyrox_tag2">Splity</span><span data-i18n="feat_hyrox_tag3">Kategórie</span></div>
+      </div>
+      <div class="feat-card feat-card--teal" data-animate>
+        <div class="feat-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00bfa5" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9 7V4h6v3M9 17v3h6v-3"/><path d="M12 10v2.5l1.5 1.5"/></svg>
+        </div>
+        <h3 data-i18n="feat_watch_title">Tréning na hodinkách</h3>
+        <p data-i18n="feat_watch_desc">Wear OS appka — tep naživo, zóny záťaže a séria zapísaná zo zápästia.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_watch_expand">Spustíš tréning bez telefónu, tep aj zóny bežia celý čas, pauza ti odbije posledné tri sekundy priamo na ruke. Funguje aj offline a všetko doletí do appky samo, keď sa pripojíš.</p>
+        </div>
+        <div class="feat-tags"><span data-i18n="feat_watch_tag1">Live tep</span><span data-i18n="feat_watch_tag2">Offline</span><span data-i18n="feat_watch_tag3">Wear OS</span></div>
+      </div>
+      <div class="feat-card feat-card--indigo" data-animate>
+        <div class="feat-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3f51b5" stroke-width="1.5"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3 data-i18n="feat_gpscardio_title">GPS Kardio</h3>
+        <p data-i18n="feat_gpscardio_desc">Beh, bicykel, veslovanie, schody, plávanie, box aj MMA — všetko na mape.</p>
+        <button class="feat-expand-btn" onclick="toggleFeatCard(this)" aria-expanded="false">
+          <span data-i18n="readMore">Zistiť viac</span>
+          <svg class="feat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="feat-expand-content" hidden>
+          <p data-i18n="feat_gpscardio_expand">GPS ti nakreslí trasu a zmeria presné tempo, appka ťa upozorní hlasom pri každom kilometri. Auto-pauza a mapa trate v reálnom čase — skratku cez park neprepáči.</p>
+        </div>
+        <div class="feat-tags"><span data-i18n="feat_gpscardio_tag1">GPS mapa</span><span data-i18n="feat_gpscardio_tag2">Tempo</span><span data-i18n="feat_gpscardio_tag3">Multišport</span></div>
       </div>
       <div class="feat-card feat-card--purple" data-animate>
         <div class="feat-card__icon">
@@ -1384,7 +1452,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_nutrition_expand">Kalórie, makrá, hydratácia, barcode scanner. Sleduj čo ješ na biohacking úrovni a pochop ako výživa ovplyvňuje tvoj výkon.</p>
         </div>
-        <div class="feat-tags"><span>Makrá</span><span>Kalórie</span><span>Barcode</span></div>
+        <div class="feat-tags"><span data-i18n="feat_nutrition_tag1">Makrá</span><span data-i18n="feat_nutrition_tag2">Kalórie</span><span data-i18n="feat_nutrition_tag3">Barcode</span></div>
       </div>
       <div class="feat-card feat-card--gold" data-animate>
         <div class="feat-card__icon">
@@ -1399,7 +1467,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_community_expand">Sociálne profily, follow systém, Workout Respect. Porovnaj sa s followersmi, vyhraj týždenný leaderboard a dokaž kto dominuje.</p>
         </div>
-        <div class="feat-tags"><span>Follow</span><span>Leaderboard</span><span>Respect</span></div>
+        <div class="feat-tags"><span data-i18n="feat_community_tag1">Follow</span><span data-i18n="feat_community_tag2">Leaderboard</span><span data-i18n="feat_community_tag3">Respect</span></div>
       </div>
       <div class="feat-card feat-card--orange" data-animate>
         <div class="feat-card__icon">
@@ -1414,7 +1482,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_ai_expand">Žiadne prehnané pochvaly keď flákaš. Boomer analyzuje tvoju stravu a výkon v reálnom čase. Tréner ktorý ťa nenechá padnúť na dno.</p>
         </div>
-        <div class="feat-tags"><span>AI chat</span><span>Kontext</span><span>História</span></div>
+        <div class="feat-tags"><span data-i18n="feat_ai_tag1">AI chat</span><span data-i18n="feat_ai_tag2">Kontext</span><span data-i18n="feat_ai_tag3">História</span></div>
       </div>
       <div class="feat-card feat-card--red" data-animate>
         <div class="feat-card__icon">
@@ -1429,7 +1497,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_export_expand">Jedným klikom vygeneruješ 9-stranový report tvojej sily a progresu. PDF & PNG, zdieľaj na sociálnych sieťach alebo ukáž trénerovi.</p>
         </div>
-        <div class="feat-tags"><span>PDF</span><span>PNG</span><span>9 slidov</span></div>
+        <div class="feat-tags"><span data-i18n="feat_export_tag1">PDF</span><span data-i18n="feat_export_tag2">PNG</span><span data-i18n="feat_export_tag3">9 slidov</span></div>
       </div>
       <div class="feat-card feat-card--pink" data-animate>
         <div class="feat-card__icon">
@@ -1444,7 +1512,7 @@
         <div class="feat-expand-content" hidden>
           <p data-i18n="feat_ranks_expand">12 rankov od Rookie po BOOOM Monster. Každý tréning ti prináša XP, každý rank odmenu. Nestagnuj — dominuj.</p>
         </div>
-        <div class="feat-tags"><span>12 rankov</span><span>XP</span><span>Badges</span></div>
+        <div class="feat-tags"><span data-i18n="feat_ranks_tag1">12 rankov</span><span data-i18n="feat_ranks_tag2">XP</span><span data-i18n="feat_ranks_tag3">Badges</span></div>
       </div>
     </div>
   </div>
