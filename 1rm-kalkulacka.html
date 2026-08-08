@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V29R9X94FM');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://booom.fit/1rm-kalkulacka">
+  <title>1RM kalkulačka — vypočítaj si maximum na jedno opakovanie | BOOOM</title>
+  <meta name="description" content="1RM kalkulačka: zadaj váhu a počet opakovaní a vypočítaj si odhadované maximum na jedno opakovanie (one rep max) + tabuľku tréningových percent. Zadarmo od BOOOM.">
+  <meta name="keywords" content="1rm kalkulačka, one rep max, maximum na jedno opakovanie, výpočet 1rm, tréningové percentá, epley, brzycki, silový tréning, koľko zdvihnem">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BOOOM">
+  <meta property="og:title" content="1RM kalkulačka — maximum na jedno opakovanie">
+  <meta property="og:description" content="Zadaj váhu a opakovania a vypočítaj si odhadované 1RM + tabuľku tréningových percent. Zadarmo od BOOOM.">
+  <meta property="og:url" content="https://booom.fit/1rm-kalkulacka">
+  <meta property="og:image" content="https://booom.fit/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1RM kalkulačka | BOOOM">
+  <meta name="twitter:description" content="Vypočítaj si maximum na jedno opakovanie + tréningové percentá.">
+  <meta name="twitter:image" content="https://booom.fit/assets/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "1RM kalkulačka",
+    "url": "https://booom.fit/1rm-kalkulacka",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "sk",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "BOOOM", "logo": { "@type": "ImageObject", "url": "https://booom.fit/icon-512.png" } }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "BOOOM", "item": "https://booom.fit/" },
+      { "@type": "ListItem", "position": 2, "name": "1RM kalkulačka", "item": "https://booom.fit/1rm-kalkulacka" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Čo je 1RM (one rep max)?",
+        "acceptedAnswer": { "@type": "Answer", "text": "1RM (one rep max, maximum na jedno opakovanie) je najvyššia váha, ktorú dokážeš zdvihnúť na jedno čisté opakovanie v danom cviku. Používa sa na plánovanie tréningových percent a sledovanie sily." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ako sa počíta odhadované 1RM?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Z váhy a počtu opakovaní pomocou overených vzorcov. Najznámejší je Epley: 1RM = váha × (1 + opakovania ÷ 30). Presnosť je najvyššia pri 2 až 10 opakovaniach — čím viac opakovaní, tým väčšia odchýlka." }
+      },
+      {
+        "@type": "Question",
+        "name": "Aké tréningové percentá mám použiť?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zjednodušene: sila 85–100 % (1–5 opakovaní), hypertrofia 67–80 % (8–12 opakovaní), vytrvalosť pod 67 %. Kalkulačka ti k percentám rovno dopočíta konkrétne váhy." }
+      },
+      {
+        "@type": "Question",
+        "name": "Je to presné?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Je to odhad, nie garancia — reálne 1RM závisí od techniky, dňa a cviku. Ako orientačný a plánovací nástroj je však veľmi užitočné. Nikdy netestuj skutočné 1RM bez rozcvičenia a istenia." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #00e676; --cyan: #00d4ff; --gold: #ffd700; --orange: #f97316; --bg: #0a0a0a; --card: #111; --border: #1e1e1e; --text: #fff; --muted: #888; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--cyan); }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 24px 20px 80px; }
+    header.nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 28px; }
+    .brand { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--green); text-decoration: none; text-shadow: 0 0 20px rgba(0,255,136,.5); }
+    .nav-cta { font-size: 13px; font-weight: 700; color: #000; background: linear-gradient(135deg, var(--green), var(--cyan)); padding: 9px 16px; border-radius: 10px; text-decoration: none; }
+    h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 12px; }
+    h1 .accent { color: var(--green); }
+    .lead { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 28px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 20px; }
+    label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    input[type=number] { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 16px; color: #fff; font-size: 17px; font-family: inherit; outline: none; }
+    input:focus { border-color: var(--cyan); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+    button.calc { width: 100%; margin-top: 20px; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-size: 16px; font-weight: 900; letter-spacing: .5px; cursor: pointer; }
+    .hero1rm { text-align: center; margin: 4px 0 18px; }
+    .hero1rm .v { font-size: 64px; font-weight: 900; color: var(--green); line-height: 1; text-shadow: 0 0 40px rgba(0,230,118,.4); }
+    .hero1rm .u { font-size: 18px; color: var(--muted); font-weight: 700; }
+    .hero1rm .sub { font-size: 13px; color: #666; margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--border); font-size: 15px; }
+    th { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+    td.n { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+    td.pct { color: var(--cyan); font-weight: 700; }
+    tr.goal-str td { background: rgba(0,230,118,.05); }
+    .sect-title { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin: 8px 0 12px; }
+    #results { display: none; }
+    .disclaimer { font-size: 12px; color: #555; margin-top: 14px; }
+    .content h2 { font-size: 22px; font-weight: 800; margin: 32px 0 10px; }
+    .content p { color: #bbb; margin-bottom: 12px; }
+    .content ul { color: #bbb; margin: 0 0 12px 20px; }
+    .faq dt { font-weight: 700; margin-top: 16px; }
+    .faq dd { color: #bbb; margin: 4px 0 0; }
+    .appcta { text-align: center; background: linear-gradient(135deg, rgba(0,230,118,.1), rgba(0,212,255,.08)); border: 1px solid rgba(0,230,118,.3); border-radius: 18px; padding: 28px 22px; margin-top: 36px; }
+    .appcta h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .appcta p { color: var(--muted); margin-bottom: 16px; }
+    .appcta a { display: inline-block; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 900; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+    .related { font-size: 14px; color: var(--muted); margin-top: 22px; }
+    footer { text-align: center; color: #555; font-size: 13px; margin-top: 40px; }
+    footer a { color: #777; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/">BOOOM</a>
+      <a class="nav-cta" href="/">Stiahnuť appku</a>
+    </header>
+
+    <h1>1RM <span class="accent">kalkulačka</span></h1>
+    <p class="lead">Zadaj váhu a počet opakovaní — vypočítame ti odhadované maximum na jedno opakovanie (1RM) a tabuľku tréningových percent. Zadarmo, bez registrácie.</p>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <label for="w">Váha (kg)</label>
+          <input type="number" id="w" value="100" min="1" step="0.5" inputmode="decimal">
+        </div>
+        <div>
+          <label for="r">Opakovania</label>
+          <input type="number" id="r" value="5" min="1" max="20" step="1" inputmode="numeric">
+        </div>
+      </div>
+      <button class="calc" id="calcBtn">Vypočítať 1RM</button>
+      <div class="disclaimer" id="err" style="color:var(--orange);display:none;"></div>
+    </div>
+
+    <div id="results">
+      <div class="card">
+        <div class="hero1rm">
+          <div class="v" id="oneRm">—</div>
+          <div class="u">kg · odhadované 1RM</div>
+          <div class="sub" id="formulaNote"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sect-title">Tréningové percentá</div>
+        <table>
+          <thead><tr><th>% z 1RM</th><th>Váha</th><th style="text-align:right">~Opakovania</th></tr></thead>
+          <tbody id="pctBody"></tbody>
+        </table>
+        <div class="disclaimer">Ide o odhad. Reálne 1RM závisí od techniky, cviku a dňa. Skutočné 1RM nikdy netestuj bez rozcvičenia a istenia.</div>
+      </div>
+    </div>
+
+    <div class="appcta">
+      <h3>Sleduj svoje osobáky automaticky</h3>
+      <p>Appka BOOOM ti pri každom tréningu sama zaznamená PR, prepočíta objem a ukáže rast sily v čase — plus AI tréner a gamifikácia.</p>
+      <a href="/">Stiahnuť BOOOM zadarmo</a>
+    </div>
+
+    <div class="content">
+      <h2>Čo je 1RM a načo je dobré</h2>
+      <p><strong>1RM (one rep max, maximum na jedno opakovanie)</strong> je najvyššia váha, ktorú zvládneš na jedno čisté opakovanie. Je to základná referencia v silovom tréningu — z nej sa odvíjajú <strong>tréningové percentá</strong>, ktoré určujú, akú váhu použiť na silu, hypertrofiu či vytrvalosť.</p>
+      <p>Testovať skutočné 1RM je náročné a rizikové, preto sa najčastejšie <strong>odhaduje</strong> zo série s viacerými opakovaniami. Táto kalkulačka používa vzorec <strong>Epley</strong> (1RM = váha × (1 + opakovania ÷ 30)) a pre porovnanie aj <strong>Brzycki</strong>.</p>
+
+      <h2>Ako použiť percentá</h2>
+      <ul>
+        <li><strong>Sila:</strong> 85–100 % (1–5 opakovaní)</li>
+        <li><strong>Hypertrofia (svalový rast):</strong> 67–80 % (8–12 opakovaní)</li>
+        <li><strong>Silová vytrvalosť:</strong> pod 67 % (12+ opakovaní)</li>
+      </ul>
+      <p>Najpresnejší odhad dostaneš, keď zadáš sériu na <strong>2 až 10 opakovaní</strong>. Pri veľmi vysokých opakovaniach odhad nadhodnocuje.</p>
+
+      <h2>Časté otázky</h2>
+      <dl class="faq">
+        <dt>Ako sa počíta odhadované 1RM?</dt>
+        <dd>Vzorcom Epley: 1RM = váha × (1 + opakovania ÷ 30). Najpresnejšie pri 2–10 opakovaniach.</dd>
+        <dt>Aké percentá na silu a rast?</dt>
+        <dd>Sila 85–100 %, hypertrofia 67–80 %, vytrvalosť pod 67 %.</dd>
+        <dt>Je to presné?</dt>
+        <dd>Je to odhad, nie garancia. Skutočné 1RM netestuj bez rozcvičenia a istenia.</dd>
+      </dl>
+
+      <p class="related">Ďalší nástroj: <a href="/hyrox-pacing">Hyrox pacing kalkulačka</a></p>
+    </div>
+
+    <footer>
+      <a href="/">BOOOM</a> · Train. Track. Dominate. · <a href="/privacy">Ochrana údajov</a>
+    </footer>
+  </div>
+
+  <script>
+    // %1RM training chart (reps -> % of 1RM), widely used strength reference.
+    var PCTS = [
+      { pct: 100, reps: 1 }, { pct: 95, reps: 2 }, { pct: 93, reps: 3 }, { pct: 90, reps: 4 },
+      { pct: 87, reps: 5 }, { pct: 85, reps: 6 }, { pct: 83, reps: 7 }, { pct: 80, reps: 8 },
+      { pct: 77, reps: 9 }, { pct: 75, reps: 10 }, { pct: 70, reps: 12 }, { pct: 67, reps: 15 }
+    ];
+
+    function round(x) { return Math.round(x * 2) / 2; } // to nearest 0.5 kg
+
+    function calculate() {
+      var err = document.getElementById('err');
+      err.style.display = 'none';
+      var w = parseFloat(document.getElementById('w').value);
+      var r = parseInt(document.getElementById('r').value, 10);
+      if (!(w > 0) || !(r > 0)) {
+        err.textContent = 'Zadaj platnú váhu a počet opakovaní.';
+        err.style.display = 'block';
+        return;
+      }
+      if (r > 20) { r = 20; document.getElementById('r').value = 20; }
+
+      var epley = w * (1 + r / 30);
+      var brzycki = r < 37 ? w * 36 / (37 - r) : epley;
+      var oneRm = epley; // primary
+
+      document.getElementById('oneRm').textContent = round(oneRm);
+      document.getElementById('formulaNote').textContent =
+        'Epley: ' + round(epley) + ' kg · Brzycki: ' + round(brzycki) + ' kg' +
+        (r === 1 ? ' (zadal si 1 opak. — to už JE tvoje 1RM: ' + round(w) + ' kg)' : '');
+
+      var body = document.getElementById('pctBody');
+      body.innerHTML = '';
+      PCTS.forEach(function(p) {
+        var kg = round(oneRm * p.pct / 100);
+        var tr = document.createElement('tr');
+        if (p.pct >= 85) tr.className = 'goal-str';
+        tr.innerHTML = '<td class="pct">' + p.pct + ' %</td><td class="n">' + kg + ' kg</td><td class="n" style="color:#888">' + p.reps + '</td>';
+        body.appendChild(tr);
+      });
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    ['w','r'].forEach(function(id){
+      document.getElementById(id).addEventListener('keydown', function(e){ if (e.key === 'Enter') calculate(); });
+    });
+    calculate(); // run once on load with defaults
+  </script>
+</body>
+</html>
