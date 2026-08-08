@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V29R9X94FM');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://booom.fit/kalorie-kalkulacka">
+  <title>Kalorická kalkulačka — koľko kalórií a makier denne (BMR/TDEE) | BOOOM</title>
+  <meta name="description" content="Kalorická kalkulačka: vypočítaj si denný kalorický príjem (BMR a TDEE) a makrá — bielkoviny, sacharidy a tuky — na chudnutie, udržanie aj naberanie. Zadarmo od BOOOM.">
+  <meta name="keywords" content="kalorie kalkulačka, kalorická kalkulačka, tdee kalkulačka, bmr, denný kalorický príjem, makrá kalkulačka, koľko kalórií denne, chudnutie, naberanie, bielkoviny sacharidy tuky">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BOOOM">
+  <meta property="og:title" content="Kalorická kalkulačka — kalórie a makrá denne">
+  <meta property="og:description" content="Vypočítaj si denný kalorický príjem (BMR/TDEE) a makrá na chudnutie, udržanie aj naberanie. Zadarmo od BOOOM.">
+  <meta property="og:url" content="https://booom.fit/kalorie-kalkulacka">
+  <meta property="og:image" content="https://booom.fit/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kalorická kalkulačka | BOOOM">
+  <meta name="twitter:description" content="Denný kalorický príjem a makrá na chudnutie, udržanie aj naberanie.">
+  <meta name="twitter:image" content="https://booom.fit/assets/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Kalorická kalkulačka",
+    "url": "https://booom.fit/kalorie-kalkulacka",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "sk",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "BOOOM", "logo": { "@type": "ImageObject", "url": "https://booom.fit/icon-512.png" } }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "BOOOM", "item": "https://booom.fit/" },
+      { "@type": "ListItem", "position": 2, "name": "Kalorická kalkulačka", "item": "https://booom.fit/kalorie-kalkulacka" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Čo je BMR a TDEE?",
+        "acceptedAnswer": { "@type": "Answer", "text": "BMR (bazálny metabolizmus) je energia, ktorú telo spáli v úplnom pokoji. TDEE je celkový denný výdaj — BMR vynásobené koeficientom aktivity. TDEE je tvoj kalorický príjem na udržanie váhy." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ako sa počíta denný kalorický príjem?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Kalkulačka používa vzorec Mifflin-St Jeor na BMR, ktorý vynásobí koeficientom aktivity (1,2 sedavý až 1,9 veľmi aktívny) = TDEE. Na chudnutie odpočíta ~20 %, na naberanie pripočíta ~10 %." }
+      },
+      {
+        "@type": "Question",
+        "name": "Koľko bielkovín, sacharidov a tukov mám jesť?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Osvedčený štart: ~2 g bielkovín na kg telesnej hmotnosti, tuky ~25 % z kalórií a zvyšok sacharidy. Kalkulačka ti to rovno dopočíta v gramoch pre každý cieľ." }
+      },
+      {
+        "@type": "Question",
+        "name": "Je výpočet presný?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Je to overený odhad — reálna potreba sa líši podľa genetiky, svalovej hmoty a aktivity. Ber to ako štartovací bod a uprav podľa toho, ako sa mení tvoja váha za 2–3 týždne." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #00e676; --cyan: #00d4ff; --gold: #ffd700; --orange: #f97316; --purple: #a78bfa; --bg: #0a0a0a; --card: #111; --border: #1e1e1e; --text: #fff; --muted: #888; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--cyan); }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 24px 20px 80px; }
+    header.nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 28px; }
+    .brand { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--green); text-decoration: none; text-shadow: 0 0 20px rgba(0,255,136,.5); }
+    .nav-cta { font-size: 13px; font-weight: 700; color: #000; background: linear-gradient(135deg, var(--green), var(--cyan)); padding: 9px 16px; border-radius: 10px; text-decoration: none; }
+    h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 12px; }
+    h1 .accent { color: var(--green); }
+    .lead { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 28px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 20px; }
+    label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    input[type=number], select { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 16px; color: #fff; font-size: 17px; font-family: inherit; outline: none; }
+    input:focus, select:focus { border-color: var(--cyan); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .row:last-of-type { margin-bottom: 0; }
+    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+    button.calc { width: 100%; margin-top: 20px; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-size: 16px; font-weight: 900; letter-spacing: .5px; cursor: pointer; }
+    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 20px; }
+    .stat { background: #0a0a0a; border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
+    .stat .v { font-size: 30px; font-weight: 900; }
+    .stat .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+    th { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+    td.goal { font-weight: 800; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+    .kcal { font-weight: 900; font-size: 16px; }
+    .sect-title { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin: 8px 0 12px; }
+    #results { display: none; }
+    .disclaimer { font-size: 12px; color: #555; margin-top: 14px; }
+    .content h2 { font-size: 22px; font-weight: 800; margin: 32px 0 10px; }
+    .content p { color: #bbb; margin-bottom: 12px; }
+    .content ul { color: #bbb; margin: 0 0 12px 20px; }
+    .faq dt { font-weight: 700; margin-top: 16px; }
+    .faq dd { color: #bbb; margin: 4px 0 0; }
+    .appcta { text-align: center; background: linear-gradient(135deg, rgba(0,230,118,.1), rgba(0,212,255,.08)); border: 1px solid rgba(0,230,118,.3); border-radius: 18px; padding: 28px 22px; margin-top: 36px; }
+    .appcta h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .appcta p { color: var(--muted); margin-bottom: 16px; }
+    .appcta a { display: inline-block; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 900; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+    .related { font-size: 14px; color: var(--muted); margin-top: 22px; }
+    footer { text-align: center; color: #555; font-size: 13px; margin-top: 40px; }
+    footer a { color: #777; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/">BOOOM</a>
+      <a class="nav-cta" href="/">Stiahnuť appku</a>
+    </header>
+
+    <h1>Kalorická <span class="accent">kalkulačka</span></h1>
+    <p class="lead">Vypočítaj si denný kalorický príjem (BMR a TDEE) a makrá — bielkoviny, sacharidy a tuky — na chudnutie, udržanie aj naberanie. Zadarmo, bez registrácie.</p>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <label for="sex">Pohlavie</label>
+          <select id="sex"><option value="m">Muž</option><option value="f">Žena</option></select>
+        </div>
+        <div>
+          <label for="age">Vek (roky)</label>
+          <input type="number" id="age" value="30" min="14" max="100" step="1" inputmode="numeric">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="w">Váha (kg)</label>
+          <input type="number" id="w" value="80" min="30" max="300" step="0.5" inputmode="decimal">
+        </div>
+        <div>
+          <label for="h">Výška (cm)</label>
+          <input type="number" id="h" value="180" min="120" max="230" step="1" inputmode="numeric">
+        </div>
+      </div>
+      <div class="row" style="grid-template-columns:1fr;">
+        <div>
+          <label for="act">Úroveň aktivity</label>
+          <select id="act">
+            <option value="1.2">Sedavá (žiadny šport)</option>
+            <option value="1.375">Ľahká (1–3× týždenne)</option>
+            <option value="1.55" selected>Stredná (3–5× týždenne)</option>
+            <option value="1.725">Vysoká (6–7× týždenne)</option>
+            <option value="1.9">Veľmi vysoká (2× denne / fyzická práca)</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc" id="calcBtn">Vypočítať</button>
+      <div class="disclaimer" id="err" style="color:var(--orange);display:none;"></div>
+    </div>
+
+    <div id="results">
+      <div class="summary">
+        <div class="stat"><div class="v" id="bmr" style="color:var(--cyan)"></div><div class="l">BMR (pokoj)</div></div>
+        <div class="stat"><div class="v" id="tdee" style="color:var(--green)"></div><div class="l">TDEE (udržanie)</div></div>
+      </div>
+
+      <div class="card">
+        <div class="sect-title">Denný príjem a makrá podľa cieľa</div>
+        <table>
+          <thead><tr><th>Cieľ</th><th style="text-align:right">kcal</th><th style="text-align:right">Bielk.</th><th style="text-align:right">Sach.</th><th style="text-align:right">Tuky</th></tr></thead>
+          <tbody id="goalsBody"></tbody>
+        </table>
+        <div class="disclaimer">BMR: Mifflin-St Jeor. Makrá: ~2 g bielkovín/kg, tuky 25 % kalórií, zvyšok sacharidy. Ide o odhad — uprav podľa vývoja váhy za 2–3 týždne.</div>
+      </div>
+    </div>
+
+    <div class="appcta">
+      <h3>Zapisuj si jedlo a makrá jednoducho</h3>
+      <p>Appka BOOOM má skener čiarových kódov, databázu potravín a denné ciele kalórií aj makier — plus tréning, AI tréner a gamifikácia.</p>
+      <a href="/">Stiahnuť BOOOM zadarmo</a>
+    </div>
+
+    <div class="content">
+      <h2>BMR vs TDEE — čo je čo</h2>
+      <p><strong>BMR (bazálny metabolizmus)</strong> je energia, ktorú telo spáli v úplnom pokoji — len na základné fungovanie. <strong>TDEE (total daily energy expenditure)</strong> je celkový denný výdaj vrátane pohybu a tréningu. TDEE je tvoj <strong>udržiavací príjem</strong> — koľko zjesť, aby si váhu nemenil.</p>
+      <p>Na <strong>chudnutie</strong> jedz mierne pod TDEE (~20 % deficit), na <strong>naberanie</strong> mierne nad (~10 % nadbytok). Extrémne deficity sa nevyplácajú — strácaš sval a energiu.</p>
+
+      <h2>Makrá jednoducho</h2>
+      <ul>
+        <li><strong>Bielkoviny:</strong> ~2 g na kg telesnej hmotnosti (drží sval, sýtia)</li>
+        <li><strong>Tuky:</strong> ~25 % z kalórií (hormóny, vstrebávanie vitamínov)</li>
+        <li><strong>Sacharidy:</strong> zvyšok kalórií (energia na tréning)</li>
+      </ul>
+
+      <h2>Časté otázky</h2>
+      <dl class="faq">
+        <dt>Ako sa počíta denný kalorický príjem?</dt>
+        <dd>BMR (Mifflin-St Jeor) × koeficient aktivity = TDEE. Chudnutie −20 %, naberanie +10 %.</dd>
+        <dt>Koľko bielkovín?</dt>
+        <dd>Osvedčené je ~2 g na kg telesnej hmotnosti, najmä pri chudnutí a silovom tréningu.</dd>
+        <dt>Je to presné?</dt>
+        <dd>Je to odhad — uprav podľa toho, ako sa mení tvoja váha za 2–3 týždne.</dd>
+      </dl>
+
+      <p class="related">Ďalšie nástroje: <a href="/1rm-kalkulacka">1RM kalkulačka</a> · <a href="/hyrox-pacing">Hyrox pacing kalkulačka</a></p>
+    </div>
+
+    <footer>
+      <a href="/">BOOOM</a> · Train. Track. Dominate. · <a href="/privacy">Ochrana údajov</a>
+    </footer>
+  </div>
+
+  <script>
+    function calculate() {
+      var err = document.getElementById('err');
+      err.style.display = 'none';
+      var sex = document.getElementById('sex').value;
+      var age = parseInt(document.getElementById('age').value, 10);
+      var w = parseFloat(document.getElementById('w').value);
+      var h = parseFloat(document.getElementById('h').value);
+      var act = parseFloat(document.getElementById('act').value);
+      if (!(age > 0) || !(w > 0) || !(h > 0)) {
+        err.textContent = 'Vyplň vek, váhu aj výšku platnými číslami.';
+        err.style.display = 'block';
+        return;
+      }
+
+      // Mifflin-St Jeor
+      var bmr = 10 * w + 6.25 * h - 5 * age + (sex === 'm' ? 5 : -161);
+      var tdee = bmr * act;
+
+      document.getElementById('bmr').textContent = Math.round(bmr);
+      document.getElementById('tdee').textContent = Math.round(tdee);
+
+      var goals = [
+        { name: 'Chudnutie', mult: 0.80, color: '#00d4ff' },
+        { name: 'Udržanie',  mult: 1.00, color: '#00e676' },
+        { name: 'Naberanie', mult: 1.10, color: '#ffd700' }
+      ];
+      var body = document.getElementById('goalsBody');
+      body.innerHTML = '';
+      goals.forEach(function(g) {
+        var kcal = Math.round(tdee * g.mult);
+        var proteinG = Math.round(2.0 * w);
+        var fatKcal = kcal * 0.25;
+        var fatG = Math.round(fatKcal / 9);
+        var carbsKcal = kcal - (proteinG * 4) - fatKcal;
+        var carbsG = Math.max(0, Math.round(carbsKcal / 4));
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td class="goal" style="color:' + g.color + '">' + g.name + '</td>' +
+          '<td class="n kcal">' + kcal + '</td>' +
+          '<td class="n">' + proteinG + ' g</td>' +
+          '<td class="n">' + carbsG + ' g</td>' +
+          '<td class="n">' + fatG + ' g</td>';
+        body.appendChild(tr);
+      });
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    ['age','w','h'].forEach(function(id){
+      document.getElementById(id).addEventListener('keydown', function(e){ if (e.key === 'Enter') calculate(); });
+    });
+    calculate();
+  </script>
+</body>
+</html>
