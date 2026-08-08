@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="SK">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V29R9X94FM');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://booom.fit/hyrox-pacing">
+  <title>Hyrox pacing kalkulačka — tempo na behy a časy na stanice | BOOOM</title>
+  <meta name="description" content="Zadaj cieľový čas a kategóriu a Hyrox pacing kalkulačka ti rozpočíta tempo na 8 behov a cieľové časy na všetkých 8 staníc. Zadarmo, bez registrácie — od BOOOM.">
+  <meta name="keywords" content="hyrox, hyrox pacing, hyrox kalkulačka, hyrox tempo, hyrox čas, hyrox stanice, hyrox plán, hyrox pre začiatočníkov, hyrox splity, hyrox kategórie">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BOOOM">
+  <meta property="og:title" content="Hyrox pacing kalkulačka — tempo na behy a časy na stanice">
+  <meta property="og:description" content="Zadaj cieľový čas a kategóriu a rozpočítame ti tempo na behy a cieľové časy na všetky Hyrox stanice. Zadarmo od BOOOM.">
+  <meta property="og:url" content="https://booom.fit/hyrox-pacing">
+  <meta property="og:image" content="https://booom.fit/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hyrox pacing kalkulačka | BOOOM">
+  <meta name="twitter:description" content="Rozpočítaj si tempo na behy a časy na Hyrox stanice podľa cieľového času.">
+  <meta name="twitter:image" content="https://booom.fit/assets/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Hyrox pacing kalkulačka",
+    "url": "https://booom.fit/hyrox-pacing",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "sk",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "BOOOM", "logo": { "@type": "ImageObject", "url": "https://booom.fit/icon-512.png" } }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "BOOOM", "item": "https://booom.fit/" },
+      { "@type": "ListItem", "position": 2, "name": "Hyrox pacing kalkulačka", "item": "https://booom.fit/hyrox-pacing" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ako funguje Hyrox pacing kalkulačka?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zadáš cieľový čas a kategóriu. Kalkulačka rozdelí čas na behy (~45 %), stanice (~48 %) a roxzone/prechody (~7 %). Behy sú rovnomerne na 8 km, stanice sú rozdelené podľa náročnosti — ťažšie (Wall Balls, Burpees) dostanú viac času než ľahšie (Farmers Carry)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Z čoho sa skladá Hyrox?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hyrox je 8 kôl: 1 km beh + 1 funkčná stanica. Stanice v poradí: SkiErg, Sled Push, Sled Pull, Burpee Broad Jumps, Rowing, Farmers Carry, Sandbag Lunges a Wall Balls. Spolu 8 km behu a 8 staníc." }
+      },
+      {
+        "@type": "Question",
+        "name": "Aké sú Hyrox kategórie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Základné kategórie sú Women Open, Men Open, Women Pro a Men Pro. Líšia sa hmotnosťami na staniciach (sane, farmers carry, sandbag, wall balls) — Pro majú ťažšie váhy." }
+      },
+      {
+        "@type": "Question",
+        "name": "Je kalkulačka zadarmo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Áno, úplne zadarmo a bez registrácie. Ak chceš pacing plán priamo pri pretekoch, meranie splitov v reálnom čase a tréningový denník, stiahni si appku BOOOM." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #00e676; --cyan: #00d4ff; --gold: #ffd700; --orange: #f97316;
+      --bg: #0a0a0a; --card: #111; --border: #1e1e1e; --text: #fff; --muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--cyan); }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 24px 20px 80px; }
+    header.nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 28px; }
+    .brand { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--green); text-decoration: none; text-shadow: 0 0 20px rgba(0,255,136,.5); }
+    .nav-cta { font-size: 13px; font-weight: 700; color: #000; background: linear-gradient(135deg, var(--green), var(--cyan)); padding: 9px 16px; border-radius: 10px; text-decoration: none; }
+    h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 900; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 12px; }
+    h1 .accent { color: var(--green); }
+    .lead { color: var(--muted); font-size: 16px; max-width: 640px; margin-bottom: 28px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 20px; }
+    label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    select, input[type=text] { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 16px; color: #fff; font-size: 17px; font-family: inherit; outline: none; }
+    select:focus, input:focus { border-color: var(--cyan); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+    .hint { font-size: 12px; color: #555; margin-top: 6px; }
+    button.calc { width: 100%; margin-top: 20px; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-size: 16px; font-weight: 900; letter-spacing: .5px; cursor: pointer; }
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 4px 0 20px; }
+    @media (max-width: 520px) { .summary { grid-template-columns: 1fr; } }
+    .stat { background: #0a0a0a; border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
+    .stat .v { font-size: 26px; font-weight: 900; }
+    .stat .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--border); font-size: 15px; }
+    th { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+    td.t { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+    td.sub { color: var(--muted); font-size: 12px; }
+    .sect-title { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin: 8px 0 12px; }
+    #results { display: none; }
+    .disclaimer { font-size: 12px; color: #555; margin-top: 14px; }
+    .content h2 { font-size: 22px; font-weight: 800; margin: 32px 0 10px; }
+    .content p { color: #bbb; margin-bottom: 12px; }
+    .content ol, .content ul { color: #bbb; margin: 0 0 12px 20px; }
+    .faq dt { font-weight: 700; margin-top: 16px; }
+    .faq dd { color: #bbb; margin: 4px 0 0; }
+    .appcta { text-align: center; background: linear-gradient(135deg, rgba(0,230,118,.1), rgba(0,212,255,.08)); border: 1px solid rgba(0,230,118,.3); border-radius: 18px; padding: 28px 22px; margin-top: 36px; }
+    .appcta h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .appcta p { color: var(--muted); margin-bottom: 16px; }
+    .appcta a { display: inline-block; background: linear-gradient(135deg, var(--green), var(--cyan)); color: #000; font-weight: 900; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+    footer { text-align: center; color: #555; font-size: 13px; margin-top: 40px; }
+    footer a { color: #777; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="/">BOOOM</a>
+      <a class="nav-cta" href="/">Stiahnuť appku</a>
+    </header>
+
+    <h1>Hyrox <span class="accent">pacing</span> kalkulačka</h1>
+    <p class="lead">Zadaj cieľový čas a kategóriu — rozpočítame ti tempo na 8 behov a cieľové časy na všetkých 8 staníc. Zadarmo, bez registrácie.</p>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <label for="cat">Kategória</label>
+          <select id="cat">
+            <option value="1">Men Open</option>
+            <option value="0">Women Open</option>
+            <option value="3">Men Pro</option>
+            <option value="2">Women Pro</option>
+          </select>
+        </div>
+        <div>
+          <label for="target">Cieľový čas (H:MM:SS)</label>
+          <input type="text" id="target" value="1:30:00" inputmode="numeric" placeholder="napr. 1:30:00">
+          <div class="hint">Formát H:MM:SS alebo MM:SS</div>
+        </div>
+      </div>
+      <button class="calc" id="calcBtn">Vypočítať plán</button>
+      <div class="disclaimer" id="err" style="color:var(--orange);display:none;"></div>
+    </div>
+
+    <div id="results">
+      <div class="summary">
+        <div class="stat"><div class="v" id="sTotal" style="color:var(--green)"></div><div class="l">Cieľový čas</div></div>
+        <div class="stat"><div class="v" id="sRunPace" style="color:var(--cyan)"></div><div class="l">Tempo behu /km</div></div>
+        <div class="stat"><div class="v" id="sAvgStation" style="color:var(--gold)"></div><div class="l">Ø stanica</div></div>
+      </div>
+
+      <div class="card">
+        <div class="sect-title">Behy — 8 × 1 km</div>
+        <table>
+          <thead><tr><th>Beh</th><th style="text-align:right">Čas</th></tr></thead>
+          <tbody id="runsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="sect-title">Stanice — cieľové časy</div>
+        <table>
+          <thead><tr><th>Stanica</th><th style="text-align:right">Čas</th></tr></thead>
+          <tbody id="stationsBody"></tbody>
+        </table>
+        <div class="disclaimer">Rozdelenie: ~45 % behy · ~48 % stanice · ~7 % roxzone/prechody. Stanice sú vážené podľa náročnosti — ide o odhad, nie garanciu.</div>
+      </div>
+    </div>
+
+    <div class="appcta">
+      <h3>Chceš pacing plán priamo pri pretekoch?</h3>
+      <p>Appka BOOOM meria tvoje splity v reálnom čase, ukáže run-vs-stanica rozbor a fatigue index — plus kompletný tréningový denník.</p>
+      <a href="/">Stiahnuť BOOOM zadarmo</a>
+    </div>
+
+    <div class="content">
+      <h2>Ako čítať pacing plán</h2>
+      <p>Hyrox je 8 kôl, každé kolo je <strong>1 km beh + 1 funkčná stanica</strong>. Celkovo teda odbehneš 8 km a prejdeš 8 staníc. Kalkulačka rozdelí tvoj cieľový čas na tri časti: behy, stanice a takzvanú roxzone (prechody medzi behom a stanicou, kde sa reálne stráca prekvapivo veľa času).</p>
+      <p>Behy sú rozdelené rovnomerne — dobehneš každý kilometer približne rovnako. Stanice nie sú rovnaké: <strong>Wall Balls a Burpee Broad Jumps</strong> zaberú viac času, kým <strong>Farmers Carry</strong> je rýchly. Preto plán dáva ťažším staniciam väčší časový rozpočet.</p>
+
+      <h2>Poradie staníc v Hyroxe</h2>
+      <ol>
+        <li>SkiErg — 1000 m</li>
+        <li>Sled Push — 50 m</li>
+        <li>Sled Pull — 50 m</li>
+        <li>Burpee Broad Jumps — 80 m</li>
+        <li>Rowing — 1000 m</li>
+        <li>Farmers Carry — 200 m</li>
+        <li>Sandbag Lunges — 100 m</li>
+        <li>Wall Balls — 75 (Women) / 100 (Men) opakovaní</li>
+      </ol>
+
+      <h2>Časté otázky</h2>
+      <dl class="faq">
+        <dt>Ako funguje Hyrox pacing kalkulačka?</dt>
+        <dd>Zadáš cieľový čas a kategóriu. Kalkulačka rozdelí čas na behy (~45 %), stanice (~48 %) a roxzone (~7 %) a stanice rozpočíta podľa náročnosti.</dd>
+        <dt>Aké sú Hyrox kategórie?</dt>
+        <dd>Women Open, Men Open, Women Pro a Men Pro. Líšia sa hmotnosťami na staniciach — Pro majú ťažšie váhy.</dd>
+        <dt>Je to zadarmo?</dt>
+        <dd>Áno, úplne zadarmo a bez registrácie. Pre meranie splitov naživo si stiahni appku BOOOM.</dd>
+      </dl>
+    </div>
+
+    <footer>
+      <a href="/">BOOOM</a> · Train. Track. Dominate. · <a href="/privacy">Ochrana údajov</a>
+    </footer>
+  </div>
+
+  <script>
+    // Pacing model — mirrors the BOOOM app (src/lib/hyroxRace.js).
+    var STATIONS = [
+      { name: 'SkiErg',             distance: '1000 m', factor: 1.2, weights: [null, null, null, null] },
+      { name: 'Sled Push',          distance: '50 m',   factor: 0.9, weights: ['102 kg','152 kg','152 kg','202 kg'] },
+      { name: 'Sled Pull',          distance: '50 m',   factor: 0.9, weights: ['78 kg','103 kg','103 kg','153 kg'] },
+      { name: 'Burpee Broad Jumps', distance: '80 m',   factor: 1.3, weights: [null, null, null, null] },
+      { name: 'Rowing',             distance: '1000 m', factor: 1.2, weights: [null, null, null, null] },
+      { name: 'Farmers Carry',      distance: '200 m',  factor: 0.6, weights: ['2×16 kg','2×24 kg','2×24 kg','2×32 kg'] },
+      { name: 'Sandbag Lunges',     distance: '100 m',  factor: 1.1, weights: ['10 kg','20 kg','20 kg','30 kg'] },
+      { name: 'Wall Balls',         distance: '',       factor: 1.4, weights: ['75×4kg','100×6kg','100×6kg','100×9kg'] }
+    ];
+
+    function parseTimeToSeconds(str) {
+      if (!str) return null;
+      var parts = str.trim().split(':');
+      if (parts.length < 2 || parts.length > 3) return null;
+      var nums = parts.map(function(p){ var n = parseInt(p, 10); return isNaN(n) ? null : n; });
+      if (nums.indexOf(null) !== -1) return null;
+      if (parts.length === 2) return nums[0]*60 + nums[1];
+      return nums[0]*3600 + nums[1]*60 + nums[2];
+    }
+    function fmtHMS(sec) {
+      var h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
+      function pad(n){ return String(n).padStart(2,'0'); }
+      return h > 0 ? h + ':' + pad(m) + ':' + pad(s) : m + ':' + pad(s);
+    }
+    function fmtPace(sec) {
+      var m = Math.floor(sec/60), s = sec%60;
+      return m + ':' + String(s).padStart(2,'0');
+    }
+
+    function calculate() {
+      var err = document.getElementById('err');
+      err.style.display = 'none';
+      var catIdx = parseInt(document.getElementById('cat').value, 10);
+      var target = parseTimeToSeconds(document.getElementById('target').value);
+      if (target === null || target <= 0) {
+        err.textContent = 'Zadaj platný cieľový čas vo formáte H:MM:SS (napr. 1:30:00).';
+        err.style.display = 'block';
+        return;
+      }
+
+      var runsTotal = Math.round(target * 0.45);
+      var stationsTotal = Math.round(target * 0.48);
+      var avgRun = Math.round(runsTotal / 8);
+      var difficultySum = STATIONS.reduce(function(a, s){ return a + s.factor; }, 0);
+      var avgStation = Math.round(stationsTotal / 8);
+
+      document.getElementById('sTotal').textContent = fmtHMS(target);
+      document.getElementById('sRunPace').textContent = fmtPace(avgRun);
+      document.getElementById('sAvgStation').textContent = fmtHMS(avgStation);
+
+      var runsBody = document.getElementById('runsBody');
+      runsBody.innerHTML = '';
+      for (var i = 1; i <= 8; i++) {
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>Beh ' + i + ' <span class="sub">1 km</span></td><td class="t">' + fmtHMS(avgRun) + '</td>';
+        runsBody.appendChild(tr);
+      }
+
+      var stationsBody = document.getElementById('stationsBody');
+      stationsBody.innerHTML = '';
+      STATIONS.forEach(function(s) {
+        var timeSec = Math.round((stationsTotal * s.factor) / difficultySum);
+        var w = s.weights[catIdx];
+        var meta = [s.distance, w].filter(Boolean).join(' · ');
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + s.name + (meta ? ' <span class="sub">' + meta + '</span>' : '') + '</td><td class="t">' + fmtHMS(timeSec) + '</td>';
+        stationsBody.appendChild(tr);
+      });
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    document.getElementById('target').addEventListener('keydown', function(e){ if (e.key === 'Enter') calculate(); });
+    // Compute once on load with the default so the page isn't empty for crawlers/users.
+    calculate();
+  </script>
+</body>
+</html>
