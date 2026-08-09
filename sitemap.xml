@@ -21,6 +21,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://booom.fit/hyrox-pre-zaciatocnikov</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/crossfit-pre-zaciatocnikov</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/percento-telesneho-tuku</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://booom.fit/stitna-zlaza</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
