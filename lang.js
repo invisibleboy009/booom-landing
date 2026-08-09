@@ -2193,6 +2193,10 @@ function setLanguage(lang) {
     btn.classList.toggle('active', btn.textContent.trim() === lang);
   });
 
+  // Compact language switcher (index header): reflect the current language on the toggle.
+  var langCode = document.getElementById('langCode');
+  if (langCode) langCode.textContent = lang;
+
   document.title = pageTitles[lang] || pageTitles['SK'];
 
   try {
