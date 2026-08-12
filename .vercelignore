@@ -1,0 +1,7 @@
+# Súbory, ktoré nemajú byť nasadené na produkciu (ostávajú v gite)
+index.html.backup
+lab.html.disabled
+*.backup
+*.disabled
+HANDOFF_SUMMARY.md
+all_i18n_keys.txt
