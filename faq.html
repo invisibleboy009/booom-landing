@@ -302,16 +302,22 @@
     </div>
 
     <div class="policy-card" id="ask" style="border-color:#00d4ff44">
-      <h2 class="policy-card-title">Napíš nám</h2>
-      <p class="policy-text">Nenašiel si odpoveď? Napíš svoju otázku a ozveme sa ti — odpovedá reálny človek z BOOOM, nie bot.</p>
+      <h2 class="policy-card-title">Nenašiel si odpoveď? Opýtaj sa</h2>
+      <p class="policy-text">Napíš svoju otázku a my ti odpovieme — odpoveď sa objaví tu nižšie medzi otázkami komunity, nech pomôže aj ostatným.</p>
       <form id="askForm" style="display:flex;flex-direction:column;gap:12px;margin-top:8px" novalidate>
         <textarea id="askQuestion" required minlength="10" maxlength="1000" rows="4" placeholder="Tvoja otázka…" style="width:100%;background:#0d0d0d;border:1px solid var(--bg-card-border);border-radius:12px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:15px;line-height:1.5;resize:vertical"></textarea>
-        <input id="askEmail" type="email" maxlength="120" placeholder="E-mail (nepovinné — ak chceš odpoveď)" style="width:100%;background:#0d0d0d;border:1px solid var(--bg-card-border);border-radius:12px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:15px">
+        <input id="askEmail" type="email" required maxlength="120" placeholder="Tvoj e-mail (aby sme sa ti vedeli ozvať)" style="width:100%;background:#0d0d0d;border:1px solid var(--bg-card-border);border-radius:12px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:15px">
+        <label style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span id="askChallengeLabel">Koľko je … ?</span>
+          <input id="askChallenge" type="text" inputmode="numeric" autocomplete="off" style="width:80px;background:#0d0d0d;border:1px solid var(--bg-card-border);border-radius:10px;padding:8px 10px;color:var(--text);font-family:inherit;font-size:15px">
+        </label>
         <input id="askWebsite" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <button type="submit" id="askSubmit" style="background:linear-gradient(135deg,var(--green),var(--cyan));color:#000;font-weight:800;font-size:15px;padding:13px 20px;border:none;border-radius:12px;cursor:pointer;font-family:inherit">Odoslať otázku</button>
         <div id="askMsg" role="status" aria-live="polite" style="font-size:14px;min-height:20px"></div>
       </form>
     </div>
+
+    <div id="communityQa" style="margin-top:8px"></div>
 
   </div>
 </section>
@@ -356,34 +362,57 @@
 </script>
 <script>
 (function(){
-  var form = document.getElementById('askForm');
-  if (!form || !window.supabase) return;
   var SB_URL = 'https://itwnqpggvcramyckoyiw.supabase.co';
   var SB_KEY = 'sb_publishable_kEM_LigU1HXZhw4Agu48LQ_BHYdWVYw';
-  var client = null;
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    var msg = document.getElementById('askMsg');
-    var btn = document.getElementById('askSubmit');
-    var q = document.getElementById('askQuestion').value.trim();
-    var email = document.getElementById('askEmail').value.trim();
-    // Honeypot: real users never fill a field they can't see.
-    if (document.getElementById('askWebsite').value) return;
-    if (q.length < 10) { msg.style.color = '#ff6b6b'; msg.textContent = 'Otázka je príliš krátka.'; return; }
-    btn.disabled = true; btn.textContent = 'Odosielam…';
-    try {
-      if (!client) client = window.supabase.createClient(SB_URL, SB_KEY);
-      var res = await client.from('faq_questions').insert({ question: q, email: email || null, source: 'faq' });
-      if (res.error) throw res.error;
-      form.reset();
-      msg.style.color = '#00e676'; msg.textContent = 'Ďakujeme! Ak si nechal e-mail, ozveme sa ti.';
-      btn.textContent = 'Odoslané ✓';
-    } catch (err) {
-      msg.style.color = '#ff6b6b';
-      msg.textContent = 'Nepodarilo sa odoslať. Skús neskôr alebo napíš na laco@booom.fit.';
-      btn.disabled = false; btn.textContent = 'Odoslať otázku';
-    }
-  });
+  var client = (window.supabase && window.supabase.createClient) ? window.supabase.createClient(SB_URL, SB_KEY) : null;
+
+  // Lightweight human check: a random sum, no external captcha.
+  var a = 1 + Math.floor(Math.random() * 8), b = 1 + Math.floor(Math.random() * 8);
+  var lbl = document.getElementById('askChallengeLabel');
+  function refreshChallenge(){ a = 1 + Math.floor(Math.random()*8); b = 1 + Math.floor(Math.random()*8); if (lbl) lbl.textContent = 'Koľko je ' + a + ' + ' + b + ' ?'; }
+  if (lbl) lbl.textContent = 'Koľko je ' + a + ' + ' + b + ' ?';
+
+  var form = document.getElementById('askForm');
+  if (form && client) {
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var msg = document.getElementById('askMsg'), btn = document.getElementById('askSubmit');
+      var q = document.getElementById('askQuestion').value.trim();
+      var email = document.getElementById('askEmail').value.trim();
+      var chal = document.getElementById('askChallenge').value.trim();
+      if (document.getElementById('askWebsite').value) return; // honeypot
+      if (q.length < 10) { msg.style.color='#ff6b6b'; msg.textContent='Otázka je príliš krátka.'; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.style.color='#ff6b6b'; msg.textContent='Zadaj platný e-mail.'; return; }
+      if (parseInt(chal, 10) !== a + b) { msg.style.color='#ff6b6b'; msg.textContent='Kontrola: koľko je ' + a + ' + ' + b + '?'; return; }
+      btn.disabled = true; btn.textContent = 'Odosielam…';
+      try {
+        var res = await client.from('faq_questions').insert({ question: q, email: email, source: 'faq' });
+        if (res.error) throw res.error;
+        form.reset(); refreshChallenge();
+        msg.style.color='#00e676'; msg.textContent='Ďakujeme! Ozveme sa ti a odpoveď sa objaví nižšie.';
+        btn.textContent='Odoslané ✓'; setTimeout(function(){ btn.disabled=false; btn.textContent='Odoslať otázku'; }, 2500);
+      } catch (err) {
+        msg.style.color='#ff6b6b'; msg.textContent='Nepodarilo sa odoslať. Skús neskôr alebo napíš na laco@booom.fit.';
+        btn.disabled=false; btn.textContent='Odoslať otázku';
+      }
+    });
+  }
+
+  // Public "community questions": only published Q&As. textContent everywhere → XSS-safe.
+  var wrap = document.getElementById('communityQa');
+  if (wrap && client) {
+    client.from('faq_questions').select('question,answer,answered_at').eq('published', true).order('answered_at', { ascending: false }).limit(50).then(function(res){
+      if (res.error || !res.data || !res.data.length) return;
+      var h = document.createElement('h2'); h.className='policy-card-title'; h.style.margin='28px 4px 4px'; h.textContent='Otázky komunity';
+      wrap.appendChild(h);
+      res.data.forEach(function(row){
+        var card = document.createElement('div'); card.className='policy-card'; card.style.marginTop='12px';
+        var qEl = document.createElement('div'); qEl.style.cssText='font-weight:800;font-size:16px;margin-bottom:8px;color:var(--text)'; qEl.textContent=row.question;
+        var aEl = document.createElement('p'); aEl.className='policy-text'; aEl.textContent=row.answer || '';
+        card.appendChild(qEl); card.appendChild(aEl); wrap.appendChild(card);
+      });
+    });
+  }
 }());
 </script>
 </body>
