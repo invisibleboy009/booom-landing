@@ -44,6 +44,7 @@
   {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
+    "@id": "https://booom.fit/#app",
     "name": "BOOOM",
     "alternateName": "BOOOM — Fitness & AI Coach",
     "operatingSystem": "iOS, Android, Web",
@@ -1711,8 +1712,12 @@
       <span class="testimonials-rating-stars">★★★★★</span>
       <span class="testimonials-rating-text" data-i18n="testimonials_rating">Hodnotené beta používateľmi</span>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card" data-animate data-delay="1">
+    <!-- Real, admin-approved quotes from the app are prepended here at runtime and push the
+         placeholders out one by one (see the testimonials script at the bottom). The three
+         below stay in the HTML so the section is never empty and never depends on a network
+         call to render — but the moment we have three real ones, none of them is shown. -->
+    <div class="testimonials-grid" id="testimonials-grid">
+      <div class="testimonial-card" data-placeholder data-animate data-delay="1">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text" data-i18n="testimonial1_text">"Konečne appka, ktorá chápe, že fitness nie je len o kalóriách. Sledovanie krvných hodnôt mi otvorilo oči — zistil som, že mám nízky feritín a to bol dôvod, prečo som stagnoval rok. BOOOM mi doslova zmenil život."</p>
         <div class="testimonial-author">
@@ -1723,7 +1728,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial-card" data-animate data-delay="2">
+      <div class="testimonial-card" data-placeholder data-animate data-delay="2">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text" data-i18n="testimonial2_text">"Mám Hashimoto a pred BOOOM som vôbec nevedela, čo smiem jesť a kedy cvičiť. AI Coach mi vysvetlil súvislosti, ktoré mi žiadny tréner ani lekár nepovedal tak ľudsky. Teraz mám konečne systém."</p>
         <div class="testimonial-author">
@@ -1734,7 +1739,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial-card" data-animate data-delay="3">
+      <div class="testimonial-card" data-placeholder data-animate data-delay="3">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-text" data-i18n="testimonial3_text">"Mal som 41 rokov a myslel som si, že stagnácia je vek. GPS tracking, krvné hodnoty, AI plán — za 3 mesiace som schudol 9 kg a pritom pribral svalovku. Toto nie je appka, toto je osobný tréner za cenu kávy."</p>
         <div class="testimonial-author">
@@ -2066,6 +2071,126 @@
   }());
 </script>
 <script>
+/* ── Real testimonials ─────────────────────────────────────────────────────────────────
+ *
+ * People who tap four or five stars in the app are offered a second, optional step: leave
+ * a few words for the website. Those land in public.testimonials as 'pending' and an admin
+ * approves them. Only approved rows are readable — that is enforced by RLS, not by this
+ * query, so a pending or rejected quote cannot be pulled out of here by editing the URL.
+ *
+ * They REPLACE the written placeholders rather than sitting next to them: a real quote and
+ * an invented one in the same row makes the real one look invented too.
+ *
+ * Rendered with textContent, never innerHTML. The text is moderated, but moderation is a
+ * person reading for tone, not a person spotting a <script> tag.
+ */
+(function () {
+  var grid = document.getElementById('testimonials-grid');
+  if (!grid || !window.supabase || !window.supabase.createClient) return;
+
+  var SB_URL = 'https://itwnqpggvcramyckoyiw.supabase.co';
+  var SB_KEY = 'sb_publishable_kEM_LigU1HXZhw4Agu48LQ_BHYdWVYw';
+  var MAX = 6;
+
+  function card(row) {
+    var el = document.createElement('div');
+    // 'visible' straight away: the IntersectionObserver made its pass over the static
+    // markup long before this fetch came back, so an unobserved [data-animate] card would
+    // simply stay at opacity 0 forever.
+    el.className = 'testimonial-card visible';
+    el.setAttribute('data-real', '1');
+
+    var stars = document.createElement('div');
+    stars.className = 'testimonial-stars';
+    stars.textContent = new Array((row.rating === 4 ? 4 : 5) + 1).join('★');
+    el.appendChild(stars);
+
+    var text = document.createElement('p');
+    text.className = 'testimonial-text';
+    text.textContent = '„' + String(row.body || '').trim() + '“';
+    el.appendChild(text);
+
+    var author = document.createElement('div');
+    author.className = 'testimonial-author';
+
+    var name = String(row.display_name || '').trim();
+    var avatar = document.createElement('div');
+    avatar.className = 'testimonial-avatar';
+    avatar.textContent = name.charAt(0).toUpperCase();
+    author.appendChild(avatar);
+
+    var meta = document.createElement('div');
+    var nameEl = document.createElement('div');
+    nameEl.className = 'testimonial-name';
+    nameEl.textContent = name;
+    meta.appendChild(nameEl);
+    if (row.display_rank) {
+      // The rank is a BOOOM rank name (Hustler, Savage, …) — data, not UI copy, so it is
+      // never translated, on the site or in the app.
+      var rank = document.createElement('div');
+      rank.className = 'testimonial-role';
+      rank.textContent = row.display_rank;
+      meta.appendChild(rank);
+    }
+    author.appendChild(meta);
+    el.appendChild(author);
+    return el;
+  }
+
+  /* Review markup for the real ones only. Deliberately NO aggregateRating: the set is
+   * curated by an admin, and Google treats a rating average computed from a hand-picked
+   * subset as a policy problem rather than a rich result. Individual reviews are honest —
+   * each one is a real person's words, attributed. */
+  function markup(rows) {
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@id': 'https://booom.fit/#app',
+      '@type': 'MobileApplication',
+      name: 'BOOOM',
+      review: rows.map(function (r) {
+        return {
+          '@type': 'Review',
+          reviewRating: { '@type': 'Rating', ratingValue: r.rating === 4 ? 4 : 5, bestRating: 5 },
+          author: { '@type': 'Person', name: String(r.display_name || '').trim() },
+          reviewBody: String(r.body || '').trim(),
+          datePublished: (r.created_at || '').slice(0, 10)
+        };
+      })
+    });
+    document.head.appendChild(script);
+  }
+
+  var client = window.supabase.createClient(SB_URL, SB_KEY);
+  client
+    .from('testimonials')
+    .select('body, display_name, display_rank, rating, created_at')
+    .eq('status', 'approved')
+    .order('created_at', { ascending: false })
+    .limit(MAX)
+    .then(function (res) {
+      // Table missing, offline, RLS change — the placeholders are already on screen and
+      // stay there. A testimonials section is not worth a visible error.
+      if (res.error || !res.data || !res.data.length) return;
+
+      var rows = res.data.filter(function (r) { return String(r.body || '').trim() && String(r.display_name || '').trim(); });
+      if (!rows.length) return;
+
+      var placeholders = grid.querySelectorAll('[data-placeholder]');
+      var first = placeholders[0] || null;
+      rows.forEach(function (r) { grid.insertBefore(card(r), first); });
+
+      // Drop one placeholder per real quote, oldest first, so the grid keeps its shape
+      // while the invented ones retire.
+      for (var i = 0; i < rows.length && i < placeholders.length; i++) {
+        placeholders[i].parentNode.removeChild(placeholders[i]);
+      }
+
+      markup(rows);
+    }, function () { /* network — placeholders stand */ });
+}());
+
 function toggleFeatCard(btn) {
   const expanded = btn.getAttribute('aria-expanded') === 'true';
   const content = btn.nextElementSibling;
