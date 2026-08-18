@@ -2189,6 +2189,17 @@ function setLanguage(lang) {
     }
   });
 
+  // TikTok is two accounts: one posting in Slovak, one in English. Sending a German or
+  // Polish visitor to a feed they cannot read earns a follow and then an unfollow, so the
+  // link follows the language rather than the domain. Czech goes to the Slovak account on
+  // purpose — close enough that the content lands. Instagram is a single account.
+  var tiktokUrl = (lang === 'SK' || lang === 'CS')
+    ? 'https://www.tiktok.com/@booom.fitness.app'
+    : 'https://www.tiktok.com/@getbooom';
+  document.querySelectorAll('[data-tiktok]').forEach(function (el) {
+    el.setAttribute('href', tiktokUrl);
+  });
+
   document.querySelectorAll('.lang-btn').forEach(function (btn) {
     btn.classList.toggle('active', btn.textContent.trim() === lang);
   });
