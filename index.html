@@ -1417,6 +1417,64 @@
 </section>
 
 
+<!-- Social proof sits ABOVE the feature list on purpose. It used to come after it, and
+     the feature list is ~280 lines of cards — so the real reviews were three screens down,
+     past the point most first-time visitors stop. A stranger decides whether to believe the
+     claims before reading them, not after. -->
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section" id="testimonials" data-animate>
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag section-tag-cyan" data-i18n="testimonials_tag">Komunita</span>
+      <h2 data-i18n="testimonials_title">Čo hovoria naši makáči</h2>
+      <p data-i18n="testimonials_subtitle">Skutočné príbehy. Skutočný progres.</p>
+    </div>
+    <div class="testimonials-rating" aria-label="Hodnotenie">
+      <span class="testimonials-rating-stars">★★★★★</span>
+      <span class="testimonials-rating-text" data-i18n="testimonials_rating">Hodnotené beta používateľmi</span>
+    </div>
+    <!-- Real, admin-approved quotes from the app are prepended here at runtime and push the
+         placeholders out one by one (see the testimonials script at the bottom). The three
+         below stay in the HTML so the section is never empty and never depends on a network
+         call to render — but the moment we have three real ones, none of them is shown. -->
+    <div class="testimonials-grid" id="testimonials-grid">
+      <div class="testimonial-card" data-placeholder data-animate data-delay="1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="testimonial1_text">"Konečne appka, ktorá chápe, že fitness nie je len o kalóriách. Sledovanie krvných hodnôt mi otvorilo oči — zistil som, že mám nízky feritín a to bol dôvod, prečo som stagnoval rok. BOOOM mi doslova zmenil život."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name" data-i18n="testimonial1_name">Marek Kováč</div>
+            <div class="testimonial-role" data-i18n="testimonial1_role">Powerlifter · Bratislava</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-placeholder data-animate data-delay="2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="testimonial2_text">"Mám Hashimoto a pred BOOOM som vôbec nevedela, čo smiem jesť a kedy cvičiť. AI Coach mi vysvetlil súvislosti, ktoré mi žiadny tréner ani lekár nepovedal tak ľudsky. Teraz mám konečne systém."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Z</div>
+          <div>
+            <div class="testimonial-name" data-i18n="testimonial2_name">Zuzana Horáková</div>
+            <div class="testimonial-role" data-i18n="testimonial2_role">Mamička &amp; CrossFit nadšenkyňa · Žilina</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-placeholder data-animate data-delay="3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="testimonial3_text">"Mal som 41 rokov a myslel som si, že stagnácia je vek. GPS tracking, krvné hodnoty, AI plán — za 3 mesiace som schudol 9 kg a pritom pribral svalovku. Toto nie je appka, toto je osobný tréner za cenu kávy."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">T</div>
+          <div>
+            <div class="testimonial-name" data-i18n="testimonial3_name">Tomáš Novák</div>
+            <div class="testimonial-role" data-i18n="testimonial3_role">Cyklista &amp; Otec troch detí · Košice</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── FEATURES ── -->
 <section id="features">
   <div class="section-inner">
@@ -1700,59 +1758,6 @@
   </div>
 </div>
 
-<!-- ── TESTIMONIALS ── -->
-<section class="testimonials-section" id="testimonials" data-animate>
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag section-tag-cyan" data-i18n="testimonials_tag">Komunita</span>
-      <h2 data-i18n="testimonials_title">Čo hovoria naši makáči</h2>
-      <p data-i18n="testimonials_subtitle">Skutočné príbehy. Skutočný progres.</p>
-    </div>
-    <div class="testimonials-rating" aria-label="Hodnotenie">
-      <span class="testimonials-rating-stars">★★★★★</span>
-      <span class="testimonials-rating-text" data-i18n="testimonials_rating">Hodnotené beta používateľmi</span>
-    </div>
-    <!-- Real, admin-approved quotes from the app are prepended here at runtime and push the
-         placeholders out one by one (see the testimonials script at the bottom). The three
-         below stay in the HTML so the section is never empty and never depends on a network
-         call to render — but the moment we have three real ones, none of them is shown. -->
-    <div class="testimonials-grid" id="testimonials-grid">
-      <div class="testimonial-card" data-placeholder data-animate data-delay="1">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-i18n="testimonial1_text">"Konečne appka, ktorá chápe, že fitness nie je len o kalóriách. Sledovanie krvných hodnôt mi otvorilo oči — zistil som, že mám nízky feritín a to bol dôvod, prečo som stagnoval rok. BOOOM mi doslova zmenil život."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">M</div>
-          <div>
-            <div class="testimonial-name" data-i18n="testimonial1_name">Marek Kováč</div>
-            <div class="testimonial-role" data-i18n="testimonial1_role">Powerlifter · Bratislava</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card" data-placeholder data-animate data-delay="2">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-i18n="testimonial2_text">"Mám Hashimoto a pred BOOOM som vôbec nevedela, čo smiem jesť a kedy cvičiť. AI Coach mi vysvetlil súvislosti, ktoré mi žiadny tréner ani lekár nepovedal tak ľudsky. Teraz mám konečne systém."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">Z</div>
-          <div>
-            <div class="testimonial-name" data-i18n="testimonial2_name">Zuzana Horáková</div>
-            <div class="testimonial-role" data-i18n="testimonial2_role">Mamička &amp; CrossFit nadšenkyňa · Žilina</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card" data-placeholder data-animate data-delay="3">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-i18n="testimonial3_text">"Mal som 41 rokov a myslel som si, že stagnácia je vek. GPS tracking, krvné hodnoty, AI plán — za 3 mesiace som schudol 9 kg a pritom pribral svalovku. Toto nie je appka, toto je osobný tréner za cenu kávy."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">T</div>
-          <div>
-            <div class="testimonial-name" data-i18n="testimonial3_name">Tomáš Novák</div>
-            <div class="testimonial-role" data-i18n="testimonial3_role">Cyklista &amp; Otec troch detí · Košice</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── FOMO ── -->
 <section class="fomo-section" id="fomo" data-animate>
