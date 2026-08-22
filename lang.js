@@ -290,7 +290,7 @@ const translations = {
     feature_tag_xp_ranks: 'XP & Ranky',
     feature_tag_feed: 'Feed',
     testimonials_tag: 'Komunita',
-    testimonials_title: 'Čo hovoria naši makáči',
+    testimonials_title: 'Čo hovoria naši makači',
     testimonials_subtitle: 'Skutočné príbehy. Skutočný progres.',
     testimonials_rating: 'Hodnotené beta používateľmi',
     testimonial1_text: '"Konečne appka, ktorá chápe, že fitness nie je len o kalóriách. Sledovanie krvných hodnôt mi otvorilo oči — zistil som, že mám nízky feritín a to bol dôvod, prečo som stagnoval rok. BOOOM mi doslova zmenil život."',

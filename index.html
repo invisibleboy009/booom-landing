@@ -803,8 +803,13 @@
       scrollbar-width: none; -ms-overflow-style: none;
     }
     .testimonials-grid::-webkit-scrollbar { display: none; }
+    /* TWO per page on desktop, not three. There are three cards today (two real reviews
+       plus the last written placeholder) — at three-up they all fit, so there was nowhere
+       to advance to and the track correctly sat still with its dots hidden. Two-up means
+       three cards make two pages, so it moves, and the quotes get more width to read in.
+       Tested against the real card count, which is how this was missed the first time. */
     .testimonials-grid > .testimonial-card {
-      flex: 0 0 calc((100% - 40px) / 3); scroll-snap-align: start; min-width: 0;
+      flex: 0 0 calc((100% - 20px) / 2); scroll-snap-align: start; min-width: 0;
     }
     .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
     .testimonial-dot {
@@ -1449,7 +1454,7 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag section-tag-cyan" data-i18n="testimonials_tag">Komunita</span>
-      <h2 data-i18n="testimonials_title">Čo hovoria naši makáči</h2>
+      <h2 data-i18n="testimonials_title">Čo hovoria naši makači</h2>
       <p data-i18n="testimonials_subtitle">Skutočné príbehy. Skutočný progres.</p>
     </div>
     <div class="testimonials-rating" aria-label="Hodnotenie">
