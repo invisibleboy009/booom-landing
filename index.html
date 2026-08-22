@@ -792,7 +792,27 @@
     }
     .testimonials-rating-stars { font-size: 18px; letter-spacing: 2px; color: #ffd700; }
     .testimonials-rating-text { font-size: 14px; color: var(--muted); font-weight: 600; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    /* A TRACK, NOT A GRID. Three fixed cards read as a decorated block nobody scrolls back to,
+       and the card heights went ragged the moment a real two-line review sat beside a real
+       eight-line one. As a snap track the cards are equal height, more than three fit without
+       the section growing, and the set moves on its own so a returning visitor sees a
+       different quote. Native scroll-snap does the work — no library, no drag handlers. */
+    .testimonials-grid {
+      display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; padding-bottom: 6px;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .testimonials-grid::-webkit-scrollbar { display: none; }
+    .testimonials-grid > .testimonial-card {
+      flex: 0 0 calc((100% - 40px) / 3); scroll-snap-align: start; min-width: 0;
+    }
+    .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+    .testimonial-dot {
+      width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+      background: rgba(255,255,255,0.22); transition: background 0.25s, width 0.25s;
+    }
+    .testimonial-dot.active { background: var(--green); width: 20px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) { .testimonials-grid { scroll-behavior: auto; } }
     .testimonial-card {
       background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 20px;
       padding: 32px; display: flex; flex-direction: column;
@@ -801,6 +821,9 @@
     .testimonial-card:hover { border-color: rgba(0,230,118,0.22); transform: translateY(-4px); }
     .testimonial-stars { font-size: 15px; letter-spacing: 2px; margin-bottom: 18px; color: #ffd700; }
     .testimonial-text { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.8; flex: 1; margin-bottom: 24px; font-style: italic; }
+    /* The author block stays pinned to the bottom of every card, so short and long quotes
+       line up instead of leaving one card's name floating in the middle. */
+    .testimonial-author { margin-top: auto; }
     .testimonial-author { display: flex; align-items: center; gap: 14px; }
     .testimonial-avatar {
       width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
@@ -1020,7 +1043,7 @@
       .features-modal-grid { grid-template-columns: 1fr; }
       .features-modal-panel { padding: 40px 24px; }
       .ranks-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-grid > .testimonial-card { flex-basis: 100%; }
       .teaser-grid { grid-template-columns: 1fr; }
       .stat { padding: 0 16px; }
       .footer-top { flex-direction: column; align-items: flex-start; }
@@ -1472,6 +1495,7 @@
         </div>
       </div>
     </div>
+    <div class="testimonial-dots" id="testimonial-dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -2193,7 +2217,74 @@
       }
 
       markup(rows);
+      startCarousel();
     }, function () { /* network — placeholders stand */ });
+
+  /**
+   * Move the track on its own, with dots.
+   *
+   * Only when there is more than one page of cards — on a desktop showing all three at
+   * once there is nothing to advance to, and a section that twitches for no reason is
+   * worse than a static one. Recomputed on resize, because a phone rotated to landscape
+   * changes how many fit.
+   *
+   * It stops for good the moment a person touches it. Someone reading the third quote
+   * while the track slides away from them is the exact reason auto-rotating carousels
+   * have a bad name.
+   */
+  function startCarousel() {
+    var dots = document.getElementById('testimonial-dots');
+    if (!dots) return;
+    var timer = null;
+    var stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function pages() {
+      var per = Math.max(1, Math.round(grid.clientWidth / (grid.firstElementChild
+        ? grid.firstElementChild.getBoundingClientRect().width + 20 : grid.clientWidth)));
+      return Math.max(1, Math.ceil(grid.children.length / per));
+    }
+    function current() {
+      return grid.clientWidth ? Math.round(grid.scrollLeft / grid.clientWidth) : 0;
+    }
+    function paint() {
+      var n = pages(), i = Math.min(current(), n - 1);
+      if (dots.children.length !== n) {
+        dots.textContent = '';
+        for (var k = 0; k < n; k++) {
+          var b = document.createElement('button');
+          b.className = 'testimonial-dot';
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Recenzia ' + (k + 1));
+          b.addEventListener('click', (function (idx) {
+            return function () { stop(); grid.scrollTo({ left: idx * grid.clientWidth }); };
+          })(k));
+          dots.appendChild(b);
+        }
+      }
+      for (var j = 0; j < dots.children.length; j++) {
+        dots.children[j].classList.toggle('active', j === i);
+      }
+      dots.style.display = n > 1 ? 'flex' : 'none';
+    }
+    function stop() {
+      stopped = true;
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function tick() {
+      var n = pages();
+      if (n <= 1) return;
+      var next = (current() + 1) % n;
+      grid.scrollTo({ left: next * grid.clientWidth });
+    }
+
+    paint();
+    grid.addEventListener('scroll', paint, { passive: true });
+    window.addEventListener('resize', paint);
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(function (ev) {
+      grid.addEventListener(ev, stop, { passive: true });
+    });
+    if (!stopped && pages() > 1) timer = setInterval(tick, 6000);
+  }
 }());
 
 function toggleFeatCard(btn) {

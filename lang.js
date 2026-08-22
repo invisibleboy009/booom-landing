@@ -2177,9 +2177,25 @@ function setLanguage(lang) {
 
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) {
-      el.textContent = t[key];
+    if (t[key] === undefined) return;
+    const value = String(t[key]);
+
+    // A handful of headlines carry a deliberate line break as a literal "<br>" in the
+    // string. textContent printed it as four visible characters — every visitor, in all
+    // six languages, read "BOOOM nie je appka pre ľudí,<br>čo sa chodia do fitka fotiť."
+    //
+    // Split and build real <br> elements rather than switching to innerHTML: the strings
+    // are ours today, but an applier that renders markup is one copy-pasted translation
+    // away from executing it, and nothing else here needs that power.
+    if (value.indexOf('<br>') === -1) {
+      el.textContent = value;
+      return;
     }
+    el.textContent = '';
+    value.split('<br>').forEach(function (part, i) {
+      if (i > 0) el.appendChild(document.createElement('br'));
+      el.appendChild(document.createTextNode(part));
+    });
   });
 
   document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
