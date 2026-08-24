@@ -4,7 +4,12 @@
   // ── Constants ──────────────────────────────────────────────────────────────
   var SUPABASE_URL = 'https://itwnqpggvcramyckoyiw.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_kEM_LigU1HXZhw4Agu48LQ_BHYdWVYw';
-  var AVATAR_URL = 'https://itwnqpggvcramyckoyiw.supabase.co/storage/v1/object/public/avatars/AI%20Coach%20Booomer.png';
+  // Servírované z vlastného hostingu, NIE zo Supabase storage. Pôvodná adresa
+  // ukazovala na 5,6 MB PNG v Supabase buckete a každá návšteva landingu ho
+  // stiahla nanovo — 63 MB za jediný deň (24. 8. 2026), prakticky celý
+  // prečerpaný free-tier egress projektu. Tento WebP má 44 kB a Vercel si
+  // prenos neúčtuje. Rovnaký obrázok používa appka ako /avatars/ai-coach-booomer.webp.
+  var AVATAR_URL = '/assets/booomer-avatar.webp';
   var EDGE_FN = SUPABASE_URL + '/functions/v1/boomer-landing-chat';
   var LS_EMAIL = 'boomer_email';
   var LS_CONVOS = 'boomer_conversations';
