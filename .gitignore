@@ -1,2 +1,8 @@
 .vercel
 supabase/.temp/
+
+# Pracovne screenshoty z overovania layoutu.
+w[0-9]*.png
+sept-*.png
+tlac.png
+plan.pdf
