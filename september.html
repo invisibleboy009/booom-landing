@@ -81,7 +81,17 @@
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--ink); color: var(--text); line-height: 1.55; -webkit-font-smoothing: antialiased; }
     a { color: var(--azur); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px 80px; }
+    .wrap { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 24px 20px 80px; }
+
+    /* Ambient glow across the whole VIEWPORT, not inside the hero.
+       It used to be .hero::before, and .hero clips (overflow:hidden) — so the
+       radial faded out horizontally but got sliced off at the hero's top and
+       right edges, leaving two hard-edged rectangles pasted on a black page.
+       That is what read as "cut off" (owner, 2026-09-02). Fixed to the viewport
+       it has no box to be clipped by. */
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(46% 28% at 26% 8%, rgba(57,255,20,.17), transparent 68%),
+                  radial-gradient(38% 22% at 86% 0%, rgba(0,212,255,.11), transparent 70%); }
 
     header.nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 20px; }
     .brand { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--zelena);
@@ -89,20 +99,16 @@
     .nav-cta { font-size: 13px; font-weight: 700; color: #04140a; background: var(--zelena);
       padding: 9px 16px; border-radius: 10px; text-decoration: none; }
 
-    .hero { position: relative; padding: 26px 0 8px; overflow: hidden; }
-    .hero::before { content: ""; position: absolute; inset: -40% -30% auto -30%; height: 120%;
-      background: radial-gradient(60% 55% at 22% 40%, rgba(57,255,20,.20), transparent 70%),
-                  radial-gradient(45% 40% at 88% 12%, rgba(0,212,255,.13), transparent 70%);
-      pointer-events: none; }
-    .rail { position: relative; display: flex; align-items: center; gap: 12px; font-family: var(--kond);
-      font-weight: 700; letter-spacing: .18em; font-size: 19px; }
+    .hero { position: relative; padding: 30px 0 10px; text-align: center; }
+    .rail { position: relative; display: flex; align-items: center; justify-content: center; gap: 12px;
+      font-family: var(--kond); font-weight: 700; letter-spacing: .18em; font-size: 19px; }
     .znak { width: 14px; height: 14px; border-radius: 4px; background: var(--zelena); flex: none; }
     .rail em { font-style: normal; color: var(--tlm2); font-size: 12.5px; letter-spacing: .14em; }
     h1 { position: relative; font-family: var(--kond); font-weight: 900; text-transform: uppercase;
       font-size: clamp(46px, 12vw, 104px); line-height: .88; margin: 22px 0 0; text-wrap: balance; }
     h1 span { color: var(--zelena); }
-    .lead { position: relative; max-width: 56ch; margin: 20px 0 0; font-size: 17.5px; color: var(--tlm); }
-    .meta { position: relative; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .lead { position: relative; max-width: 56ch; margin: 20px auto 0; font-size: 17.5px; color: var(--tlm); }
+    .meta { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .chip { border: 1px solid var(--hrana); background: var(--panel); border-radius: 999px; padding: 7px 15px;
       font-family: var(--kond); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
       font-size: 13px; color: var(--tlm); }
