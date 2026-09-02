@@ -39,11 +39,15 @@ def den_tile(den, aktivny):
 def plan_block(kluc, plan):
     dni = plan['dni']
     tiles = '\n          '.join(den_tile(d, d['d'] == 1) for d in dni)
-    rows = '\n            '.join(
-        f'<li><b>Deň {d["d"]} — {e(d["nazov"])}</b> <span class="typ">{TYP_LABEL[d["typ"]]}</span>'
-        f'<br>{e(d["obsah"]) if d["obsah"] else "Voľno je súčasť plánu."}</li>'
-        for d in dni
-    )
+    def riadok(d):
+        # The type label is dropped when the day is already called that —
+        # "Deň 7 — VOĽNO  Voľno" says the same thing twice.
+        typ = TYP_LABEL[d['typ']]
+        stitok = '' if typ.upper() == d['nazov'].upper() else f' <span class="typ">{typ}</span>'
+        obsah = e(d['obsah']) if d['obsah'] else 'Voľno je súčasť plánu.'
+        return f'<li><b>Deň {d["d"]} — {e(d["nazov"])}</b>{stitok}<br>{obsah}</li>'
+
+    rows = '\n            '.join(riadok(d) for d in dni)
     active = ' is-active' if kluc == DEFAULT else ''
     return f"""      <section class="plan{active}" data-plan="{kluc}" aria-label="{e(plan['kde'])} · {e(plan['uroven'])}">
         <div class="zhrn">
@@ -71,8 +75,6 @@ detail_data = {
     k: {str(d['d']): {'n': d['nazov'], 'o': d['obsah']} for d in p['dni']}
     for k, p in PLANY.items()
 }
-meta_data = {k: {'kde': p['kde'], 'uroven': p['uroven'], 'dlzka': p['dlzka'],
-                 'popis': p['popis']} for k, p in PLANY.items()}
 
 HTML = f"""<!DOCTYPE html>
 <html lang="sk" data-lang="SK">
@@ -270,11 +272,58 @@ HTML = f"""<!DOCTYPE html>
       .den {{ font-size: 20px; }}
       .prep button {{ font-size: 23px; }}
     }}
+
+    /* ── TLAČ / ULOŽENIE DO PDF ─────────────────────────────────────────────
+       Plán sa netlačí ako obrázok obrazovky, ale ako dokument: biely papier,
+       čierny text, žiadne dlaždice a žiadna žiara. Tmavé pozadie by zožralo
+       toner a farebné pruhy pri dňoch nesú informáciu, ktorú text nesie tiež.
+
+       Prehliadač si to vykreslí vlastnými fontmi, takže diakritika sedí. Toto
+       nahradilo generovanie PDF v jsPDF, ktoré vedelo iba Latin-1 a robilo z
+       "Začiatočník" -> "Za iato ník" a z "kľukov" -> "k>ukov". */
+    .tlac-hlavicka, .tlac-paticka {{ display: none; }}
+
+    @media print {{
+      @page {{ margin: 16mm 14mm; }}
+      html, body {{ background: #fff !important; color: #000 !important; }}
+      .wrap {{ max-width: none; padding: 0; }}
+      header.nav, .hero, .volba, .legenda, .mriezka, .detail, .cta, .pozn, footer {{ display: none !important; }}
+
+      .plan {{ display: none !important; }}
+      html.js .plan.is-active, html:not(.js) .plan {{ display: block !important; break-after: page; }}
+      html:not(.js) .plan:last-of-type {{ break-after: auto; }}
+
+      .tlac-hlavicka {{ display: block; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 16px; }}
+      .tlac-hlavicka h2 {{ font-family: var(--kond); font-weight: 900; text-transform: uppercase;
+        font-size: 26pt; line-height: 1; margin: 0; color: #000; }}
+      .tlac-hlavicka span {{ font-size: 9pt; letter-spacing: .1em; text-transform: uppercase; color: #444; }}
+
+      .zhrn {{ background: #fff !important; border: 0 !important; border-left: 3pt solid #000 !important;
+        border-radius: 0; padding: 0 0 0 10pt; margin: 0 0 14pt; display: block; break-inside: avoid; }}
+      .zhrn h2 {{ font-size: 17pt; color: #000; }}
+      .zhrn p {{ color: #333; font-size: 10.5pt; margin-top: 3pt; }}
+      .zhrn .dl {{ color: #000; font-size: 11pt; }}
+
+      .zoznam {{ display: block !important; border-top: 1pt solid #000; margin: 0; }}
+      .zoznam li {{ color: #222; font-size: 10.5pt; padding: 6pt 0; border-bottom: 1pt solid #ccc;
+        break-inside: avoid; }}
+      .zoznam b {{ color: #000; font-size: 12.5pt; }}
+      .zoznam .typ {{ color: #555; }}
+
+      .tlac-paticka {{ display: block; margin-top: 14pt; font-size: 8.5pt; color: #444; break-inside: avoid; }}
+      .tlac-paticka b {{ color: #000; }}
+    }}
   </style>
 </head>
 <body>
   <script>document.documentElement.className += ' js';</script>
   <div class="wrap">
+    <!-- Viditeľné iba na papieri / v PDF. -->
+    <div class="tlac-hlavicka">
+      <h2>30 dní s BOOOMEROM</h2>
+      <span>booom.fit &middot; Train. Track. Dominate.</span>
+    </div>
+
     <header class="nav">
       <a class="brand" href="/">BOOOM</a>
       <a class="nav-cta" href="/">Stiahnuť appku</a>
@@ -321,11 +370,17 @@ HTML = f"""<!DOCTYPE html>
     </div>
 
     <div class="cta">
-      <button type="button" class="btn" id="stiahnut">Stiahnuť plán</button>
+      <button type="button" class="btn" id="stiahnut">Uložiť ako PDF alebo vytlačiť</button>
       <a class="btn sek" href="https://app.booom.fit">Otvoriť v BOOOM</a>
     </div>
     <p class="pozn">Ak ťa niečo bolí alebo máš zdravotné obmedzenie, prispôsob si cviky
       alebo sa poraď s odborníkom. Tento plán je návrh pohybu, nie zdravotná rada.</p>
+
+    <div class="tlac-paticka">
+      Ak ťa niečo bolí alebo máš zdravotné obmedzenie, prispôsob si cviky alebo sa poraď
+      s odborníkom. Tento plán je návrh pohybu, nie zdravotná rada.<br>
+      <b>booom.fit/30-dni</b>
+    </div>
 
     <footer>
       <b>BOOOM.FIT</b>
@@ -337,7 +392,6 @@ HTML = f"""<!DOCTYPE html>
   <script>
   (function () {{
     var DNI = {json.dumps(detail_data, ensure_ascii=False, separators=(',', ':'))};
-    var META = {json.dumps(meta_data, ensure_ascii=False, separators=(',', ':'))};
     var kde = 'doma', uroven = 'zaciatocnik', vybranyDen = 1;
 
     function kluc() {{ return kde + '-' + uroven; }}
@@ -389,82 +443,13 @@ HTML = f"""<!DOCTYPE html>
       vykresli();
     }});
 
-    // ── Download ────────────────────────────────────────────────────────────
-    function textPlanu() {{
-      var m = META[kluc()], dni = DNI[kluc()];
-      var out = ['30 DNI S BOOOMEROM', m.kde + ' - ' + m.uroven, m.popis,
-                 'Dlzka treningu: ' + m.dlzka, ''];
-      for (var i = 1; i <= 30; i++) {{
-        var d = dni[String(i)];
-        out.push('DEN ' + i + ' - ' + d.n);
-        out.push(d.o || 'Volno je sucastou planu.');
-        out.push('');
-      }}
-      out.push('Ak ta nieco boli alebo mas zdravotne obmedzenie, prisposob si cviky');
-      out.push('alebo sa porad s odbornikom. Tento plan je navrh pohybu, nie zdravotna rada.');
-      out.push('');
-      out.push('booom.fit');
-      return out.join('\\n');
-    }}
-
-    function stiahni(blob, pripona) {{
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'booom-30-dni-' + kluc() + '.' + pripona;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(function () {{ URL.revokeObjectURL(a.href); }}, 4000);
-    }}
-
-    function stiahniText() {{
-      stiahni(new Blob([textPlanu()], {{ type: 'text/plain;charset=utf-8' }}), 'txt');
-    }}
-
-    function pdf() {{
-      var m = META[kluc()], dni = DNI[kluc()];
-      var doc = new window.jspdf.jsPDF({{ unit: 'pt', format: 'a4' }});
-      var W = 595, L = 48, y = 64;
-      doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F');
-      doc.setTextColor(57, 255, 20); doc.setFont('helvetica', 'bold'); doc.setFontSize(24);
-      doc.text('30 DNI S BOOOMEROM', L, y); y += 26;
-      doc.setTextColor(241, 245, 241); doc.setFontSize(14);
-      doc.text(m.kde + ' - ' + m.uroven + '  |  ' + m.dlzka, L, y); y += 18;
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(152, 162, 154);
-      doc.text(doc.splitTextToSize(m.popis, W - 2 * L), L, y); y += 26;
-
-      for (var i = 1; i <= 30; i++) {{
-        var d = dni[String(i)];
-        var telo = doc.splitTextToSize(d.o || 'Volno je sucastou planu.', W - 2 * L);
-        if (y + 16 + telo.length * 12 > 790) {{
-          doc.addPage(); doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F'); y = 64;
-        }}
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(57, 255, 20);
-        doc.text('DEN ' + i + '  ' + d.n, L, y); y += 14;
-        doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(225, 232, 226);
-        doc.text(telo, L, y); y += telo.length * 12 + 10;
-      }}
-      doc.addPage(); doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F');
-      doc.setFontSize(9); doc.setTextColor(152, 162, 154);
-      doc.text(doc.splitTextToSize('Ak ta nieco boli alebo mas zdravotne obmedzenie, prisposob si cviky alebo sa porad s odbornikom. Tento plan je navrh pohybu, nie zdravotna rada.', W - 2 * L), L, 70);
-      doc.setTextColor(57, 255, 20); doc.setFont('helvetica', 'bold'); doc.setFontSize(12);
-      doc.text('booom.fit', L, 110);
-      stiahni(doc.output('blob'), 'pdf');
-    }}
-
-    // jsPDF is fetched on the FIRST CLICK, never at page load — a campaign
-    // landing page must not pay 350 kB for a button most visitors never press.
-    // If the CDN is unreachable the plan still downloads, as plain text.
-    var nacitavam = false;
+    // ── Ulozenie do PDF / tlac ──────────────────────────────────────────────
+    // Ziadna kniznica. Prehliadac vykresli stranku svojimi fontmi podla
+    // tlacovej sablony vyssie, takze diakritika sedi a riadky sa lamu spravne
+    // -- dve veci, ktore jsPDF s vstavanou Helvetikou nezvladol ani jednu.
+    // "Ulozit ako PDF" je v tlacovom dialogu na iPhone aj na Androide.
     document.getElementById('stiahnut').addEventListener('click', function () {{
-      if (window.jspdf) {{ try {{ pdf(); }} catch (e) {{ stiahniText(); }} return; }}
-      if (nacitavam) return;
-      nacitavam = true;
-      var s = document.createElement('script');
-      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-      s.onload = function () {{ nacitavam = false; try {{ pdf(); }} catch (e) {{ stiahniText(); }} }};
-      s.onerror = function () {{ nacitavam = false; stiahniText(); }};
-      document.head.appendChild(s);
+      window.print();
     }});
 
     vykresli();

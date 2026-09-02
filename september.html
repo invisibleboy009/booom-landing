@@ -194,11 +194,58 @@
       .den { font-size: 20px; }
       .prep button { font-size: 23px; }
     }
+
+    /* ── TLAČ / ULOŽENIE DO PDF ─────────────────────────────────────────────
+       Plán sa netlačí ako obrázok obrazovky, ale ako dokument: biely papier,
+       čierny text, žiadne dlaždice a žiadna žiara. Tmavé pozadie by zožralo
+       toner a farebné pruhy pri dňoch nesú informáciu, ktorú text nesie tiež.
+
+       Prehliadač si to vykreslí vlastnými fontmi, takže diakritika sedí. Toto
+       nahradilo generovanie PDF v jsPDF, ktoré vedelo iba Latin-1 a robilo z
+       "Začiatočník" -> "Za iato ník" a z "kľukov" -> "k>ukov". */
+    .tlac-hlavicka, .tlac-paticka { display: none; }
+
+    @media print {
+      @page { margin: 16mm 14mm; }
+      html, body { background: #fff !important; color: #000 !important; }
+      .wrap { max-width: none; padding: 0; }
+      header.nav, .hero, .volba, .legenda, .mriezka, .detail, .cta, .pozn, footer { display: none !important; }
+
+      .plan { display: none !important; }
+      html.js .plan.is-active, html:not(.js) .plan { display: block !important; break-after: page; }
+      html:not(.js) .plan:last-of-type { break-after: auto; }
+
+      .tlac-hlavicka { display: block; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 16px; }
+      .tlac-hlavicka h2 { font-family: var(--kond); font-weight: 900; text-transform: uppercase;
+        font-size: 26pt; line-height: 1; margin: 0; color: #000; }
+      .tlac-hlavicka span { font-size: 9pt; letter-spacing: .1em; text-transform: uppercase; color: #444; }
+
+      .zhrn { background: #fff !important; border: 0 !important; border-left: 3pt solid #000 !important;
+        border-radius: 0; padding: 0 0 0 10pt; margin: 0 0 14pt; display: block; break-inside: avoid; }
+      .zhrn h2 { font-size: 17pt; color: #000; }
+      .zhrn p { color: #333; font-size: 10.5pt; margin-top: 3pt; }
+      .zhrn .dl { color: #000; font-size: 11pt; }
+
+      .zoznam { display: block !important; border-top: 1pt solid #000; margin: 0; }
+      .zoznam li { color: #222; font-size: 10.5pt; padding: 6pt 0; border-bottom: 1pt solid #ccc;
+        break-inside: avoid; }
+      .zoznam b { color: #000; font-size: 12.5pt; }
+      .zoznam .typ { color: #555; }
+
+      .tlac-paticka { display: block; margin-top: 14pt; font-size: 8.5pt; color: #444; break-inside: avoid; }
+      .tlac-paticka b { color: #000; }
+    }
   </style>
 </head>
 <body>
   <script>document.documentElement.className += ' js';</script>
   <div class="wrap">
+    <!-- Viditeľné iba na papieri / v PDF. -->
+    <div class="tlac-hlavicka">
+      <h2>30 dní s BOOOMEROM</h2>
+      <span>booom.fit &middot; Train. Track. Dominate.</span>
+    </div>
+
     <header class="nav">
       <a class="brand" href="/">BOOOM</a>
       <a class="nav-cta" href="/">Stiahnuť appku</a>
@@ -281,33 +328,33 @@
             <li><b>Deň 1 — ŠTART</b> <span class="typ">Test</span><br>2 kolá: 10 drepov · 5 kľukov · 20 s plank. Medzi kolami 60 s pauza.</li>
             <li><b>Deň 2 — CHÔDZA</b> <span class="typ">Kardio</span><br>15 minút svižnej chôdze.</li>
             <li><b>Deň 3 — NOHY</b> <span class="typ">Silový</span><br>3 kolá: 12 drepov · 8 mostíkov · 10 výpadov (5 na nohu)</li>
-            <li><b>Deň 4 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>10 minút strečingu. Chrbát, stehná, ramená.</li>
+            <li><b>Deň 4 — ĽAHKÝ</b><br>10 minút strečingu. Chrbát, stehná, ramená.</li>
             <li><b>Deň 5 — VRCH TELA</b> <span class="typ">Silový</span><br>3 kolá: 6 kľukov · 20 s plank · 10 sed-ľahov</li>
             <li><b>Deň 6 — CHÔDZA</b> <span class="typ">Kardio</span><br>20 minút.</li>
-            <li><b>Deň 7 — VOĽNO</b> <span class="typ">Voľno</span><br>Nič. Naozaj nič.</li>
+            <li><b>Deň 7 — VOĽNO</b><br>Nič. Naozaj nič.</li>
             <li><b>Deň 8 — CELÉ TELO</b> <span class="typ">Silový</span><br>3 kolá: 12 drepov · 6 kľukov · 25 s plank</li>
             <li><b>Deň 9 — CHÔDZA</b> <span class="typ">Kardio</span><br>20 minút.</li>
             <li><b>Deň 10 — NOHY</b> <span class="typ">Silový</span><br>3 kolá: 15 drepov · 12 mostíkov · 14 výpadov</li>
-            <li><b>Deň 11 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>10 minút strečingu.</li>
+            <li><b>Deň 11 — ĽAHKÝ</b><br>10 minút strečingu.</li>
             <li><b>Deň 12 — VRCH TELA</b> <span class="typ">Silový</span><br>3 kolá: 8 kľukov · 30 s plank · 12 sed-ľahov</li>
             <li><b>Deň 13 — CHÔDZA ALEBO KLUS</b> <span class="typ">Kardio</span><br>25 minút. Ak ti to ide, striedaj 2 min chôdza / 1 min klus.</li>
-            <li><b>Deň 14 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 14 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 15 — CELÉ TELO</b> <span class="typ">Silový</span><br>4 kolá: 12 drepov · 8 kľukov · 30 s plank</li>
             <li><b>Deň 16 — CHÔDZA ALEBO KLUS</b> <span class="typ">Kardio</span><br>25 minút.</li>
             <li><b>Deň 17 — NOHY</b> <span class="typ">Silový</span><br>4 kolá: 15 drepov · 15 mostíkov · 16 výpadov</li>
-            <li><b>Deň 18 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>10 minút strečingu.</li>
+            <li><b>Deň 18 — ĽAHKÝ</b><br>10 minút strečingu.</li>
             <li><b>Deň 19 — VRCH TELA</b> <span class="typ">Silový</span><br>4 kolá: 8 kľukov · 35 s plank · 15 sed-ľahov</li>
             <li><b>Deň 20 — INTERVALY</b> <span class="typ">Kardio</span><br>5 × (1 minúta klus / 1 minúta chôdza)</li>
-            <li><b>Deň 21 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 21 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 22 — CELÉ TELO</b> <span class="typ">Silový</span><br>4 kolá: 15 drepov · 10 kľukov · 40 s plank</li>
             <li><b>Deň 23 — CHÔDZA ALEBO KLUS</b> <span class="typ">Kardio</span><br>30 minút.</li>
             <li><b>Deň 24 — NOHY</b> <span class="typ">Silový</span><br>4 kolá: 18 drepov · 18 mostíkov · 20 výpadov</li>
-            <li><b>Deň 25 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>10 minút strečingu.</li>
+            <li><b>Deň 25 — ĽAHKÝ</b><br>10 minút strečingu.</li>
             <li><b>Deň 26 — VŠETKO NARAZ</b> <span class="typ">Silový</span><br>4 kolá: 12 drepov · 10 kľukov · 10 výpadov · 30 s plank</li>
             <li><b>Deň 27 — CHÔDZA ALEBO KLUS</b> <span class="typ">Kardio</span><br>30 minút.</li>
-            <li><b>Deň 28 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
-            <li><b>Deň 29 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>Strečing a 15 minút chôdze. Zajtra ideš na čas.</li>
-            <li><b>Deň 30 — TEST</b> <span class="typ">Test</span><br>To isté, čo Deň 1 — ale na čas. 2 kolá: 10 drepov · 5 kľukov · 20 s plank.</li>
+            <li><b>Deň 28 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 29 — ĽAHKÝ</b><br>Strečing a 15 minút chôdze. Zajtra ideš na čas.</li>
+            <li><b>Deň 30 — TEST</b><br>To isté, čo Deň 1 — ale na čas. 2 kolá: 10 drepov · 5 kľukov · 20 s plank.</li>
         </ol>
       </section>
 
@@ -355,33 +402,33 @@
             <li><b>Deň 1 — ŠTART</b> <span class="typ">Test</span><br>3 kolá na čas: 20 drepov · 15 kľukov · 45 s plank</li>
             <li><b>Deň 2 — BEH</b> <span class="typ">Kardio</span><br>3 km voľným tempom.</li>
             <li><b>Deň 3 — NOHY</b> <span class="typ">Silový</span><br>4 kolá: 20 výskokových drepov · 20 výpadov · 10 mostíkov na jednej nohe</li>
-            <li><b>Deň 4 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút mobility. Bedrá, chrbtica, ramená.</li>
+            <li><b>Deň 4 — ĽAHKÝ</b><br>15 minút mobility. Bedrá, chrbtica, ramená.</li>
             <li><b>Deň 5 — VRCH TELA</b> <span class="typ">Silový</span><br>4 kolá: 15 kľukov · 10 pike kľukov · 45 s plank · 20 sed-ľahov</li>
             <li><b>Deň 6 — INTERVALY</b> <span class="typ">Kardio</span><br>8 × (30 s burpees / 30 s pauza)</li>
-            <li><b>Deň 7 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 7 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 8 — CELÉ TELO</b> <span class="typ">Silový</span><br>4 kolá: 20 drepov · 15 kľukov · 10 burpees</li>
             <li><b>Deň 9 — BEH</b> <span class="typ">Kardio</span><br>4 km.</li>
             <li><b>Deň 10 — NOHY</b> <span class="typ">Silový</span><br>5 kôl: 20 výskokových drepov · 24 výpadov · 15 s výdrž v drepe</li>
-            <li><b>Deň 11 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút mobility.</li>
+            <li><b>Deň 11 — ĽAHKÝ</b><br>15 minút mobility.</li>
             <li><b>Deň 12 — VRCH TELA</b> <span class="typ">Silový</span><br>5 kôl: 15 kľukov · 12 pike kľukov · 60 s plank</li>
             <li><b>Deň 13 — INTERVALY</b> <span class="typ">Kardio</span><br>10 × (30 s burpees / 30 s pauza)</li>
-            <li><b>Deň 14 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 14 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 15 — CELÉ TELO</b> <span class="typ">Silový</span><br>5 kôl: 20 drepov · 15 kľukov · 12 burpees</li>
             <li><b>Deň 16 — BEH</b> <span class="typ">Kardio</span><br>5 km.</li>
             <li><b>Deň 17 — NOHY</b> <span class="typ">Silový</span><br>5 kôl: 24 výskokových drepov · 30 výpadov · 12 mostíkov na nohu</li>
-            <li><b>Deň 18 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút mobility.</li>
+            <li><b>Deň 18 — ĽAHKÝ</b><br>15 minút mobility.</li>
             <li><b>Deň 19 — VRCH TELA</b> <span class="typ">Silový</span><br>5 kôl: 18 kľukov · 15 pike kľukov · 60 s plank · 25 sed-ľahov</li>
             <li><b>Deň 20 — INTERVALY</b> <span class="typ">Kardio</span><br>12 × (30 s burpees / 30 s pauza)</li>
-            <li><b>Deň 21 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 21 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 22 — CELÉ TELO</b> <span class="typ">Silový</span><br>5 kôl: 25 drepov · 18 kľukov · 15 burpees</li>
             <li><b>Deň 23 — BEH NA ČAS</b> <span class="typ">Kardio</span><br>5 km. Zapíš si čas.</li>
             <li><b>Deň 24 — NOHY</b> <span class="typ">Silový</span><br>6 kôl: 20 výskokových drepov · 24 výpadov · 15 s výdrž v drepe</li>
-            <li><b>Deň 25 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút mobility.</li>
+            <li><b>Deň 25 — ĽAHKÝ</b><br>15 minút mobility.</li>
             <li><b>Deň 26 — VŠETKO NARAZ</b> <span class="typ">Silový</span><br>5 kôl: 20 drepov · 15 kľukov · 10 burpees · 45 s plank</li>
             <li><b>Deň 27 — BEH</b> <span class="typ">Kardio</span><br>4 km voľne.</li>
-            <li><b>Deň 28 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
-            <li><b>Deň 29 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>Mobilita a 20 minút voľného klusu.</li>
-            <li><b>Deň 30 — TEST</b> <span class="typ">Test</span><br>To isté, čo Deň 1. 3 kolá na čas: 20 drepov · 15 kľukov · 45 s plank.</li>
+            <li><b>Deň 28 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 29 — ĽAHKÝ</b><br>Mobilita a 20 minút voľného klusu.</li>
+            <li><b>Deň 30 — TEST</b><br>To isté, čo Deň 1. 3 kolá na čas: 20 drepov · 15 kľukov · 45 s plank.</li>
         </ol>
       </section>
 
@@ -427,35 +474,35 @@
 
         <ol class="zoznam">
             <li><b>Deň 1 — ŠTART</b> <span class="typ">Test</span><br>3 kolá: 10 leg press · 10 tlak na hrudník · 10 sťahovanie kladky · 10 veslovanie</li>
-            <li><b>Deň 2 — KARDIO</b> <span class="typ">Kardio</span><br>20 minút bicykel alebo svižná chôdza na páse.</li>
+            <li><b>Deň 2 — KARDIO</b><br>20 minút bicykel alebo svižná chôdza na páse.</li>
             <li><b>Deň 3 — NOHY</b> <span class="typ">Silový</span><br>Leg press 3×12 · predkopávanie 3×12 · zakopávanie 3×12 · lýtka 3×15</li>
-            <li><b>Deň 4 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút chôdze a strečing.</li>
+            <li><b>Deň 4 — ĽAHKÝ</b><br>15 minút chôdze a strečing.</li>
             <li><b>Deň 5 — VRCH TELA</b> <span class="typ">Silový</span><br>Tlak na hrudník 3×10 · sťahovanie kladky 3×10 · ramená 3×12 · biceps 2×12 · triceps 2×12</li>
-            <li><b>Deň 6 — KARDIO</b> <span class="typ">Kardio</span><br>20 minút veslo alebo bicykel.</li>
-            <li><b>Deň 7 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 6 — KARDIO</b><br>20 minút veslo alebo bicykel.</li>
+            <li><b>Deň 7 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 8 — CELÉ TELO</b> <span class="typ">Silový</span><br>3 kolá: 12 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 12 veslovanie</li>
-            <li><b>Deň 9 — KARDIO</b> <span class="typ">Kardio</span><br>25 minút.</li>
+            <li><b>Deň 9 — KARDIO</b><br>25 minút.</li>
             <li><b>Deň 10 — NOHY</b> <span class="typ">Silový</span><br>Leg press 4×12 · goblet drep 3×10 · zakopávanie 3×12 · lýtka 3×15</li>
-            <li><b>Deň 11 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>15 minút chôdze a strečing.</li>
+            <li><b>Deň 11 — ĽAHKÝ</b><br>15 minút chôdze a strečing.</li>
             <li><b>Deň 12 — VRCH TELA</b> <span class="typ">Silový</span><br>Tlak na hrudník 4×10 · sťahovanie kladky 4×10 · ramená 3×12 · biceps 3×12 · triceps 3×12</li>
-            <li><b>Deň 13 — KARDIO</b> <span class="typ">Kardio</span><br>25 minút veslo alebo bicykel.</li>
-            <li><b>Deň 14 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 13 — KARDIO</b><br>25 minút veslo alebo bicykel.</li>
+            <li><b>Deň 14 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 15 — CELÉ TELO</b> <span class="typ">Silový</span><br>4 kolá: 12 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 12 veslovanie</li>
             <li><b>Deň 16 — INTERVALY</b> <span class="typ">Kardio</span><br>5 min voľne, 6 × (1 min rýchlo / 1 min voľne), 5 min vyklusanie.</li>
             <li><b>Deň 17 — NOHY</b> <span class="typ">Silový</span><br>Leg press 4×15 · goblet drep 4×10 · výpady s činkami 3×10 na nohu · lýtka 4×15</li>
-            <li><b>Deň 18 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút chôdze a strečing.</li>
+            <li><b>Deň 18 — ĽAHKÝ</b><br>20 minút chôdze a strečing.</li>
             <li><b>Deň 19 — VRCH TELA</b> <span class="typ">Silový</span><br>Tlak na hrudník 4×12 · sťahovanie kladky 4×12 · ramená 4×12 · biceps 3×12 · triceps 3×12</li>
-            <li><b>Deň 20 — KARDIO</b> <span class="typ">Kardio</span><br>30 minút.</li>
-            <li><b>Deň 21 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 20 — KARDIO</b><br>30 minút.</li>
+            <li><b>Deň 21 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 22 — CELÉ TELO</b> <span class="typ">Silový</span><br>4 kolá: 15 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 15 veslovanie</li>
             <li><b>Deň 23 — INTERVALY</b> <span class="typ">Kardio</span><br>8 × (1 minúta rýchlo / 1 minúta voľne)</li>
             <li><b>Deň 24 — NOHY</b> <span class="typ">Silový</span><br>Leg press 5×12 · goblet drep 4×12 · výpady 4×10 na nohu · lýtka 4×20</li>
-            <li><b>Deň 25 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút chôdze a strečing.</li>
+            <li><b>Deň 25 — ĽAHKÝ</b><br>20 minút chôdze a strečing.</li>
             <li><b>Deň 26 — VŠETKO NARAZ</b> <span class="typ">Silový</span><br>4 kolá: 12 leg press · 12 tlak na hrudník · 12 veslovanie · 250 m veslo</li>
-            <li><b>Deň 27 — KARDIO</b> <span class="typ">Kardio</span><br>30 minút voľne.</li>
-            <li><b>Deň 28 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
-            <li><b>Deň 29 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút chôdze a strečing.</li>
-            <li><b>Deň 30 — TEST</b> <span class="typ">Test</span><br>To isté, čo Deň 1, s rovnakými váhami — a na čas.</li>
+            <li><b>Deň 27 — KARDIO</b><br>30 minút voľne.</li>
+            <li><b>Deň 28 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 29 — ĽAHKÝ</b><br>20 minút chôdze a strečing.</li>
+            <li><b>Deň 30 — TEST</b><br>To isté, čo Deň 1, s rovnakými váhami — a na čas.</li>
         </ol>
       </section>
 
@@ -503,33 +550,33 @@
             <li><b>Deň 1 — ŠTART</b> <span class="typ">Test</span><br>3 kolá na čas: 500 m veslo · 15 wall ballov · 10 burpees</li>
             <li><b>Deň 2 — SILA — SPODOK</b> <span class="typ">Silový</span><br>Drep 4×6 · rumunský mŕtvy ťah 3×8 · výpady s činkami 3×10 na nohu · lýtka 4×15</li>
             <li><b>Deň 3 — KONDIČKA</b> <span class="typ">Kardio</span><br>5 kôl: 250 m veslo · 10 kettlebell swingov · 10 burpees</li>
-            <li><b>Deň 4 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút voľného klusu alebo bicykla, 15 minút mobility.</li>
+            <li><b>Deň 4 — ĽAHKÝ</b><br>20 minút voľného klusu alebo bicykla, 15 minút mobility.</li>
             <li><b>Deň 5 — SILA — VRCH</b> <span class="typ">Silový</span><br>Tlak na lavičke 4×6 · príťahy 4×8 · ramená 3×10 · sťahovanie kladky 3×12</li>
             <li><b>Deň 6 — BEH</b> <span class="typ">Kardio</span><br>5 km voľne.</li>
-            <li><b>Deň 7 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 7 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 8 — SILA — SPODOK</b> <span class="typ">Silový</span><br>Drep 5×5 · rumunský mŕtvy ťah 4×8 · bulharské drepy 3×10 na nohu</li>
             <li><b>Deň 9 — KONDIČKA</b> <span class="typ">Kardio</span><br>6 kôl: 250 m veslo · 12 kettlebell swingov · 10 burpees</li>
             <li><b>Deň 10 — SILA — VRCH</b> <span class="typ">Silový</span><br>Tlak na lavičke 5×5 · príťahy 4×8 · ramená 4×10 · veslovanie 4×12</li>
-            <li><b>Deň 11 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút voľne, mobilita.</li>
+            <li><b>Deň 11 — ĽAHKÝ</b><br>20 minút voľne, mobilita.</li>
             <li><b>Deň 12 — ZMIEŠANÝ BLOK</b> <span class="typ">Kardio</span><br>4 kolá: 400 m beh · 15 wall ballov · 12 výpadov s vrecom</li>
             <li><b>Deň 13 — BEH</b> <span class="typ">Kardio</span><br>6 km.</li>
-            <li><b>Deň 14 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 14 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 15 — SILA — SPODOK</b> <span class="typ">Silový</span><br>Drep 5×5 (ťažšie) · mŕtvy ťah 4×5 · bulharské drepy 4×10</li>
             <li><b>Deň 16 — KONDIČKA</b> <span class="typ">Kardio</span><br>7 kôl: 250 m veslo · 12 kettlebell swingov · 12 burpees</li>
             <li><b>Deň 17 — SILA — VRCH</b> <span class="typ">Silový</span><br>Tlak na lavičke 5×5 · príťahy 5×8 · ramená 4×10 · veslovanie 4×12</li>
-            <li><b>Deň 18 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>25 minút voľne, mobilita.</li>
+            <li><b>Deň 18 — ĽAHKÝ</b><br>25 minút voľne, mobilita.</li>
             <li><b>Deň 19 — HYROX BLOK</b> <span class="typ">Kardio</span><br>4 kolá: 500 m beh · 500 m veslo · 20 výpadov s vrecom</li>
             <li><b>Deň 20 — SANE ALEBO INTERVALY</b> <span class="typ">Kardio</span><br>6 × 30 m sled push, medzi tým 200 m beh. Bez saní: 6 × 200 m beh naplno, 90 s pauza.</li>
-            <li><b>Deň 21 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 21 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
             <li><b>Deň 22 — SILA — SPODOK</b> <span class="typ">Silový</span><br>Drep 4×6 · mŕtvy ťah 4×5 · výpady 4×12 na nohu</li>
             <li><b>Deň 23 — KONDIČKA NA ČAS</b> <span class="typ">Kardio</span><br>5 kôl na čas: 250 m veslo · 15 wall ballov · 10 burpees</li>
             <li><b>Deň 24 — SILA — VRCH</b> <span class="typ">Silový</span><br>Tlak na lavičke 4×6 · príťahy 5×8 · ramená 4×12</li>
-            <li><b>Deň 25 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>25 minút voľne, mobilita.</li>
+            <li><b>Deň 25 — ĽAHKÝ</b><br>25 minút voľne, mobilita.</li>
             <li><b>Deň 26 — HYROX BLOK</b> <span class="typ">Kardio</span><br>5 kôl: 500 m beh · 500 m veslo · 20 výpadov s vrecom</li>
             <li><b>Deň 27 — BEH</b> <span class="typ">Kardio</span><br>6 km voľne.</li>
-            <li><b>Deň 28 — VOĽNO</b> <span class="typ">Voľno</span><br>Voľno je súčasť plánu.</li>
-            <li><b>Deň 29 — ĽAHKÝ</b> <span class="typ">Ľahký</span><br>20 minút voľného klusu, mobilita.</li>
-            <li><b>Deň 30 — TEST</b> <span class="typ">Test</span><br>To isté, čo Deň 1 — na čas. A odtiaľ je to na HYROX už len krok.</li>
+            <li><b>Deň 28 — VOĽNO</b><br>Voľno je súčasť plánu.</li>
+            <li><b>Deň 29 — ĽAHKÝ</b><br>20 minút voľného klusu, mobilita.</li>
+            <li><b>Deň 30 — TEST</b><br>To isté, čo Deň 1 — na čas. A odtiaľ je to na HYROX už len krok.</li>
         </ol>
       </section>
 
@@ -539,11 +586,17 @@
     </div>
 
     <div class="cta">
-      <button type="button" class="btn" id="stiahnut">Stiahnuť plán</button>
+      <button type="button" class="btn" id="stiahnut">Uložiť ako PDF alebo vytlačiť</button>
       <a class="btn sek" href="https://app.booom.fit">Otvoriť v BOOOM</a>
     </div>
     <p class="pozn">Ak ťa niečo bolí alebo máš zdravotné obmedzenie, prispôsob si cviky
       alebo sa poraď s odborníkom. Tento plán je návrh pohybu, nie zdravotná rada.</p>
+
+    <div class="tlac-paticka">
+      Ak ťa niečo bolí alebo máš zdravotné obmedzenie, prispôsob si cviky alebo sa poraď
+      s odborníkom. Tento plán je návrh pohybu, nie zdravotná rada.<br>
+      <b>booom.fit/30-dni</b>
+    </div>
 
     <footer>
       <b>BOOOM.FIT</b>
@@ -555,7 +608,6 @@
   <script>
   (function () {
     var DNI = {"doma-zaciatocnik":{"1":{"n":"ŠTART","o":"2 kolá: 10 drepov · 5 kľukov · 20 s plank. Medzi kolami 60 s pauza."},"2":{"n":"CHÔDZA","o":"15 minút svižnej chôdze."},"3":{"n":"NOHY","o":"3 kolá: 12 drepov · 8 mostíkov · 10 výpadov (5 na nohu)"},"4":{"n":"ĽAHKÝ","o":"10 minút strečingu. Chrbát, stehná, ramená."},"5":{"n":"VRCH TELA","o":"3 kolá: 6 kľukov · 20 s plank · 10 sed-ľahov"},"6":{"n":"CHÔDZA","o":"20 minút."},"7":{"n":"VOĽNO","o":"Nič. Naozaj nič."},"8":{"n":"CELÉ TELO","o":"3 kolá: 12 drepov · 6 kľukov · 25 s plank"},"9":{"n":"CHÔDZA","o":"20 minút."},"10":{"n":"NOHY","o":"3 kolá: 15 drepov · 12 mostíkov · 14 výpadov"},"11":{"n":"ĽAHKÝ","o":"10 minút strečingu."},"12":{"n":"VRCH TELA","o":"3 kolá: 8 kľukov · 30 s plank · 12 sed-ľahov"},"13":{"n":"CHÔDZA ALEBO KLUS","o":"25 minút. Ak ti to ide, striedaj 2 min chôdza / 1 min klus."},"14":{"n":"VOĽNO","o":""},"15":{"n":"CELÉ TELO","o":"4 kolá: 12 drepov · 8 kľukov · 30 s plank"},"16":{"n":"CHÔDZA ALEBO KLUS","o":"25 minút."},"17":{"n":"NOHY","o":"4 kolá: 15 drepov · 15 mostíkov · 16 výpadov"},"18":{"n":"ĽAHKÝ","o":"10 minút strečingu."},"19":{"n":"VRCH TELA","o":"4 kolá: 8 kľukov · 35 s plank · 15 sed-ľahov"},"20":{"n":"INTERVALY","o":"5 × (1 minúta klus / 1 minúta chôdza)"},"21":{"n":"VOĽNO","o":""},"22":{"n":"CELÉ TELO","o":"4 kolá: 15 drepov · 10 kľukov · 40 s plank"},"23":{"n":"CHÔDZA ALEBO KLUS","o":"30 minút."},"24":{"n":"NOHY","o":"4 kolá: 18 drepov · 18 mostíkov · 20 výpadov"},"25":{"n":"ĽAHKÝ","o":"10 minút strečingu."},"26":{"n":"VŠETKO NARAZ","o":"4 kolá: 12 drepov · 10 kľukov · 10 výpadov · 30 s plank"},"27":{"n":"CHÔDZA ALEBO KLUS","o":"30 minút."},"28":{"n":"VOĽNO","o":""},"29":{"n":"ĽAHKÝ","o":"Strečing a 15 minút chôdze. Zajtra ideš na čas."},"30":{"n":"TEST","o":"To isté, čo Deň 1 — ale na čas. 2 kolá: 10 drepov · 5 kľukov · 20 s plank."}},"doma-pokrocily":{"1":{"n":"ŠTART","o":"3 kolá na čas: 20 drepov · 15 kľukov · 45 s plank"},"2":{"n":"BEH","o":"3 km voľným tempom."},"3":{"n":"NOHY","o":"4 kolá: 20 výskokových drepov · 20 výpadov · 10 mostíkov na jednej nohe"},"4":{"n":"ĽAHKÝ","o":"15 minút mobility. Bedrá, chrbtica, ramená."},"5":{"n":"VRCH TELA","o":"4 kolá: 15 kľukov · 10 pike kľukov · 45 s plank · 20 sed-ľahov"},"6":{"n":"INTERVALY","o":"8 × (30 s burpees / 30 s pauza)"},"7":{"n":"VOĽNO","o":""},"8":{"n":"CELÉ TELO","o":"4 kolá: 20 drepov · 15 kľukov · 10 burpees"},"9":{"n":"BEH","o":"4 km."},"10":{"n":"NOHY","o":"5 kôl: 20 výskokových drepov · 24 výpadov · 15 s výdrž v drepe"},"11":{"n":"ĽAHKÝ","o":"15 minút mobility."},"12":{"n":"VRCH TELA","o":"5 kôl: 15 kľukov · 12 pike kľukov · 60 s plank"},"13":{"n":"INTERVALY","o":"10 × (30 s burpees / 30 s pauza)"},"14":{"n":"VOĽNO","o":""},"15":{"n":"CELÉ TELO","o":"5 kôl: 20 drepov · 15 kľukov · 12 burpees"},"16":{"n":"BEH","o":"5 km."},"17":{"n":"NOHY","o":"5 kôl: 24 výskokových drepov · 30 výpadov · 12 mostíkov na nohu"},"18":{"n":"ĽAHKÝ","o":"15 minút mobility."},"19":{"n":"VRCH TELA","o":"5 kôl: 18 kľukov · 15 pike kľukov · 60 s plank · 25 sed-ľahov"},"20":{"n":"INTERVALY","o":"12 × (30 s burpees / 30 s pauza)"},"21":{"n":"VOĽNO","o":""},"22":{"n":"CELÉ TELO","o":"5 kôl: 25 drepov · 18 kľukov · 15 burpees"},"23":{"n":"BEH NA ČAS","o":"5 km. Zapíš si čas."},"24":{"n":"NOHY","o":"6 kôl: 20 výskokových drepov · 24 výpadov · 15 s výdrž v drepe"},"25":{"n":"ĽAHKÝ","o":"15 minút mobility."},"26":{"n":"VŠETKO NARAZ","o":"5 kôl: 20 drepov · 15 kľukov · 10 burpees · 45 s plank"},"27":{"n":"BEH","o":"4 km voľne."},"28":{"n":"VOĽNO","o":""},"29":{"n":"ĽAHKÝ","o":"Mobilita a 20 minút voľného klusu."},"30":{"n":"TEST","o":"To isté, čo Deň 1. 3 kolá na čas: 20 drepov · 15 kľukov · 45 s plank."}},"fitko-zaciatocnik":{"1":{"n":"ŠTART","o":"3 kolá: 10 leg press · 10 tlak na hrudník · 10 sťahovanie kladky · 10 veslovanie"},"2":{"n":"KARDIO","o":"20 minút bicykel alebo svižná chôdza na páse."},"3":{"n":"NOHY","o":"Leg press 3×12 · predkopávanie 3×12 · zakopávanie 3×12 · lýtka 3×15"},"4":{"n":"ĽAHKÝ","o":"15 minút chôdze a strečing."},"5":{"n":"VRCH TELA","o":"Tlak na hrudník 3×10 · sťahovanie kladky 3×10 · ramená 3×12 · biceps 2×12 · triceps 2×12"},"6":{"n":"KARDIO","o":"20 minút veslo alebo bicykel."},"7":{"n":"VOĽNO","o":""},"8":{"n":"CELÉ TELO","o":"3 kolá: 12 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 12 veslovanie"},"9":{"n":"KARDIO","o":"25 minút."},"10":{"n":"NOHY","o":"Leg press 4×12 · goblet drep 3×10 · zakopávanie 3×12 · lýtka 3×15"},"11":{"n":"ĽAHKÝ","o":"15 minút chôdze a strečing."},"12":{"n":"VRCH TELA","o":"Tlak na hrudník 4×10 · sťahovanie kladky 4×10 · ramená 3×12 · biceps 3×12 · triceps 3×12"},"13":{"n":"KARDIO","o":"25 minút veslo alebo bicykel."},"14":{"n":"VOĽNO","o":""},"15":{"n":"CELÉ TELO","o":"4 kolá: 12 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 12 veslovanie"},"16":{"n":"INTERVALY","o":"5 min voľne, 6 × (1 min rýchlo / 1 min voľne), 5 min vyklusanie."},"17":{"n":"NOHY","o":"Leg press 4×15 · goblet drep 4×10 · výpady s činkami 3×10 na nohu · lýtka 4×15"},"18":{"n":"ĽAHKÝ","o":"20 minút chôdze a strečing."},"19":{"n":"VRCH TELA","o":"Tlak na hrudník 4×12 · sťahovanie kladky 4×12 · ramená 4×12 · biceps 3×12 · triceps 3×12"},"20":{"n":"KARDIO","o":"30 minút."},"21":{"n":"VOĽNO","o":""},"22":{"n":"CELÉ TELO","o":"4 kolá: 15 leg press · 12 tlak na hrudník · 12 sťahovanie kladky · 15 veslovanie"},"23":{"n":"INTERVALY","o":"8 × (1 minúta rýchlo / 1 minúta voľne)"},"24":{"n":"NOHY","o":"Leg press 5×12 · goblet drep 4×12 · výpady 4×10 na nohu · lýtka 4×20"},"25":{"n":"ĽAHKÝ","o":"20 minút chôdze a strečing."},"26":{"n":"VŠETKO NARAZ","o":"4 kolá: 12 leg press · 12 tlak na hrudník · 12 veslovanie · 250 m veslo"},"27":{"n":"KARDIO","o":"30 minút voľne."},"28":{"n":"VOĽNO","o":""},"29":{"n":"ĽAHKÝ","o":"20 minút chôdze a strečing."},"30":{"n":"TEST","o":"To isté, čo Deň 1, s rovnakými váhami — a na čas."}},"fitko-pokrocily":{"1":{"n":"ŠTART","o":"3 kolá na čas: 500 m veslo · 15 wall ballov · 10 burpees"},"2":{"n":"SILA — SPODOK","o":"Drep 4×6 · rumunský mŕtvy ťah 3×8 · výpady s činkami 3×10 na nohu · lýtka 4×15"},"3":{"n":"KONDIČKA","o":"5 kôl: 250 m veslo · 10 kettlebell swingov · 10 burpees"},"4":{"n":"ĽAHKÝ","o":"20 minút voľného klusu alebo bicykla, 15 minút mobility."},"5":{"n":"SILA — VRCH","o":"Tlak na lavičke 4×6 · príťahy 4×8 · ramená 3×10 · sťahovanie kladky 3×12"},"6":{"n":"BEH","o":"5 km voľne."},"7":{"n":"VOĽNO","o":""},"8":{"n":"SILA — SPODOK","o":"Drep 5×5 · rumunský mŕtvy ťah 4×8 · bulharské drepy 3×10 na nohu"},"9":{"n":"KONDIČKA","o":"6 kôl: 250 m veslo · 12 kettlebell swingov · 10 burpees"},"10":{"n":"SILA — VRCH","o":"Tlak na lavičke 5×5 · príťahy 4×8 · ramená 4×10 · veslovanie 4×12"},"11":{"n":"ĽAHKÝ","o":"20 minút voľne, mobilita."},"12":{"n":"ZMIEŠANÝ BLOK","o":"4 kolá: 400 m beh · 15 wall ballov · 12 výpadov s vrecom"},"13":{"n":"BEH","o":"6 km."},"14":{"n":"VOĽNO","o":""},"15":{"n":"SILA — SPODOK","o":"Drep 5×5 (ťažšie) · mŕtvy ťah 4×5 · bulharské drepy 4×10"},"16":{"n":"KONDIČKA","o":"7 kôl: 250 m veslo · 12 kettlebell swingov · 12 burpees"},"17":{"n":"SILA — VRCH","o":"Tlak na lavičke 5×5 · príťahy 5×8 · ramená 4×10 · veslovanie 4×12"},"18":{"n":"ĽAHKÝ","o":"25 minút voľne, mobilita."},"19":{"n":"HYROX BLOK","o":"4 kolá: 500 m beh · 500 m veslo · 20 výpadov s vrecom"},"20":{"n":"SANE ALEBO INTERVALY","o":"6 × 30 m sled push, medzi tým 200 m beh. Bez saní: 6 × 200 m beh naplno, 90 s pauza."},"21":{"n":"VOĽNO","o":""},"22":{"n":"SILA — SPODOK","o":"Drep 4×6 · mŕtvy ťah 4×5 · výpady 4×12 na nohu"},"23":{"n":"KONDIČKA NA ČAS","o":"5 kôl na čas: 250 m veslo · 15 wall ballov · 10 burpees"},"24":{"n":"SILA — VRCH","o":"Tlak na lavičke 4×6 · príťahy 5×8 · ramená 4×12"},"25":{"n":"ĽAHKÝ","o":"25 minút voľne, mobilita."},"26":{"n":"HYROX BLOK","o":"5 kôl: 500 m beh · 500 m veslo · 20 výpadov s vrecom"},"27":{"n":"BEH","o":"6 km voľne."},"28":{"n":"VOĽNO","o":""},"29":{"n":"ĽAHKÝ","o":"20 minút voľného klusu, mobilita."},"30":{"n":"TEST","o":"To isté, čo Deň 1 — na čas. A odtiaľ je to na HYROX už len krok."}}};
-    var META = {"doma-zaciatocnik":{"kde":"Doma","uroven":"Začiatočník","dlzka":"10–20 min","popis":"Bez vybavenia. Stačí ti kus podlahy a tenisky."},"doma-pokrocily":{"kde":"Doma","uroven":"Pokročilý","dlzka":"20–35 min","popis":"Bez vybavenia, ale nie bez námahy."},"fitko-zaciatocnik":{"kde":"Fitko","uroven":"Začiatočník","dlzka":"30–40 min","popis":"Prvýkrát v posilňovni alebo po dlhej pauze."},"fitko-pokrocily":{"kde":"Fitko","uroven":"Pokročilý","dlzka":"40–55 min","popis":"Silový základ plus kondičné bloky. Most na HYROX."}};
     var kde = 'doma', uroven = 'zaciatocnik', vybranyDen = 1;
 
     function kluc() { return kde + '-' + uroven; }
@@ -607,82 +659,13 @@
       vykresli();
     });
 
-    // ── Download ────────────────────────────────────────────────────────────
-    function textPlanu() {
-      var m = META[kluc()], dni = DNI[kluc()];
-      var out = ['30 DNI S BOOOMEROM', m.kde + ' - ' + m.uroven, m.popis,
-                 'Dlzka treningu: ' + m.dlzka, ''];
-      for (var i = 1; i <= 30; i++) {
-        var d = dni[String(i)];
-        out.push('DEN ' + i + ' - ' + d.n);
-        out.push(d.o || 'Volno je sucastou planu.');
-        out.push('');
-      }
-      out.push('Ak ta nieco boli alebo mas zdravotne obmedzenie, prisposob si cviky');
-      out.push('alebo sa porad s odbornikom. Tento plan je navrh pohybu, nie zdravotna rada.');
-      out.push('');
-      out.push('booom.fit');
-      return out.join('\n');
-    }
-
-    function stiahni(blob, pripona) {
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'booom-30-dni-' + kluc() + '.' + pripona;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
-    }
-
-    function stiahniText() {
-      stiahni(new Blob([textPlanu()], { type: 'text/plain;charset=utf-8' }), 'txt');
-    }
-
-    function pdf() {
-      var m = META[kluc()], dni = DNI[kluc()];
-      var doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'a4' });
-      var W = 595, L = 48, y = 64;
-      doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F');
-      doc.setTextColor(57, 255, 20); doc.setFont('helvetica', 'bold'); doc.setFontSize(24);
-      doc.text('30 DNI S BOOOMEROM', L, y); y += 26;
-      doc.setTextColor(241, 245, 241); doc.setFontSize(14);
-      doc.text(m.kde + ' - ' + m.uroven + '  |  ' + m.dlzka, L, y); y += 18;
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(152, 162, 154);
-      doc.text(doc.splitTextToSize(m.popis, W - 2 * L), L, y); y += 26;
-
-      for (var i = 1; i <= 30; i++) {
-        var d = dni[String(i)];
-        var telo = doc.splitTextToSize(d.o || 'Volno je sucastou planu.', W - 2 * L);
-        if (y + 16 + telo.length * 12 > 790) {
-          doc.addPage(); doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F'); y = 64;
-        }
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(57, 255, 20);
-        doc.text('DEN ' + i + '  ' + d.n, L, y); y += 14;
-        doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(225, 232, 226);
-        doc.text(telo, L, y); y += telo.length * 12 + 10;
-      }
-      doc.addPage(); doc.setFillColor(7, 9, 8); doc.rect(0, 0, W, 842, 'F');
-      doc.setFontSize(9); doc.setTextColor(152, 162, 154);
-      doc.text(doc.splitTextToSize('Ak ta nieco boli alebo mas zdravotne obmedzenie, prisposob si cviky alebo sa porad s odbornikom. Tento plan je navrh pohybu, nie zdravotna rada.', W - 2 * L), L, 70);
-      doc.setTextColor(57, 255, 20); doc.setFont('helvetica', 'bold'); doc.setFontSize(12);
-      doc.text('booom.fit', L, 110);
-      stiahni(doc.output('blob'), 'pdf');
-    }
-
-    // jsPDF is fetched on the FIRST CLICK, never at page load — a campaign
-    // landing page must not pay 350 kB for a button most visitors never press.
-    // If the CDN is unreachable the plan still downloads, as plain text.
-    var nacitavam = false;
+    // ── Ulozenie do PDF / tlac ──────────────────────────────────────────────
+    // Ziadna kniznica. Prehliadac vykresli stranku svojimi fontmi podla
+    // tlacovej sablony vyssie, takze diakritika sedi a riadky sa lamu spravne
+    // -- dve veci, ktore jsPDF s vstavanou Helvetikou nezvladol ani jednu.
+    // "Ulozit ako PDF" je v tlacovom dialogu na iPhone aj na Androide.
     document.getElementById('stiahnut').addEventListener('click', function () {
-      if (window.jspdf) { try { pdf(); } catch (e) { stiahniText(); } return; }
-      if (nacitavam) return;
-      nacitavam = true;
-      var s = document.createElement('script');
-      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-      s.onload = function () { nacitavam = false; try { pdf(); } catch (e) { stiahniText(); } };
-      s.onerror = function () { nacitavam = false; stiahniText(); };
-      document.head.appendChild(s);
+      window.print();
     });
 
     vykresli();
