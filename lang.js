@@ -105,6 +105,7 @@ const translations = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms',
     footer_copy: '© 2026 BOOOM. Všetky práva vyhradené.',
+    footer_hyrox: 'BOOOM nie je spojený s HYROX ani ním nie je schválený. HYROX je ochranná známka HYROX World GmbH.',
     footer_founder: 'Laco, zakladateľ BOOOM',
     footer_home: 'Domov',
     // Navigation
@@ -467,6 +468,7 @@ const translations = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms',
     footer_copy: '© 2026 BOOOM. All rights reserved.',
+    footer_hyrox: 'BOOOM is not affiliated with or endorsed by HYROX. HYROX is a trademark of HYROX World GmbH.',
     footer_founder: 'Laco, founder of BOOOM',
     footer_home: 'Home',
     // Navigation
@@ -829,6 +831,7 @@ const translations = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms',
     footer_copy: '© 2026 BOOOM. Všechna práva vyhrazena.',
+    footer_hyrox: 'BOOOM není spojen s HYROX ani jím není schválen. HYROX je ochranná známka HYROX World GmbH.',
     footer_founder: 'Laco, zakladatel BOOOM',
     footer_home: 'Domů',
     // Navigation
@@ -1186,6 +1189,7 @@ const translations = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms',
     footer_copy: '© 2026 BOOOM. Wszelkie prawa zastrzeżone.',
+    footer_hyrox: 'BOOOM nie jest powiązany z HYROX ani przez niego zatwierdzony. HYROX jest znakiem towarowym HYROX World GmbH.',
     footer_founder: 'Laco, założyciel BOOOM',
     footer_home: 'Strona główna',
     // Navigation
@@ -1543,6 +1547,7 @@ const translations = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms',
     footer_copy: '© 2026 BOOOM. Всі права захищені.',
+    footer_hyrox: 'BOOOM не пов’язаний з HYROX і не схвалений ним. HYROX є торговою маркою HYROX World GmbH.',
     footer_founder: 'Laco, засновник BOOOM',
     footer_home: 'Головна',
     // Navigation
@@ -1900,6 +1905,7 @@ const translations = {
     footer_privacy: 'Datenschutz',
     footer_terms: 'AGB',
     footer_copy: '© 2026 BOOOM. Alle Rechte vorbehalten.',
+    footer_hyrox: 'BOOOM ist weder mit HYROX verbunden noch von HYROX unterstützt. HYROX ist eine Marke der HYROX World GmbH.',
     footer_founder: 'Laco, Gründer von BOOOM',
     footer_home: 'Home',
     // Navigation
