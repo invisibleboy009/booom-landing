@@ -94,8 +94,12 @@
                   radial-gradient(38% 22% at 86% 0%, rgba(0,212,255,.11), transparent 70%); }
 
     header.nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 20px; }
-    .brand { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--zelena);
-      text-decoration: none; text-shadow: 0 0 20px rgba(57,255,20,.5); }
+    /* Logo + claim stacked, same as the nav on the rest of the landing. */
+    .brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; line-height: 1.1; }
+    .brand-logo { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: var(--zelena);
+      text-shadow: 0 0 20px rgba(57,255,20,.5); }
+    .brand-claim { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; color: #fff;
+      text-transform: uppercase; }
     .nav-cta { font-size: 13px; font-weight: 700; color: #04140a; background: var(--zelena);
       padding: 9px 16px; border-radius: 10px; text-decoration: none; }
 
@@ -116,10 +120,10 @@
 
     .volba { margin-top: 40px; border-top: 1px solid var(--hrana); padding-top: 30px; }
     .otazka { font-family: var(--kond); font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      font-size: 13px; color: var(--tlm2); margin: 0 0 12px; }
+      font-size: 13px; color: var(--tlm2); margin: 0 0 12px; text-align: center; }
     .prep { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
     .prep button { appearance: none; cursor: pointer; border: 1px solid var(--hrana); background: var(--panel);
-      color: var(--text); border-radius: 14px; padding: 18px 16px; text-align: left; font-family: var(--kond);
+      color: var(--text); border-radius: 14px; padding: 18px 16px; text-align: center; font-family: var(--kond);
       font-weight: 900; text-transform: uppercase; font-size: 27px; line-height: 1;
       transition: border-color .15s, background .15s, color .15s; }
     .prep button small { display: block; margin-top: 7px; font-family: 'Inter', sans-serif; font-weight: 500;
@@ -253,7 +257,10 @@
     </div>
 
     <header class="nav">
-      <a class="brand" href="/">BOOOM</a>
+      <a class="brand" href="/" aria-label="BOOOM — domov">
+        <span class="brand-logo">BOOOM</span>
+        <span class="brand-claim">Train &middot; Track &middot; Dominate</span>
+      </a>
       <a class="nav-cta" href="/">Stiahnuť appku</a>
     </header>
 
@@ -592,7 +599,8 @@
     </div>
 
     <div class="cta">
-      <button type="button" class="btn" id="stiahnut">Uložiť ako PDF alebo vytlačiť</button>
+      <a class="btn" id="stiahnut" download
+         href="/assets/plany/booom-30-dni-doma-zaciatocnik.pdf">Stiahnuť plán (PDF)</a>
       <a class="btn sek" href="https://app.booom.fit">Otvoriť v BOOOM</a>
     </div>
     <p class="pozn">Ak ťa niečo bolí alebo máš zdravotné obmedzenie, prispôsob si cviky
@@ -641,6 +649,9 @@
           tiles[j].setAttribute('aria-expanded', String(Number(tiles[j].dataset.d) === vybranyDen));
         }
       }
+      var odkaz = document.getElementById('stiahnut');
+      odkaz.href = '/assets/plany/booom-30-dni-' + kluc() + '.pdf';
+      odkaz.setAttribute('download', 'booom-30-dni-' + kluc() + '.pdf');
       vykresliDetail();
     }
 
@@ -663,15 +674,6 @@
       if (!t) return;
       vybranyDen = Number(t.dataset.d);
       vykresli();
-    });
-
-    // ── Ulozenie do PDF / tlac ──────────────────────────────────────────────
-    // Ziadna kniznica. Prehliadac vykresli stranku svojimi fontmi podla
-    // tlacovej sablony vyssie, takze diakritika sedi a riadky sa lamu spravne
-    // -- dve veci, ktore jsPDF s vstavanou Helvetikou nezvladol ani jednu.
-    // "Ulozit ako PDF" je v tlacovom dialogu na iPhone aj na Androide.
-    document.getElementById('stiahnut').addEventListener('click', function () {
-      window.print();
     });
 
     vykresli();
