@@ -1392,7 +1392,7 @@
       </div>
       <div class="fomo-spots-row">
         <span class="fomo-spots-count" id="fomo-spots-count">0</span>
-        <span class="fomo-spots-denom">/ 10&#8239;000</span>
+        <span class="fomo-spots-denom">/ 10&nbsp;000</span>
       </div>
       <span class="fomo-label" id="fomo-label">registrovaných profilov</span>
       <div class="fomo-progress-track" aria-hidden="true">
@@ -2084,7 +2084,7 @@
       return Math.max(0, Math.round((t - b) / 864e5));
     }
     function incFor(d) { return 3 + (((d * 2654435761) >>> 0) % 3); }  /* 3, 4 or 5, stable for a given day */
-    function fmtNum(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }  /* 1335 -> 1 335 */
+    function fmtNum(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }  /* 1335 -> 1 335 (no-break space) */
 
     var d = dayIndex(), taken = BASE_TAKEN;
     for (var i = 1; i <= d; i++) taken += incFor(i);
