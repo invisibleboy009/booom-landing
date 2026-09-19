@@ -108,6 +108,10 @@ const translations = {
     footer_hyrox: 'BOOOM nie je spojený s HYROX ani ním nie je schválený. HYROX je ochranná známka HYROX World GmbH.',
     footer_founder: 'Laco, zakladateľ BOOOM',
     footer_follow: 'Sleduj nás',
+    meta_description: 'BOOOM je fitness appka a tréningový denník s AI trénerom: silový tréning, Hyrox, kardio, výživa a 36 krvných parametrov v jednom. Zadarmo pre iOS a Android.',
+    guides_tag: 'Zadarmo',
+    guides_title: 'Sprievodcovia a kalkulačky',
+    guides_sub: 'Bezplatné nástroje a články od tímu BOOOM.',
     footer_home: 'Domov',
     // Navigation
     nav_enhanced_fitness: 'Za hranicou naturalu',
@@ -473,6 +477,10 @@ const translations = {
     footer_hyrox: 'BOOOM is not affiliated with or endorsed by HYROX. HYROX is a trademark of HYROX World GmbH.',
     footer_founder: 'Laco, founder of BOOOM',
     footer_follow: 'Follow us',
+    meta_description: 'BOOOM is a fitness app and training log with an AI coach: strength, Hyrox, cardio, nutrition and 36 blood markers in one place. Free for iOS and Android.',
+    guides_tag: 'Free',
+    guides_title: 'Guides & calculators (in Slovak)',
+    guides_sub: 'Free tools and articles from the BOOOM team.',
     footer_home: 'Home',
     // Navigation
     nav_enhanced_fitness: 'Beyond Natural',
@@ -838,6 +846,10 @@ const translations = {
     footer_hyrox: 'BOOOM není spojen s HYROX ani jím není schválen. HYROX je ochranná známka HYROX World GmbH.',
     footer_founder: 'Laco, zakladatel BOOOM',
     footer_follow: 'Sleduj nás',
+    meta_description: 'BOOOM je fitness appka a tréninkový deník s AI trenérem: silový trénink, Hyrox, kardio, výživa a 36 krevních parametrů v jednom. Zdarma pro iOS a Android.',
+    guides_tag: 'Zdarma',
+    guides_title: 'Průvodci a kalkulačky (slovensky)',
+    guides_sub: 'Bezplatné nástroje a články od týmu BOOOM.',
     footer_home: 'Domů',
     // Navigation
     nav_enhanced_fitness: 'Za hranicí naturalu',
@@ -1198,6 +1210,10 @@ const translations = {
     footer_hyrox: 'BOOOM nie jest powiązany z HYROX ani przez niego zatwierdzony. HYROX jest znakiem towarowym HYROX World GmbH.',
     footer_founder: 'Laco, założyciel BOOOM',
     footer_follow: 'Obserwuj nas',
+    meta_description: 'BOOOM to aplikacja fitness i dziennik treningowy z trenerem AI: siła, Hyrox, kardio, odżywianie i 36 parametrów krwi w jednym. Za darmo na iOS i Androida.',
+    guides_tag: 'Za darmo',
+    guides_title: 'Poradniki i kalkulatory (po słowacku)',
+    guides_sub: 'Bezpłatne narzędzia i artykuły zespołu BOOOM.',
     footer_home: 'Strona główna',
     // Navigation
     nav_enhanced_fitness: 'Poza granicą naturalu',
@@ -1558,6 +1574,10 @@ const translations = {
     footer_hyrox: 'BOOOM не пов’язаний з HYROX і не схвалений ним. HYROX є торговою маркою HYROX World GmbH.',
     footer_founder: 'Laco, засновник BOOOM',
     footer_follow: 'Стеж за нами',
+    meta_description: 'BOOOM — фітнес-застосунок і щоденник тренувань з AI-тренером: силові, Hyrox, кардіо, харчування та 36 показників крові в одному. Безкоштовно для iOS і Android.',
+    guides_tag: 'Безкоштовно',
+    guides_title: 'Посібники та калькулятори (словацькою)',
+    guides_sub: 'Безкоштовні інструменти й статті від команди BOOOM.',
     footer_home: 'Головна',
     // Navigation
     nav_enhanced_fitness: 'За межами натуралу',
@@ -1918,6 +1938,10 @@ const translations = {
     footer_hyrox: 'BOOOM ist weder mit HYROX verbunden noch von HYROX unterstützt. HYROX ist eine Marke der HYROX World GmbH.',
     footer_founder: 'Laco, Gründer von BOOOM',
     footer_follow: 'Folge uns',
+    meta_description: 'BOOOM ist Fitness-App und Trainingstagebuch mit KI-Coach: Krafttraining, Hyrox, Cardio, Ernährung und 36 Blutwerte in einer App. Kostenlos für iOS und Android.',
+    guides_tag: 'Kostenlos',
+    guides_title: 'Ratgeber & Rechner (auf Slowakisch)',
+    guides_sub: 'Kostenlose Tools und Artikel vom BOOOM-Team.',
     footer_home: 'Home',
     // Navigation
     nav_enhanced_fitness: 'Jenseits von Natural',
@@ -2185,8 +2209,20 @@ const pageTitles = {
   DE: 'BOOOM — KI Fitness & Gesundheit | Dein persönlicher KI-Trainer',
 };
 
+// Static language pages (build-i18n.mjs) live at /, /en/, /cs/, /pl/, /uk/, /de/. On them a
+// language is a URL, not a re-render: switching navigates, so the address bar, the canonical
+// and what Google indexed all agree. Subpages (calculators, guides) carry no
+// data-static-lang and keep translating in place as before.
+var STATIC_LANG_PATH = { SK: '/', EN: '/en/', CS: '/cs/', PL: '/pl/', UK: '/uk/', DE: '/de/' };
+
 function setLanguage(lang) {
   if (!translations[lang]) return;
+  var staticLang = document.documentElement.getAttribute('data-static-lang');
+  if (staticLang && lang !== staticLang) {
+    try { localStorage.setItem('booom_lang', lang); } catch (e) {}
+    window.location.href = STATIC_LANG_PATH[lang] + window.location.search + window.location.hash;
+    return;
+  }
 
   const t = translations[lang];
 
@@ -2252,16 +2288,26 @@ function setLanguage(lang) {
 (function () {
   var saved;
   try { saved = localStorage.getItem('booom_lang'); } catch (e) {}
-  if (saved && translations[saved]) {
-    setLanguage(saved);
-  } else {
-    var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (browserLang.startsWith('de')) setLanguage('DE');
-    else if (browserLang.startsWith('pl')) setLanguage('PL');
-    else if (browserLang.startsWith('uk')) setLanguage('UK');
-    else if (browserLang.startsWith('cs')) setLanguage('CS');
-    else if (browserLang.startsWith('sk')) setLanguage('SK');
-    else if (browserLang.startsWith('en')) setLanguage('EN');
-    else setLanguage('SK'); // default
+  var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  var detected = browserLang.startsWith('de') ? 'DE'
+    : browserLang.startsWith('pl') ? 'PL'
+    : browserLang.startsWith('uk') ? 'UK'
+    : browserLang.startsWith('cs') ? 'CS'
+    : browserLang.startsWith('sk') ? 'SK'
+    : browserLang.startsWith('en') ? 'EN' : 'SK';
+  var staticLang = document.documentElement.getAttribute('data-static-lang');
+
+  if (staticLang) {
+    // A crawler must see the page at its own URL, never a redirect: Googlebot renders with
+    // navigator.language = en-US and would otherwise index / as a hop to /en/. Real people
+    // with a remembered choice or a matching browser language go to their version once;
+    // after that the choice is remembered and the pages agree.
+    var isBot = navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent || '');
+    var want = (saved && translations[saved]) ? saved : (isBot ? staticLang : detected);
+    if (want !== staticLang) { setLanguage(want); return; }   // navigates
+    setLanguage(staticLang);                                    // buttons, TikTok link, title
+    return;
   }
+
+  setLanguage((saved && translations[saved]) ? saved : detected);
 }());

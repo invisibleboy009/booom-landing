@@ -1,0 +1,178 @@
+#!/usr/bin/env node
+/**
+ * build-i18n.mjs — static language pages, sitemap and FAQ schema for booom.fit.
+ *
+ * WHY (2026-09-19): the site had six languages, but all of them lived in lang.js and were
+ * applied in the browser. Google indexed the Slovak HTML and nothing else — no /en/, no
+ * hreflang, so Czech, Polish, German, Ukrainian and English searches could never find us.
+ * This script renders what setLanguage() would have rendered, once, at build time:
+ *
+ *   /en/index.html, /cs/, /pl/, /uk/, /de/   — index.html with every [data-i18n] element
+ *                                              translated, <html lang>, title, descriptions,
+ *                                              canonical, og:url/locale and the active
+ *                                              language button set for that language
+ *   sitemap.xml                              — every public URL with <lastmod> from git and
+ *                                              hreflang alternates for the home cluster
+ *   faq.html                                 — a FAQPage JSON-LD block built from its h2 + text
+ *
+ * RUN IT after editing index.html, lang.js, faq.html or vercel.json:   node build-i18n.mjs
+ * and commit the generated files with the change — Vercel does not run it. No dependencies.
+ *
+ * What it does NOT do: subpages (calculators, guides) are Slovak-only content and stay so.
+ * Language switching at runtime: lang.js sees data-static-lang on these pages and navigates
+ * to the right URL instead of translating in place (see lang.js init).
+ */
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { execSync } from 'node:child_process'
+
+const SITE = 'https://booom.fit'
+const LANGS = ['SK', 'EN', 'CS', 'PL', 'UK', 'DE']
+const HTML_LANG = { SK: 'sk', EN: 'en', CS: 'cs', PL: 'pl', UK: 'uk', DE: 'de' }
+const OG_LOCALE = { SK: 'sk_SK', EN: 'en_GB', CS: 'cs_CZ', PL: 'pl_PL', UK: 'uk_UA', DE: 'de_DE' }
+const TIKTOK = L => (L === 'SK' || L === 'CS') ? 'https://www.tiktok.com/@booom.fitness.app' : 'https://www.tiktok.com/@getbooom'
+const urlFor = L => L === 'SK' ? `${SITE}/` : `${SITE}/${HTML_LANG[L]}/`
+
+const read = p => readFileSync(p, 'utf8')
+const eolOf = s => s.includes('\r\n') ? '\r\n' : '\n'
+const write = (p, s, eol) => writeFileSync(p, s.replace(/\r?\n/g, eol))
+
+// ── translations straight out of lang.js (the part before setLanguage is plain data) ──────
+const langSrc = read('lang.js')
+const dataPart = langSrc.slice(0, langSrc.indexOf('function setLanguage')).replace(/^const /gm, 'var ')
+const { translations, pageTitles } = new Function(dataPart + ';return { translations, pageTitles }')()
+for (const L of LANGS) {
+  if (!translations[L]) throw new Error(`lang.js has no ${L}`)
+  if (!translations[L].meta_description) throw new Error(`lang.js ${L} has no meta_description`)
+}
+
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const escAttr = s => esc(s).replace(/"/g, '&quot;')
+// Same rule as setLanguage: text, except an authored <br> becomes a real line break.
+const renderText = v => String(v).split('<br>').map(esc).join('<br>')
+
+function setMeta(html, attr, name, content) {
+  const re = new RegExp(`(<meta\\s+${attr}="${name}"\\s+content=")[^"]*(")`)
+  if (!re.test(html)) throw new Error(`meta ${name} not found`)
+  return html.replace(re, `$1${escAttr(content)}$2`)
+}
+
+function localize(src, L) {
+  const t = translations[L]
+  let html = src
+  let skipped = []
+
+  // Elements with data-i18n: replace the inner HTML. A non-greedy match to the first
+  // closing tag of the same name is right unless the element nests the same tag — those
+  // are left to the runtime and reported, so a new one never silently breaks a page.
+  html = html.replace(/(<([a-zA-Z0-9]+)\b[^>]*\bdata-i18n="([^"]+)"[^>]*>)([\s\S]*?)(<\/\2>)/g, (m, open, tag, key, inner, close) => {
+    if (t[key] === undefined) { skipped.push(`${key} (no ${L} string)`); return m }
+    if (inner.includes(`<${tag}`)) { skipped.push(`${key} (nested <${tag}>)`); return m }
+    return open + renderText(t[key]) + close
+  })
+  html = html.replace(/<[a-zA-Z0-9]+\b[^>]*\bdata-i18n-aria="([^"]+)"[^>]*>/g, tag => {
+    const key = tag.match(/data-i18n-aria="([^"]+)"/)[1]
+    if (t[key] === undefined) return tag
+    return /aria-label="/.test(tag) ? tag.replace(/aria-label="[^"]*"/, `aria-label="${escAttr(t[key])}"`) : tag.replace(/>$/, ` aria-label="${escAttr(t[key])}">`)
+  })
+  html = html.replace(/<[a-zA-Z0-9]+\b[^>]*\bdata-i18n-placeholder="([^"]+)"[^>]*>/g, tag => {
+    const key = tag.match(/data-i18n-placeholder="([^"]+)"/)[1]
+    return t[key] === undefined ? tag : tag.replace(/placeholder="[^"]*"/, `placeholder="${escAttr(t[key])}"`)
+  })
+
+  // <head>
+  html = html.replace(/<html lang="[a-z]+" data-lang="[A-Z]+" data-static-lang="[A-Z]+">/,
+    `<html lang="${HTML_LANG[L]}" data-lang="${L}" data-static-lang="${L}">`)
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(pageTitles[L])}</title>`)
+  html = setMeta(html, 'name', 'description', t.meta_description)
+  html = setMeta(html, 'property', 'og:description', t.meta_description)
+  html = setMeta(html, 'name', 'twitter:description', t.meta_description)
+  html = setMeta(html, 'property', 'og:title', pageTitles[L])
+  html = setMeta(html, 'name', 'twitter:title', pageTitles[L])
+  html = setMeta(html, 'property', 'og:url', urlFor(L))
+  html = setMeta(html, 'property', 'og:locale', OG_LOCALE[L])
+  html = html.replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${urlFor(L)}">`)
+  html = html.replace(/("@type":\s*"WebSite"[\s\S]*?"inLanguage":\s*")sk(")/, `$1${HTML_LANG[L]}$2`)
+
+  // Runtime bits setLanguage would have set.
+  html = html.replace(/class="lang-btn active"/g, 'class="lang-btn"')
+  html = html.replace(new RegExp(`class="lang-btn"([^>]*onclick="setLanguage\\('${L}'\\)")`, 'g'), 'class="lang-btn active"$1')
+  html = html.replace(/(<span[^>]*id="langCode"[^>]*>)[^<]*(<\/span>)/, `$1${L}$2`)
+  html = html.replace(/(<a\b[^>]*\bdata-tiktok\b[^>]*)href="[^"]*"/g, `$1href="${TIKTOK(L)}"`)
+  html = html.replace(/(<a\b[^>]*)href="([^"]*)"([^>]*\bdata-tiktok\b)/g, `$1href="${TIKTOK(L)}"$3`)
+
+  // The page now lives one directory down.
+  html = html.replace(/src="lang\.js"/, 'src="/lang.js"')
+
+  return { html, skipped }
+}
+
+// ── 1. language pages ─────────────────────────────────────────────────────────────────────
+const indexSrc = read('index.html')
+const eol = eolOf(indexSrc)
+if (!/data-static-lang="SK"/.test(indexSrc)) throw new Error('index.html must carry data-static-lang="SK" on <html>')
+if (!/hreflang="x-default"/.test(indexSrc)) throw new Error('index.html must carry the hreflang block')
+const dataI18nCount = (indexSrc.match(/\bdata-i18n="/g) || []).length
+for (const L of LANGS.filter(l => l !== 'SK')) {
+  const { html, skipped } = localize(indexSrc, L)
+  const dir = HTML_LANG[L]
+  if (!existsSync(dir)) mkdirSync(dir)
+  write(`${dir}/index.html`, html, eol)
+  const uniq = [...new Set(skipped)]
+  console.log(`${dir}/index.html  ${dataI18nCount - skipped.length}/${dataI18nCount} strings${uniq.length ? `  left to runtime: ${uniq.join(', ')}` : ''}`)
+}
+
+// ── 2. sitemap.xml ────────────────────────────────────────────────────────────────────────
+const lastmod = file => {
+  try { return execSync(`git log -1 --format=%cs -- "${file}"`, { encoding: 'utf8' }).trim() || new Date().toISOString().slice(0, 10) }
+  catch { return new Date().toISOString().slice(0, 10) }
+}
+const rewrites = JSON.parse(read('vercel.json')).rewrites || []
+const subpages = rewrites
+  .filter(r => /^\/[a-z0-9\-\/]+$/.test(r.source) && r.destination.endsWith('.html') && !/^\/(en|cs|pl|uk|de)$/.test(r.source))
+  .filter(r => !['/privacy', '/terms'].includes(r.source))   // legal pages: crawlable, not worth a slot
+  .map(r => ({ url: `${SITE}${r.source}`, file: r.destination.replace(/^\//, ''), priority: '0.7', changefreq: 'monthly' }))
+const homeLastmod = [ 'index.html', 'lang.js' ].map(lastmod).sort().pop()
+const alternates = LANGS.map(L => `    <xhtml:link rel="alternate" hreflang="${HTML_LANG[L]}" href="${urlFor(L)}"/>`)
+  .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${urlFor('SK')}"/>`).join('\n')
+const homeEntries = LANGS.map(L => `  <url>
+    <loc>${urlFor(L)}</loc>
+    <lastmod>${homeLastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${L === 'SK' ? '1.0' : '0.9'}</priority>
+${alternates}
+  </url>`)
+const subEntries = subpages.map(p => `  <url>
+    <loc>${p.url}</loc>
+    <lastmod>${lastmod(p.file)}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`)
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${[...homeEntries, ...subEntries].join('\n')}
+</urlset>
+`
+write('sitemap.xml', sitemap, '\n')
+console.log(`sitemap.xml  ${homeEntries.length + subEntries.length} URLs`)
+
+// ── 3. FAQPage schema on faq.html ─────────────────────────────────────────────────────────
+const faqSrc = read('faq.html')
+const faqEol = eolOf(faqSrc)
+const stripTags = s => s.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim()
+const qa = []
+const parts = faqSrc.split(/<h2 class="policy-card-title">/).slice(1)
+for (const part of parts) {
+  const end = part.indexOf('</h2>')
+  const q = stripTags(part.slice(0, end))
+  let rest = part.slice(end + 5)
+  const cut = rest.search(/<h2 class="policy-card-title">|<form\b|<footer\b|<section\b/)
+  if (cut > -1) rest = rest.slice(0, cut)
+  const a = stripTags(rest).slice(0, 700)
+  if (q && a.length > 20) qa.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })
+}
+const faqLd = `<script type="application/ld+json" data-faq-schema>${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: qa })}</script>`
+let faqOut = faqSrc.includes('data-faq-schema')
+  ? faqSrc.replace(/<script type="application\/ld\+json" data-faq-schema>[\s\S]*?<\/script>/, faqLd)
+  : faqSrc.replace('</head>', `  ${faqLd}\n</head>`)
+write('faq.html', faqOut, faqEol)
+console.log(`faq.html  FAQPage schema with ${qa.length} questions`)

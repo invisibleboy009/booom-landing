@@ -1,83 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://booom.fit/</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
-    <loc>https://booom.fit/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booom.fit/hyrox-pacing</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://booom.fit/en/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
-    <loc>https://booom.fit/1rm-kalkulacka</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://booom.fit/cs/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
-    <loc>https://booom.fit/kalorie-kalkulacka</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://booom.fit/pl/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
-    <loc>https://booom.fit/hyrox-pre-zaciatocnikov</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://booom.fit/uk/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
-    <loc>https://booom.fit/crossfit-pre-zaciatocnikov</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booom.fit/percento-telesneho-tuku</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://booom.fit/de/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/"/>
   </url>
   <url>
     <loc>https://booom.fit/stitna-zlaza</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booom.fit/dieta/hashimoto</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booom.fit/dieta/bezlepkova</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/dieta/bezlaktozova</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/dieta/bezlepkova</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/dieta/histaminova</loc>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://booom.fit/privacy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://booom.fit/dieta/hashimoto</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://booom.fit/terms</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://booom.fit/faq</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/hyrox-pacing</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/1rm-kalkulacka</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/kalorie-kalkulacka</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/hyrox-pre-zaciatocnikov</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/crossfit-pre-zaciatocnikov</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/percento-telesneho-tuku</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/30-dni</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
