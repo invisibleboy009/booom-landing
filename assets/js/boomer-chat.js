@@ -27,6 +27,138 @@
   ];
   var bubbleIdx = 0;
 
+  // ── Language ───────────────────────────────────────────────────────
+  // The page's language (lang.js writes data-lang on <html>; static language pages carry
+  // it in the HTML). Read on every use, not once: subpages switch language in place.
+  function lang() {
+    var l = (document.documentElement.getAttribute('data-lang') || 'SK').toUpperCase();
+    return LANG_STR[l] ? l : 'SK';
+  }
+  function S() { return LANG_STR[lang()]; }
+
+  var LANG_STR = {
+    SK: {
+      locale: 'sk-SK', today: 'Dnes', yesterday: 'Včera', convo: 'Konverzácia ',
+      bubble: 'Ahoj, ako ti môžem pomôcť?', bubbles: null,
+      greeting: 'Ahoj! Som Boomer, tvoj AI asistent 💪 Ako ti môžem pomôcť?',
+      openAria: 'Otvoriť Boomer AI asistenta', back: 'Späť', history: 'História', histAria: 'História konverzácií',
+      newChat: 'Nová konverzácia', close: 'Zavrieť', rename: 'Premenovať',
+      disclaimer: '&#9877;&#65039; Nie som lekár. Rady sú informačné — konzultuj s odborníkom.',
+      placeholder: 'Napíš správu…', send: 'Odoslať',
+      histEmpty: 'Žiadne uložené konverzácie.<br/>Začni chatovať a automaticky sa uložia.',
+      gateSub: 'Zadaj email a hneď môžeme chatovať.', gateBtn: 'Získať prístup k Boomerovi',
+      emailInvalid: 'Zadaj platný email.', sending: 'Odosiela sa…', sendFail: 'Chyba pri odoslaní. Skús znova.',
+      otpTitle: '📬 Skontroluj email', otpSub: 'Poslali sme 6-miestny kód na ', otpBtn: 'Overiť kód',
+      otpInvalid: 'Zadaj 6-miestny kód.', verifying: 'Overujem…', otpWrong: 'Nesprávny kód. Skús znova.',
+      noReply: 'Prepáč, nepodarilo sa mi odpovedať.', errGeneric: 'Nastala chyba. Skús neskôr.',
+      errNet: 'Spojenie zlyhalo. Skontroluj internet a skús znova.',
+      chipsHome: ['Čo je BOOOM?', 'Ako nainštalovať?', 'Je to zadarmo?', 'Pre koho je BOOOM?'],
+      chipsDefault: ['Čo je BOOOM?', 'Ako nainštalovať?', 'Diéty a zdravie', 'Kontakt'],
+      follow: ['Povedz mi viac', 'Ako mi BOOOM pomôže?', 'Mám ďalšiu otázku']
+    },
+    EN: {
+      locale: 'en-GB', today: 'Today', yesterday: 'Yesterday', convo: 'Conversation ',
+      bubble: 'Hi, how can I help?',
+      bubbles: ['Hi, how can I help? 💪', 'Send me your bench max and I will tell you where the reserve is. 💪', 'What is stopping your next PR? Ask me — I am here 24/7.'],
+      greeting: 'Hi! I am Boomer, your AI assistant 💪 How can I help?',
+      openAria: 'Open the Boomer AI assistant', back: 'Back', history: 'History', histAria: 'Conversation history',
+      newChat: 'New conversation', close: 'Close', rename: 'Rename',
+      disclaimer: '&#9877;&#65039; I am not a doctor. This is information, not advice — talk to a professional.',
+      placeholder: 'Type a message…', send: 'Send',
+      histEmpty: 'No saved conversations.<br/>Start chatting and they save automatically.',
+      gateSub: 'Enter your email and we can chat right away.', gateBtn: 'Get access to Boomer',
+      emailInvalid: 'Enter a valid email.', sending: 'Sending…', sendFail: 'Could not send. Try again.',
+      otpTitle: '📬 Check your email', otpSub: 'We sent a 6-digit code to ', otpBtn: 'Verify code',
+      otpInvalid: 'Enter the 6-digit code.', verifying: 'Verifying…', otpWrong: 'Wrong code. Try again.',
+      noReply: 'Sorry, I could not answer that.', errGeneric: 'Something went wrong. Try later.',
+      errNet: 'Connection failed. Check your internet and try again.',
+      chipsHome: ['What is BOOOM?', 'How do I install it?', 'Is it free?', 'Who is BOOOM for?'],
+      chipsDefault: ['What is BOOOM?', 'How do I install it?', 'Diets & health', 'Contact'],
+      follow: ['Tell me more', 'How does BOOOM help me?', 'I have another question']
+    },
+    CS: {
+      locale: 'cs-CZ', today: 'Dnes', yesterday: 'Včera', convo: 'Konverzace ',
+      bubble: 'Ahoj, jak ti můžu pomoct?',
+      bubbles: ['Ahoj, jak ti můžu pomoct? 💪', 'Pošli mi svoje maximum na bench a řeknu ti, kde máš rezervu. 💪', 'Co ti brání v dalším PR? Zeptej se mě — jsem tu 24/7.'],
+      greeting: 'Ahoj! Jsem Boomer, tvůj AI asistent 💪 Jak ti můžu pomoct?',
+      openAria: 'Otevřít Boomer AI asistenta', back: 'Zpět', history: 'Historie', histAria: 'Historie konverzací',
+      newChat: 'Nová konverzace', close: 'Zavřít', rename: 'Přejmenovat',
+      disclaimer: '&#9877;&#65039; Nejsem lékař. Rady jsou informační — poraď se s odborníkem.',
+      placeholder: 'Napiš zprávu…', send: 'Odeslat',
+      histEmpty: 'Žádné uložené konverzace.<br/>Začni chatovat a automaticky se uloží.',
+      gateSub: 'Zadej e-mail a hned můžeme chatovat.', gateBtn: 'Získat přístup k Boomerovi',
+      emailInvalid: 'Zadej platný e-mail.', sending: 'Odesílá se…', sendFail: 'Chyba při odeslání. Zkus to znovu.',
+      otpTitle: '📬 Zkontroluj e-mail', otpSub: 'Poslali jsme 6místný kód na ', otpBtn: 'Ověřit kód',
+      otpInvalid: 'Zadej 6místný kód.', verifying: 'Ověřuji…', otpWrong: 'Nesprávný kód. Zkus to znovu.',
+      noReply: 'Promiň, nepodařilo se mi odpovědět.', errGeneric: 'Nastala chyba. Zkus to později.',
+      errNet: 'Spojení selhalo. Zkontroluj internet a zkus to znovu.',
+      chipsHome: ['Co je BOOOM?', 'Jak nainstalovat?', 'Je to zdarma?', 'Pro koho je BOOOM?'],
+      chipsDefault: ['Co je BOOOM?', 'Jak nainstalovat?', 'Diety a zdraví', 'Kontakt'],
+      follow: ['Řekni mi víc', 'Jak mi BOOOM pomůže?', 'Mám další otázku']
+    },
+    PL: {
+      locale: 'pl-PL', today: 'Dziś', yesterday: 'Wczoraj', convo: 'Rozmowa ',
+      bubble: 'Cześć, jak mogę pomóc?',
+      bubbles: ['Cześć, jak mogę pomóc? 💪', 'Wyślij mi swój max na ławce, a powiem ci, gdzie masz rezerwę. 💪', 'Co cię powstrzymuje przed kolejnym rekordem? Zapytaj — jestem tu 24/7.'],
+      greeting: 'Cześć! Jestem Boomer, twój asystent AI 💪 Jak mogę pomóc?',
+      openAria: 'Otwórz asystenta Boomer AI', back: 'Wstecz', history: 'Historia', histAria: 'Historia rozmów',
+      newChat: 'Nowa rozmowa', close: 'Zamknij', rename: 'Zmień nazwę',
+      disclaimer: '&#9877;&#65039; Nie jestem lekarzem. To informacje, nie porady — skonsultuj się ze specjalistą.',
+      placeholder: 'Napisz wiadomość…', send: 'Wyślij',
+      histEmpty: 'Brak zapisanych rozmów.<br/>Zacznij pisać, a zapiszą się automatycznie.',
+      gateSub: 'Podaj e-mail i od razu możemy rozmawiać.', gateBtn: 'Uzyskaj dostęp do Boomera',
+      emailInvalid: 'Podaj poprawny e-mail.', sending: 'Wysyłanie…', sendFail: 'Błąd wysyłania. Spróbuj ponownie.',
+      otpTitle: '📬 Sprawdź e-mail', otpSub: 'Wysłaliśmy 6-cyfrowy kod na ', otpBtn: 'Zweryfikuj kod',
+      otpInvalid: 'Wpisz 6-cyfrowy kod.', verifying: 'Weryfikuję…', otpWrong: 'Zły kod. Spróbuj ponownie.',
+      noReply: 'Przepraszam, nie udało mi się odpowiedzieć.', errGeneric: 'Wystąpił błąd. Spróbuj później.',
+      errNet: 'Połączenie nie powiodło się. Sprawdź internet i spróbuj ponownie.',
+      chipsHome: ['Czym jest BOOOM?', 'Jak zainstalować?', 'Czy jest za darmo?', 'Dla kogo jest BOOOM?'],
+      chipsDefault: ['Czym jest BOOOM?', 'Jak zainstalować?', 'Diety i zdrowie', 'Kontakt'],
+      follow: ['Powiedz mi więcej', 'Jak BOOOM mi pomoże?', 'Mam kolejne pytanie']
+    },
+    UK: {
+      locale: 'uk-UA', today: 'Сьогодні', yesterday: 'Вчора', convo: 'Розмова ',
+      bubble: 'Привіт, чим можу допомогти?',
+      bubbles: ['Привіт, чим можу допомогти? 💪', 'Надішли свій максимум на жимі, і я скажу, де є резерв. 💪', 'Що заважає наступному рекорду? Запитай — я тут 24/7.'],
+      greeting: 'Привіт! Я Boomer, твій AI-асистент 💪 Чим можу допомогти?',
+      openAria: 'Відкрити AI-асистента Boomer', back: 'Назад', history: 'Історія', histAria: 'Історія розмов',
+      newChat: 'Нова розмова', close: 'Закрити', rename: 'Перейменувати',
+      disclaimer: '&#9877;&#65039; Я не лікар. Це інформація, а не поради — порадься з фахівцем.',
+      placeholder: 'Напиши повідомлення…', send: 'Надіслати',
+      histEmpty: 'Немає збережених розмов.<br/>Почни чат — вони збережуться автоматично.',
+      gateSub: 'Введи e-mail і одразу почнемо чат.', gateBtn: 'Отримати доступ до Boomer',
+      emailInvalid: 'Введи коректний e-mail.', sending: 'Надсилаю…', sendFail: 'Помилка надсилання. Спробуй ще раз.',
+      otpTitle: '📬 Перевір пошту', otpSub: 'Ми надіслали 6-значний код на ', otpBtn: 'Підтвердити код',
+      otpInvalid: 'Введи 6-значний код.', verifying: 'Перевіряю…', otpWrong: 'Неправильний код. Спробуй ще раз.',
+      noReply: 'Вибач, не вдалося відповісти.', errGeneric: 'Сталася помилка. Спробуй пізніше.',
+      errNet: 'Немає зʼєднання. Перевір інтернет і спробуй ще раз.',
+      chipsHome: ['Що таке BOOOM?', 'Як встановити?', 'Це безкоштовно?', 'Для кого BOOOM?'],
+      chipsDefault: ['Що таке BOOOM?', 'Як встановити?', 'Дієти та здоровʼя', 'Контакт'],
+      follow: ['Розкажи більше', 'Як BOOOM мені допоможе?', 'Маю ще запитання']
+    },
+    DE: {
+      locale: 'de-DE', today: 'Heute', yesterday: 'Gestern', convo: 'Unterhaltung ',
+      bubble: 'Hallo, wie kann ich helfen?',
+      bubbles: ['Hallo, wie kann ich helfen? 💪', 'Schick mir dein Bankdrück-Maximum und ich sage dir, wo Reserve ist. 💪', 'Was hält dich vom nächsten Rekord ab? Frag mich — ich bin rund um die Uhr da.'],
+      greeting: 'Hallo! Ich bin Boomer, dein KI-Assistent 💪 Wie kann ich helfen?',
+      openAria: 'Boomer-KI-Assistent öffnen', back: 'Zurück', history: 'Verlauf', histAria: 'Gesprächsverlauf',
+      newChat: 'Neue Unterhaltung', close: 'Schließen', rename: 'Umbenennen',
+      disclaimer: '&#9877;&#65039; Ich bin kein Arzt. Das sind Informationen, keine Beratung — sprich mit Fachleuten.',
+      placeholder: 'Nachricht schreiben…', send: 'Senden',
+      histEmpty: 'Keine gespeicherten Unterhaltungen.<br/>Schreib los, sie werden automatisch gespeichert.',
+      gateSub: 'Gib deine E-Mail ein und wir können sofort chatten.', gateBtn: 'Zugang zu Boomer erhalten',
+      emailInvalid: 'Gib eine gültige E-Mail ein.', sending: 'Wird gesendet…', sendFail: 'Senden fehlgeschlagen. Versuch es noch einmal.',
+      otpTitle: '📬 Prüf deine E-Mail', otpSub: 'Wir haben einen 6-stelligen Code geschickt an ', otpBtn: 'Code prüfen',
+      otpInvalid: 'Gib den 6-stelligen Code ein.', verifying: 'Prüfe…', otpWrong: 'Falscher Code. Versuch es noch einmal.',
+      noReply: 'Sorry, darauf konnte ich nicht antworten.', errGeneric: 'Etwas ist schiefgelaufen. Versuch es später.',
+      errNet: 'Verbindung fehlgeschlagen. Prüf dein Internet und versuch es noch einmal.',
+      chipsHome: ['Was ist BOOOM?', 'Wie installiere ich es?', 'Ist es kostenlos?', 'Für wen ist BOOOM?'],
+      chipsDefault: ['Was ist BOOOM?', 'Wie installiere ich es?', 'Ernährung & Gesundheit', 'Kontakt'],
+      follow: ['Erzähl mir mehr', 'Wie hilft mir BOOOM?', 'Ich habe noch eine Frage']
+    }
+  };
+  function bubbles() { return lang() === 'SK' ? BUBBLE_MSGS : S().bubbles; }
+
   var supabaseClient = null;
   var displayMessages = [];      // {role:'user'|'bot', text:string}
   var chatHistory = [];          // API format, rebuilt before each fetch
@@ -66,7 +198,7 @@
         return t.length > 34 ? t.substring(0, 34) + '…' : t;
       }
     }
-    return 'Konverzácia ' + new Date().toLocaleDateString('sk-SK');
+    return S().convo + new Date().toLocaleDateString(S().locale);
   }
 
   function saveCurrentConversation() {
@@ -115,6 +247,8 @@
   // ── Initial chips ──────────────────────────────────────────────────────────
   function getInitialChips() {
     var p = window.location.pathname;
+    // Page-specific chips exist in Slovak only (the pages are Slovak); other languages get the general set.
+    if (lang() !== 'SK') return (p === '/' || p === '' || /\/index\.html$/.test(p) || /^\/(en|cs|pl|uk|de)\/?$/.test(p)) ? S().chipsHome : S().chipsDefault;
     if (p === '/' || p === '' || p === '/index.html')
       return ['Čo je BOOOM?', 'Ako nainštalovať?', 'Je to zadarmo?', 'Pre koho je BOOOM?'];
     if (p.indexOf('stitna-zlaza') !== -1)
@@ -132,6 +266,7 @@
 
   // ── Follow-up chips ────────────────────────────────────────────────────────
   function getFollowUpChips(botReply, userMsg) {
+    if (lang() !== 'SK') return S().follow;
     var ctx = ((botReply || '') + ' ' + (userMsg || '')).toLowerCase();
     if (/strava|jedlo|jedn|proteín|kalóri|makro|jedálniček/.test(ctx))
       return ['Koľko proteínu denne?', 'Čo jesť pred tréningom?', 'Ako sledovať makrá?'];
@@ -258,12 +393,12 @@
   function injectHTML() {
     var bubble = document.createElement('div');
     bubble.id = 'boomer-bubble';
-    bubble.textContent = 'Ahoj, ako ti môžem pomôcť?';
+    bubble.textContent = S().bubble;
     document.body.appendChild(bubble);
 
     var btn = document.createElement('button');
     btn.id = 'boomer-btn';
-    btn.setAttribute('aria-label', 'Otvoriť Boomer AI asistenta');
+    btn.setAttribute('aria-label', S().openAria);
     btn.innerHTML = '<img src="' + AVATAR_URL + '" alt="Boomer AI" />';
     document.body.appendChild(btn);
 
@@ -275,9 +410,9 @@
       /* ── History overlay ── */
       '<div id="boomer-history-panel" aria-hidden="true">' +
         '<div class="boomer-hist-header">' +
-          '<button class="boomer-icon-btn" id="boomer-hist-back" aria-label="Späť" style="font-size:16px;">&#8592;</button>' +
-          '<span class="boomer-hist-title">História</span>' +
-          '<button class="boomer-icon-btn" id="boomer-hist-new" aria-label="Nová konverzácia" style="font-size:20px;border-color:#00ff88;color:#00ff88;">+</button>' +
+          '<button class="boomer-icon-btn" id="boomer-hist-back" aria-label="' + S().back + '" style="font-size:16px;">&#8592;</button>' +
+          '<span class="boomer-hist-title">' + S().history + '</span>' +
+          '<button class="boomer-icon-btn" id="boomer-hist-new" aria-label="' + S().newChat + '" style="font-size:20px;border-color:#00ff88;color:#00ff88;">+</button>' +
         '</div>' +
         '<div class="boomer-hist-body" id="boomer-hist-body"></div>' +
       '</div>' +
@@ -289,18 +424,18 @@
           '<div class="boomer-header-sub">AI asistent</div>' +
         '</div>' +
         /* History button (clock icon) */
-        '<button class="boomer-icon-btn" id="boomer-hist-btn" aria-label="História konverzácií" title="História">' +
+        '<button class="boomer-icon-btn" id="boomer-hist-btn" aria-label="' + S().histAria + '" title="' + S().history + '">' +
           '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
         '</button>' +
         /* New chat button */
-        '<button class="boomer-icon-btn" id="boomer-newchat-btn" aria-label="Nová konverzácia" title="Nová konverzácia" style="font-size:18px;">+</button>' +
-        '<button class="boomer-icon-btn" id="boomer-close" aria-label="Zavrieť" style="font-size:14px;">&#x2715;</button>' +
+        '<button class="boomer-icon-btn" id="boomer-newchat-btn" aria-label="' + S().newChat + '" title="' + S().newChat + '" style="font-size:18px;">+</button>' +
+        '<button class="boomer-icon-btn" id="boomer-close" aria-label="' + S().close + '" style="font-size:14px;">&#x2715;</button>' +
       '</div>' +
-      '<div class="boomer-disclaimer">&#9877;&#65039; Nie som lekár. Rady sú informačné — konzultuj s odborníkom.</div>' +
+      '<div class="boomer-disclaimer">' + S().disclaimer + '</div>' +
       '<div class="boomer-body" id="boomer-body"></div>' +
       '<div class="boomer-footer" id="boomer-footer" style="display:none">' +
-        '<input class="boomer-text-input" id="boomer-text-input" type="text" placeholder="Napíš správu…" autocomplete="off" />' +
-        '<button class="boomer-send-btn" id="boomer-send-btn" aria-label="Odoslať">' +
+        '<input class="boomer-text-input" id="boomer-text-input" type="text" placeholder="' + S().placeholder + '" autocomplete="off" />' +
+        '<button class="boomer-send-btn" id="boomer-send-btn" aria-label="' + S().send + '">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
             '<line x1="22" y1="2" x2="11" y2="13"></line>' +
             '<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>' +
@@ -344,9 +479,9 @@
     var now = new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     var dDay = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
-    if (dDay === today) return 'Dnes';
-    if (dDay === today - 86400000) return 'Včera';
-    return d.toLocaleDateString('sk-SK', { day: 'numeric', month: 'long' });
+    if (dDay === today) return S().today;
+    if (dDay === today - 86400000) return S().yesterday;
+    return d.toLocaleDateString(S().locale, { day: 'numeric', month: 'long' });
   }
 
   function renderHistoryList() {
@@ -354,7 +489,7 @@
     if (!body) return;
     var convos = loadConversations();
     if (convos.length === 0) {
-      body.innerHTML = '<div class="boomer-hist-empty">Žiadne uložené konverzácie.<br/>Začni chatovať a automaticky sa uložia.</div>';
+      body.innerHTML = '<div class="boomer-hist-empty">' + S().histEmpty + '</div>';
       return;
     }
 
@@ -376,7 +511,7 @@
         html +=
           '<div class="boomer-hist-item' + active + '" data-id="' + escapeHtml(c.id) + '">' +
             '<span class="boomer-hist-name">' + escapeHtml(c.name) + '</span>' +
-            '<button class="boomer-hist-edit" data-id="' + escapeHtml(c.id) + '" data-name="' + escapeHtml(c.name) + '" aria-label="Premenovať" title="Premenovať">&#x270F;</button>' +
+            '<button class="boomer-hist-edit" data-id="' + escapeHtml(c.id) + '" data-name="' + escapeHtml(c.name) + '" aria-label="' + S().rename + '" title="Premenovať">&#x270F;</button>' +
           '</div>';
       }
       html += '</div>';
@@ -480,9 +615,9 @@
     body.innerHTML =
       '<div class="boomer-gate">' +
         '<div class="boomer-gate-title">👋 Ahoj! Som Boomer.</div>' +
-        '<div class="boomer-gate-sub">Zadaj email a hneď môžeme chatovať.</div>' +
+        '<div class="boomer-gate-sub">' + S().gateSub + '</div>' +
         '<input class="boomer-input" id="boomer-email-input" type="email" placeholder="tvoj@email.com" autocomplete="email" />' +
-        '<button class="boomer-submit-btn" id="boomer-email-btn">Získať prístup k Boomerovi</button>' +
+        '<button class="boomer-submit-btn" id="boomer-email-btn">' + S().gateBtn + '</button>' +
         '<div class="boomer-error" id="boomer-gate-error" style="display:none"></div>' +
       '</div>';
 
@@ -501,12 +636,12 @@
 
     var email = emailInput.value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showError(errEl, 'Zadaj platný email.');
+      showError(errEl, S().emailInvalid);
       return;
     }
 
     btn.disabled = true;
-    btn.textContent = 'Odosiela sa…';
+    btn.textContent = S().sending;
     errEl.style.display = 'none';
 
     supabaseClient.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } })
@@ -517,8 +652,8 @@
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = 'Získať prístup k Boomerovi';
-        showError(errEl, err.message || 'Chyba pri odoslaní. Skús znova.');
+        btn.textContent = S().gateBtn;
+        showError(errEl, err.message || S().sendFail);
       });
   }
 
@@ -526,10 +661,10 @@
     var body = document.getElementById('boomer-body');
     body.innerHTML =
       '<div class="boomer-gate">' +
-        '<div class="boomer-gate-title">📬 Skontroluj email</div>' +
-        '<div class="boomer-gate-sub">Poslali sme 6-miestny kód na <strong style="color:#fff">' + escapeHtml(pendingEmail) + '</strong></div>' +
+        '<div class="boomer-gate-title">' + S().otpTitle + '</div>' +
+        '<div class="boomer-gate-sub">' + S().otpSub + '<strong style="color:#fff">' + escapeHtml(pendingEmail) + '</strong></div>' +
         '<input class="boomer-input" id="boomer-otp-input" type="text" inputmode="numeric" maxlength="6" placeholder="123456" autocomplete="one-time-code" />' +
-        '<button class="boomer-submit-btn" id="boomer-otp-btn">Overiť kód</button>' +
+        '<button class="boomer-submit-btn" id="boomer-otp-btn">' + S().otpBtn + '</button>' +
         '<div class="boomer-error" id="boomer-otp-error" style="display:none"></div>' +
       '</div>';
 
@@ -548,12 +683,12 @@
 
     var token = tokenInput.value.trim();
     if (!token || token.length < 6) {
-      showError(errEl, 'Zadaj 6-miestny kód.');
+      showError(errEl, S().otpInvalid);
       return;
     }
 
     btn.disabled = true;
-    btn.textContent = 'Overujem…';
+    btn.textContent = S().verifying;
     errEl.style.display = 'none';
 
     supabaseClient.auth.verifyOtp({ email: pendingEmail, token: token, type: 'email' })
@@ -571,9 +706,9 @@
       })
       .catch(function (err) {
         var b2 = document.getElementById('boomer-otp-btn');
-        if (b2) { b2.disabled = false; b2.textContent = 'Overiť kód'; }
+        if (b2) { b2.disabled = false; b2.textContent = S().otpBtn; }
         var e2 = document.getElementById('boomer-otp-error');
-        if (e2) showError(e2, err.message || 'Nesprávny kód. Skús znova.');
+        if (e2) showError(e2, err.message || S().otpWrong);
       });
   }
 
@@ -589,7 +724,7 @@
     greet.className = 'boomer-msg bot';
     greet.innerHTML =
       '<img class="boomer-msg-avatar" src="' + AVATAR_URL + '" alt="Boomer" />' +
-      '<div class="boomer-msg-bubble">Ahoj! Som Boomer, tvoj AI asistent 💪 Ako ti môžem pomôcť?</div>';
+      '<div class="boomer-msg-bubble">' + S().greeting + '</div>';
     body.appendChild(greet);
 
     var chipsEl = document.createElement('div');
@@ -714,7 +849,7 @@
     fetch(EDGE_FN, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
-      body: JSON.stringify({ messages: chatHistory, userEmail: userEmail, sourcePage: window.location.pathname })
+      body: JSON.stringify({ messages: chatHistory, userEmail: userEmail, sourcePage: window.location.pathname, lang: lang().toLowerCase() })
     })
       .then(function (resp) {
         return resp.json().then(function (data) { return { ok: resp.ok, data: data }; });
@@ -722,8 +857,8 @@
       .then(function (result) {
         removeTyping();
         var reply = result.ok
-          ? (result.data.response || 'Prepáč, nepodarilo sa mi odpovedať.')
-          : (result.data.error || 'Nastala chyba. Skús neskôr.');
+          ? (result.data.response || S().noReply)
+          : (result.data.error || S().errGeneric);
         appendMessage('bot', reply);
         if (result.ok) {
           saveCurrentConversation();
@@ -732,7 +867,7 @@
       })
       .catch(function () {
         removeTyping();
-        appendMessage('bot', 'Spojenie zlyhalo. Skontroluj internet a skús znova.');
+        appendMessage('bot', S().errNet);
       })
       .then(function () {
         if (sendBtn) sendBtn.disabled = false;
@@ -817,8 +952,8 @@
       if (!bubble || isPanelOpen) return;
       bubble.style.opacity = '0';
       setTimeout(function () {
-        bubbleIdx = (bubbleIdx + 1) % BUBBLE_MSGS.length;
-        bubble.textContent = BUBBLE_MSGS[bubbleIdx];
+        bubbleIdx = (bubbleIdx + 1) % bubbles().length;
+        bubble.textContent = bubbles()[bubbleIdx];
         bubble.style.opacity = '1';
       }, 460);
     }, 8000);
