@@ -273,7 +273,7 @@ const SL_GROUPS = [
   ]],
   blogGroup('sk'),
 ]
-const SL_CSS = '.sl{max-width:820px;margin:44px auto 0;padding:24px 20px 0;border-top:1px solid #1e1e1e;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;text-align:left}' +
+const SL_CSS = '.sl{max-width:820px;margin:44px auto 0;padding:24px 20px 0;border-top:1px solid #1e1e1e;font-family:Inter,"Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;text-align:left}' +
   '.sl-h{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#00e676;margin:0 0 16px}' +
   '.sl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 28px}' +
   '.sl-t{font-size:13px;font-weight:700;color:#e8e8e8;margin:0 0 8px}' +

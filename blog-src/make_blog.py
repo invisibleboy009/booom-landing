@@ -18,6 +18,7 @@ FONT = '''  <link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font"
     @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
     @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
     @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:'Inter Fallback';src:local('Arial'),local('Helvetica Neue'),local('Helvetica');size-adjust:107.4%;ascent-override:90.2%;descent-override:22.5%;line-gap-override:0%}
   </style>
   <script defer src="/assets/js/track.js"></script>'''
 
@@ -25,7 +26,7 @@ CSS = '''  <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--green:#00e676;--cyan:#00d4ff;--gold:#ffd700;--bg:#0a0a0a;--card:#111;--border:#1e1e1e;--text:#fff;--muted:#888}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
     a{color:var(--cyan)}
     .wrap{max-width:760px;margin:0 auto;padding:24px 20px 80px}
     header.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 28px}
