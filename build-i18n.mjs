@@ -155,6 +155,13 @@ function localize(src, L) {
     html = html.replace(/href="\/blog"/g, `href="${bl.hub}"`)
   }
 
+  // Font preloads: index.html carries latin + latin-ext (Slovak); other languages keep only what they need.
+  const PRELOAD_BY_LANG = { EN: '', DE: '', CS: 'Inter-latin-ext', PL: 'Inter-latin-ext', UK: 'Inter-cyrillic' }
+  if (L in PRELOAD_BY_LANG) {
+    html = html.replace(/\n  <link rel="preload" href="\/assets\/fonts\/Inter-latin-ext\.woff2"[^>]*>/, PRELOAD_BY_LANG[L]
+      ? `\n  <link rel="preload" href="/assets/fonts/${PRELOAD_BY_LANG[L]}.woff2" as="font" type="font/woff2" crossorigin>` : '')
+  }
+
   // The page now lives one directory down.
   html = html.replace(/src="lang\.js"/, 'src="/lang.js"')
 

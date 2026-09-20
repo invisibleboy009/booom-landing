@@ -88,12 +88,17 @@ HEAD_TOP = '''<!DOCTYPE html>
 <html lang="sk" data-lang="SK">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-V29R9X94FM');
+    /* gtag.js is fetched after load + idle (it cost 500-800 ms of main thread on a throttled phone) */
+    (function () {
+      function add() { var e = document.createElement('script'); e.async = true; e.src = 'https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM'; document.head.appendChild(e); }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(add, { timeout: 2500 }); });
+    }());
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">'''
@@ -146,6 +151,8 @@ def cta_l(ui, h3, p):
 def page_head(l, title_tag, desc, kw, og_type, og_title, url, urls, extra_meta=''):
     ui = mods[l].UI
     top = HEAD_TOP.replace('<html lang="sk" data-lang="SK">', '<html lang="%s" data-lang="%s">' % (ui['html_lang'], l.upper()))
+    if l in ('sk', 'cs'):
+        top += '\n  <link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>'
     alts = ''.join('\n  <meta property="og:locale:alternate" content="%s">' % OG[o] for o in LANGS if o != l)
     q = lambda t: html.escape(t, quote=True)
     return top + '''

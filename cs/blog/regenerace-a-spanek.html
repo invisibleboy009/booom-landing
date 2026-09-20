@@ -2,15 +2,21 @@
 <html lang="cs" data-lang="CS">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-V29R9X94FM');
+    /* gtag.js is fetched after load + idle (it cost 500-800 ms of main thread on a throttled phone) */
+    (function () {
+      function add() { var e = document.createElement('script'); e.async = true; e.src = 'https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM'; document.head.appendChild(e); }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(add, { timeout: 2500 }); });
+    }());
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://booom.fit/cs/blog/regenerace-a-spanek">
   <link rel="alternate" hreflang="sk" href="https://booom.fit/blog/regeneracia-a-spanok">
   <link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/recovery-and-sleep">

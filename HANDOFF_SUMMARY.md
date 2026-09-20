@@ -455,3 +455,9 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - Zdroj: zaklad v `blog-src/content_{sk,en,cs}.py`, rozsirenia a nove clanky v `blog-src/extras/NN_*.py` (`EXTEND` = pridat sekcie/FAQ do existujuceho, `NEW` = novy clanok; format v `blog-src/extras_loader.py`). Novy clanok = novy subor `extras/1N_*.py` s `NEW` pre sk/en/cs, potom `python blog-src/make_blog.py`, `python blog-src/make_og.py`, `node build-i18n.mjs`, commit.
 - `make_blog.py` zapisuje `blog-src/manifest.json` a chybajuce rewrites do `vercel.json`; `build-i18n.mjs` z manifestu sam generuje zoznam clankov na home (medzi `<!-- blog-links:start/end -->` v `index.html`), EN/CS home, bloky suvisiacich odkazov a sitemap hreflang. Uz sa nic nedopisuje rucne.
 - Karusel na home: bodky su len indikator, prepinaju sipky (`hero_prev`, `hero_next` v `lang.js`), kvoli minimalnej velkosti dotykovej plochy.
+
+## Rychlost: meranie a upravy (2026-09-20)
+
+- Baseline (Chrome trace, mobil, Fast 4G, CPU 4x pomalsi): home LCP 964 ms (H1 text, TTFB 166 ms), CLS 0,01, 24 poziadaviek; blog LCP 1122 ms. Google Tag Manager zabral 490-820 ms hlavneho vlakna, latin-ext font sa na SK/CS/PL strankach zistil az po layoute (1,1 s retaz).
+- Upravy: `gtag.js` sa nacita po `load` + idle (dataLayer sa plni hned, takze udalosti z `track.js` nepadnu); `<link rel="preload">` pre `Inter-latin-ext` (SK/CS/PL) alebo `Inter-cyrillic` (UK), EN/DE ho nemaju. Generuje `make_blog.py` (blog) a `build-i18n.mjs` (jazykove home).
+- Neurobene (uvazene): prekodovanie hero plagatov (usetri ~19 %, text na plagatoch by trpel), rozdelenie `lang.js` (68 kB gz, nie je na kritickej ceste), zuzenie fontu (vyzaduje fonttools).
