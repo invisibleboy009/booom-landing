@@ -161,29 +161,149 @@
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog"/>
   </url>
   <url>
     <loc>https://booom.fit/blog/treningovy-dennik</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-dennik"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-log"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-denik"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-dennik"/>
   </url>
   <url>
     <loc>https://booom.fit/blog/progresivne-pretazenie</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/progresivne-pretazenie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/progressive-overload"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/progresivni-pretizeni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/progresivne-pretazenie"/>
   </url>
   <url>
     <loc>https://booom.fit/blog/kolko-bielkovin-denne</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/how-much-protein-per-day"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/kolik-bilkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
   </url>
   <url>
     <loc>https://booom.fit/blog/hyrox-priprava-8-tyzdnov</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-8-week-training-plan"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-priprava-8-tydnu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/training-log</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-dennik"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-log"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-denik"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-dennik"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/progressive-overload</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/progresivne-pretazenie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/progressive-overload"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/progresivni-pretizeni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/progresivne-pretazenie"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/how-much-protein-per-day</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/how-much-protein-per-day"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/kolik-bilkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/hyrox-8-week-training-plan</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-8-week-training-plan"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-priprava-8-tydnu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/treninkovy-denik</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-dennik"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-log"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-denik"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-dennik"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/progresivni-pretizeni</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/progresivne-pretazenie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/progressive-overload"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/progresivni-pretizeni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/progresivne-pretazenie"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/kolik-bilkovin-denne</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/how-much-protein-per-day"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/kolik-bilkovin-denne"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/kolko-bielkovin-denne"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/hyrox-priprava-8-tydnu</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-8-week-training-plan"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-priprava-8-tydnu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
   </url>
 </urlset>

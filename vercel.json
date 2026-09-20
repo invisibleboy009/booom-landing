@@ -99,6 +99,46 @@
     {
       "source": "/blog/hyrox-priprava-8-tyzdnov",
       "destination": "/blog/hyrox-priprava-8-tyzdnov.html"
+    },
+    {
+      "source": "/en/blog",
+      "destination": "/en/blog/index.html"
+    },
+    {
+      "source": "/cs/blog",
+      "destination": "/cs/blog/index.html"
+    },
+    {
+      "source": "/en/blog/training-log",
+      "destination": "/en/blog/training-log.html"
+    },
+    {
+      "source": "/en/blog/progressive-overload",
+      "destination": "/en/blog/progressive-overload.html"
+    },
+    {
+      "source": "/en/blog/how-much-protein-per-day",
+      "destination": "/en/blog/how-much-protein-per-day.html"
+    },
+    {
+      "source": "/en/blog/hyrox-8-week-training-plan",
+      "destination": "/en/blog/hyrox-8-week-training-plan.html"
+    },
+    {
+      "source": "/cs/blog/treninkovy-denik",
+      "destination": "/cs/blog/treninkovy-denik.html"
+    },
+    {
+      "source": "/cs/blog/progresivni-pretizeni",
+      "destination": "/cs/blog/progresivni-pretizeni.html"
+    },
+    {
+      "source": "/cs/blog/kolik-bilkovin-denne",
+      "destination": "/cs/blog/kolik-bilkovin-denne.html"
+    },
+    {
+      "source": "/cs/blog/hyrox-priprava-8-tydnu",
+      "destination": "/cs/blog/hyrox-priprava-8-tydnu.html"
     }
   ],
   "headers": [
