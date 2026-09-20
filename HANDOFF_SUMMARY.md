@@ -448,3 +448,10 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - Kalkulacky maju EN a CS verzie: `en/1rm-calculator`, `en/calorie-calculator`, `en/hyrox-pacing-calculator`, `en/body-fat-calculator` a `cs/1rm-kalkulacka`, `cs/kaloricka-kalkulacka`, `cs/hyrox-pacing-kalkulacka`, `cs/procento-telesneho-tuku` (rucne HTML, kopie SK stranok s prelozenymi textami a JS retazcami; logika sa nesmie rozchadzat, pri oprave vzorca uprav vsetky tri). Rewrites su vo `vercel.json`, hreflang zhluky v `BLOG_CLUSTERS` (`build-i18n.mjs`, polozky 5+ su nastroje), lokalizovane linky na EN/CS home v `TOOLS_LOCAL`, blok suvisiacich odkazov v `SL_LANG`.
 - Nahladove obrazky (og:image) pre clanky a nastroje: `python blog-src/make_og.py` (Pillow, font Segoe UI Bold z Windows) zapise `assets/og/<jazyk>-<kluc>.jpg`; `make_blog.py` ich dosadzuje do clankov, nastroje ich maju v HTML.
 - Recenzie: home uz nevklada Review JSON-LD (Search Console: "viacero recenzii bez aggregateRating"). Referencie ostavaju viditelne; funkcia `markup()` v `index.html` ostala nevyuzita.
+
+## Blog: rozsirenia, nove clanky, manifest (2026-09-20, vecer)
+
+- Clanky su teraz 8 (SK/EN/CS): treningovy-dennik, progresivne-pretazenie, kolko-bielkovin-denne, hyrox-priprava-8-tyzdnov (rozsirene) + chudnutie-bez-straty-svalov, treningovy-split, hyrox-stanice-technika, regeneracia-a-spanok (nove).
+- Zdroj: zaklad v `blog-src/content_{sk,en,cs}.py`, rozsirenia a nove clanky v `blog-src/extras/NN_*.py` (`EXTEND` = pridat sekcie/FAQ do existujuceho, `NEW` = novy clanok; format v `blog-src/extras_loader.py`). Novy clanok = novy subor `extras/1N_*.py` s `NEW` pre sk/en/cs, potom `python blog-src/make_blog.py`, `python blog-src/make_og.py`, `node build-i18n.mjs`, commit.
+- `make_blog.py` zapisuje `blog-src/manifest.json` a chybajuce rewrites do `vercel.json`; `build-i18n.mjs` z manifestu sam generuje zoznam clankov na home (medzi `<!-- blog-links:start/end -->` v `index.html`), EN/CS home, bloky suvisiacich odkazov a sitemap hreflang. Uz sa nic nedopisuje rucne.
+- Karusel na home: bodky su len indikator, prepinaju sipky (`hero_prev`, `hero_next` v `lang.js`), kvoli minimalnej velkosti dotykovej plochy.

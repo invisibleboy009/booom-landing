@@ -171,6 +171,54 @@
     {
       "source": "/cs/procento-telesneho-tuku",
       "destination": "/cs/procento-telesneho-tuku.html"
+    },
+    {
+      "source": "/blog/chudnutie-bez-straty-svalov",
+      "destination": "/blog/chudnutie-bez-straty-svalov.html"
+    },
+    {
+      "source": "/blog/treningovy-split",
+      "destination": "/blog/treningovy-split.html"
+    },
+    {
+      "source": "/blog/hyrox-stanice-technika",
+      "destination": "/blog/hyrox-stanice-technika.html"
+    },
+    {
+      "source": "/blog/regeneracia-a-spanok",
+      "destination": "/blog/regeneracia-a-spanok.html"
+    },
+    {
+      "source": "/en/blog/lose-fat-keep-muscle",
+      "destination": "/en/blog/lose-fat-keep-muscle.html"
+    },
+    {
+      "source": "/en/blog/training-split-guide",
+      "destination": "/en/blog/training-split-guide.html"
+    },
+    {
+      "source": "/en/blog/hyrox-stations-technique",
+      "destination": "/en/blog/hyrox-stations-technique.html"
+    },
+    {
+      "source": "/en/blog/recovery-and-sleep",
+      "destination": "/en/blog/recovery-and-sleep.html"
+    },
+    {
+      "source": "/cs/blog/hubnuti-bez-ztraty-svalu",
+      "destination": "/cs/blog/hubnuti-bez-ztraty-svalu.html"
+    },
+    {
+      "source": "/cs/blog/treninkovy-split",
+      "destination": "/cs/blog/treninkovy-split.html"
+    },
+    {
+      "source": "/cs/blog/hyrox-stanice-technika",
+      "destination": "/cs/blog/hyrox-stanice-technika.html"
+    },
+    {
+      "source": "/cs/blog/regenerace-a-spanek",
+      "destination": "/cs/blog/regenerace-a-spanek.html"
     }
   ],
   "headers": [

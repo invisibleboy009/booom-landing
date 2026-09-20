@@ -46,7 +46,7 @@ ARTICLES.append(dict(
         ('Je lepšie zapisovať na papier alebo do appky?', 'Funguje oboje. Papier je rýchly a nič ťa nevyrušuje, appka vie sama počítať rekordy, objem a grafy. Najlepší denník je ten, ktorý si naozaj vedieš.'),
     ],
     sections=[
-        ('preco', 'Prečo si zapisovať tréningy', '''    <p>Bez zápisov trénuješ podľa pocitu. Pocit je užitočný, ale nespoľahlivý: dobrý deň skreslí to, čo si zvládol, a únava skreslí naopak. Denník ti dáva dáta, ktoré nezávisia od nálady.</p>
+        ('preco', 'Prečo si zapisovať tréningy', '''    <p>Bez zápisov trénuješ podľa pocitu. Pocit je užitočný, ale nespoľahlivý: dobrý deň skreslí to, čo zvládaš, a únava skreslí naopak. Denník ti dáva dáta, ktoré nezávisia od nálady.</p>
     <ul>
       <li><strong>Vieš, čo máš dnes porážať.</strong> Rast sily stojí na postupnom pridávaní záťaže (viac v článku <a href="/blog/progresivne-pretazenie">Progresívne preťaženie</a>). Bez čísel z minulého tréningu nevieš, čo znamená „viac“.</li>
       <li><strong>Vidíš pokrok, aj keď ho v zrkadle nevidíš.</strong> Svaly rastú pomaly, no váhy a opakovania idú hore rýchlejšie a sú motivujúce.</li>
@@ -67,7 +67,7 @@ ARTICLES.append(dict(
       <li><strong>Vyber si jeden formát a drž sa ho.</strong> Zošit, tabuľka alebo appka. Prepínanie medzi nimi je najčastejší dôvod, prečo sa denník rozpadne.</li>
       <li><strong>Pred tréningom pozri minulý záznam</strong> a stanov si cieľ na dnes: o opakovanie viac alebo o 2,5 kg viac.</li>
       <li><strong>Zapisuj hneď po sérii</strong>, nie večer z pamäti. Pamäť zaokrúhľuje nahor.</li>
-      <li><strong>Pridaj poznámku, keď sa niečo stalo</strong> — bolelo rameno, zle si spal, zmenil si techniku.</li>
+      <li><strong>Pridaj poznámku, keď sa niečo stalo</strong> — bolelo rameno, spánok bol zlý, zmenila sa technika.</li>
       <li><strong>Raz za týždeň si daj päť minút</strong> a prejdi si zápisy: čo rastie, čo stojí, čo treba zmeniť.</li>
     </ol>'''),
         ('progres', 'Ako z denníka vyčítať pokrok', '''    <p>Nesleduj všetko. Stačia tri veci:</p>
@@ -115,10 +115,10 @@ ARTICLES.append(dict(
     h1='Progresívne preťaženie: ako pridávať váhu, aby si stále rástol',
     crumb='Progresívne preťaženie',
     desc='Čo je progresívne preťaženie, päť spôsobov, ako ho uplatniť, jednoduchá dvojitá progresia, RPE a čo robiť pri stagnácii. Praktický návod pre silový tréning.',
-    card='Ako pridávať váhu, opakovania a objem tak, aby si rástol a nezdolala ťa stagnácia.',
+    card='Ako pridávať váhu, opakovania a objem tak, aby si napredoval a nezdolala ťa stagnácia.',
     kw='progresívne preťaženie, ako pridávať váhu, dvojitá progresia, RPE, stagnácia v sile, deload, silový tréning',
     lead='Telo rastie, len keď ho k tomu dotlačíš. Ak robíš stále rovnaké série s rovnakou váhou, prestane sa prispôsobovať. Progresívne preťaženie je princíp, ktorý stojí za všetkými dobrými plánmi.',
-    cta=('Nech sa progres počíta sám', 'BOOOM pri každom cviku ukáže, čo si zdvihol minule, a automaticky zaznamená nové rekordy. Ty len pridávaš.'),
+    cta=('Nech sa progres počíta sám', 'BOOOM pri každom cviku ukáže, čo išlo minule, a automaticky zaznamená nové rekordy. Ty len pridávaš.'),
     disc=DISC_TRAIN,
     faq=[
         ('Musím pridávať váhu každý tréning?', 'Nie. Začiatočníci môžu pridávať každý týždeň alebo dokonca každý tréning, pokročilí často len raz za niekoľko týždňov. Dôležitý je smer, nie rýchlosť.'),
@@ -322,3 +322,6 @@ ARTICLES.append(dict(
     ],
 ))
 
+
+import extras_loader
+ARTICLES = extras_loader.merge(ARTICLES, LANG, {'health': DISC_HEALTH, 'train': DISC_TRAIN})

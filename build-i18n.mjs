@@ -33,13 +33,13 @@ const TIKTOK = L => (L === 'SK' || L === 'CS') ? 'https://www.tiktok.com/@booom.
 const urlFor = L => L === 'SK' ? `${SITE}/` : `${SITE}/${HTML_LANG[L]}/`
 
 // Blog: one cluster per article, in Slovak / English / Czech (blog-src/make_blog.py writes the pages).
+// The blog lists come from blog-src/manifest.json (written by blog-src/make_blog.py).
+const MANIFEST = JSON.parse(readFileSync('blog-src/manifest.json', 'utf8'))
+const PFX = { sk: '', en: '/en', cs: '/cs' }
 const BLOG_CLUSTERS = [
   { sk: '/blog', en: '/en/blog', cs: '/cs/blog' },
-  { sk: '/blog/treningovy-dennik', en: '/en/blog/training-log', cs: '/cs/blog/treninkovy-denik' },
-  { sk: '/blog/progresivne-pretazenie', en: '/en/blog/progressive-overload', cs: '/cs/blog/progresivni-pretizeni' },
-  { sk: '/blog/kolko-bielkovin-denne', en: '/en/blog/how-much-protein-per-day', cs: '/cs/blog/kolik-bilkovin-denne' },
-  { sk: '/blog/hyrox-priprava-8-tyzdnov', en: '/en/blog/hyrox-8-week-training-plan', cs: '/cs/blog/hyrox-priprava-8-tydnu' },
-  // tools (BLOG_LOCAL only walks the first five entries)
+  ...MANIFEST.articles.map(a => ({ sk: `/blog/${a.sk.slug}`, en: `/en/blog/${a.en.slug}`, cs: `/cs/blog/${a.cs.slug}` })),
+  // tools
   { sk: '/1rm-kalkulacka', en: '/en/1rm-calculator', cs: '/cs/1rm-kalkulacka' },
   { sk: '/kalorie-kalkulacka', en: '/en/calorie-calculator', cs: '/cs/kaloricka-kalkulacka' },
   { sk: '/hyrox-pacing', en: '/en/hyrox-pacing-calculator', cs: '/cs/hyrox-pacing-kalkulacka' },
@@ -65,18 +65,16 @@ const TOOLS_LOCAL = {
 }
 
 // Localized blog links for the en/cs home pages (nav, footer, guides grid).
+const blogLinks = lang => MANIFEST.articles.map(a => ({ href: `${PFX[lang]}/blog/${a[lang].slug}`, label: a[lang].label }))
 const BLOG_LOCAL = {
-  EN: { hub: '/en/blog', all: 'Blog: all articles', articles: [
-    { href: '/en/blog/training-log', label: 'Training log: how to start' },
-    { href: '/en/blog/progressive-overload', label: 'Progressive overload' },
-    { href: '/en/blog/how-much-protein-per-day', label: 'How much protein per day' },
-    { href: '/en/blog/hyrox-8-week-training-plan', label: 'Hyrox prep in 8 weeks' } ] },
-  CS: { hub: '/cs/blog', all: 'Blog: všechny články', articles: [
-    { href: '/cs/blog/treninkovy-denik', label: 'Tréninkový deník: jak začít' },
-    { href: '/cs/blog/progresivni-pretizeni', label: 'Progresivní přetížení' },
-    { href: '/cs/blog/kolik-bilkovin-denne', label: 'Kolik bílkovin denně' },
-    { href: '/cs/blog/hyrox-priprava-8-tydnu', label: 'Hyrox příprava na 8 týdnů' } ] },
+  EN: { hub: '/en/blog', all: MANIFEST.guides_all.en },
+  CS: { hub: '/cs/blog', all: MANIFEST.guides_all.cs },
 }
+// The guides-grid block on the home pages (index.html holds the Slovak one between markers).
+const blogGuides = lang => '<!-- blog-links:start -->\n' +
+  [{ href: `${PFX[lang]}/blog`, label: MANIFEST.guides_all[lang] }, ...blogLinks(lang)]
+    .map(x => `      <a href="${x.href}"><span>${x.label}</span><span>→</span></a>`).join('\n') + '\n      <!-- blog-links:end -->'
+const blogGroup = lang => ['Blog', [...blogLinks(lang).map(x => [x.href, x.label]), [`${PFX[lang]}/blog`, MANIFEST.all[lang]]]]
 
 const read = p => readFileSync(p, 'utf8')
 const eolOf = s => s.includes('\r\n') ? '\r\n' : '\n'
@@ -153,12 +151,8 @@ function localize(src, L) {
       html = html.split(`href="${skHref}"`).join(`href="${tl.href}"`)
       for (const [skLabel, label] of tl.labels) html = html.split(`>${skLabel}<`).join(`>${label}<`)
     }
+    html = html.replace(/<!-- blog-links:start -->[\s\S]*?<!-- blog-links:end -->/, blogGuides(L.toLowerCase()))
     html = html.replace(/href="\/blog"/g, `href="${bl.hub}"`)
-    for (const [i, art] of bl.articles.entries()) {
-      const skRe = new RegExp(`<a href="${BLOG_CLUSTERS[i + 1].sk}"><span>[^<]*</span>`)
-      html = html.replace(skRe, `<a href="${art.href}"><span>${art.label}</span>`)
-    }
-    html = html.replace(new RegExp(`(<a href="${bl.hub}"><span>)[^<]*(</span>)`), `$1${bl.all}$2`)
   }
 
   // The page now lives one directory down.
@@ -168,6 +162,11 @@ function localize(src, L) {
 }
 
 // ── 1. language pages ─────────────────────────────────────────────────────────────────────
+{
+  const src = read('index.html')
+  const out = src.replace(/<!-- blog-links:start -->[\s\S]*?<!-- blog-links:end -->/, blogGuides('sk'))
+  if (out !== src) write('index.html', out, eolOf(src))
+}
 const indexSrc = read('index.html')
 const eol = eolOf(indexSrc)
 if (!/data-static-lang="SK"/.test(indexSrc)) throw new Error('index.html must carry data-static-lang="SK" on <html>')
@@ -265,13 +264,7 @@ const SL_GROUPS = [
     ['/dieta/bezlaktozova', 'Bezlaktózová diéta'],
     ['/dieta/histaminova', 'Histamínová diéta'],
   ]],
-  ['Blog', [
-    ['/blog/treningovy-dennik', 'Tréningový denník: ako začať'],
-    ['/blog/progresivne-pretazenie', 'Progresívne preťaženie'],
-    ['/blog/kolko-bielkovin-denne', 'Koľko bielkovín denne'],
-    ['/blog/hyrox-priprava-8-tyzdnov', 'Hyrox príprava na 8 týždňov'],
-    ['/blog', 'Všetky články'],
-  ]],
+  blogGroup('sk'),
 ]
 const SL_CSS = '.sl{max-width:820px;margin:44px auto 0;padding:24px 20px 0;border-top:1px solid #1e1e1e;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;text-align:left}' +
   '.sl-h{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#00e676;margin:0 0 16px}' +
@@ -289,13 +282,7 @@ const slBlock = (self, groups = SL_GROUPS, heading = 'Ďalšie nástroje a sprie
 // English and Czech blog pages get their own block (the calculators exist only in Slovak).
 const SL_LANG = {
   en: [[
-    ['Blog', [
-      ['/en/blog/training-log', 'Training log: how to start'],
-      ['/en/blog/progressive-overload', 'Progressive overload'],
-      ['/en/blog/how-much-protein-per-day', 'How much protein per day'],
-      ['/en/blog/hyrox-8-week-training-plan', 'Hyrox prep in 8 weeks'],
-      ['/en/blog', 'All articles'],
-    ]],
+    blogGroup('en'),
     ['Calculators', [
       ['/en/hyrox-pacing-calculator', 'Hyrox pacing calculator'],
       ['/en/1rm-calculator', '1RM calculator'],
@@ -304,13 +291,7 @@ const SL_LANG = {
     ]],
   ], 'More articles and tools'],
   cs: [[
-    ['Blog', [
-      ['/cs/blog/treninkovy-denik', 'Tréninkový deník: jak začít'],
-      ['/cs/blog/progresivni-pretizeni', 'Progresivní přetížení'],
-      ['/cs/blog/kolik-bilkovin-denne', 'Kolik bílkovin denně'],
-      ['/cs/blog/hyrox-priprava-8-tydnu', 'Hyrox příprava na 8 týdnů'],
-      ['/cs/blog', 'Všechny články'],
-    ]],
+    blogGroup('cs'),
     ['Kalkulačky', [
       ['/cs/hyrox-pacing-kalkulacka', 'Hyrox pacing kalkulačka'],
       ['/cs/1rm-kalkulacka', 'Kalkulačka 1RM'],

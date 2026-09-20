@@ -1,0 +1,126 @@
+{
+  "articles": [
+    {
+      "sk": {
+        "slug": "treningovy-dennik",
+        "label": "Tréningový denník"
+      },
+      "en": {
+        "slug": "training-log",
+        "label": "Training log"
+      },
+      "cs": {
+        "slug": "treninkovy-denik",
+        "label": "Tréninkový deník"
+      }
+    },
+    {
+      "sk": {
+        "slug": "progresivne-pretazenie",
+        "label": "Progresívne preťaženie"
+      },
+      "en": {
+        "slug": "progressive-overload",
+        "label": "Progressive overload"
+      },
+      "cs": {
+        "slug": "progresivni-pretizeni",
+        "label": "Progresivní přetížení"
+      }
+    },
+    {
+      "sk": {
+        "slug": "kolko-bielkovin-denne",
+        "label": "Koľko bielkovín denne"
+      },
+      "en": {
+        "slug": "how-much-protein-per-day",
+        "label": "How much protein per day"
+      },
+      "cs": {
+        "slug": "kolik-bilkovin-denne",
+        "label": "Kolik bílkovin denně"
+      }
+    },
+    {
+      "sk": {
+        "slug": "hyrox-priprava-8-tyzdnov",
+        "label": "Hyrox príprava na 8 týždňov"
+      },
+      "en": {
+        "slug": "hyrox-8-week-training-plan",
+        "label": "8-week Hyrox training plan"
+      },
+      "cs": {
+        "slug": "hyrox-priprava-8-tydnu",
+        "label": "Hyrox příprava na 8 týdnů"
+      }
+    },
+    {
+      "sk": {
+        "slug": "chudnutie-bez-straty-svalov",
+        "label": "Chudnutie bez straty svalov"
+      },
+      "en": {
+        "slug": "lose-fat-keep-muscle",
+        "label": "Lose fat, keep muscle"
+      },
+      "cs": {
+        "slug": "hubnuti-bez-ztraty-svalu",
+        "label": "Hubnutí bez ztráty svalů"
+      }
+    },
+    {
+      "sk": {
+        "slug": "treningovy-split",
+        "label": "Tréningový split"
+      },
+      "en": {
+        "slug": "training-split-guide",
+        "label": "Training split"
+      },
+      "cs": {
+        "slug": "treninkovy-split",
+        "label": "Tréninkový split"
+      }
+    },
+    {
+      "sk": {
+        "slug": "hyrox-stanice-technika",
+        "label": "Hyrox stanice"
+      },
+      "en": {
+        "slug": "hyrox-stations-technique",
+        "label": "Hyrox stations"
+      },
+      "cs": {
+        "slug": "hyrox-stanice-technika",
+        "label": "Hyrox stanice"
+      }
+    },
+    {
+      "sk": {
+        "slug": "regeneracia-a-spanok",
+        "label": "Regenerácia a spánok"
+      },
+      "en": {
+        "slug": "recovery-and-sleep",
+        "label": "Recovery and sleep"
+      },
+      "cs": {
+        "slug": "regenerace-a-spanek",
+        "label": "Regenerace a spánek"
+      }
+    }
+  ],
+  "all": {
+    "sk": "Všetky články",
+    "en": "All articles",
+    "cs": "Všechny články"
+  },
+  "guides_all": {
+    "sk": "Blog: všetky články",
+    "en": "Blog: all articles",
+    "cs": "Blog: všechny články"
+  }
+}

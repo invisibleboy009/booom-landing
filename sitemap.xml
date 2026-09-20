@@ -402,4 +402,124 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/procento-telesneho-tuku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/percento-telesneho-tuku"/>
   </url>
+  <url>
+    <loc>https://booom.fit/blog/chudnutie-bez-straty-svalov</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/lose-fat-keep-muscle"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hubnuti-bez-ztraty-svalu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/blog/treningovy-split</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-split"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-split-guide"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-split"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-split"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/blog/hyrox-stanice-technika</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-stations-technique"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/blog/regeneracia-a-spanok</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/recovery-and-sleep"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/regenerace-a-spanek"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/lose-fat-keep-muscle</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/lose-fat-keep-muscle"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hubnuti-bez-ztraty-svalu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/training-split-guide</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-split"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-split-guide"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-split"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-split"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/hyrox-stations-technique</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-stations-technique"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/blog/recovery-and-sleep</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/recovery-and-sleep"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/regenerace-a-spanek"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/hubnuti-bez-ztraty-svalu</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/lose-fat-keep-muscle"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hubnuti-bez-ztraty-svalu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/chudnutie-bez-straty-svalov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/treninkovy-split</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/treningovy-split"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/training-split-guide"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/treninkovy-split"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/treningovy-split"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/hyrox-stanice-technika</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-stations-technique"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-stanice-technika"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-stanice-technika"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/blog/regenerace-a-spanek</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/recovery-and-sleep"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/regenerace-a-spanek"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/regeneracia-a-spanok"/>
+  </url>
 </urlset>

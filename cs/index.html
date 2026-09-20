@@ -443,13 +443,17 @@
     .hero-showcase-frame img.is-leaving { opacity: 0; transform: scale(1); transition: opacity 0.9s ease; }
 
     /* Dots: active one stretches into a pill that fills up until the next slide */
-    .hero-showcase-dots { position: relative; z-index: 2; display: flex; justify-content: center; gap: 6px; margin-top: 18px; }
+    /* 2026-09-20: the 6 px dots were the only controls and far below the 24 px touch-target minimum,
+       so they are now a pure indicator and two 32 px arrow buttons do the navigating. */
+    .hero-showcase-nav { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; }
+    .hero-showcase-arrow { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); background: transparent; color: #fff; font-size: 20px; line-height: 1; cursor: pointer; padding: 0 0 2px; font-family: inherit; transition: border-color 0.18s, color 0.18s; }
+    .hero-showcase-arrow:hover, .hero-showcase-arrow:focus-visible { border-color: var(--green); color: var(--green); }
+    .hero-showcase-dots { position: relative; z-index: 2; display: flex; justify-content: center; gap: 6px; }
     .hero-showcase-dot {
-      width: 6px; height: 6px; border-radius: 100px; border: 0; padding: 0; cursor: pointer;
+      width: 6px; height: 6px; border-radius: 100px; border: 0; padding: 0; cursor: default;
       background: rgba(255,255,255,0.18); position: relative; overflow: hidden;
       transition: width 0.35s ease, background 0.35s ease;
     }
-    .hero-showcase-dot:hover { background: rgba(255,255,255,0.4); }
     .hero-showcase-dot.is-active { width: 26px; background: rgba(255,255,255,0.14); }
     .hero-showcase-dot.is-active::after {
       content: ''; position: absolute; inset: 0; transform-origin: left; transform: scaleX(0);
@@ -1398,7 +1402,11 @@
         </div>
           </div>
         </div>
-        <div class="hero-showcase-dots" aria-label="Ukážky aplikácie"></div>
+        <div class="hero-showcase-nav">
+          <button type="button" class="hero-showcase-arrow" data-dir="-1" data-i18n-aria="hero_prev" aria-label="Předchozí ukázka">&#8249;</button>
+          <div class="hero-showcase-dots" aria-hidden="true"></div>
+          <button type="button" class="hero-showcase-arrow" data-dir="1" data-i18n-aria="hero_next" aria-label="Další ukázka">&#8250;</button>
+        </div>
       </div>
     </div>
 
@@ -1802,11 +1810,17 @@
       <a href="/30-dni"><span>30 dní s BOOOMEROM</span><span>→</span></a>
       <a href="/stitna-zlaza"><span>Štítna žľaza</span><span>→</span></a>
       <a href="/dieta/hashimoto"><span>Hashimoto: diéta a liečba</span><span>→</span></a>
+      <!-- blog-links:start -->
       <a href="/cs/blog"><span>Blog: všechny články</span><span>→</span></a>
-      <a href="/cs/blog/treninkovy-denik"><span>Tréninkový deník: jak začít</span><span>→</span></a>
+      <a href="/cs/blog/treninkovy-denik"><span>Tréninkový deník</span><span>→</span></a>
       <a href="/cs/blog/progresivni-pretizeni"><span>Progresivní přetížení</span><span>→</span></a>
       <a href="/cs/blog/kolik-bilkovin-denne"><span>Kolik bílkovin denně</span><span>→</span></a>
       <a href="/cs/blog/hyrox-priprava-8-tydnu"><span>Hyrox příprava na 8 týdnů</span><span>→</span></a>
+      <a href="/cs/blog/hubnuti-bez-ztraty-svalu"><span>Hubnutí bez ztráty svalů</span><span>→</span></a>
+      <a href="/cs/blog/treninkovy-split"><span>Tréninkový split</span><span>→</span></a>
+      <a href="/cs/blog/hyrox-stanice-technika"><span>Hyrox stanice</span><span>→</span></a>
+      <a href="/cs/blog/regenerace-a-spanek"><span>Regenerace a spánek</span><span>→</span></a>
+      <!-- blog-links:end -->
       <a href="/faq"><span>Časté otázky</span><span>→</span></a>
     </div>
   </div>
@@ -2089,10 +2103,8 @@
     function load(i) { var im = imgs[i]; if (im && !im.getAttribute('src') && im.dataset.src) im.src = im.dataset.src; }
 
     var dots = imgs.map(function (_, i) {
-      var b = document.createElement('button');
-      b.type = 'button'; b.className = 'hero-showcase-dot' + (i ? '' : ' is-active');
-      b.setAttribute('aria-label', (i + 1) + ' / ' + imgs.length);
-      b.addEventListener('click', function () { go(i); });
+      var b = document.createElement('span');
+      b.className = 'hero-showcase-dot' + (i ? '' : ' is-active');
       dotsWrap.appendChild(b);
       return b;
     });
@@ -2117,6 +2129,9 @@
       }
       restart();
     }
+    [].slice.call(root.querySelectorAll('.hero-showcase-arrow')).forEach(function (btn) {
+      btn.addEventListener('click', function () { go(cur + parseInt(btn.getAttribute('data-dir'), 10)); });
+    });
     root.addEventListener('mouseenter', function () { paused = true; root.classList.add('is-paused'); clearTimeout(timer); });
     root.addEventListener('mouseleave', function () { paused = false; root.classList.remove('is-paused'); restart(); });
     document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else restart(); });

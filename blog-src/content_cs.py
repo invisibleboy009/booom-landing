@@ -321,3 +321,6 @@ ARTICLES.append(dict(
         ('sledovanie', 'Jak sledovat pokrok', '''    <p>Po každé simulaci si zapiš splity všech běhů a stanic. Uvidíš, kde ztrácíš čas, a můžeš tam zaměřit trénink. Silový pokrok sleduj v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a v <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a>.</p>'''),
     ],
 ))
+
+import extras_loader
+ARTICLES = extras_loader.merge(ARTICLES, LANG, {'health': DISC_HEALTH, 'train': DISC_TRAIN})

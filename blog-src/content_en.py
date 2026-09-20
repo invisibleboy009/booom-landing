@@ -320,3 +320,6 @@ ARTICLES.append(dict(
         ('sledovanie', 'How to track progress', '''    <p>After each simulation, write down the splits of all runs and stations. You’ll see where you lose time and can focus your training there. Track strength progress in the <a href="/en/1rm-calculator">1RM calculator</a> and in your <a href="/en/blog/training-log">training log</a>.</p>'''),
     ],
 ))
+
+import extras_loader
+ARTICLES = extras_loader.merge(ARTICLES, LANG, {'health': DISC_HEALTH, 'train': DISC_TRAIN})

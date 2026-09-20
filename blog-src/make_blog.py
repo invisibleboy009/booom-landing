@@ -295,3 +295,23 @@ for l in LANGS:
     cards = [build_article(l, i) for i in range(len(mods[l].ARTICLES))]
     build_hub(l, cards)
     print(l, [c['slug'] + ' ' + str(c['mins']) + 'min' for c in cards])
+
+# ── manifest (read by build-i18n.mjs) + vercel rewrites ──────────────────────────────────
+n_articles = len(mods['sk'].ARTICLES)
+manifest = {
+    'articles': [{l: {'slug': mods[l].ARTICLES[i]['slug'], 'label': mods[l].ARTICLES[i]['crumb']} for l in LANGS} for i in range(n_articles)],
+    'all': {'sk': 'Všetky články', 'en': 'All articles', 'cs': 'Všechny články'},
+    'guides_all': {'sk': 'Blog: všetky články', 'en': 'Blog: all articles', 'cs': 'Blog: všechny články'},
+}
+json.dump(manifest, open(os.path.join(HERE, 'manifest.json'), 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=2)
+vj = json.load(open('vercel.json', encoding='utf-8'))
+have = {r['source'] for r in vj['rewrites']}
+added = 0
+for l in LANGS:
+    routes = [('%s/blog' % mods[l].PREFIX, '/' + out_path(l))] + [('%s/blog/%s' % (mods[l].PREFIX, a['slug']), '/' + out_path(l, a['slug'])) for a in mods[l].ARTICLES]
+    for src, dst in routes:
+        if src not in have:
+            vj['rewrites'].append({'source': src, 'destination': dst}); added += 1
+json.dump(vj, open('vercel.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+open('vercel.json', 'a').write('\n')
+print('manifest: %d articles, %d new rewrites' % (n_articles, added))
