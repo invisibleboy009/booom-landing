@@ -425,7 +425,7 @@
     panel.setAttribute('aria-label', 'Boomer AI asistent');
     panel.innerHTML =
       /* ── History overlay ── */
-      '<div id="boomer-history-panel" aria-hidden="true">' +
+      '<div id="boomer-history-panel" aria-hidden="true" inert>' +
         '<div class="boomer-hist-header">' +
           '<button class="boomer-icon-btn" id="boomer-hist-back" aria-label="' + S().back + '" style="font-size:16px;">&#8592;</button>' +
           '<span class="boomer-hist-title">' + S().history + '</span>' +
@@ -480,14 +480,14 @@
     renderHistoryList();
     var hp = document.getElementById('boomer-history-panel');
     var hb = document.getElementById('boomer-hist-btn');
-    if (hp) { hp.classList.add('open'); hp.setAttribute('aria-hidden', 'false'); }
+    if (hp) { hp.classList.add('open'); hp.setAttribute('aria-hidden', 'false'); hp.removeAttribute('inert'); }
     if (hb) hb.classList.add('active');
   }
 
   function closeHistory() {
     var hp = document.getElementById('boomer-history-panel');
     var hb = document.getElementById('boomer-hist-btn');
-    if (hp) { hp.classList.remove('open'); hp.setAttribute('aria-hidden', 'true'); }
+    if (hp) { hp.classList.remove('open'); hp.setAttribute('aria-hidden', 'true'); hp.setAttribute('inert', ''); }
     if (hb) hb.classList.remove('active');
   }
 
