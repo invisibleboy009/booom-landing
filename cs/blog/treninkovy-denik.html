@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -139,16 +141,16 @@
       </ol>
     </nav>
 
-    <h2 id="preco">Proč si zapisovat tréninky</h2>
+    <section class="s"><h2 id="preco">Proč si zapisovat tréninky</h2>
     <p>Bez zápisů trénuješ podle pocitu. Pocit je užitečný, ale nespolehlivý: dobrý den zkreslí, jak ti trénink šel, a únava ho zase zkreslí opačným směrem. Deník ti dává data, která nezávisejí na náladě.</p>
     <ul>
       <li><strong>Víš, co máš dnes porazit.</strong> Růst síly stojí na postupném přidávání zátěže (víc v článku <a href="/cs/blog/progresivni-pretizeni">Progresivní přetížení</a>). Bez čísel z minulého tréninku nevíš, co znamená „víc“.</li>
       <li><strong>Vidíš pokrok, i když ho v zrcadle nevidíš.</strong> Svaly rostou pomalu, ale váhy a opakování stoupají rychleji a motivují.</li>
       <li><strong>Najdeš příčinu, když to nejde.</strong> Stagnace, bolest nebo únava zanechávají stopu v datech: méně spánku, víc objemu, vynechaná jídla.</li>
       <li><strong>Drží tě u návyku.</strong> Sebemonitorování patří mezi nejlépe prozkoumané techniky, které pomáhají udržet nový návyk.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="co">Co zapisovat: minimum a bonusy</h2>
+    <section class="s"><h2 id="co">Co zapisovat: minimum a bonusy</h2>
     <div class="tw"><table>
       <thead><tr><th>Kategorie</th><th>Co si zapsat</th></tr></thead>
       <tbody>
@@ -158,18 +160,18 @@
         <tr><td><strong>Běh a Hyrox</strong></td><td>Vzdálenost, čas, tempo, tep, splity jednotlivých běhů a stanic</td></tr>
       </tbody>
     </table></div>
-    <p>Začni minimem. Deník s deseti sloupci přestaneš vést za dva týdny, deník s pěti vydrží roky.</p>
+    <p>Začni minimem. Deník s deseti sloupci přestaneš vést za dva týdny, deník s pěti vydrží roky.</p></section>
 
-    <h2 id="ako">Jak si deník vést v praxi</h2>
+    <section class="s"><h2 id="ako">Jak si deník vést v praxi</h2>
     <ol>
       <li><strong>Vyber si jeden formát a drž se ho.</strong> Sešit, tabulka nebo appka. Přepínání mezi nimi je nejčastější důvod, proč se deník rozpadne.</li>
       <li><strong>Před tréninkem se podívej na minulý záznam</strong> a stanov si cíl na dnes: o opakování víc nebo o 2,5 kg víc.</li>
       <li><strong>Zapisuj hned po sérii</strong>, ne večer z paměti. Paměť zaokrouhluje nahoru.</li>
       <li><strong>Přidej poznámku, když se něco stalo</strong> — bolelo rameno, špatně se ti spalo, změnila se technika.</li>
       <li><strong>Jednou týdně si dej pět minut</strong> a projdi si zápisy: co roste, co stojí, co je potřeba změnit.</li>
-    </ol>
+    </ol></section>
 
-    <h2 id="sablona">Šablona: jak vypadá jeden záznam</h2>
+    <section class="s"><h2 id="sablona">Šablona: jak vypadá jeden záznam</h2>
     <p>Vezmi si tyto dva vzory a zkopíruj je do sešitu nebo tabulky. Čísla jsou jen ilustrační, ne doporučení, kolik máš zvedat nebo běhat. Nad každý záznam napiš datum a jednu větu o tom, jak se cítíš (energie 1 až 5).</p>
     <p><strong>Silový trénink</strong></p>
     <div class="tw"><table>
@@ -190,9 +192,9 @@
         <tr><td>4</td><td class="n">5:35</td><td>Burpee Broad Jumps</td><td class="n">4:30</td></tr>
       </tbody>
     </table></div>
-    <p>Pod tabulku patří celkový čas, RPE celého tréninku a jedna poznámka, například „nohy těžké po saních“. Váhy na stanicích závisejí na kategorii a sezóně, ověř si je v oficiálních pravidlech pro svou kategorii.</p>
+    <p>Pod tabulku patří celkový čas, RPE celého tréninku a jedna poznámka, například „nohy těžké po saních“. Váhy na stanicích závisejí na kategorii a sezóně, ověř si je v oficiálních pravidlech pro svou kategorii.</p></section>
 
-    <h2 id="progres">Jak z deníku vyčíst pokrok</h2>
+    <section class="s"><h2 id="progres">Jak z deníku vyčíst pokrok</h2>
     <p>Nesleduj všechno. Stačí tři věci:</p>
     <ul>
       <li><strong>Nejlepší série v hlavních cvicích.</strong> Z ní si můžeš odhadnout i 1RM v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a porovnat ho v čase.</li>
@@ -211,9 +213,9 @@
         </tbody>
       </table></div>
       <p>Tři týdny přidáváš opakování, ve čtvrtém přidáš váhu a začneš znovu. Bez deníku by ti to vypadlo z hlavy.</p>
-    </div>
+    </div></section>
 
-    <h2 id="stagnacia">Stagnace: kdy je čas změnit plán</h2>
+    <section class="s"><h2 id="stagnacia">Stagnace: kdy je čas změnit plán</h2>
     <p>Jeden slabší trénink nic neznamená, způsobí ho spánek, stres i počasí. O stagnaci má smysl uvažovat, když se v hlavních cvicích 3 až 4 tréninky po sobě nezlepší ani váha, ani opakování při podobném RPE. Dívej se na čtyřtýdenní průměr, ne na jeden den.</p>
     <p>Než změníš program, zkontroluj základy:</p>
     <ul>
@@ -222,9 +224,9 @@
       <li><strong>Poctivost záznamu.</strong> Stejný rozsah pohybu, stejné pauzy, stejné RPE.</li>
     </ul>
     <p>Pokud základy sedí, měň jednu věc najednou: přidej sérii, změň rozsah opakování nebo vyměň variantu cviku. Víc o postupném zvyšování zátěže najdeš v článku <a href="/cs/blog/progresivni-pretizeni">Progresivní přetížení</a>.</p>
-    <p><strong>Odlehčení (deload)</strong> se běžně zařazuje jednou za 4 až 8 týdnů nebo když výkon klesá dva týdny po sobě a cítíš se unaveně. Jeden týden sniž počet sérií zhruba na polovinu, váhy nech mírné a pak pokračuj v plánu.</p>
+    <p><strong>Odlehčení (deload)</strong> se běžně zařazuje jednou za 4 až 8 týdnů nebo když výkon klesá dva týdny po sobě a cítíš se unaveně. Jeden týden sniž počet sérií zhruba na polovinu, váhy nech mírné a pak pokračuj v plánu.</p></section>
 
-    <h2 id="poznamky">Poznámky: bolest, únava a spánek</h2>
+    <section class="s"><h2 id="poznamky">Poznámky: bolest, únava a spánek</h2>
     <p>Čísla ukážou, co se stalo. Poznámky vysvětlí proč. Stačí pár slov, pokud možno vždy stejným způsobem:</p>
     <div class="tw"><table>
       <thead><tr><th>Téma</th><th>Co si zapsat</th></tr></thead>
@@ -236,25 +238,25 @@
       </tbody>
     </table></div>
     <p>Po měsíci uvidíš vzorce: slabší tréninky po dvou krátkých nocích, rameno, které protestuje u jednoho konkrétního cviku, únava v týdnu před termínem v práci. Taková zjištění se dají využít při plánování.</p>
-    <p class="note">Deník není diagnostický nástroj a tento článek není lékařská rada. Pokud bolest přetrvává, je ostrá nebo se objeví necitlivost či otok, nestačí ji zapsat: nech se vyšetřit lékařem nebo fyzioterapeutem.</p>
+    <p class="note">Deník není diagnostický nástroj a tento článek není lékařská rada. Pokud bolest přetrvává, je ostrá nebo se objeví necitlivost či otok, nestačí ji zapsat: nech se vyšetřit lékařem nebo fyzioterapeutem.</p></section>
 
-    <h2 id="behanie">Běh, Hyrox a CrossFit v deníku</h2>
+    <section class="s"><h2 id="behanie">Běh, Hyrox a CrossFit v deníku</h2>
     <p>U vytrvalostních tréninků nejsou důležité váha a opakování, ale čas, vzdálenost a intenzita. Zapisuj:</p>
     <ul>
       <li><strong>Běh:</strong> typ (lehký, tempový, intervaly), vzdálenost, čas, průměrné tempo, RPE. U intervalů zapiš každý úsek zvlášť, ne jen průměr.</li>
       <li><strong>Hyrox:</strong> čas každého běhu na 1 km a každé stanice, celkový čas a poznámku o běhu po těžkých stanicích. Splity porovnej s plánem z <a href="/cs/hyrox-pacing-kalkulacka">Hyrox pacing kalkulačky</a>. Jak trénovat na závod, najdeš v <a href="/cs/blog/hyrox-priprava-8-tydnu">8týdenním plánu</a> a v článku <a href="/cs/blog/hyrox-stanice-technika">Hyrox stanice: technika</a>.</li>
       <li><strong>CrossFit:</strong> název tréninku (WOD), formát (AMRAP, na čas, EMOM), výsledek a zda šlo o předepsanou, nebo upravenou verzi. Víc pro začátečníky je na stránce <a href="/crossfit-pre-zaciatocnikov">CrossFit pro začátečníky</a> (slovensky).</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="chyby">Nejčastější chyby</h2>
+    <section class="s"><h2 id="chyby">Nejčastější chyby</h2>
     <ul>
       <li><strong>Příliš složitý formát.</strong> Pokud zápis trvá déle než rozcvička, přestaneš.</li>
       <li><strong>Zapisuješ jen rekordy.</strong> Bez průměrných dnů nevidíš trend.</li>
       <li><strong>Deník nepoužíváš.</strong> Zápis je zbytečný, pokud ho před tréninkem neotevřeš.</li>
       <li><strong>Nezaznamenáš změnu podmínek.</strong> Jiná lavice, jiné činky, jiný rozsah pohybu: bez poznámky ta čísla nepůjde porovnat.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="forma">Papír, tabulka, nebo appka?</h2>
+    <section class="s"><h2 id="forma">Papír, tabulka, nebo appka?</h2>
     <div class="tw"><table>
       <thead><tr><th>Forma</th><th>Výhoda</th><th>Nevýhoda</th></tr></thead>
       <tbody>
@@ -263,7 +265,7 @@
         <tr><td>Appka</td><td>Předvyplní minulé váhy, sama počítá rekordy a objem</td><td>Je potřeba vybrat tu, která tě neotravuje</td></tr>
       </tbody>
     </table></div>
-    <p>Aplikace BOOOM je postavená právě na tomhle: zapíšeš cvik, appka ti ukáže minulý výkon, sama vyhodnotí osobní rekordy a odmění tě XP a ranky. Vyzkoušet ji můžeš zdarma i na webu.</p>
+    <p>Aplikace BOOOM je postavená právě na tomhle: zapíšeš cvik, appka ti ukáže minulý výkon, sama vyhodnotí osobní rekordy a odmění tě XP a ranky. Vyzkoušet ji můžeš zdarma i na webu.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Zapisuj tréninky bez papíru</h3>

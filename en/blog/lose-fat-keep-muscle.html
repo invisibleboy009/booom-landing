@@ -88,6 +88,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -136,7 +138,7 @@
       </ol>
     </nav>
 
-    <h2 id="princip">The principle: why muscle is at risk in a deficit</h2>
+    <section class="s"><h2 id="princip">The principle: why muscle is at risk in a deficit</h2>
     <p>Fat goes down when you consistently take in less energy than you use. Your body covers the missing energy from fat stores, but also from muscle. Muscle is expensive to maintain, and if you give the body no reason to keep it, some of it can disappear.</p>
     <p>So what matters is the signal. If enough protein and hard training send the message "I need this muscle", most of the loss comes from fat. If you eat little protein and barely train, you will lose weight, but with muscle included. Complete beginners and people returning after a break can even gain some muscle in a mild deficit, while advanced lifters usually just hold on to what they have.</p>
     <p>Four things are enough to get there:</p>
@@ -145,9 +147,9 @@
       <li>enough protein,</li>
       <li>strength training with heavy weights,</li>
       <li>enough sleep and recovery.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="deficit">How big should the deficit be</h2>
+    <section class="s"><h2 id="deficit">How big should the deficit be</h2>
     <p>A bigger deficit does not mean a better result. The faster you lose, the higher the risk of losing muscle, strength and energy. The usual recommendation is <strong>15 to 20 % below your daily expenditure (TDEE)</strong>, which corresponds to losing roughly <strong>0.5 to 1 % of body weight per week</strong>. You can work out your TDEE in the <a href="/en/calorie-calculator">calorie calculator</a>.</p>
     <div class="tw"><table>
       <thead><tr><th>Deficit</th><th class="n">Daily calories (TDEE 2,759)</th><th>Note</th></tr></thead>
@@ -167,13 +169,13 @@
       </ul>
       <p>In the first few days weight can drop faster because of water and gut contents. That is not fat, so do not treat it as your trend.</p>
     </div>
-    <p>If you are already lean, stay nearer the lower end. If you carry more fat, you can tolerate a bigger deficit.</p>
+    <p>If you are already lean, stay nearer the lower end. If you carry more fat, you can tolerate a bigger deficit.</p></section>
 
-    <h2 id="bielkoviny">Protein: the most important macro</h2>
+    <section class="s"><h2 id="bielkoviny">Protein: the most important macro</h2>
     <p>When dieting it pays to sit at the top of the recommended range, that is <strong>1.8 to 2.2 g of protein per kg</strong> of body weight per day. For 80 kg that is 144 to 176 g, ideally spread over 3 to 5 meals of roughly 0.3 to 0.4 g per kg each (about 25 to 35 g per meal at 80 kg). Protein helps preserve muscle, keeps you fuller and costs the body more energy to process than carbohydrate or fat.</p>
-    <p>The range comes from the Morton et al. (2018, British Journal of Sports Medicine) meta-analysis. Sources, distribution across the day and food examples are in the article <a href="/en/blog/how-much-protein-per-day">How much protein per day</a>. Protein powder is just a convenient way to reach the number, not a requirement.</p>
+    <p>The range comes from the Morton et al. (2018, British Journal of Sports Medicine) meta-analysis. Sources, distribution across the day and food examples are in the article <a href="/en/blog/how-much-protein-per-day">How much protein per day</a>. Protein powder is just a convenient way to reach the number, not a requirement.</p></section>
 
-    <h2 id="trening">Training: keep lifting heavy</h2>
+    <section class="s"><h2 id="trening">Training: keep lifting heavy</h2>
     <p>Your body keeps muscle when training really challenges it. That is why a deficit is no reason to switch to "toning" with light weights and lots of reps. Stick to heavy compound lifts and about the same load you used before the diet.</p>
     <ul>
       <li><strong>Keep the intensity.</strong> The weights and how close you get to your limit matter more than total sets.</li>
@@ -181,21 +183,21 @@
       <li><strong>Aim to maintain strength.</strong> If strength in your main lifts holds or drops only slightly, you are probably keeping your muscle.</li>
       <li><strong>Keep progressing.</strong> Even slower progress is a win, more in the article <a href="/en/blog/progressive-overload">Progressive overload</a>.</li>
     </ul>
-    <p>The easiest place to watch strength and volume is a <a href="/en/blog/training-log">training log</a>: you will quickly see when performance starts to slip.</p>
+    <p>The easiest place to watch strength and volume is a <a href="/en/blog/training-log">training log</a>: you will quickly see when performance starts to slip.</p></section>
 
-    <h2 id="kardio-kroky">Cardio and steps: tools, not punishment</h2>
+    <section class="s"><h2 id="kardio-kroky">Cardio and steps: tools, not punishment</h2>
     <p>Neither cardio nor steps are a punishment for something you ate. They are tools for raising expenditure without cutting yet more calories.</p>
     <ul>
       <li><strong>Steps and everyday movement (NEAT)</strong> are often the cheapest way to raise expenditure. Walking barely taxes recovery, so it combines well with heavy training. Try adding 2,000 to 3,000 steps a day compared with now.</li>
       <li><strong>Cardio</strong> 2 to 3 times a week at moderate intensity is enough. Hard intervals also work, but dose them carefully because they count towards your total fatigue.</li>
     </ul>
-    <p>If you are preparing for running or Hyrox, you already have cardio in your plan. Just keep in mind that a deficit and a high running volume often work against each other.</p>
+    <p>If you are preparing for running or Hyrox, you already have cardio in your plan. Just keep in mind that a deficit and a high running volume often work against each other.</p></section>
 
-    <h2 id="spanok-stres">Sleep and stress</h2>
+    <section class="s"><h2 id="spanok-stres">Sleep and stress</h2>
     <p>Adults are commonly advised to get 7 to 9 hours of sleep. When sleep is short, hunger tends to be higher, cravings for sweet food stronger and training performance worse, and it is harder to stick to a diet. Stress and poor recovery cause a similar problem.</p>
-    <p>If you are dieting, sleep is part of the plan, not a bonus. Try to keep a regular bedtime. You will find more in the article <a href="/en/blog/recovery-and-sleep">Recovery and sleep</a>.</p>
+    <p>If you are dieting, sleep is part of the plan, not a bonus. Try to keep a regular bedtime. You will find more in the article <a href="/en/blog/recovery-and-sleep">Recovery and sleep</a>.</p></section>
 
-    <h2 id="sledovanie">How to track whether it is working</h2>
+    <section class="s"><h2 id="sledovanie">How to track whether it is working</h2>
     <p>A single number on the scale is not enough. Track several indicators at once:</p>
     <div class="tw"><table>
       <thead><tr><th>Indicator</th><th>How</th><th>What it tells you</th></tr></thead>
@@ -213,9 +215,9 @@
       <li>marked fatigue and worse sleep,</li>
       <li>hunger you cannot manage, or a drop in mood.</li>
     </ul>
-    <p>In that case ease off the deficit. If you have been dieting for longer (roughly 8 to 12 weeks) or performance has been slipping for a while, a <strong>diet break</strong> can help: 1 to 2 weeks at maintenance (TDEE). You can also track strength, PRs and macros in the <a href="https://app.booom.fit">BOOOM</a> app.</p>
+    <p>In that case ease off the deficit. If you have been dieting for longer (roughly 8 to 12 weeks) or performance has been slipping for a while, a <strong>diet break</strong> can help: 1 to 2 weeks at maintenance (TDEE). You can also track strength, PRs and macros in the <a href="https://app.booom.fit">BOOOM</a> app.</p></section>
 
-    <h2 id="kedy-nie">Who should not diet aggressively</h2>
+    <section class="s"><h2 id="kedy-nie">Who should not diet aggressively</h2>
     <p>We are not doctors and this guide is not for everyone. Talk to a doctor or a dietitian before dieting if any of this applies to you:</p>
     <ul>
       <li>being under 18 (the body is still growing and needs energy),</li>
@@ -224,7 +226,7 @@
       <li>a chronic condition (for example diabetes, thyroid, heart or kidney disease) or regular medication,</li>
       <li>an already low body weight.</li>
     </ul>
-    <p>In these cases the deficit should be set by a professional, not a calculator.</p>
+    <p>In these cases the deficit should be set by a professional, not a calculator.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Track strength and weight in one place</h3>

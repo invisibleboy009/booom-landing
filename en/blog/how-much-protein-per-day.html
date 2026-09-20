@@ -88,6 +88,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -139,7 +141,7 @@
       </ol>
     </nav>
 
-    <h2 id="odpoved">The short answer</h2>
+    <section class="s"><h2 id="odpoved">The short answer</h2>
     <p>For a healthy adult with a sedentary lifestyle, the reference intake is approximately <strong>0.8 g of protein per kg</strong> of body weight per day. If you <strong>strength train</strong>, want to build muscle or are losing weight, most recommendations fall in the range of <strong>1.6 to 2.2 g per kg</strong>.</p>
     <div class="tw"><table>
       <thead><tr><th>Body weight</th><th class="n">1.6 g/kg</th><th class="n">2.0 g/kg</th><th class="n">2.2 g/kg</th></tr></thead>
@@ -149,13 +151,13 @@
         <tr><td>80 kg</td><td class="n">128 g</td><td class="n">160 g</td><td class="n">176 g</td></tr>
         <tr><td>90 kg</td><td class="n">144 g</td><td class="n">180 g</td><td class="n">198 g</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="preco">Why this particular range</h2>
+    <section class="s"><h2 id="preco">Why this particular range</h2>
     <p>A 2018 meta-analysis (Morton et al., British Journal of Sports Medicine) pooled dozens of studies with strength training. Muscle gains improved with higher protein intake up to roughly <strong>1.6 g per kg</strong>, and higher values mostly brought no further benefit. The upper bound of the confidence interval was around <strong>2.2 g per kg</strong>, which is why this value is commonly given as a ceiling above which there is no point going.</p>
-    <p>More doesn’t always mean more muscle. Above roughly 2.2 g per kg it is usually just extra calories.</p>
+    <p>More doesn’t always mean more muscle. Above roughly 2.2 g per kg it is usually just extra calories.</p></section>
 
-    <h2 id="cielu">By goal</h2>
+    <section class="s"><h2 id="cielu">By goal</h2>
     <div class="tw"><table>
       <thead><tr><th>Situation</th><th class="n">g per kg per day</th></tr></thead>
       <tbody>
@@ -165,9 +167,9 @@
         <tr><td>Losing weight with strength training</td><td class="n">1.8 to 2.2</td></tr>
       </tbody>
     </table></div>
-    <p>In a calorie deficit it pays to aim for the upper end: it helps preserve muscle mass and keeps you fuller. You can set your deficit in the <a href="/en/calorie-calculator">calorie calculator</a>.</p>
+    <p>In a calorie deficit it pays to aim for the upper end: it helps preserve muscle mass and keeps you fuller. You can set your deficit in the <a href="/en/calorie-calculator">calorie calculator</a>.</p></section>
 
-    <h2 id="vek">Older adults and a calorie deficit</h2>
+    <section class="s"><h2 id="vek">Older adults and a calorie deficit</h2>
     <p>With age the body responds a little less strongly to protein, and without training and enough intake muscle mass slowly declines. Older adults are therefore commonly advised to eat <strong>more than the reference 0.8 g per kg</strong>. Some expert groups suggest roughly 1.0 to 1.2 g per kg for healthy older people, and more with regular strength training.</p>
     <p>The same goes for a <strong>calorie deficit</strong>: when you eat less, the body also draws on muscle, so stay near the upper end. Keep the deficit moderate (roughly 15 to 20 % below your needs), more in <a href="/en/blog/lose-fat-keep-muscle">Lose Fat Without Losing Muscle</a>.</p>
     <ul>
@@ -175,12 +177,12 @@
       <li><strong>Protein first.</strong> Eat it on your plate before you fill up on the side dish.</li>
       <li><strong>A strength stimulus.</strong> Protein alone won’t keep muscle. It needs load, see <a href="/en/blog/progressive-overload">Progressive Overload</a>.</li>
     </ul>
-    <p class="note">This is general information, not medical advice. If you have kidney disease or another chronic condition, take medication or are pregnant, discuss your protein intake with a doctor or dietitian.</p>
+    <p class="note">This is general information, not medical advice. If you have kidney disease or another chronic condition, take medication or are pregnant, discuss your protein intake with a doctor or dietitian.</p></section>
 
-    <h2 id="rozlozenie">How to spread it across the day</h2>
-    <p>A practical goal is 3 to 5 meals with about <strong>0.3 to 0.4 g of protein per kg</strong> in each meal. For 80 kg that is roughly 25 to 35 g. The exact timing around your workout matters less than your total daily intake.</p>
+    <section class="s"><h2 id="rozlozenie">How to spread it across the day</h2>
+    <p>A practical goal is 3 to 5 meals with about <strong>0.3 to 0.4 g of protein per kg</strong> in each meal. For 80 kg that is roughly 25 to 35 g. The exact timing around your workout matters less than your total daily intake.</p></section>
 
-    <h2 id="potraviny">How much protein common foods have</h2>
+    <section class="s"><h2 id="potraviny">How much protein common foods have</h2>
     <div class="tw"><table>
       <thead><tr><th>Food</th><th class="n">Protein (approx.)</th></tr></thead>
       <tbody>
@@ -195,9 +197,9 @@
         <tr><td>Whey protein, 1 scoop (30 g)</td><td class="n">24 g</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Values are approximate and vary by manufacturer and preparation method.</p>
+    <p class="note">Values are approximate and vary by manufacturer and preparation method.</p></section>
 
-    <h2 id="rastlinne">Plant-based protein sources</h2>
+    <section class="s"><h2 id="rastlinne">Plant-based protein sources</h2>
     <p>Plant sources usually have less protein per 100 g, and some are lower in certain amino acids (grains in lysine, legumes in methionine). The fix is simple: vary your sources through the day. No need to combine them in one meal.</p>
     <div class="tw"><table>
       <thead><tr><th>Source</th><th class="n">Protein (approx.)</th></tr></thead>
@@ -213,9 +215,9 @@
       </tbody>
     </table></div>
     <p class="note">Tofu and lentils are in the table above. Values vary by manufacturer, and seitan varies the most.</p>
-    <p>On a fully plant-based diet, aim for the upper end of your range, because plant proteins are digested a little less completely. Soy, tempeh and seitan are the most concentrated sources. Seitan is wheat gluten, so skip it if you can’t tolerate gluten.</p>
+    <p>On a fully plant-based diet, aim for the upper end of your range, because plant proteins are digested a little less completely. Soy, tempeh and seitan are the most concentrated sources. Seitan is wheat gluten, so skip it if you can’t tolerate gluten.</p></section>
 
-    <h2 id="den">Sample day for 80 kg (target around 160 g)</h2>
+    <section class="s"><h2 id="den">Sample day for 80 kg (target around 160 g)</h2>
     <div class="tw"><table>
       <thead><tr><th>Meal</th><th>What</th><th class="n">Protein</th></tr></thead>
       <tbody>
@@ -226,9 +228,9 @@
         <tr><td>After training</td><td>Whey protein 1 scoop</td><td class="n">~24 g</td></tr>
         <tr><td><strong>Total</strong></td><td></td><td class="n">~163 g</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="prax">Hitting your target in practice</h2>
+    <section class="s"><h2 id="prax">Hitting your target in practice</h2>
     <p>The gram number is only a starting point. Here is how to reach it without weighing every bite:</p>
     <ul>
       <li><strong>Estimate by hand.</strong> A palm-sized portion of meat or fish (cooked, about 100 to 150 g) gives roughly 25 to 35 g of protein. A handful of cottage cheese or yogurt is about 10 to 15 g.</li>
@@ -237,19 +239,19 @@
       <li><strong>Log for a few weeks.</strong> Until your estimates are reliable, record your food and watch the weekly average, not a single day.</li>
     </ul>
     <div class="ex"><strong>Example:</strong> a target of 140 g across 4 meals is about 35 g per meal. A palm of chicken (~30 g) plus a yogurt covers it.</div>
-    <p>Work out your total calories in the <a href="/en/calorie-calculator">calorie calculator</a> and keep your progress in a <a href="/en/blog/training-log">training log</a>. You can also log food and macros in the <a href="https://app.booom.fit">BOOOM app</a>.</p>
+    <p>Work out your total calories in the <a href="/en/calorie-calculator">calorie calculator</a> and keep your progress in a <a href="/en/blog/training-log">training log</a>. You can also log food and macros in the <a href="https://app.booom.fit">BOOOM app</a>.</p></section>
 
-    <h2 id="doplnky">Protein powder and creatine</h2>
+    <section class="s"><h2 id="doplnky">Protein powder and creatine</h2>
     <p>Protein powder is nothing magical, it is food in a convenient form. It makes sense when your appetite falls short, on the go, or when the last 20 to 30 g are missing from your plan. One scoop gives about 24 g (see the table above). It should fill the gap, not replace regular meals. Choose a product that states the protein content per serving.</p>
-    <p><strong>Creatine</strong> is among the best-researched supplements for strength training. Healthy adults commonly take <strong>3 to 5 g per day</strong>, and timing doesn’t matter. It is no miracle, just a small help with strength and performance. If you have kidney disease, take medication or are pregnant, check with a doctor first. This is not medical advice.</p>
+    <p><strong>Creatine</strong> is among the best-researched supplements for strength training. Healthy adults commonly take <strong>3 to 5 g per day</strong>, and timing doesn’t matter. It is no miracle, just a small help with strength and performance. If you have kidney disease, take medication or are pregnant, check with a doctor first. This is not medical advice.</p></section>
 
-    <h2 id="mytus">Myths and safety</h2>
+    <section class="s"><h2 id="mytus">Myths and safety</h2>
     <ul>
       <li><strong>“Protein ruins your kidneys.”</strong> In healthy people, studies have not confirmed this at commonly higher intakes. If you have kidney disease, talk to a doctor.</li>
       <li><strong>“You can’t build muscle without protein powder.”</strong> What matters is your total daily intake, not the form.</li>
       <li><strong>“The more, the better.”</strong> Once you go past the upper end of the range, you gain nothing more.</li>
     </ul>
-    <p>Log your intake and watch the weekly average. In your <a href="/en/blog/training-log">training log</a> you can compare your intake with how your training is going, week by week.</p>
+    <p>Log your intake and watch the weekly average. In your <a href="/en/blog/training-log">training log</a> you can compare your intake with how your training is going, week by week.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Log food and macros the easy way</h3>

@@ -52,6 +52,8 @@ CSS = '''  <style>
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -197,7 +199,7 @@ def build_article(l, i):
     urls = {o: art_url(o, i) for o in LANGS}
     url = urls[l]
     toc = '\n'.join('        <li><a href="#%s">%s</a></li>' % (sid, t) for sid, t, _ in a['sections'])
-    body = '\n\n'.join('    <h2 id="%s">%s</h2>\n%s' % (sid, t, b) for sid, t, b in a['sections'])
+    body = '\n\n'.join('    <section class="s"><h2 id="%s">%s</h2>\n%s</section>' % (sid, t, b) for sid, t, b in a['sections'])
     body = body.replace('<table>', '<div class="tw"><table>').replace('</table>', '</table></div>')
     words = len(strip_tags(body + ' '.join(q + ' ' + x for q, x in a['faq'])).split())
     mins = max(3, round(words / 200))

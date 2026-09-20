@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -138,12 +140,12 @@
       </ol>
     </nav>
 
-    <h2 id="co-je-split">Čo je tréningový split</h2>
+    <section class="s"><h2 id="co-je-split">Čo je tréningový split</h2>
     <p>Split je spôsob, ako rozdeliť svalové skupiny a cviky do tréningových dní. Žiadna zázračná schéma neexistuje. O výsledku rozhoduje najmä <strong>týždenný objem</strong> (koľko tvrdých sérií na sval), <strong>progresia</strong> záťaže a <strong>pravidelnosť</strong>. Split je len nástroj, ktorý tieto tri veci rozloží do týždňa.</p>
     <p>Preto pri výbere nerieš, čo robí influencer. Pýtaj sa, koľko dní reálne stihneš, ako sa cítiš po tréningu a či ťa plán baví natoľko, aby si ho dodržal aspoň pol roka.</p>
-    <p class="note">Ak máš zranenie, bolesť alebo chronické ochorenie, plán si konzultuj s lekárom alebo fyzioterapeutom. Článok je len všeobecný prehľad, nie osobný tréningový plán.</p>
+    <p class="note">Ak máš zranenie, bolesť alebo chronické ochorenie, plán si konzultuj s lekárom alebo fyzioterapeutom. Článok je len všeobecný prehľad, nie osobný tréningový plán.</p></section>
 
-    <h2 id="full-body">Full body: 2 až 3 dni</h2>
+    <section class="s"><h2 id="full-body">Full body: 2 až 3 dni</h2>
     <p>Na každom tréningu trénuješ celé telo, typicky drep alebo výpad, tlak, ťah a niečo na trup. Každý sval tak dostaneš 2 až 3-krát týždenne a techniku hlavných cvikov si často opakuješ.</p>
     <ul>
       <li><strong>Sedí:</strong> začiatočníkom, ľuďom s 2 až 3 voľnými dňami, tým, ktorí trénujú aj beh alebo iný šport.</li>
@@ -158,9 +160,9 @@
       </tbody>
     </table></div>
     <p>Nasledujúci týždeň začni tréningom B, aby sa A a B striedali.</p>
-    <p>Na začiatok stačí 5 až 6 cvikov na tréning po 2 až 3 sériách. Radšej pridávaj záťaž než počet cvikov. Takýto tréning trvá zvyčajne okolo 45 až 60 minút.</p>
+    <p>Na začiatok stačí 5 až 6 cvikov na tréning po 2 až 3 sériách. Radšej pridávaj záťaž než počet cvikov. Takýto tréning trvá zvyčajne okolo 45 až 60 minút.</p></section>
 
-    <h2 id="upper-lower">Upper/lower: 4 dni</h2>
+    <section class="s"><h2 id="upper-lower">Upper/lower: 4 dni</h2>
     <p>Dva dni trénuješ hornú polovicu tela, dva dni dolnú. Každý sval vyjde na 2-krát týždenne a tréningy sú kratšie ako pri full body. Pre väčšinu ľudí s 3 až 4 dňami týždenne je to zlatá stredná cesta.</p>
     <div class="tw"><table>
       <thead><tr><th>Deň</th><th>Zameranie</th><th>Cviky</th></tr></thead>
@@ -170,9 +172,9 @@
         <tr><td><strong>Štvrtok</strong></td><td>Upper</td><td>Šikmý tlak, ťah na kladke, upažovanie, biceps, triceps</td></tr>
         <tr><td><strong>Piatok</strong></td><td>Lower</td><td>Mŕtvy ťah alebo hip thrust, predný drep, leg curl, lýtka</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="ppl">Push / pull / legs: 3 až 6 dní</h2>
+    <section class="s"><h2 id="ppl">Push / pull / legs: 3 až 6 dní</h2>
     <p>Push je tlak (hrudník, ramená, triceps), pull je ťah (chrbát, biceps) a legs sú nohy. Na 3 dni každú skupinu trénuješ raz týždenne, na 6 dní dvakrát. Keď máš 4 až 5 dní, cyklus sa jednoducho prelieva cez týždne.</p>
     <div class="tw"><table>
       <thead><tr><th>Deň</th><th>Zameranie</th></tr></thead>
@@ -186,18 +188,18 @@
         <tr><td><strong>Nedeľa</strong></td><td>Voľno</td></tr>
       </tbody>
     </table></div>
-    <p>Šesť dní je veľa. Zvládneš ich, ak máš čas aj dobrý spánok, inak sa pri PPL oplatí začať na 3 až 4 dňoch.</p>
+    <p>Šesť dní je veľa. Zvládneš ich, ak máš čas aj dobrý spánok, inak sa pri PPL oplatí začať na 3 až 4 dňoch.</p></section>
 
-    <h2 id="bro-split">Bro split: pravdivé plusy a mínusy</h2>
+    <section class="s"><h2 id="bro-split">Bro split: pravdivé plusy a mínusy</h2>
     <p>Každý deň jedna alebo dve svalové skupiny: pondelok hrudník, utorok chrbát, streda nohy, štvrtok ramená, piatok ruky.</p>
     <ul>
       <li><strong>Plusy:</strong> veľa objemu na sval v jednom tréningu, jednoduchá hlava, dobré pumpy, ľahko sa to plánuje a baví to.</li>
       <li><strong>Mínusy:</strong> každý sval trénuješ približne raz týždenne. Výskum bežne naznačuje, že pri rovnakom týždennom objeme býva výhodnejšie zhruba dvakrát týždenne. Vynechaný tréning znamená, že sval netrénuješ celých 14 dní.</li>
     </ul>
     <p>Bro split môže dávať zmysel pre pokročilých s dostatkom času a pre ľudí, ktorí ho radi dodržiavajú. Začiatočníkovi však obvykle neprinesie nič, čo by full body alebo upper/lower nedali lepšie.</p>
-    <p>Kompromis: ak ťa bro rozvrh baví, uprav ho tak, aby sa väčšie svalové skupiny (hrudník, chrbát, nohy) dostali na rad dvakrát týždenne a menšie (ramená, ruky) sa robili ako doplnok v tých istých dňoch.</p>
+    <p>Kompromis: ak ťa bro rozvrh baví, uprav ho tak, aby sa väčšie svalové skupiny (hrudník, chrbát, nohy) dostali na rad dvakrát týždenne a menšie (ramená, ruky) sa robili ako doplnok v tých istých dňoch.</p></section>
 
-    <h2 id="ako-vybrat">Ako si vybrať split</h2>
+    <section class="s"><h2 id="ako-vybrat">Ako si vybrať split</h2>
     <p>Začni od počtu dní, ktoré vieš dodržať mesiace, nie od ideálneho plánu na papieri.</p>
     <div class="tw"><table>
       <thead><tr><th>Tvoja situácia</th><th>Rozumná voľba</th></tr></thead>
@@ -213,9 +215,9 @@
         <tr><td><strong>Nepravidelný rozvrh</strong></td><td>Full body, lebo vynechaný deň nič nerozbije</td></tr>
       </tbody>
     </table></div>
-    <p>Ak váhaš medzi dvoma možnosťami, vyber tú s menším počtom dní, ktorú zvládneš aj v hektickom týždni. Split môžeš po pár mesiacoch zmeniť, ale pravidelnosť je základ.</p>
+    <p>Ak váhaš medzi dvoma možnosťami, vyber tú s menším počtom dní, ktorú zvládneš aj v hektickom týždni. Split môžeš po pár mesiacoch zmeniť, ale pravidelnosť je základ.</p></section>
 
-    <h2 id="objem">Koľko sérií na sval týždenne</h2>
+    <section class="s"><h2 id="objem">Koľko sérií na sval týždenne</h2>
     <p>Orientačne sa pre rast svalov bežne uvádza približne 10 až 20 tvrdých sérií na svalovú skupinu týždenne. Tvrdá séria je séria blízko zlyhania, zvyčajne s rezervou 1 až 3 opakovania. Individuálne rozdiely sú veľké.</p>
     <ul>
       <li><strong>Začni nižšie</strong>, okolo 10 sérií na sval týždenne, a pridávaj len vtedy, keď pokrok stojí a regenerácia to dovolí.</li>
@@ -225,9 +227,9 @@
     <p>Viac nie je vždy lepšie. Ak ti výkon klesá alebo ťa všetko bolí, objem je pravdepodobne vyšší, než zvládaš.</p>
     <div class="ex">
       <p><strong>Príklad:</strong> pri upper/lower dostane hrudník 2 tréningy po 5 sériách (tlak na lavičke, šikmý tlak), čo je 10 sérií týždenne. Ak po pár týždňoch pokrok stojí a regenerácia je dobrá, pridaj 1 až 2 série na tréning, teda 12 až 14 týždenne.</p>
-    </div>
+    </div></section>
 
-    <h2 id="hybrid">Kombinácia s behom, Hyroxom a CrossFitom</h2>
+    <section class="s"><h2 id="hybrid">Kombinácia s behom, Hyroxom a CrossFitom</h2>
     <p>Ak popri silovom tréningu behávaš alebo sa pripravuješ na Hyrox, split ti nesmie nahromadiť únavu. Pár pravidiel:</p>
     <ul>
       <li><strong>Vyber si dva najťažšie dni a rozlož ich.</strong> Ťažké nohy nedávaj deň pred kľúčový beh alebo intervaly.</li>
@@ -248,11 +250,11 @@
         <tr><td><strong>Nedeľa</strong></td><td>Voľno</td></tr>
       </tbody>
     </table></div>
-    <p>Konkrétny týždenný plán nájdeš v článku <a href="/blog/hyrox-priprava-8-tyzdnov">Hyrox: príprava na 8 týždňov</a>, techniku staníc v <a href="/blog/hyrox-stanice-technika">článku o staniciach</a>. Začínaš s CrossFitom? Pozri <a href="/crossfit-pre-zaciatocnikov">CrossFit pre začiatočníkov</a>.</p>
+    <p>Konkrétny týždenný plán nájdeš v článku <a href="/blog/hyrox-priprava-8-tyzdnov">Hyrox: príprava na 8 týždňov</a>, techniku staníc v <a href="/blog/hyrox-stanice-technika">článku o staniciach</a>. Začínaš s CrossFitom? Pozri <a href="/crossfit-pre-zaciatocnikov">CrossFit pre začiatočníkov</a>.</p></section>
 
-    <h2 id="zaznam">Zapisuj, inak sa nedozvieš, či to funguje</h2>
+    <section class="s"><h2 id="zaznam">Zapisuj, inak sa nedozvieš, či to funguje</h2>
     <p>Split vyhodnotíš až po týždňoch dát. Zapisuj váhy, opakovania a série, ako je popísané v článku <a href="/blog/treningovy-dennik">Tréningový denník</a>, a pridávaj záťaž podľa <a href="/blog/progresivne-pretazenie">progresívneho preťaženia</a>. Silu si môžeš orientačne porovnávať v <a href="/1rm-kalkulacka">1RM kalkulačke</a>.</p>
-    <p>Denník si môžeš viesť aj v appke <a href="https://app.booom.fit">BOOOM</a>, ktorá sama sleduje osobné rekordy. Ak po 8 až 12 týždňoch vidíš, že čísla idú hore, split funguje. Ak nie, najprv skontroluj spánok, jedlo a objem, až potom plán meň.</p>
+    <p>Denník si môžeš viesť aj v appke <a href="https://app.booom.fit">BOOOM</a>, ktorá sama sleduje osobné rekordy. Ak po 8 až 12 týždňoch vidíš, že čísla idú hore, split funguje. Ak nie, najprv skontroluj spánok, jedlo a objem, až potom plán meň.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Zapíš si split do appky</h3>

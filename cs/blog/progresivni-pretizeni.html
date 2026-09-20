@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -140,11 +142,11 @@
       </ol>
     </nav>
 
-    <h2 id="co">Co je progresivní přetížení</h2>
+    <section class="s"><h2 id="co">Co je progresivní přetížení</h2>
     <p><strong>Progresivní přetížení</strong> znamená postupně zvyšovat nároky, které trénink klade na tělo. Svaly a nervový systém se přizpůsobí tomu, co děláš. Pokud nároky zůstanou stejné, přizpůsobení se zastaví a s ním i pokrok.</p>
-    <p>Nemusíš přidávat váhu na tyč. Přetížení lze zvyšovat několika způsoby a často je chytřejší je střídat.</p>
+    <p>Nemusíš přidávat váhu na tyč. Přetížení lze zvyšovat několika způsoby a často je chytřejší je střídat.</p></section>
 
-    <h2 id="sposoby">Pět způsobů, jak zvyšovat zátěž</h2>
+    <section class="s"><h2 id="sposoby">Pět způsobů, jak zvyšovat zátěž</h2>
     <div class="tw"><table>
       <thead><tr><th>Způsob</th><th>Jak to vypadá</th></tr></thead>
       <tbody>
@@ -154,9 +156,9 @@
         <tr><td><strong>Technika a rozsah</strong></td><td>Hlubší dřep, pomalejší excentrická fáze, pauza dole</td></tr>
         <tr><td><strong>Hustota</strong></td><td>Stejná práce za kratší čas, kratší pauzy</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="dvojita">Dvojitá progrese: nejjednodušší metoda</h2>
+    <section class="s"><h2 id="dvojita">Dvojitá progrese: nejjednodušší metoda</h2>
     <p>Stanov si rozsah opakování, například 8 až 12. Začni s váhou, se kterou zvládneš dolní hranici ve všech sériích. Držíš stejnou váhu a přidáváš opakování, dokud nedosáhneš horní hranice ve všech sériích. Tehdy přidáš váhu a vrátíš se na 8.</p>
     <div class="ex">
       <p><strong>Příklad: jednoruční přítah s činkou</strong></p>
@@ -170,17 +172,17 @@
           <tr><td>5</td><td>26 kg</td><td>8 / 8 / 8 a znovu</td></tr>
         </tbody>
       </table></div>
-    </div>
+    </div></section>
 
-    <h2 id="kolko">O kolik přidávat</h2>
+    <section class="s"><h2 id="kolko">O kolik přidávat</h2>
     <ul>
       <li><strong>Horní tělo a izolované cviky:</strong> obvykle 1,25 až 2,5 kg.</li>
       <li><strong>Nohy a mrtvý tah:</strong> obvykle 2,5 až 5 kg.</li>
       <li><strong>Začátečníci</strong> postupují rychleji, často každý týden. <strong>Pokročilí</strong> jen jednou za několik týdnů, někdy jen o opakování.</li>
     </ul>
-    <p>Pokud nemáš malé kotouče, kup si magnetická závaží po 0,5 až 1,25 kg. Malé skoky jsou lepší než stagnace.</p>
+    <p>Pokud nemáš malé kotouče, kup si magnetická závaží po 0,5 až 1,25 kg. Malé skoky jsou lepší než stagnace.</p></section>
 
-    <h2 id="zaciatocnik-vs-pokrocily">Začátečník, středně pokročilý, pokročilý: jak se progres mění</h2>
+    <section class="s"><h2 id="zaciatocnik-vs-pokrocily">Začátečník, středně pokročilý, pokročilý: jak se progres mění</h2>
     <p>Tempo progresu se s tréninkovým věkem výrazně mění. Začátečník může přidávat skoro každý trénink, pokročilý bojuje o jedno opakování za měsíc.</p>
     <div class="tw"><table>
       <thead><tr><th>Úroveň</th><th>Jak často přidáváš</th><th>Typický skok</th><th>Co čekat</th></tr></thead>
@@ -191,16 +193,16 @@
       </tbody>
     </table></div>
     <p class="note">Čísla jsou jen orientační. Skutečné tempo ovlivňuje spánek, jídlo, genetika i to, jak důsledně trénuješ.</p>
-    <p>Úroveň nedefinuje kalendář, ale to, zda ti ještě funguje jednoduché přidávání váhy. Pokud se ti to při čisté technice dvakrát po sobě zasekne, přejdi na dvojitou progresi.</p>
+    <p>Úroveň nedefinuje kalendář, ale to, zda ti ještě funguje jednoduché přidávání váhy. Pokud se ti to při čisté technice dvakrát po sobě zasekne, přejdi na dvojitou progresi.</p></section>
 
-    <h2 id="rpe">RPE a rezerva v opakováních</h2>
+    <section class="s"><h2 id="rpe">RPE a rezerva v opakováních</h2>
     <p><strong>RPE</strong> (rate of perceived exertion) je škála 1 až 10, jak těžká série byla. RPE 10 znamená úplné selhání, RPE 8 znamená, že ti v záloze zůstala asi dvě opakování. Tento údaj se označuje také jako <strong>RIR</strong> (reps in reserve).</p>
-    <p>Většina pracovních sérií by měla končit s rezervou 1 až 3 opakování. Tak budeš na sval tlačit dost, ale nebudeš se zbytečně vyčerpávat. Do <a href="/cs/blog/treninkovy-denik">tréninkového deníku</a> si RPE zapisuj alespoň u poslední série cviku.</p>
+    <p>Většina pracovních sérií by měla končit s rezervou 1 až 3 opakování. Tak budeš na sval tlačit dost, ale nebudeš se zbytečně vyčerpávat. Do <a href="/cs/blog/treninkovy-denik">tréninkového deníku</a> si RPE zapisuj alespoň u poslední série cviku.</p></section>
 
-    <h2 id="deload">Odlehčený týden (deload)</h2>
-    <p>Únava se nahromadí rychleji, než si myslíš. Jednou za 4 až 8 týdnů, nebo když ti výkon klesá několik tréninků po sobě, sniž objem i zátěž zhruba o třetinu až polovinu. Po týdnu se vrátíš s čerstvými silami a často překonáš předchozí rekordy.</p>
+    <section class="s"><h2 id="deload">Odlehčený týden (deload)</h2>
+    <p>Únava se nahromadí rychleji, než si myslíš. Jednou za 4 až 8 týdnů, nebo když ti výkon klesá několik tréninků po sobě, sniž objem i zátěž zhruba o třetinu až polovinu. Po týdnu se vrátíš s čerstvými silami a často překonáš předchozí rekordy.</p></section>
 
-    <h2 id="cyklus">Ukázka 8týdenního cyklu s deloadem</h2>
+    <section class="s"><h2 id="cyklus">Ukázka 8týdenního cyklu s deloadem</h2>
     <p>Jak to vypadá v praxi? Příklad pro bench press: jeden těžký trénink týdně, rozsah 6 až 8 opakování, dvojitá progrese a v sedmém týdnu deload. Váhy jsou jen ukázka, přizpůsob je sobě. Startovní váhu ti pomůže orientačně odhadnout <a href="/cs/1rm-kalkulacka">kalkulačka 1RM</a>.</p>
     <div class="tw"><table>
       <thead><tr><th class="n">Týden</th><th class="n">Váha</th><th>Série x opakování</th><th class="n">RPE</th><th>Poznámka</th></tr></thead>
@@ -215,9 +217,9 @@
         <tr><td class="n">8</td><td class="n">65 kg</td><td>3 x 6</td><td class="n">8</td><td>Svěží, nový rekord</td></tr>
       </tbody>
     </table></div>
-    <p>Pokud ve 4. týdnu nezvládneš 6 opakování s 62,5 kg, zůstaň ještě týden na 60 kg. Přidávat za každou cenu nemá smysl.</p>
+    <p>Pokud ve 4. týdnu nezvládneš 6 opakování s 62,5 kg, zůstaň ještě týden na 60 kg. Přidávat za každou cenu nemá smysl.</p></section>
 
-    <h2 id="stagnacia">Co dělat při stagnaci</h2>
+    <section class="s"><h2 id="stagnacia">Co dělat při stagnaci</h2>
     <ol>
       <li><strong>Zkontroluj spánek.</strong> Pravidelně méně než 7 hodin se projeví na síle i regeneraci.</li>
       <li><strong>Zkontroluj příjem.</strong> Při chronickém deficitu síla stagnuje. Spočítej si potřebu v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a> a bílkoviny podle článku <a href="/cs/blog/kolik-bilkovin-denne">Kolik bílkovin denně</a>.</li>
@@ -225,9 +227,9 @@
       <li><strong>Zkontroluj techniku.</strong> Natoč si sérii na video.</li>
       <li><strong>Dej si deload.</strong></li>
     </ol>
-    <p>Aktuální sílu si můžeš orientačně odhadnout v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a po pár týdnech porovnat.</p>
+    <p>Aktuální sílu si můžeš orientačně odhadnout v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a po pár týdnech porovnat.</p></section>
 
-    <h2 id="domov">Progrese bez činky: doma a bez vybavení</h2>
+    <section class="s"><h2 id="domov">Progrese bez činky: doma a bez vybavení</h2>
     <p>Progresivní přetížení není vázané na tyč. I doma máš víc možností, než čekáš:</p>
     <ul>
       <li><strong>Těžší varianta cviku:</strong> kliky ze sklonu (ruce na židli), pak klasické, pak s nohama na vyvýšené podložce.</li>
@@ -236,16 +238,16 @@
       <li><strong>Odporové gumy:</strong> přejdi na tvrdší gumu, použij dvě najednou nebo se postav dál od úchytu, aby bylo větší napětí.</li>
       <li><strong>Batoh:</strong> naplň ho knihami nebo lahvemi s vodou (1 l vody je přibližně 1 kg) a přidávej po 1 až 2 kg.</li>
     </ul>
-    <p>U lehčích zátěží jdi blíž k selhání: sérii ukonči s rezervou 1 až 3 opakování, i když jich je 15 až 30. Výzkum naznačuje, že sval může růst podobně v širokém rozsahu opakování, pokud jsou série dostatečně náročné. Při bolestech kloubů se poraď s fyzioterapeutem.</p>
+    <p>U lehčích zátěží jdi blíž k selhání: sérii ukonči s rezervou 1 až 3 opakování, i když jich je 15 až 30. Výzkum naznačuje, že sval může růst podobně v širokém rozsahu opakování, pokud jsou série dostatečně náročné. Při bolestech kloubů se poraď s fyzioterapeutem.</p></section>
 
-    <h2 id="chyby">Nejčastější chyby při přidávání zátěže</h2>
+    <section class="s"><h2 id="chyby">Nejčastější chyby při přidávání zátěže</h2>
     <ul>
       <li><strong>Ego lifting.</strong> Váha, při které se rozpadá technika, ti nic nedá. Počítají se jen čistá opakování v plném rozsahu.</li>
       <li><strong>Honění progresu na každém tréninku.</strong> Sleduj trend za 4 až 6 týdnů, ne jednu slabší sérii. Objem si rozumně rozlož v týdnu (<a href="/cs/blog/treninkovy-split">tréninkový split</a>).</li>
       <li><strong>Ignorování techniky.</strong> Přidáváš váhu a zkracuješ rozsah, takže se cvik vlastně usnadňuje.</li>
       <li><strong>Žádný záznam.</strong> Bez zapsaných vah a opakování nevíš, co znamená „víc“. Základy najdeš v článku <a href="/cs/blog/treninkovy-denik">Tréninkový deník</a>.</li>
       <li><strong>Zanedbaná regenerace.</strong> Spánek a pauzy mezi tréninky rozebírá <a href="/cs/blog/regenerace-a-spanek">regenerace a spánek</a>.</li>
-    </ul>
+    </ul></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Ať se progres počítá sám</h3>

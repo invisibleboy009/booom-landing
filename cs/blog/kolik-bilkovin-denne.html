@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -140,7 +142,7 @@
       </ol>
     </nav>
 
-    <h2 id="odpoved">Krátká odpověď</h2>
+    <section class="s"><h2 id="odpoved">Krátká odpověď</h2>
     <p>Pro zdravého dospělého se sedavým způsobem života je referenční příjem přibližně <strong>0,8 g bílkovin na kg</strong> tělesné hmotnosti denně. Pokud <strong>silově trénuješ</strong>, chceš nabírat svaly nebo hubneš, většina doporučení se pohybuje v rozsahu <strong>1,6 až 2,2 g na kg</strong>.</p>
     <div class="tw"><table>
       <thead><tr><th>Tělesná hmotnost</th><th class="n">1,6 g/kg</th><th class="n">2,0 g/kg</th><th class="n">2,2 g/kg</th></tr></thead>
@@ -150,13 +152,13 @@
         <tr><td>80 kg</td><td class="n">128 g</td><td class="n">160 g</td><td class="n">176 g</td></tr>
         <tr><td>90 kg</td><td class="n">144 g</td><td class="n">180 g</td><td class="n">198 g</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="preco">Proč právě tento rozsah</h2>
+    <section class="s"><h2 id="preco">Proč právě tento rozsah</h2>
     <p>Metaanalýza z roku 2018 (Morton a kol., British Journal of Sports Medicine) spojila desítky studií se silovým tréninkem. Přírůstky svalů se s vyšším příjmem bílkovin zlepšovaly přibližně do <strong>1,6 g na kg</strong> a vyšší hodnoty už většinou nepřinášely další přínos. Horní hranice intervalu spolehlivosti byla kolem <strong>2,2 g na kg</strong>, proto se tato hodnota běžně uvádí jako strop, nad který už nemá smysl jít.</p>
-    <p>Víc neznamená vždy víc svalů. Nad zhruba 2,2 g na kg už obvykle jde o zbytečné kalorie navíc.</p>
+    <p>Víc neznamená vždy víc svalů. Nad zhruba 2,2 g na kg už obvykle jde o zbytečné kalorie navíc.</p></section>
 
-    <h2 id="cielu">Podle cíle</h2>
+    <section class="s"><h2 id="cielu">Podle cíle</h2>
     <div class="tw"><table>
       <thead><tr><th>Situace</th><th class="n">g na kg denně</th></tr></thead>
       <tbody>
@@ -166,9 +168,9 @@
         <tr><td>Hubnutí se silovým tréninkem</td><td class="n">1,8 až 2,2</td></tr>
       </tbody>
     </table></div>
-    <p>V kalorickém deficitu se vyplatí být spíš u horní hranice, pomáhá to zachovat svalovou hmotu a lépe tě zasytí. Deficit si můžeš nastavit v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>.</p>
+    <p>V kalorickém deficitu se vyplatí být spíš u horní hranice, pomáhá to zachovat svalovou hmotu a lépe tě zasytí. Deficit si můžeš nastavit v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>.</p></section>
 
-    <h2 id="vek">Starší dospělí a kalorický deficit</h2>
+    <section class="s"><h2 id="vek">Starší dospělí a kalorický deficit</h2>
     <p>S věkem tělo reaguje na bílkoviny o něco slaběji a bez tréninku a dostatečného příjmu se svalová hmota pomalu ztrácí. Proto se pro starší dospělé běžně doporučuje spíš <strong>víc než referenčních 0,8 g na kg</strong>. Některé odborné skupiny uvádějí pro zdravé starší lidi přibližně 1,0 až 1,2 g na kg a při pravidelném silovém tréninku ještě víc, směrem k hodnotám z tabulek výše.</p>
     <p>Podobně je to v <strong>kalorickém deficitu</strong>. Když jíš méně, tělo sahá i po svalech, proto se vyplatí být u horní hranice. Deficit drž mírný (zhruba 15 až 20 % pod potřebou), víc v článku <a href="/cs/blog/hubnuti-bez-ztraty-svalu">Hubnutí bez ztráty svalů</a>.</p>
     <ul>
@@ -176,12 +178,12 @@
       <li><strong>Bílkovina jako první.</strong> Na talíři ji sněz dřív, než se nasytíš přílohou.</li>
       <li><strong>Silový podnět.</strong> Samotné bílkoviny sval neudrží. Potřebuje zátěž, víc v článku <a href="/cs/blog/progresivni-pretizeni">Progresivní přetížení</a>.</li>
     </ul>
-    <p class="note">Jde o obecné informace, ne lékařské poradenství. Pokud máš onemocnění ledvin či jiné chronické onemocnění, užíváš léky nebo jsi v těhotenství, příjem bílkovin konzultuj s lékařem nebo dietologem.</p>
+    <p class="note">Jde o obecné informace, ne lékařské poradenství. Pokud máš onemocnění ledvin či jiné chronické onemocnění, užíváš léky nebo jsi v těhotenství, příjem bílkovin konzultuj s lékařem nebo dietologem.</p></section>
 
-    <h2 id="rozlozenie">Jak si je rozložit během dne</h2>
-    <p>Praktický cíl jsou 3 až 5 jídel s přibližně <strong>0,3 až 0,4 g bílkovin na kg</strong> v jednom jídle. Pro 80 kg je to zhruba 25 až 35 g. Přesné načasování kolem tréninku je méně důležité než celkový denní příjem.</p>
+    <section class="s"><h2 id="rozlozenie">Jak si je rozložit během dne</h2>
+    <p>Praktický cíl jsou 3 až 5 jídel s přibližně <strong>0,3 až 0,4 g bílkovin na kg</strong> v jednom jídle. Pro 80 kg je to zhruba 25 až 35 g. Přesné načasování kolem tréninku je méně důležité než celkový denní příjem.</p></section>
 
-    <h2 id="potraviny">Kolik bílkovin mají běžné potraviny</h2>
+    <section class="s"><h2 id="potraviny">Kolik bílkovin mají běžné potraviny</h2>
     <div class="tw"><table>
       <thead><tr><th>Potravina</th><th class="n">Bílkoviny (orientačně)</th></tr></thead>
       <tbody>
@@ -196,9 +198,9 @@
         <tr><td>Syrovátkový protein, 1 odměrka (30 g)</td><td class="n">24 g</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Hodnoty jsou orientační a liší se podle výrobce a způsobu přípravy.</p>
+    <p class="note">Hodnoty jsou orientační a liší se podle výrobce a způsobu přípravy.</p></section>
 
-    <h2 id="rastlinne">Rostlinné zdroje bílkovin</h2>
+    <section class="s"><h2 id="rastlinne">Rostlinné zdroje bílkovin</h2>
     <p>Rostlinné zdroje mají bílkovin na 100 g jídla obvykle méně a některé mají méně určitých aminokyselin (obiloviny například méně lysinu, luštěniny méně methioninu). Řešení je jednoduché: střídej zdroje během dne. V jednom jídle je kombinovat nemusíš, stačí pestrý jídelníček.</p>
     <div class="tw"><table>
       <thead><tr><th>Zdroj</th><th class="n">Bílkoviny (orientačně)</th></tr></thead>
@@ -214,9 +216,9 @@
       </tbody>
     </table></div>
     <p class="note">Tofu a čočku najdeš v tabulce výše. Hodnoty se liší podle výrobce, seitan navíc nejvíc.</p>
-    <p>Při čistě rostlinné stravě měř k horní hranici svého rozsahu, protože rostlinné bílkoviny se tráví o něco hůř. Nejhustší zdroje jsou sója, tempeh a seitan, luštěniny a ořechy slouží jako doplněk. Seitan je pšeničný lepek, pokud lepek nesnášíš, vynech ho.</p>
+    <p>Při čistě rostlinné stravě měř k horní hranici svého rozsahu, protože rostlinné bílkoviny se tráví o něco hůř. Nejhustší zdroje jsou sója, tempeh a seitan, luštěniny a ořechy slouží jako doplněk. Seitan je pšeničný lepek, pokud lepek nesnášíš, vynech ho.</p></section>
 
-    <h2 id="den">Vzorový den pro 80 kg (cíl přibližně 160 g)</h2>
+    <section class="s"><h2 id="den">Vzorový den pro 80 kg (cíl přibližně 160 g)</h2>
     <div class="tw"><table>
       <thead><tr><th>Jídlo</th><th>Co</th><th class="n">Bílkoviny</th></tr></thead>
       <tbody>
@@ -227,9 +229,9 @@
         <tr><td>Po tréninku</td><td>Syrovátkový protein 1 odměrka</td><td class="n">~24 g</td></tr>
         <tr><td><strong>Celkem</strong></td><td></td><td class="n">~163 g</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="prax">Jak cíl splnit v praxi</h2>
+    <section class="s"><h2 id="prax">Jak cíl splnit v praxi</h2>
     <p>Číslo v gramech je jen začátek. Tohle ti pomůže dostat se k němu bez vážení každého sousta:</p>
     <ul>
       <li><strong>Odhad podle ruky.</strong> Porce masa nebo ryby velká jako tvá dlaň (uvařená, asi 100 až 150 g) dá zhruba 25 až 35 g bílkovin. Hrst tvarohu nebo jogurtu je přibližně 10 až 15 g.</li>
@@ -238,19 +240,19 @@
       <li><strong>Zapisuj aspoň pár týdnů.</strong> Dokud si odhad nenaučíš, zapisuj jídlo v aplikaci nebo poznámkách a sleduj týdenní průměr, ne jeden den.</li>
     </ul>
     <div class="ex"><strong>Příklad:</strong> cíl 140 g na 4 jídla je přibližně 35 g v jednom jídle. Dlaň kuřecího (~30 g) a jogurt k tomu úplně stačí.</div>
-    <p>Celkový příjem kalorií si spočítáš v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>, zápisy a pokrok drž v <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a>. Zápis jídla i makronutrientů zvládneš i v <a href="https://app.booom.fit">aplikaci BOOOM</a>.</p>
+    <p>Celkový příjem kalorií si spočítáš v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>, zápisy a pokrok drž v <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a>. Zápis jídla i makronutrientů zvládneš i v <a href="https://app.booom.fit">aplikaci BOOOM</a>.</p></section>
 
-    <h2 id="doplnky">Proteinový prášek a kreatin</h2>
+    <section class="s"><h2 id="doplnky">Proteinový prášek a kreatin</h2>
     <p>Proteinový prášek není nic magického, je to potravina v pohodlné podobě. Dává smysl, když ti nestačí chuť k jídlu, když jsi rychle po tréninku, na cestách, nebo když ti při plánování chybí posledních 20 až 30 g. Jedna odměrka dá přibližně 24 g (viz tabulka výše). Nahradit má jen chybějící část, ne běžná jídla. Vyber si výrobce, který na obalu uvádí obsah bílkovin na porci.</p>
-    <p><strong>Kreatin</strong> je jeden z nejlépe prozkoumaných doplňků pro silový trénink. Zdraví dospělí ho běžně užívají v dávce <strong>3 až 5 g denně</strong>, načasování není důležité. Není to zázrak, jen malá pomoc při síle a výkonu. Pokud máš onemocnění ledvin, užíváš léky nebo jsi v těhotenství, poraď se nejdřív s lékařem. Nejde o lékařské doporučení.</p>
+    <p><strong>Kreatin</strong> je jeden z nejlépe prozkoumaných doplňků pro silový trénink. Zdraví dospělí ho běžně užívají v dávce <strong>3 až 5 g denně</strong>, načasování není důležité. Není to zázrak, jen malá pomoc při síle a výkonu. Pokud máš onemocnění ledvin, užíváš léky nebo jsi v těhotenství, poraď se nejdřív s lékařem. Nejde o lékařské doporučení.</p></section>
 
-    <h2 id="mytus">Mýty a bezpečnost</h2>
+    <section class="s"><h2 id="mytus">Mýty a bezpečnost</h2>
     <ul>
       <li><strong>„Bílkoviny ničí ledviny.“</strong> U zdravých lidí to studie při běžně vyšším příjmu nepotvrdily. Pokud máš onemocnění ledvin, poraď se s lékařem.</li>
       <li><strong>„Bez proteinu se svaly nedělají.“</strong> Rozhoduje celkový denní příjem, ne forma.</li>
       <li><strong>„Čím víc, tím lépe.“</strong> Po překročení horní hranice rozsahu už nezískáš nic.</li>
     </ul>
-    <p>Příjem si zapisuj a sleduj průměr za týden. V <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a> si můžeš u každého týdne porovnat příjem s tím, jak se ti daří v tréninku.</p>
+    <p>Příjem si zapisuj a sleduj průměr za týden. V <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a> si můžeš u každého týdne porovnat příjem s tím, jak se ti daří v tréninku.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Zapisuj jídlo i makra jednoduše</h3>

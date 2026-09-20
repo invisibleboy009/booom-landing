@@ -88,6 +88,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -136,16 +138,16 @@
       </ol>
     </nav>
 
-    <h2 id="preco">Why you improve during recovery</h2>
+    <section class="s"><h2 id="preco">Why you improve during recovery</h2>
     <p>Training is a stress signal. It breaks down a little tissue, uses up energy stores and tires your nervous system. The adaptation, meaning stronger muscles, better endurance and tougher tendons, happens afterwards, in the hours and days when you eat, sleep and rest. More training without more recovery does not automatically mean more progress.</p>
     <p>Two terms are worth knowing:</p>
     <ul>
       <li><strong>Overreaching</strong> is a short period of hard training in which performance dips for a few days to a couple of weeks, then bounces back and often improves after rest. Planned in small doses, it is normal.</li>
       <li><strong>Overtraining</strong> is a state where performance stays down for weeks or months despite rest, often with poor sleep, low mood and constant fatigue. It is much rarer than people say and usually comes from a long-term mismatch between load, food, sleep and life stress.</li>
     </ul>
-    <p>Hard work is fine as long as recovery keeps up. Work stress and a short night come out of the same budget as a heavy squat day.</p>
+    <p>Hard work is fine as long as recovery keeps up. Work stress and a short night come out of the same budget as a heavy squat day.</p></section>
 
-    <h2 id="spanok">Sleep: the base of recovery</h2>
+    <section class="s"><h2 id="spanok">Sleep: the base of recovery</h2>
     <p>Adults are commonly advised to sleep 7 to 9 hours a night. Needs are individual, so treat it as a range. If you wake up rested and feel alert during the day, you are probably close to your number.</p>
     <p>Research suggests that short or poor sleep affects training in several ways:</p>
     <ul>
@@ -153,9 +155,9 @@
       <li><strong>Appetite.</strong> After short nights people tend to feel hungrier and crave calorie-dense food, which makes a deficit harder to hold (more in <a href="/en/blog/lose-fat-keep-muscle">how to lose fat and keep muscle</a>).</li>
       <li><strong>Motivation.</strong> It is easier to skip a workout or cut the intensity, and mood is usually lower.</li>
     </ul>
-    <p>One bad night ruins nothing; the pattern over weeks counts. If 7 hours is not realistic, protecting it most nights beats one perfect night and chaos the rest.</p>
+    <p>One bad night ruins nothing; the pattern over weeks counts. If 7 hours is not realistic, protecting it most nights beats one perfect night and chaos the rest.</p></section>
 
-    <h2 id="spanok-tipy">How to sleep better: a practical routine</h2>
+    <section class="s"><h2 id="spanok-tipy">How to sleep better: a practical routine</h2>
     <div class="tw"><table>
       <thead><tr><th>Habit</th><th>What to do</th><th>Why</th></tr></thead>
       <tbody>
@@ -167,17 +169,17 @@
         <tr><td><strong>Bedroom</strong></td><td>Cool, dark and quiet</td><td>Most people sleep better in a cooler room</td></tr>
       </tbody>
     </table></div>
-    <p>Pick one or two habits and hold them for two weeks before adding more. If you regularly can’t fall asleep, snore loudly or wake up exhausted after enough hours, talk to a doctor.</p>
+    <p>Pick one or two habits and hold them for two weeks before adding more. If you regularly can’t fall asleep, snore loudly or wake up exhausted after enough hours, talk to a doctor.</p></section>
 
-    <h2 id="vyziva">Food and hydration for recovery</h2>
+    <section class="s"><h2 id="vyziva">Food and hydration for recovery</h2>
     <ul>
       <li><strong>Protein.</strong> Roughly 1.6 to 2.2 g per kg of body weight across the day supports muscle repair for people who lift. Details in <a href="/en/blog/how-much-protein-per-day">how much protein per day</a>.</li>
       <li><strong>Carbohydrates.</strong> After hard or long sessions, carbs refill muscle glycogen. This matters most when you train twice a day or have another demanding session soon, for example in Hyrox or running. A normal meal with rice, potatoes, pasta or bread plus protein is enough for most people.</li>
       <li><strong>Hydration.</strong> Drink regularly through the day; pale-yellow urine is a rough guide. After very sweaty sessions, get some salt from normal food too.</li>
     </ul>
-    <p>Eating too little is a common hidden reason for poor recovery. When cutting, keep the deficit moderate (roughly 15 to 20 % below maintenance; find yours in the <a href="/en/calorie-calculator">calorie calculator</a>). Creatine (3 to 5 g per day) is commonly used and considered safe for healthy adults, but it is optional.</p>
+    <p>Eating too little is a common hidden reason for poor recovery. When cutting, keep the deficit moderate (roughly 15 to 20 % below maintenance; find yours in the <a href="/en/calorie-calculator">calorie calculator</a>). Creatine (3 to 5 g per day) is commonly used and considered safe for healthy adults, but it is optional.</p></section>
 
-    <h2 id="aktivna-regeneracia">Active recovery and rest days</h2>
+    <section class="s"><h2 id="aktivna-regeneracia">Active recovery and rest days</h2>
     <p>Active recovery is light movement that adds no real fatigue: easy walking, gentle cycling or swimming, and mobility work. Keep the pace conversational. A relaxed 20 to 40 minute walk is underrated. Complete rest is fine too, and at least one such day per week is a good idea.</p>
     <div class="tw"><table>
       <thead><tr><th>Method</th><th>What the evidence says</th><th>Verdict</th></tr></thead>
@@ -188,9 +190,9 @@
         <tr><td><strong>Cold water, heat, sauna</strong></td><td>Modest evidence, can feel good. Some research suggests routine cold right after lifting may dampen adaptation</td><td>Do it if you enjoy it</td></tr>
       </tbody>
     </table></div>
-    <p>None of this replaces sleep, food and a sensible plan. Treat it as a bonus.</p>
+    <p>None of this replaces sleep, food and a sensible plan. Treat it as a bonus.</p></section>
 
-    <h2 id="signaly">Warning signs and when to deload</h2>
+    <section class="s"><h2 id="signaly">Warning signs and when to deload</h2>
     <ul>
       <li>Performance is falling or stuck for two weeks or more despite good effort, and the same weights feel heavier.</li>
       <li>Resting heart rate is clearly higher than usual for several mornings in a row (a few beats either way is normal, so watch the trend).</li>
@@ -198,9 +200,9 @@
       <li>Mood, motivation and sleep are worse than usual: irritability, dreading workouts, waking at night.</li>
     </ul>
     <p>If several signs show up together, a deload is a sensible response. Cut volume by roughly a third to a half (fewer sets), keep weights moderate and effort easy for about a week, then return to your plan. Many lifters plan a deload every 4 to 8 weeks anyway; more in <a href="/en/blog/progressive-overload">progressive overload</a>.</p>
-    <p>See a doctor if you have pain that does not improve or gets worse, dizziness, fatigue that lasts even after several weeks of rest, or an injury. We are not doctors, and this article does not replace an examination.</p>
+    <p>See a doctor if you have pain that does not improve or gets worse, dizziness, fatigue that lasts even after several weeks of rest, or an injury. We are not doctors, and this article does not replace an examination.</p></section>
 
-    <h2 id="tyzden">Example week: hard and easy days</h2>
+    <section class="s"><h2 id="tyzden">Example week: hard and easy days</h2>
     <p>Alternate the load so your hardest days do not land back to back on the same muscles or the same type of fatigue. This is only an example; adjust it to your time, experience and how you feel.</p>
     <div class="tw"><table>
       <thead><tr><th>Day</th><th>Lifting (4 days)</th><th>Hyrox training</th></tr></thead>
@@ -214,16 +216,16 @@
         <tr><td><strong>Sunday</strong></td><td>Off</td><td>Off</td></tr>
       </tbody>
     </table></div>
-    <p>For how to arrange the days in strength training, see <a href="/en/blog/training-split-guide">training splits</a>. For a more detailed Hyrox progression, use the <a href="/en/blog/hyrox-8-week-training-plan">8-week Hyrox plan</a>.</p>
+    <p>For how to arrange the days in strength training, see <a href="/en/blog/training-split-guide">training splits</a>. For a more detailed Hyrox progression, use the <a href="/en/blog/hyrox-8-week-training-plan">8-week Hyrox plan</a>.</p></section>
 
-    <h2 id="sledovanie">Track sleep and energy in your log</h2>
+    <section class="s"><h2 id="sledovanie">Track sleep and energy in your log</h2>
     <p>In your <a href="/en/blog/training-log">training log</a>, note two more numbers next to your sets: how many hours you slept and how you feel on a scale of 1 to 5. It takes a few seconds.</p>
     <ul>
       <li>Once a week, check whether weak sessions follow short nights.</li>
       <li>Watch the trend in resting heart rate, not single mornings.</li>
       <li>Note skipped deloads or long streaks of training days and compare them with performance.</li>
     </ul>
-    <p>After a few weeks you will see your own patterns, and decisions about rest get clearer. You can also do this in the <a href="https://app.booom.fit">BOOOM</a> app.</p>
+    <p>After a few weeks you will see your own patterns, and decisions about rest get clearer. You can also do this in the <a href="https://app.booom.fit">BOOOM</a> app.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Log sleep and energy too</h3>

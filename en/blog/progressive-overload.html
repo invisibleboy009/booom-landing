@@ -88,6 +88,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -139,11 +141,11 @@
       </ol>
     </nav>
 
-    <h2 id="co">What is progressive overload</h2>
+    <section class="s"><h2 id="co">What is progressive overload</h2>
     <p><strong>Progressive overload</strong> means gradually increasing the demand your training puts on your body. Muscles and the nervous system adapt to what you do. If the demand stays the same, adaptation stops, and progress stops with it.</p>
-    <p>You don’t have to add weight to the bar. Overload can be increased in several ways, and it is often smarter to alternate them.</p>
+    <p>You don’t have to add weight to the bar. Overload can be increased in several ways, and it is often smarter to alternate them.</p></section>
 
-    <h2 id="sposoby">Five ways to increase the load</h2>
+    <section class="s"><h2 id="sposoby">Five ways to increase the load</h2>
     <div class="tw"><table>
       <thead><tr><th>Method</th><th>What it looks like</th></tr></thead>
       <tbody>
@@ -153,9 +155,9 @@
         <tr><td><strong>Technique and range</strong></td><td>A deeper squat, a slower eccentric phase, a pause at the bottom</td></tr>
         <tr><td><strong>Density</strong></td><td>The same work in less time, shorter rests</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="dvojita">Double progression: the simplest method</h2>
+    <section class="s"><h2 id="dvojita">Double progression: the simplest method</h2>
     <p>Set a rep range, for example 8 to 12. Start with a weight you can lift for the bottom of the range in all sets. Keep the same weight and add reps until you hit the top of the range in all sets. Then add weight and go back to 8.</p>
     <div class="ex">
       <p><strong>Example: one-arm dumbbell row</strong></p>
@@ -169,17 +171,17 @@
           <tr><td>5</td><td>26 kg</td><td>8 / 8 / 8 and repeat</td></tr>
         </tbody>
       </table></div>
-    </div>
+    </div></section>
 
-    <h2 id="kolko">How much to add</h2>
+    <section class="s"><h2 id="kolko">How much to add</h2>
     <ul>
       <li><strong>Upper body and isolation exercises:</strong> usually 1.25 to 2.5 kg.</li>
       <li><strong>Legs and deadlift:</strong> usually 2.5 to 5 kg.</li>
       <li><strong>Beginners</strong> progress faster, often every week. <strong>Advanced lifters</strong> only once every few weeks, sometimes just by a rep.</li>
     </ul>
-    <p>If you don’t have small plates, buy magnetic weights of 0.5 to 1.25 kg. Small jumps beat stagnation.</p>
+    <p>If you don’t have small plates, buy magnetic weights of 0.5 to 1.25 kg. Small jumps beat stagnation.</p></section>
 
-    <h2 id="zaciatocnik-vs-pokrocily">Beginner, intermediate, advanced: how progress changes</h2>
+    <section class="s"><h2 id="zaciatocnik-vs-pokrocily">Beginner, intermediate, advanced: how progress changes</h2>
     <p>Progress slows down with training age. A beginner can add weight almost every workout, an advanced lifter fights for one extra rep a month.</p>
     <div class="tw"><table>
       <thead><tr><th>Level</th><th>How often you add</th><th>Typical jump</th><th>What to expect</th></tr></thead>
@@ -190,16 +192,16 @@
       </tbody>
     </table></div>
     <p class="note">Numbers are approximate. The real pace depends on sleep, food, genetics and how consistently you train.</p>
-    <p>Your level is defined not by the calendar but by whether simple weight adding still works. If it stalls twice in a row with clean technique, switch to double progression.</p>
+    <p>Your level is defined not by the calendar but by whether simple weight adding still works. If it stalls twice in a row with clean technique, switch to double progression.</p></section>
 
-    <h2 id="rpe">RPE and reps in reserve</h2>
+    <section class="s"><h2 id="rpe">RPE and reps in reserve</h2>
     <p><strong>RPE</strong> (rate of perceived exertion) is a 1 to 10 scale of how hard a set was. RPE 10 means complete failure, RPE 8 means you had about two reps left in reserve. This figure is also called <strong>RIR</strong> (reps in reserve).</p>
-    <p>Most working sets should end with 1 to 3 reps in reserve. That way you put enough pressure on the muscle without needlessly exhausting yourself. In your <a href="/en/blog/training-log">training log</a>, note the RPE at least for the last set of an exercise.</p>
+    <p>Most working sets should end with 1 to 3 reps in reserve. That way you put enough pressure on the muscle without needlessly exhausting yourself. In your <a href="/en/blog/training-log">training log</a>, note the RPE at least for the last set of an exercise.</p></section>
 
-    <h2 id="deload">The lighter week (deload)</h2>
-    <p>Fatigue builds up faster than you think. Once every 4 to 8 weeks, or when your performance drops over several workouts in a row, cut both volume and load by roughly a third to a half. After a week you come back fresh and often beat your previous records.</p>
+    <section class="s"><h2 id="deload">The lighter week (deload)</h2>
+    <p>Fatigue builds up faster than you think. Once every 4 to 8 weeks, or when your performance drops over several workouts in a row, cut both volume and load by roughly a third to a half. After a week you come back fresh and often beat your previous records.</p></section>
 
-    <h2 id="cyklus">An example 8-week cycle with a deload</h2>
+    <section class="s"><h2 id="cyklus">An example 8-week cycle with a deload</h2>
     <p>An example for the bench press: one heavy session per week, a 6 to 8 rep range, double progression and a deload in week seven. Adapt the weights to yourself. The <a href="/en/1rm-calculator">1RM calculator</a> can help you roughly estimate a starting weight.</p>
     <div class="tw"><table>
       <thead><tr><th class="n">Week</th><th class="n">Weight</th><th>Sets x reps</th><th class="n">RPE</th><th>Note</th></tr></thead>
@@ -214,9 +216,9 @@
         <tr><td class="n">8</td><td class="n">65 kg</td><td>3 x 6</td><td class="n">8</td><td>Fresh, a new record</td></tr>
       </tbody>
     </table></div>
-    <p>If you can’t manage 6 reps with 62.5 kg in week 4, stay on 60 kg for another week.</p>
+    <p>If you can’t manage 6 reps with 62.5 kg in week 4, stay on 60 kg for another week.</p></section>
 
-    <h2 id="stagnacia">What to do when you plateau</h2>
+    <section class="s"><h2 id="stagnacia">What to do when you plateau</h2>
     <ol>
       <li><strong>Check your sleep.</strong> Regularly getting less than 7 hours shows up in both strength and recovery.</li>
       <li><strong>Check your intake.</strong> In a chronic deficit, strength stalls. Work out your needs in the <a href="/en/calorie-calculator">calorie calculator</a> and your protein using the article <a href="/en/blog/how-much-protein-per-day">How much protein per day</a>.</li>
@@ -224,9 +226,9 @@
       <li><strong>Check your technique.</strong> Film a set on video.</li>
       <li><strong>Take a deload.</strong></li>
     </ol>
-    <p>You can roughly estimate your current strength in the <a href="/en/1rm-calculator">1RM calculator</a> and compare it after a few weeks.</p>
+    <p>You can roughly estimate your current strength in the <a href="/en/1rm-calculator">1RM calculator</a> and compare it after a few weeks.</p></section>
 
-    <h2 id="domov">Progression without a barbell: at home with no equipment</h2>
+    <section class="s"><h2 id="domov">Progression without a barbell: at home with no equipment</h2>
     <p>Progressive overload is not tied to a barbell. At home you have more options than you think:</p>
     <ul>
       <li><strong>A harder variation:</strong> incline push-ups (hands on a chair), then standard ones, then with your feet on a raised surface.</li>
@@ -235,16 +237,16 @@
       <li><strong>Resistance bands:</strong> move to a thicker band, use two at once or stand farther from the anchor for more tension.</li>
       <li><strong>A backpack:</strong> fill it with books or water bottles (1 litre of water is roughly 1 kg) and add 1 to 2 kg at a time.</li>
     </ul>
-    <p>With lighter loads, go closer to failure: finish a set with 1 to 3 reps in reserve, even if that means 15 to 30 reps. Research suggests muscle can grow similarly across a wide range of reps as long as sets are demanding. If you have joint pain, talk to a physiotherapist.</p>
+    <p>With lighter loads, go closer to failure: finish a set with 1 to 3 reps in reserve, even if that means 15 to 30 reps. Research suggests muscle can grow similarly across a wide range of reps as long as sets are demanding. If you have joint pain, talk to a physiotherapist.</p></section>
 
-    <h2 id="chyby">Common mistakes when adding load</h2>
+    <section class="s"><h2 id="chyby">Common mistakes when adding load</h2>
     <ul>
       <li><strong>Ego lifting.</strong> A weight that wrecks your technique gives you nothing. Only clean, full-range reps count.</li>
       <li><strong>Chasing progress every workout.</strong> Watch the trend over 4 to 6 weeks, not one weak set. Spread your volume sensibly across the week (<a href="/en/blog/training-split-guide">training split guide</a>).</li>
       <li><strong>Ignoring technique.</strong> Adding weight while shortening the range actually makes the lift easier.</li>
       <li><strong>No log.</strong> Without written weights and reps, “more” means nothing. The basics are in the article <a href="/en/blog/training-log">Training log</a>.</li>
       <li><strong>Neglected recovery.</strong> Sleep and rest days are covered in <a href="/en/blog/recovery-and-sleep">recovery and sleep</a>.</li>
-    </ul>
+    </ul></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Let your progress count itself</h3>

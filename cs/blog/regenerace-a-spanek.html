@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -137,16 +139,16 @@
       </ol>
     </nav>
 
-    <h2 id="preco">Proč se zlepšuješ až při regeneraci</h2>
+    <section class="s"><h2 id="preco">Proč se zlepšuješ až při regeneraci</h2>
     <p>Trénink je stresový signál. Trochu poškodí tkáň, spotřebuje zásoby energie a unaví nervový systém. Adaptace, tedy silnější svaly, lepší vytrvalost a odolnější šlachy, přichází potom, v hodinách a dnech, kdy jíš, spíš a odpočíváš. Víc tréninku bez víc regenerace automaticky neznamená víc progresu.</p>
     <p>Vyplatí se znát dva pojmy:</p>
     <ul>
       <li><strong>Overreaching</strong> je krátké období tvrdého tréninku, při kterém výkon na pár dní až týdnů klesne a po odpočinku se vrátí a často i zlepší. V malých dávkách a plánovaně je to běžná součást tréninku.</li>
       <li><strong>Přetrénování</strong> je stav, kdy výkon zůstává nízko týdny či měsíce i přes odpočinek, často spolu s horším spánkem, špatnou náladou a stálou únavou. Je mnohem vzácnější, než se říká, a obvykle vzniká dlouhodobou nerovnováhou mezi zátěží, jídlem, spánkem a stresem.</li>
     </ul>
-    <p>Závěr: tvrdá práce je v pořádku, dokud regenerace stíhá. Do stejného rozpočtu se počítá i stres z práce a krátká noc, nejen těžký den dřepů.</p>
+    <p>Závěr: tvrdá práce je v pořádku, dokud regenerace stíhá. Do stejného rozpočtu se počítá i stres z práce a krátká noc, nejen těžký den dřepů.</p></section>
 
-    <h2 id="spanok">Spánek: základ regenerace</h2>
+    <section class="s"><h2 id="spanok">Spánek: základ regenerace</h2>
     <p>Dospělým se běžně doporučuje spát 7 až 9 hodin za noc. Potřeby jsou individuální, proto ber tento údaj jako rozsah, ne pravidlo. Pokud se budíš s pocitem odpočinku a přes den tě netrápí ospalost, jsi nejspíš blízko své hodnoty.</p>
     <p>Výzkum naznačuje, že krátký nebo špatný spánek se v tréninku projevuje více způsoby:</p>
     <ul>
@@ -154,9 +156,9 @@
       <li><strong>Chuť k jídlu.</strong> Po krátkých nocích mívají lidé větší chuť k jídlu a táhne je to k energeticky bohatším věcem, což ztěžuje držet deficit (víc v článku <a href="/cs/blog/hubnuti-bez-ztraty-svalu">hubnutí bez ztráty svalů</a>).</li>
       <li><strong>Motivace.</strong> Snáz se vynechá trénink nebo se sníží intenzita a nálada bývá horší.</li>
     </ul>
-    <p>Jedna špatná noc nic nekazí. Rozhoduje vzorec za týdny. Pokud se 7 hodin nedá, je lepší je chránit většinu nocí, než mít jednu dokonalou a zbytek chaos.</p>
+    <p>Jedna špatná noc nic nekazí. Rozhoduje vzorec za týdny. Pokud se 7 hodin nedá, je lepší je chránit většinu nocí, než mít jednu dokonalou a zbytek chaos.</p></section>
 
-    <h2 id="spanok-tipy">Jak lépe spát: praktická rutina</h2>
+    <section class="s"><h2 id="spanok-tipy">Jak lépe spát: praktická rutina</h2>
     <div class="tw"><table>
       <thead><tr><th>Zvyk</th><th>Co dělat</th><th>Proč</th></tr></thead>
       <tbody>
@@ -168,17 +170,17 @@
         <tr><td><strong>Ložnice</strong></td><td>Chladná, tmavá a tichá</td><td>Většině lidí se v chladnější místnosti spí lépe</td></tr>
       </tbody>
     </table></div>
-    <p>Vyber si jeden nebo dva zvyky a drž je dva týdny, než přidáš další. Pokud pravidelně nemůžeš usnout, hlasitě chrápeš nebo se budíš vyčerpaně i po dostatku hodin, proberte to s lékařem, příčina může být zdravotní.</p>
+    <p>Vyber si jeden nebo dva zvyky a drž je dva týdny, než přidáš další. Pokud pravidelně nemůžeš usnout, hlasitě chrápeš nebo se budíš vyčerpaně i po dostatku hodin, proberte to s lékařem, příčina může být zdravotní.</p></section>
 
-    <h2 id="vyziva">Výživa a pitný režim pro regeneraci</h2>
+    <section class="s"><h2 id="vyziva">Výživa a pitný režim pro regeneraci</h2>
     <ul>
       <li><strong>Bílkoviny.</strong> Zhruba 1,6 až 2,2 g na kg tělesné hmotnosti během dne podporuje opravu svalů u lidí, kteří cvičí se zátěží. Podrobnosti najdeš v článku <a href="/cs/blog/kolik-bilkovin-denne">kolik bílkovin denně</a>.</li>
       <li><strong>Sacharidy.</strong> Po těžkých nebo dlouhých trénincích doplňují zásoby svalového glykogenu. Nejvíc se to hodí, když trénuješ dvakrát denně nebo tě čeká další náročný trénink, například u Hyroxu či běhu. Většině lidí stačí běžné jídlo s rýží, bramborami, těstovinami nebo pečivem a bílkovinou.</li>
       <li><strong>Hydratace.</strong> Pij pravidelně během dne, orientačně ti pomůže světležlutá moč. Po hodně propocených trénincích doplň i sůl z běžného jídla.</li>
     </ul>
-    <p>Příliš málo jídla je jednou z nejčastějších skrytých příčin špatné regenerace. Při hubnutí drž deficit mírný (zhruba 15 až 20 % pod udržovacím příjmem, svůj najdeš v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>) a chraň si lehčí dny. Kreatin (3 až 5 g denně) se běžně používá a u zdravých dospělých je považován za bezpečný, ale je volitelný.</p>
+    <p>Příliš málo jídla je jednou z nejčastějších skrytých příčin špatné regenerace. Při hubnutí drž deficit mírný (zhruba 15 až 20 % pod udržovacím příjmem, svůj najdeš v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>) a chraň si lehčí dny. Kreatin (3 až 5 g denně) se běžně používá a u zdravých dospělých je považován za bezpečný, ale je volitelný.</p></section>
 
-    <h2 id="aktivna-regeneracia">Aktivní regenerace a odpočinkové dny</h2>
+    <section class="s"><h2 id="aktivna-regeneracia">Aktivní regenerace a odpočinkové dny</h2>
     <p>Aktivní regenerace je lehký pohyb, který zvyšuje prokrvení a nepřidává skutečnou únavu: klidná chůze, lehká jízda na kole nebo plavání a mobilita. Tempo drž takové, při kterém ještě v pohodě vedeš rozhovor. Uvolněná procházka na 20 až 40 minut je podceňovaná. Úplný odpočinek je také v pořádku a alespoň jeden takový den týdně by měl být.</p>
     <div class="tw"><table>
       <thead><tr><th>Metoda</th><th>Co říkají důkazy</th><th>Verdikt</th></tr></thead>
@@ -189,9 +191,9 @@
         <tr><td><strong>Studená voda, teplo, sauna</strong></td><td>Skromné důkazy, mohou být příjemné. Podle některého výzkumu může pravidelný chlad hned po silovém tréninku tlumit adaptaci</td><td>Dělej, pokud tě baví</td></tr>
       </tbody>
     </table></div>
-    <p>Nic z toho nenahradí spánek, jídlo a rozumný plán. Ber to jako bonus.</p>
+    <p>Nic z toho nenahradí spánek, jídlo a rozumný plán. Ber to jako bonus.</p></section>
 
-    <h2 id="signaly">Varovné signály a kdy dát deload</h2>
+    <section class="s"><h2 id="signaly">Varovné signály a kdy dát deload</h2>
     <ul>
       <li>Výkon klesá nebo stagnuje dva týdny či déle navzdory dobré snaze a stejné váhy jsou těžší.</li>
       <li>Klidový tep je viditelně vyšší než obvykle několik rán po sobě (pár úderů nahoru či dolů je běžné, sleduj spíš trend).</li>
@@ -199,9 +201,9 @@
       <li>Nálada, motivace a spánek jsou horší než obvykle: podrážděnost, nechuť jít trénovat, buzení v noci.</li>
     </ul>
     <p>Pokud se objeví víc signálů najednou, rozumnou reakcí je deload. Sniž objem zhruba o třetinu až polovinu (méně sérií), váhy drž střední a úsilí lehké asi týden a pak se vrať k plánu. Mnozí cvičenci si deload plánují jednou za 4 až 8 týdnů stejně, víc v článku <a href="/cs/blog/progresivni-pretizeni">progresivní přetížení</a>.</p>
-    <p>Neber to jen jako tréninkovou otázku. K lékaři jdi, pokud máš bolest, která se nezlepšuje nebo zhoršuje, závratě, přetrvávající únavu i po několika týdnech odpočinku nebo zranění. Nejsme lékaři a tento článek nenahrazuje vyšetření.</p>
+    <p>Neber to jen jako tréninkovou otázku. K lékaři jdi, pokud máš bolest, která se nezlepšuje nebo zhoršuje, závratě, přetrvávající únavu i po několika týdnech odpočinku nebo zranění. Nejsme lékaři a tento článek nenahrazuje vyšetření.</p></section>
 
-    <h2 id="tyzden">Ukázkový týden: těžké a lehké dny</h2>
+    <section class="s"><h2 id="tyzden">Ukázkový týden: těžké a lehké dny</h2>
     <p>Cílem je střídat zátěž tak, aby dva nejtěžší dny nešly za sebou pro stejné svalové skupiny nebo stejný typ únavy. Je to jen příklad, uprav si ho podle času, zkušeností a toho, jak se cítíš.</p>
     <div class="tw"><table>
       <thead><tr><th>Den</th><th>Silový trénink (4 dny)</th><th>Hyrox příprava</th></tr></thead>
@@ -215,16 +217,16 @@
         <tr><td><strong>Neděle</strong></td><td>Volno</td><td>Volno</td></tr>
       </tbody>
     </table></div>
-    <p>Jak rozložit dny u silového tréninku, najdeš v článku <a href="/cs/blog/treninkovy-split">tréninkový split</a>. Podrobnější progresi pro Hyrox ti dá <a href="/cs/blog/hyrox-priprava-8-tydnu">8týdenní plán na Hyrox</a>.</p>
+    <p>Jak rozložit dny u silového tréninku, najdeš v článku <a href="/cs/blog/treninkovy-split">tréninkový split</a>. Podrobnější progresi pro Hyrox ti dá <a href="/cs/blog/hyrox-priprava-8-tydnu">8týdenní plán na Hyrox</a>.</p></section>
 
-    <h2 id="sledovanie">Sleduj spánek a energii v deníku</h2>
+    <section class="s"><h2 id="sledovanie">Sleduj spánek a energii v deníku</h2>
     <p>Bez záznamů si věci pamatuješ špatně. Do <a href="/cs/blog/treninkovy-denik">tréninkového deníku</a> si vedle sérií zapisuj dvě čísla: kolik hodin trval spánek a jak se cítíš na škále 1 až 5. Zabere to pár vteřin.</p>
     <ul>
       <li>Jednou týdně se podívej, jestli slabší tréninky následují po krátkých nocích.</li>
       <li>Sleduj trend klidového tepu, ne jednotlivá rána.</li>
       <li>Poznač si vynechaný deload nebo mnoho tréninkových dní po sobě a porovnej to s výkonem.</li>
     </ul>
-    <p>Po pár týdnech uvidíš vlastní vzorce a rozhodnutí o odpočinku budou jasnější. Pokud chceš, můžeš to dělat i v appce <a href="https://app.booom.fit">BOOOM</a>.</p>
+    <p>Po pár týdnech uvidíš vlastní vzorce a rozhodnutí o odpočinku budou jasnější. Pokud chceš, můžeš to dělat i v appce <a href="https://app.booom.fit">BOOOM</a>.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Zapisuj i spánek a energii</h3>

@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -141,18 +143,18 @@
       </ol>
     </nav>
 
-    <h2 id="pre-koho">Pre koho je plán</h2>
+    <section class="s"><h2 id="pre-koho">Pre koho je plán</h2>
     <ul>
       <li>Zvládneš odbehnúť <strong>5 km v kuse</strong>, aj pomaly.</li>
       <li>Trénuješ <strong>3 až 4-krát týždenne</strong> a poznáš základné cviky (drep, mŕtvy ťah, výpady, tlaky).</li>
       <li>Máš 8 týždňov a cieľ dokončiť prvý Hyrox, nie vyhrať kategóriu.</li>
     </ul>
-    <p>Ak tieto podmienky nespĺňaš, pridaj si na začiatok základnú fázu. Ak máš zranenie alebo zdravotné obmedzenia, poraď sa s lekárom. Plán je ukážkový, prispôsob si ho svojmu času a schopnostiam.</p>
+    <p>Ak tieto podmienky nespĺňaš, pridaj si na začiatok základnú fázu. Ak máš zranenie alebo zdravotné obmedzenia, poraď sa s lekárom. Plán je ukážkový, prispôsob si ho svojmu času a schopnostiam.</p></section>
 
-    <h2 id="format">Hyrox v skratke</h2>
-    <p>Hyrox je <strong>8 kôl, každé z nich je 1 km behu a jedna funkčná stanica</strong>. Stanice idú v tomto poradí: SkiErg, Sled Push, Sled Pull, Burpee Broad Jumps, Rowing, Farmers Carry, Sandbag Lunges a Wall Balls. Viac o formáte nájdeš v článku <a href="/hyrox-pre-zaciatocnikov">Hyrox pre začiatočníkov</a>. Váhy závisia od kategórie a sezóny, over si ich v oficiálnych pravidlách.</p>
+    <section class="s"><h2 id="format">Hyrox v skratke</h2>
+    <p>Hyrox je <strong>8 kôl, každé z nich je 1 km behu a jedna funkčná stanica</strong>. Stanice idú v tomto poradí: SkiErg, Sled Push, Sled Pull, Burpee Broad Jumps, Rowing, Farmers Carry, Sandbag Lunges a Wall Balls. Viac o formáte nájdeš v článku <a href="/hyrox-pre-zaciatocnikov">Hyrox pre začiatočníkov</a>. Váhy závisia od kategórie a sezóny, over si ich v oficiálnych pravidlách.</p></section>
 
-    <h2 id="tyzden">Štruktúra týždňa</h2>
+    <section class="s"><h2 id="tyzden">Štruktúra týždňa</h2>
     <div class="tw"><table>
       <thead><tr><th>Deň</th><th>Tréning</th></tr></thead>
       <tbody>
@@ -162,9 +164,9 @@
         <tr><td><strong>4</strong></td><td>Hybridný tréning: beh striedaný so stanicami</td></tr>
         <tr><td>5 až 7</td><td>Odpočinok, prechádzka, mobilita</td></tr>
       </tbody>
-    </table></div>
+    </table></div></section>
 
-    <h2 id="plan">Plán týždeň po týždni</h2>
+    <section class="s"><h2 id="plan">Plán týždeň po týždni</h2>
     <div class="tw"><table>
       <thead><tr><th>Týždeň</th><th>Ľahký beh</th><th>Sila</th><th>Intervaly / tempo</th><th>Hybrid</th></tr></thead>
       <tbody>
@@ -178,9 +180,9 @@
         <tr><td><strong>8</strong> (taper)</td><td>25–30 min</td><td>2 krátke tréningy, 2 × 6</td><td>4 × 1 min svižne</td><td>15 min ľahká aktivácia pár dní pred pretekom</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Ukážkový plán, nie univerzálny predpis. Ak ti niektorý týždeň nevyjde, nedobiehaj ho, pokračuj nasledujúcim.</p>
+    <p class="note">Ukážkový plán, nie univerzálny predpis. Ak ti niektorý týždeň nevyjde, nedobiehaj ho, pokračuj nasledujúcim.</p></section>
 
-    <h2 id="kratsie-dlhsie">Ak máš 4 alebo 12 týždňov</h2>
+    <section class="s"><h2 id="kratsie-dlhsie">Ak máš 4 alebo 12 týždňov</h2>
     <p>Osem týždňov je ukážka, nie zákon. Plán sa dá upraviť na menej či viac času bez zmeny štruktúry týždňa.</p>
     <div class="tw"><table>
       <thead><tr><th>Dĺžka</th><th>Ako upraviť</th><th>Na čo si dať pozor</th></tr></thead>
@@ -189,9 +191,9 @@
         <tr><td><strong>12 týždňov</strong></td><td>Pred plán pridaj 4 týždne základu: 3 ľahké behy po 30 až 40 minút, 2 silové tréningy a raz týždenne ľahký nácvik staníc. Štvrtý týždeň odľahči. Potom týždne 1 až 8 podľa plánu.</td><td>Vhodné, ak ti beh alebo technika staníc zatiaľ nejdú.</td></tr>
       </tbody>
     </table></div>
-    <p>Pri dlhšej príprave zaraď odľahčený týždeň zhruba každý tretí až štvrtý týždeň. Tréningy si zapisuj do <a href="/blog/treningovy-dennik">tréningového denníka</a> a ak ťa ťahá únava, pozri si <a href="/blog/regeneracia-a-spanok">článok o regenerácii a spánku</a>.</p>
+    <p>Pri dlhšej príprave zaraď odľahčený týždeň zhruba každý tretí až štvrtý týždeň. Tréningy si zapisuj do <a href="/blog/treningovy-dennik">tréningového denníka</a> a ak ťa ťahá únava, pozri si <a href="/blog/regeneracia-a-spanok">článok o regenerácii a spánku</a>.</p></section>
 
-    <h2 id="stanice">Nácvik staníc: technika v skratke</h2>
+    <section class="s"><h2 id="stanice">Nácvik staníc: technika v skratke</h2>
     <ul>
       <li><strong>SkiErg:</strong> ťah z bokov a trupu, nielen z rúk. Drž rovnomerný rytmus.</li>
       <li><strong>Sled Push:</strong> nízke ťažisko, krátke a rýchle kroky, plynulo.</li>
@@ -201,34 +203,34 @@
       <li><strong>Farmers Carry:</strong> pevné držanie, krátke kroky, nepúšťaj závažia bez potreby.</li>
       <li><strong>Sandbag Lunges:</strong> kolená pod kontrolou, vak stabilne na pleciach.</li>
       <li><strong>Wall Balls:</strong> plynulý drep a hod, krátke série s krátkymi pauzami.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="vybavenie">Vybavenie: len to podstatné</h2>
+    <section class="s"><h2 id="vybavenie">Vybavenie: len to podstatné</h2>
     <p>Nepotrebuješ špeciálnu výbavu, len veci, ktoré ti nebudú prekážať a ktoré si stihneš vyskúšať.</p>
     <ul>
       <li><strong>Obuv:</strong> v jednej obuvi pobežíš 8 km aj odcvičíš všetky stanice, hľadaj teda kompromis. Stabilná behavá obuv so stredným tlmením a podrážkou, ktorá drží aj na hladkej podlahe pri Sled Push.</li>
       <li><strong>Úchop:</strong> Sled Pull, Farmers Carry a Wall Balls zaťažia predlaktia. Zaraď farmers carry a visy na hrazde. Pravidlá o používaní magnézia a rukavíc sa líšia podľa podujatia, over si ich.</li>
       <li><strong>Oblečenie:</strong> priedušné a také, čo sa netrie pri výpadoch a burpees. Povrch saní môže obrať kolená a predkolenia, pomôžu dlhšie ponožky alebo návleky.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="chyby">Najčastejšie chyby pri prvom Hyroxe</h2>
+    <section class="s"><h2 id="chyby">Najčastejšie chyby pri prvom Hyroxe</h2>
     <ul>
       <li><strong>Iba beh alebo iba sila.</strong> Hyrox je o prechode medzi nimi. Nohy po Sled Push sa správajú inak ako čerstvé, preto raz týždenne rob hybrid.</li>
       <li><strong>Prvá simulácia až na pretekoch.</strong> Bez skúšky nevieš, aké tempo vydržíš. Zaraď aspoň polovičnú simuláciu. Splity naživo ukáže napríklad simulátor Hyroxu v <a href="https://app.booom.fit">aplikácii BOOOM</a>.</li>
       <li><strong>Zanedbaná technika staníc.</strong> Zle urobený Sled Pull alebo Wall Ball ťa stojí viac síl než ďalší kilometer. Prejdi si <a href="/blog/hyrox-stanice-technika">techniku jednotlivých staníc</a>.</li>
       <li><strong>Žiadny cieľový čas.</strong> Spočítaj si ho v <a href="/hyrox-pacing">Hyrox pacing kalkulačke</a>.</li>
       <li><strong>Doháňanie v poslednom týždni.</strong> Tvrdý tréning tri dni pred pretekmi formu nepridá, len únavu.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="preteky">Posledný týždeň a deň pretekov</h2>
+    <section class="s"><h2 id="preteky">Posledný týždeň a deň pretekov</h2>
     <ul>
       <li><strong>Neskúšaj nové veci.</strong> Jedlo, obuv a oblečenie musia byť overené z tréningu.</li>
       <li><strong>Spi.</strong> V posledných dňoch pred pretekmi je spánok najlepšia príprava.</li>
       <li><strong>Štartuj pomaly.</strong> Prvý kilometer sa na adrenalín zdá ľahký a prehnané tempo zaplatíš v druhej polovici.</li>
       <li><strong>Drž pacing.</strong> Cieľové tempo si spočítaj v <a href="/hyrox-pacing">Hyrox pacing kalkulačke</a>.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="vyziva">Výživa a hydratácia pred pretekmi</h2>
+    <section class="s"><h2 id="vyziva">Výživa a hydratácia pred pretekmi</h2>
     <p>Toto sú všeobecné zásady, nie individuálne poradenstvo. Ak máš zdravotné ťažkosti, poruchu príjmu potravy alebo špeciálnu diétu, rieš stravu s odborníkom.</p>
     <ul>
       <li><strong>Týždeň pred pretekmi:</strong> jedz ako zvyčajne a nezačínaj redukciu. Udržiavací príjem si odhadneš v <a href="/kalorie-kalkulacka">kalorickej kalkulačke</a>, bielkoviny drž podľa <a href="/blog/kolko-bielkovin-denne">článku o bielkovinách</a>.</li>
@@ -236,9 +238,9 @@
       <li><strong>Ráno pred štartom:</strong> jedlo 2 až 3 hodiny pred štartom. Sacharidy, málo tuku a vlákniny, niečo známe, napríklad ovsená kaša s banánom alebo biele pečivo s džemom.</li>
       <li><strong>Pitie:</strong> pi rovnomerne počas celého dňa, nie veľa naraz tesne pred štartom. Svetlá farba moču je orientačný ukazovateľ. Počas pretekov pi po malých dúškoch, kedykoľvek máš možnosť.</li>
       <li><strong>Bez experimentov:</strong> nové gély, nápoje a doplnky nechaj na tréning. Po pretekoch doplň bielkoviny, sacharidy a tekutiny.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="den-pretekov">Kontrolný zoznam na deň pretekov</h2>
+    <section class="s"><h2 id="den-pretekov">Kontrolný zoznam na deň pretekov</h2>
     <ol>
       <li><strong>Večer predtým:</strong> priprav tašku, obuv, oblečenie a vodu, over čas a miesto štartu. Choď spať včas.</li>
       <li><strong>3 hodiny pred:</strong> ľahké jedlo podľa zásad vyššie.</li>
@@ -247,10 +249,10 @@
       <li><strong>10 minút pred:</strong> toaleta, pár dúškov vody, pokojné dýchanie, v hlave si prejdi plán tempa.</li>
       <li><strong>Počas pretekov:</strong> každú stanicu začni nádychom a technikou, nie šprintom. Beh medzi stanicami drž v pokojnom tempe a pi po dúškoch.</li>
       <li><strong>Po cieli:</strong> pár minút chôdze, potom voda a jedlo s bielkovinami a sacharidmi. Zapíš si splity a pocity, kým ich máš v pamäti.</li>
-    </ol>
+    </ol></section>
 
-    <h2 id="sledovanie">Ako sledovať pokrok</h2>
-    <p>Po každej simulácii si zapíš splity všetkých behov a staníc. Uvidíš, kde strácaš čas, a vieš tam zamerať tréning. Silový pokrok si sleduj v <a href="/1rm-kalkulacka">1RM kalkulačke</a> a v <a href="/blog/treningovy-dennik">tréningovom denníku</a>.</p>
+    <section class="s"><h2 id="sledovanie">Ako sledovať pokrok</h2>
+    <p>Po každej simulácii si zapíš splity všetkých behov a staníc. Uvidíš, kde strácaš čas, a vieš tam zamerať tréning. Silový pokrok si sleduj v <a href="/1rm-kalkulacka">1RM kalkulačke</a> a v <a href="/blog/treningovy-dennik">tréningovom denníku</a>.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Zapisuj splity a sleduj pokrok</h3>

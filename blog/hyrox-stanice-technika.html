@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -138,7 +140,7 @@
       </ol>
     </nav>
 
-    <h2 id="uvod">Prečo stanice rozhodujú preteky</h2>
+    <section class="s"><h2 id="uvod">Prečo stanice rozhodujú preteky</h2>
     <p>Bežať vie každý, no stanice odmeňujú techniku. Dvaja ľudia s rovnakou kondíciou môžu skončiť s odstupom niekoľkých minút len preto, že jeden plytvá silou na nepodarenom tlačení sane alebo sa vo Wall Balls zbytočne vyčerpá. A chyby sa sčítavajú: po každej stanici ťa čaká kilometer behu na unavených nohách, takže zle zvládnutá stanica ťa stojí dvakrát.</p>
     <p>Preto sa o Hyroxe hovorí ako o behu v únave (po anglicky „compromised running“). Máš vysoký tep, spálené predlaktia a napriek tomu musíš udržať rovnomerné tempo. Cvičuj ich aj hneď po sebe, nielen zvlášť. Tabuľka ukazuje, čo je na ktorej stanici najdôležitejšie.</p>
     <div class="tw"><table>
@@ -154,39 +156,39 @@
         <tr><td><strong>8. Wall Balls</strong></td><td>Ramená a nohy</td><td>Hĺbka drepu, jeden rytmus</td></tr>
       </tbody>
     </table></div>
-    <p>Váhy a počty opakovaní závisia od kategórie a menia sa podľa sezóny, preto si ich pozri v oficiálnych pravidlách pre svoju kategóriu. Cieľové splity si naplánuj v <a href="/hyrox-pacing">Hyrox pacing kalkulačke</a>.</p>
+    <p>Váhy a počty opakovaní závisia od kategórie a menia sa podľa sezóny, preto si ich pozri v oficiálnych pravidlách pre svoju kategóriu. Cieľové splity si naplánuj v <a href="/hyrox-pacing">Hyrox pacing kalkulačke</a>.</p></section>
 
-    <h2 id="skierg-rowing">SkiErg a veslovanie: ťah cez nohy a bedrá</h2>
+    <section class="s"><h2 id="skierg-rowing">SkiErg a veslovanie: ťah cez nohy a bedrá</h2>
     <p>Oba stroje sú ťahové a spája ich jedna myšlienka: prácu robia nohy a bedrá, ruky ťa len spájajú s rukoväťou.</p>
     <p><strong>SkiErg.</strong> Natiahni sa vysoko, potom sa predkloň v bedrách, mierne pokrč kolená a stiahni rukoväte dole. Ruky nechaj najprv skoro rovné a ťah dokonči lopatkami. Rukoväte nechaj vrátiť sa hore uvoľnene, práve tam sa nadychuješ.</p>
     <p><strong>Veslovanie.</strong> Poradie pri ťahu je nohy, bedrá, ruky a pri návrate opačne. Najviac sily dostaneš z odrazu nôh, ťah dokončíš miernym záklonom a rukoväťou k dolným rebrám.</p>
-    <p>Rytmus poráža silu. Nastavenie odporu (damper) nie je automaticky rýchlejšie, keď je vyššie: cítiš ho ťažšie a rýchlejšie ťa unaví, preto väčšina ľudí volí strednú hodnotu. Tempo riaď pocitom a začni o čosi pod tempom, ktoré si myslíš, že vydržíš, lebo po týchto staniciach ešte potrebuješ nohy. Ak dokážeš povedať pár slov, si približne správne.</p>
+    <p>Rytmus poráža silu. Nastavenie odporu (damper) nie je automaticky rýchlejšie, keď je vyššie: cítiš ho ťažšie a rýchlejšie ťa unaví, preto väčšina ľudí volí strednú hodnotu. Tempo riaď pocitom a začni o čosi pod tempom, ktoré si myslíš, že vydržíš, lebo po týchto staniciach ešte potrebuješ nohy. Ak dokážeš povedať pár slov, si približne správne.</p></section>
 
-    <h2 id="sled">Sane: tlačenie a ťah</h2>
+    <section class="s"><h2 id="sled">Sane: tlačenie a ťah</h2>
     <p><strong>Tlačenie.</strong> Choď nízko: boky pod ramenami, chrbát rovný, ruky natiahnuté alebo mierne pokrčené, a tlač cez podlahu krátkymi silnými krokmi. Nízky uhol tela premení silu nôh na pohyb dopredu, kým vzpriamené telo ťa tlačí do sane smerom dolu.</p>
     <p>Kroky nemaj príliš dlhé, chodidlá drž pod bedrami a tlač cez prednú časť chodidla. Pri každom kroku vydychuj, dych nezadržiavaj, čo sa pri ťažkej záťaži robí najčastejšie.</p>
-    <p><strong>Ťah.</strong> Zapri chodidlá, posaď sa dozadu a ťahaj lano rukami jednu za druhou, s hrudníkom hore. Silu bierie hlavne záklon a nohy, nielen ruky. Lano nezvieraj, uvoľnený, ale pevný úchop ušetrí predlaktia na Farmers Carry, ktorý príde o pár staníc neskôr.</p>
+    <p><strong>Ťah.</strong> Zapri chodidlá, posaď sa dozadu a ťahaj lano rukami jednu za druhou, s hrudníkom hore. Silu bierie hlavne záklon a nohy, nielen ruky. Lano nezvieraj, uvoľnený, ale pevný úchop ušetrí predlaktia na Farmers Carry, ktorý príde o pár staníc neskôr.</p></section>
 
-    <h2 id="burpee-broad-jumps">Burpee Broad Jumps: rytmus, nie výbušnosť</h2>
+    <section class="s"><h2 id="burpee-broad-jumps">Burpee Broad Jumps: rytmus, nie výbušnosť</h2>
     <p>Táto stanica je o rytmu. Odskoč alebo odstúp dozadu, hruď na zem, odtlač sa, zlož nohy pod seba a skoč dopredu. Presné podmienky platného opakovania sú v oficiálnych pravidlách, preto si ich pred pretekmi prečítaj a nacvič presne tak.</p>
     <p>Dĺžka skoku verzus rýchlosť: maximálny skok stojí veľa energie, kým stredný skok, ktorý zopakuješ stále dookola, je celkovo rýchlejší. Vyber si kadenciu, ktorú udržíš, a dýchaj pri vstávaní.</p>
-    <p>Tempo: tu ľudia začínajú najčastejšie príliš rýchlo, pretože tep vyskočí. Nájdi rytmus od prvého opakovania. Ak potrebuješ pauzu, dopraj si ju v naplánovanom bode a nie až vtedy, keď sa zrútiš.</p>
+    <p>Tempo: tu ľudia začínajú najčastejšie príliš rýchlo, pretože tep vyskočí. Nájdi rytmus od prvého opakovania. Ak potrebuješ pauzu, dopraj si ju v naplánovanom bode a nie až vtedy, keď sa zrútiš.</p></section>
 
-    <h2 id="farmers-sandbag">Farmers Carry a Sandbag Lunges</h2>
+    <section class="s"><h2 id="farmers-sandbag">Farmers Carry a Sandbag Lunges</h2>
     <p><strong>Farmers Carry.</strong> Limitom je úchop. Stoj vzpriamene, ramená dozadu a choď krátkymi rýchlymi krokmi bez vlečenia chodidiel. Dýchaj pravidelne, dych nezadržiavaj. Ak ti úchop dochádza, radšej krátko odlož a vytras ruky, než aby ti závažie vypadlo.</p>
-    <p><strong>Sandbag Lunges.</strong> Vak drž vysoko a tesne na pleciach, trup vzpriamene. Predné koleno sleduj v smere špičky, nepusti ho dovnútra, a zadné koleno len ľahko položíš, nedopadáš naň. Krok rob dosť hlboký, aby platil, ale nie dlhší, než treba. Dýchaj v rytme jeden nádych na krok.</p>
+    <p><strong>Sandbag Lunges.</strong> Vak drž vysoko a tesne na pleciach, trup vzpriamene. Predné koleno sleduj v smere špičky, nepusti ho dovnútra, a zadné koleno len ľahko položíš, nedopadáš naň. Krok rob dosť hlboký, aby platil, ale nie dlhší, než treba. Dýchaj v rytme jeden nádych na krok.</p></section>
 
-    <h2 id="wall-balls">Wall Balls: hĺbka, dráha lopty a plán sérií</h2>
+    <section class="s"><h2 id="wall-balls">Wall Balls: hĺbka, dráha lopty a plán sérií</h2>
     <p>Posledná stanica, keď je únava najväčšia. Hĺbku drepu drž stále rovnakú a takú, aká sa vyžaduje v pravidlách. Loptu vyhadzuj nohami: z dna drepu sa vystrel a nechaj hybnosť, aby ju odniesla k cieľu. Loptu chytaj blízko hrude.</p>
     <p>Dych: nadýchni sa hore alebo pri klesaní a vydýchni pri hode.</p>
-    <p>Stratégia prestávok: sériu si naplánuj vopred. Ešte pred stanicou sa rozhodni, na koľko sérií rozdelíš celkový počet opakovaní, a medzi sériami si daj krátku pauzu na pár nádychov. Plánovaná pauza je lacnejšia ako nútená, ktorá prichádza, keď ti sila dôjde uprostred série.</p>
+    <p>Stratégia prestávok: sériu si naplánuj vopred. Ešte pred stanicou sa rozhodni, na koľko sérií rozdelíš celkový počet opakovaní, a medzi sériami si daj krátku pauzu na pár nádychov. Plánovaná pauza je lacnejšia ako nútená, ktorá prichádza, keď ti sila dôjde uprostred série.</p></section>
 
-    <h2 id="roxzone">Roxzone: prechody a mentálny reset</h2>
+    <section class="s"><h2 id="roxzone">Roxzone: prechody a mentálny reset</h2>
     <p>Roxzone je priestor medzi behom a stanicou a čas v ňom sa počíta do výsledku.</p>
     <p>Chodiť alebo behať? Chôdza pár krokov na zníženie tepu môže byť rozumná taktika, najmä pred technickými stanicami ako Wall Balls, no dlhé chodenie sa sčítava. Rozhodni sa vopred, kedy a ako dlho.</p>
-    <p>Mentálny reset: jeden hlboký nádych, jedno kľúčové slovo pre nasledujúcu stanicu (napríklad „nízko“ alebo „nohy“), a predchádzajúcu stanicu pusti z hlavy. Pozeraj na nasledujúcu stanicu, nie na hodinky.</p>
+    <p>Mentálny reset: jeden hlboký nádych, jedno kľúčové slovo pre nasledujúcu stanicu (napríklad „nízko“ alebo „nohy“), a predchádzajúcu stanicu pusti z hlavy. Pozeraj na nasledujúcu stanicu, nie na hodinky.</p></section>
 
-    <h2 id="trening-stanic">Ako trénovať stanice v posilňovni alebo doma</h2>
+    <section class="s"><h2 id="trening-stanic">Ako trénovať stanice v posilňovni alebo doma</h2>
     <p>Tabuľka ukazuje cvičenie pre každú stanicu a orientačnú frekvenciu.</p>
     <div class="tw"><table>
       <thead><tr><th>Stanica</th><th>Cvičenie</th><th>Ako často</th></tr></thead>
@@ -201,9 +203,9 @@
         <tr><td><strong>Wall Balls</strong></td><td>Tréning série s plánom prestávok, s loptou o stenu</td><td>1 až 2x týždenne</td></tr>
       </tbody>
     </table></div>
-    <p>Postupne pridávaj hybridné tréningy, kde stanicu hneď striedaš s behom. Ako to poskladať do týždňov, ukazuje <a href="/blog/hyrox-priprava-8-tyzdnov">8-týždňový plán</a>. Čísla zo staníc si zapisuj do <a href="/blog/treningovy-dennik">tréningového denníka</a>, aby bolo vidieť, či sa zlepšuješ. V appke <a href="https://app.booom.fit">BOOOM</a> to robí Hyrox simulátor so splitmi naživo.</p>
+    <p>Postupne pridávaj hybridné tréningy, kde stanicu hneď striedaš s behom. Ako to poskladať do týždňov, ukazuje <a href="/blog/hyrox-priprava-8-tyzdnov">8-týždňový plán</a>. Čísla zo staníc si zapisuj do <a href="/blog/treningovy-dennik">tréningového denníka</a>, aby bolo vidieť, či sa zlepšuješ. V appke <a href="https://app.booom.fit">BOOOM</a> to robí Hyrox simulátor so splitmi naživo.</p></section>
 
-    <h2 id="chyby">Najčastejšie chyby na staniciach</h2>
+    <section class="s"><h2 id="chyby">Najčastejšie chyby na staniciach</h2>
     <ul>
       <li><strong>Príliš rýchly štart.</strong> Prvé stanice vyzerajú ľahko a ľudia ich prepália.</li>
       <li><strong>Ťah len rukami.</strong> SkiErg a veslovanie sú o nohách a bedrách.</li>
@@ -213,7 +215,7 @@
       <li><strong>Ignorovanie pravidiel.</strong> Neplatné opakovanie stojí čas, takže si štandardy pre svoju kategóriu prečítaj.</li>
       <li><strong>Žiadny tréning v únave.</strong> Nikdy nebehaš hneď po stanici.</li>
     </ul>
-    <p class="note">Toto nie je lekárska rada. Ak máš zranenie, bolesti alebo zdravotné obmedzenia, poraď sa pred náročným tréningom s odborníkom.</p>
+    <p class="note">Toto nie je lekárska rada. Ak máš zranenie, bolesti alebo zdravotné obmedzenia, poraď sa pred náročným tréningom s odborníkom.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Trénuj stanice s BOOOM</h3>

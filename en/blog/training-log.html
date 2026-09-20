@@ -88,6 +88,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -138,16 +140,16 @@
       </ol>
     </nav>
 
-    <h2 id="preco">Why log your workouts</h2>
+    <section class="s"><h2 id="preco">Why log your workouts</h2>
     <p>Without a log you train by feel. Feel is useful but unreliable: a good day distorts what you managed, and fatigue distorts it the other way. A log gives you data that doesn’t depend on your mood.</p>
     <ul>
       <li><strong>You know what to beat today.</strong> Strength growth is built on gradually adding load (more in the article <a href="/en/blog/progressive-overload">Progressive overload</a>). Without the numbers from your last workout, you don’t know what “more” means.</li>
       <li><strong>You see progress even when you can’t see it in the mirror.</strong> Muscles grow slowly, but weights and reps go up faster and that is motivating.</li>
       <li><strong>You find the cause when things stall.</strong> Stagnation, pain or fatigue leave a trace in the data: less sleep, more volume, skipped meals.</li>
       <li><strong>It keeps you on the habit.</strong> Self-monitoring is among the best-studied techniques for sticking to a new habit.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="co">What to write down: the minimum and the bonuses</h2>
+    <section class="s"><h2 id="co">What to write down: the minimum and the bonuses</h2>
     <div class="tw"><table>
       <thead><tr><th>Category</th><th>What to log</th></tr></thead>
       <tbody>
@@ -157,18 +159,18 @@
         <tr><td><strong>Running and Hyrox</strong></td><td>Distance, time, pace, heart rate, splits of individual runs and stations</td></tr>
       </tbody>
     </table></div>
-    <p>Start with the minimum. You’ll stop keeping a log with ten columns within two weeks; a log with five will last for years.</p>
+    <p>Start with the minimum. You’ll stop keeping a log with ten columns within two weeks; a log with five will last for years.</p></section>
 
-    <h2 id="ako">How to keep a log in practice</h2>
+    <section class="s"><h2 id="ako">How to keep a log in practice</h2>
     <ol>
       <li><strong>Pick one format and stick to it.</strong> A notebook, a spreadsheet or an app. Switching between them is the most common reason a log falls apart.</li>
       <li><strong>Look at your last entry before the workout</strong> and set a goal for today: one more rep or 2.5 kg more.</li>
       <li><strong>Log right after the set</strong>, not in the evening from memory. Memory rounds up.</li>
       <li><strong>Add a note when something happened</strong> — your shoulder hurt, you slept badly, you changed your technique.</li>
       <li><strong>Once a week, take five minutes</strong> and go through your entries: what is growing, what is stuck, what needs to change.</li>
-    </ol>
+    </ol></section>
 
-    <h2 id="sablona">A template: what one entry looks like</h2>
+    <section class="s"><h2 id="sablona">A template: what one entry looks like</h2>
     <p>Copy these examples into a notebook or spreadsheet. The numbers are only illustrations, not a recommendation. Above each entry write the date and one line on how you feel (energy 1 to 5).</p>
     <p><strong>Strength session</strong></p>
     <div class="tw"><table>
@@ -189,9 +191,9 @@
         <tr><td>4</td><td class="n">5:35</td><td>Burpee Broad Jumps</td><td class="n">4:30</td></tr>
       </tbody>
     </table></div>
-    <p>Under the table goes the total time, the RPE of the whole session and one note, for example “legs heavy after the sled”. Station weights depend on your category and the season, so check the official rules for your category.</p>
+    <p>Under the table goes the total time, the RPE of the whole session and one note, for example “legs heavy after the sled”. Station weights depend on your category and the season, so check the official rules for your category.</p></section>
 
-    <h2 id="progres">How to read progress from your log</h2>
+    <section class="s"><h2 id="progres">How to read progress from your log</h2>
     <p>Don’t track everything. Three things are enough:</p>
     <ul>
       <li><strong>Your best set in the main lifts.</strong> From it you can also estimate your 1RM in the <a href="/en/1rm-calculator">1RM calculator</a> and compare it over time.</li>
@@ -210,9 +212,9 @@
         </tbody>
       </table></div>
       <p>For three weeks you add reps, in the fourth you add weight and start over. Without a log you wouldn’t remember any of this.</p>
-    </div>
+    </div></section>
 
-    <h2 id="stagnacia">Plateaus: when to change the plan</h2>
+    <section class="s"><h2 id="stagnacia">Plateaus: when to change the plan</h2>
     <p>One weak session means nothing: sleep, stress and weather all play a part. It is worth considering a plateau when neither the weight nor the reps on your main lifts improve for 3 to 4 sessions in a row at a similar RPE. Look at a four-week average, not one day.</p>
     <p>Before you change the programme, check the basics:</p>
     <ul>
@@ -221,9 +223,9 @@
       <li><strong>Honest logging.</strong> The same range of motion, the same rest times, the same RPE.</li>
     </ul>
     <p>If the basics are in place, change one thing at a time: add a set, shift the rep range or swap an exercise variation. There is more on gradually raising the load in <a href="/en/blog/progressive-overload">Progressive overload</a>.</p>
-    <p>A <strong>deload</strong> is commonly scheduled every 4 to 8 weeks, or when performance drops for two weeks in a row and you feel worn out. For one week, cut the number of sets to roughly half, keep the weights moderate, then return to the plan.</p>
+    <p>A <strong>deload</strong> is commonly scheduled every 4 to 8 weeks, or when performance drops for two weeks in a row and you feel worn out. For one week, cut the number of sets to roughly half, keep the weights moderate, then return to the plan.</p></section>
 
-    <h2 id="poznamky">Notes: pain, fatigue and sleep</h2>
+    <section class="s"><h2 id="poznamky">Notes: pain, fatigue and sleep</h2>
     <p>The numbers show what happened. Notes explain why. A few words are enough, written the same way each time:</p>
     <div class="tw"><table>
       <thead><tr><th>Topic</th><th>What to write down</th></tr></thead>
@@ -235,25 +237,25 @@
       </tbody>
     </table></div>
     <p>After a month you will see patterns: weaker sessions after two short nights, a shoulder that complains on one specific exercise, tiredness in the week before a work deadline.</p>
-    <p class="note">A log is not a diagnostic tool and this article is not medical advice. If pain persists, is sharp, or comes with numbness or swelling, do not just log it: get it checked by a doctor or physiotherapist.</p>
+    <p class="note">A log is not a diagnostic tool and this article is not medical advice. If pain persists, is sharp, or comes with numbness or swelling, do not just log it: get it checked by a doctor or physiotherapist.</p></section>
 
-    <h2 id="behanie">Running, Hyrox and CrossFit in your log</h2>
+    <section class="s"><h2 id="behanie">Running, Hyrox and CrossFit in your log</h2>
     <p>For endurance sessions the key numbers are not weight and reps but time, distance and intensity. Write down:</p>
     <ul>
       <li><strong>Running:</strong> type (easy, tempo, intervals), distance, time, average pace, RPE. For intervals log each rep separately, not just the average.</li>
       <li><strong>Hyrox:</strong> the time of every 1 km run and every station, the total time and a note on how the running felt after heavy stations. Compare your splits with the plan from the <a href="/en/hyrox-pacing-calculator">Hyrox pacing calculator</a>. For race preparation see the <a href="/en/blog/hyrox-8-week-training-plan">8-week plan</a> and <a href="/en/blog/hyrox-stations-technique">Hyrox stations: technique</a>.</li>
       <li><strong>CrossFit:</strong> the workout name (WOD), format (AMRAP, for time, EMOM), the result and whether you did the prescribed or a scaled version. Beginners can start with <a href="/crossfit-pre-zaciatocnikov">CrossFit for beginners</a> (Slovak).</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="chyby">The most common mistakes</h2>
+    <section class="s"><h2 id="chyby">The most common mistakes</h2>
     <ul>
       <li><strong>A format that’s too complicated.</strong> If logging takes longer than your warm-up, you’ll quit.</li>
       <li><strong>You only log records.</strong> Without the average days you can’t see the trend.</li>
       <li><strong>You don’t use the log.</strong> An entry is pointless if you don’t open it before training.</li>
       <li><strong>You don’t note changed conditions.</strong> A different bench, different dumbbells, a different range of motion: without a note, those numbers can’t be compared.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="forma">Paper, spreadsheet or app?</h2>
+    <section class="s"><h2 id="forma">Paper, spreadsheet or app?</h2>
     <div class="tw"><table>
       <thead><tr><th>Format</th><th>Advantage</th><th>Disadvantage</th></tr></thead>
       <tbody>
@@ -262,7 +264,7 @@
         <tr><td>App</td><td>Pre-fills last weights, calculates records and volume on its own</td><td>You need to pick one that doesn’t get in your way</td></tr>
       </tbody>
     </table></div>
-    <p>The BOOOM app is built on exactly this: you log an exercise, the app shows your last performance, evaluates personal records on its own and rewards you with XP and ranks. You can try it for free on the web too.</p>
+    <p>The BOOOM app is built on exactly this: you log an exercise, the app shows your last performance, evaluates personal records on its own and rewards you with XP and ranks. You can try it for free on the web too.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Log your workouts without paper</h3>

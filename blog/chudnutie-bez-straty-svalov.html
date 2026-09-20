@@ -89,6 +89,8 @@
     td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}td.n{font-weight:700}
     .ex{background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:16px 18px;margin:14px 0}.ex p{margin-bottom:6px}.ex p:last-child{margin-bottom:0}
     .note{font-size:13px;color:#9a9a9a}
+    /* content-visibility: the trace showed one ~1 s layout pass (4x CPU) before first paint; sections below the fold are skipped until scrolled near */
+    .s,.faq{content-visibility:auto;contain-intrinsic-size:auto 700px}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appcta{text-align:center;background:linear-gradient(135deg,rgba(0,230,118,.1),rgba(0,212,255,.08));border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:28px 22px;margin-top:40px}
     .appcta h3{font-size:20px;font-weight:900;margin:0 0 8px}
@@ -137,7 +139,7 @@
       </ol>
     </nav>
 
-    <h2 id="princip">Princíp: prečo je sval v deficite v ohrození</h2>
+    <section class="s"><h2 id="princip">Princíp: prečo je sval v deficite v ohrození</h2>
     <p>Tuk ubúda, keď dlhodobo prijímaš menej energie, než spotrebuješ. Chýbajúcu energiu si telo berie z tukových zásob, ale aj zo svalov. Sval je pre telo drahý: jeho udržiavanie stojí energiu, a ak mu nedáš dôvod, prečo ho má nechať, časť môže zmiznúť.</p>
     <p>Rozhoduje teda signál. Ak dostatok bielkovín a ťažký tréning posielajú správu „tento sval potrebujem“, väčšina úbytku ide na tuk. Ak ješ málo bielkovín a takmer netrénuješ, schudneš, ale so svalmi. Úplní začiatočníci a ľudia po dlhšej pauze môžu pri miernom deficite dokonca sval pribrať, pokročilí ho zvyčajne len udržia.</p>
     <p>Na výsledok stačia štyri veci:</p>
@@ -146,9 +148,9 @@
       <li>dosť bielkovín,</li>
       <li>silový tréning s ťažkými váhami,</li>
       <li>dosť spánku a regenerácie.</li>
-    </ul>
+    </ul></section>
 
-    <h2 id="deficit">Aký veľký deficit</h2>
+    <section class="s"><h2 id="deficit">Aký veľký deficit</h2>
     <p>Väčší deficit neznamená lepší výsledok. Čím rýchlejšie chudneš, tým väčšie je riziko straty svalov, sily a energie. Bežné odporúčanie je <strong>15 až 20 % pod dennou spotrebou (TDEE)</strong>, čo zodpovedá úbytku približne <strong>0,5 až 1 % telesnej hmotnosti týždenne</strong>. Svoje TDEE si spočítaš v <a href="/kalorie-kalkulacka">kalorickej kalkulačke</a>.</p>
     <div class="tw"><table>
       <thead><tr><th>Deficit</th><th class="n">Kalórie denne (TDEE 2&nbsp;759)</th><th>Poznámka</th></tr></thead>
@@ -168,13 +170,13 @@
       </ul>
       <p>V prvých dňoch môže hmotnosť klesnúť rýchlejšie kvôli vode a obsahu čriev. Nie je to tuk, tak z toho netvor trend.</p>
     </div>
-    <p>Kto má tuku už menej, mal by zostať skôr pri spodnej hranici. Kto má viac tuku, znesie aj vyšší deficit.</p>
+    <p>Kto má tuku už menej, mal by zostať skôr pri spodnej hranici. Kto má viac tuku, znesie aj vyšší deficit.</p></section>
 
-    <h2 id="bielkoviny">Bielkoviny: najdôležitejšia makroživina</h2>
+    <section class="s"><h2 id="bielkoviny">Bielkoviny: najdôležitejšia makroživina</h2>
     <p>Pri chudnutí sa oplatí byť pri hornej hranici odporúčaní, teda <strong>1,8 až 2,2 g bielkovín na kg</strong> telesnej hmotnosti denne. Pre 80 kg je to 144 až 176 g, ideálne rozložených do 3 až 5 jedál po približne 0,3 až 0,4 g na kg (pri 80 kg zhruba 25 až 35 g v jedle). Bielkoviny pomáhajú zachovať sval, lepšie zasýtia a telo na ich spracovanie spotrebuje viac energie ako pri sacharidoch alebo tukoch.</p>
-    <p>Rozsah vychádza z metaanalýzy Morton a kol. (2018, British Journal of Sports Medicine). Zdroje, rozloženie počas dňa a príklady potravín nájdeš v článku <a href="/blog/kolko-bielkovin-denne">Koľko bielkovín denne</a>. Proteínový prášok je len pohodlný spôsob, ako sa k číslu dostať, nie povinnosť.</p>
+    <p>Rozsah vychádza z metaanalýzy Morton a kol. (2018, British Journal of Sports Medicine). Zdroje, rozloženie počas dňa a príklady potravín nájdeš v článku <a href="/blog/kolko-bielkovin-denne">Koľko bielkovín denne</a>. Proteínový prášok je len pohodlný spôsob, ako sa k číslu dostať, nie povinnosť.</p></section>
 
-    <h2 id="trening">Tréning: zdvíhaj ďalej ťažko</h2>
+    <section class="s"><h2 id="trening">Tréning: zdvíhaj ďalej ťažko</h2>
     <p>Sval si telo nechá vtedy, keď ho tréning naozaj zaťažuje. Preto v deficite netreba prejsť na „tónovanie“ s ľahkými váhami a množstvom opakovaní. Drž sa ťažkých základných cvikov a približne rovnakej záťaže ako pred diétou.</p>
     <ul>
       <li><strong>Drž intenzitu.</strong> Váhy a blízkosť k limitu série sú dôležitejšie než celkový počet sérií.</li>
@@ -182,21 +184,21 @@
       <li><strong>Cieľom je udržať silu.</strong> Ak sila v hlavných cvikoch drží alebo klesne len mierne, sval zrejme držíš.</li>
       <li><strong>Pokračuj v progresii.</strong> Aj pomalšie pridávanie je úspech, viac v článku <a href="/blog/progresivne-pretazenie">Progresívne preťaženie</a>.</li>
     </ul>
-    <p>Silu a objem najľahšie strážiš v <a href="/blog/treningovy-dennik">tréningovom denníku</a>: rýchlo v ňom uvidíš, kedy sa výkon láme.</p>
+    <p>Silu a objem najľahšie strážiš v <a href="/blog/treningovy-dennik">tréningovom denníku</a>: rýchlo v ňom uvidíš, kedy sa výkon láme.</p></section>
 
-    <h2 id="kardio-kroky">Kardio a kroky: nástroje, nie trest</h2>
+    <section class="s"><h2 id="kardio-kroky">Kardio a kroky: nástroje, nie trest</h2>
     <p>Kardio ani kroky nie sú trestom za zjedené jedlo. Sú to nástroje, ktorými zvýšiš výdaj bez ďalšieho rezania kalórií.</p>
     <ul>
       <li><strong>Kroky a bežný pohyb (NEAT)</strong> sú často najlacnejší spôsob, ako zvýšiť výdaj. Chôdza takmer nezaťažuje regeneráciu, takže sa dobre kombinuje s ťažkým tréningom. Skús pridať 2&nbsp;000 až 3&nbsp;000 krokov denne oproti dnešku.</li>
       <li><strong>Kardio</strong> stačí 2 až 3-krát týždenne v miernej intenzite. Ťažké intervaly tiež fungujú, ale dávkuj ich opatrne, lebo sa počítajú do celkovej únavy.</li>
     </ul>
-    <p>Ak sa pripravuješ na beh alebo Hyrox, kardio máš v pláne tak či tak. Len počítaj s tým, že deficit a veľký objem behania sa často navzájom ubíjajú.</p>
+    <p>Ak sa pripravuješ na beh alebo Hyrox, kardio máš v pláne tak či tak. Len počítaj s tým, že deficit a veľký objem behania sa často navzájom ubíjajú.</p></section>
 
-    <h2 id="spanok-stres">Spánok a stres</h2>
+    <section class="s"><h2 id="spanok-stres">Spánok a stres</h2>
     <p>Dospelým sa bežne odporúča 7 až 9 hodín spánku. Pri nedostatku spánku býva väčší hlad, chuť na sladké aj horší výkon v tréningu, a diéta sa drží ťažšie. Stres a málo regenerácie robia podobný problém.</p>
-    <p>Ak chudneš, spánok je súčasť plánu, nie bonus. Skús mať pravidelný čas spánku a nenechávaj sa nachytať večerným hladom z nedospania. Viac k spánku a regenerácii nájdeš v článku <a href="/blog/regeneracia-a-spanok">Regenerácia a spánok</a>.</p>
+    <p>Ak chudneš, spánok je súčasť plánu, nie bonus. Skús mať pravidelný čas spánku a nenechávaj sa nachytať večerným hladom z nedospania. Viac k spánku a regenerácii nájdeš v článku <a href="/blog/regeneracia-a-spanok">Regenerácia a spánok</a>.</p></section>
 
-    <h2 id="sledovanie">Ako sledovať, či to funguje</h2>
+    <section class="s"><h2 id="sledovanie">Ako sledovať, či to funguje</h2>
     <p>Jedno číslo na váhe je málo. Sleduj viacero ukazovateľov naraz:</p>
     <div class="tw"><table>
       <thead><tr><th>Ukazovateľ</th><th>Ako</th><th>Čo ti povie</th></tr></thead>
@@ -214,9 +216,9 @@
       <li>výrazná únava a zhoršený spánok,</li>
       <li>hlad, ktorý sa nedá zvládnuť, alebo pokles nálady.</li>
     </ul>
-    <p>V takom prípade deficit zmierni. Ak diétu držíš dlhšie (zhruba 8 až 12 týždňov) alebo sa výkon dlhodobo zhoršuje, pomôže <strong>diet break</strong>: 1 až 2 týždne na úrovni udržiavania (TDEE). Silu, rekordy a makrá vieš sledovať aj v appke <a href="https://app.booom.fit">BOOOM</a>.</p>
+    <p>V takom prípade deficit zmierni. Ak diétu držíš dlhšie (zhruba 8 až 12 týždňov) alebo sa výkon dlhodobo zhoršuje, pomôže <strong>diet break</strong>: 1 až 2 týždne na úrovni udržiavania (TDEE). Silu, rekordy a makrá vieš sledovať aj v appke <a href="https://app.booom.fit">BOOOM</a>.</p></section>
 
-    <h2 id="kedy-nie">Kedy nie je vhodný agresívny deficit</h2>
+    <section class="s"><h2 id="kedy-nie">Kedy nie je vhodný agresívny deficit</h2>
     <p>Nie sme lekári a tento návod nie je pre každého. Pred chudnutím sa poraď s lekárom alebo nutričným terapeutom, ak sa ťa týka niečo z tohto:</p>
     <ul>
       <li>vek do 18 rokov (telo rastie a potrebuje energiu),</li>
@@ -225,7 +227,7 @@
       <li>chronické ochorenie (napríklad cukrovka, štítna žľaza, srdce, obličky) alebo pravidelné lieky,</li>
       <li>už nízka telesná hmotnosť.</li>
     </ul>
-    <p>V týchto prípadoch deficit nastavuje odborník, nie kalkulačka.</p>
+    <p>V týchto prípadoch deficit nastavuje odborník, nie kalkulačka.</p></section>
 
     <div class="appcta" data-slot="article-cta">
       <h3>Sleduj silu aj váhu na jednom mieste</h3>
