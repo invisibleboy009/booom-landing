@@ -114,7 +114,7 @@
       padding: 0 24px;
     }
     .nav-inner {
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1640px; margin: 0 auto;
       height: 64px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
@@ -993,9 +993,17 @@
     @media (max-width: 1100px) { .ranks-grid { grid-template-columns: repeat(3, 1fr); } }
     /* Hand the inline section links to the hamburger before they crowd the CTA/lang switcher.
        Kept separate from the 960px block so the hero layout only reflows on real mobile. */
-    @media (max-width: 1120px) {
+    /* 2026-09-20: the nav outgrew its box once the three social pills and the Blog link joined
+       it (about 1 380 px of content in a 1 200 px container, so the CTA fell off the screen at
+       1280 px). Below 1 500 px the links live in the hamburger (the pills stay next to it); from 1 500 to
+       1 699 px the links show and the pills step aside (still in the menu and the footer); from
+       1 700 px everything fits, even the Ukrainian labels, the longest of the six languages. */
+    @media (max-width: 1499px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+    }
+    @media (min-width: 1500px) and (max-width: 1699px) {
+      .nav-social { display: none; }
     }
     @media (max-width: 960px) {
       .nav-links { display: none; }
@@ -1218,6 +1226,7 @@
       <a href="/hyrox-pacing" class="nav-link" data-i18n="nav_hyrox_calc">Hyrox kalkulačka</a>
       <a href="/1rm-kalkulacka" class="nav-link" data-i18n="nav_1rm_calc">1RM kalkulačka</a>
       <a href="/kalorie-kalkulacka" class="nav-link" data-i18n="nav_calories">Kalorie</a>
+      <a href="/blog" class="nav-link">Blog</a>
       <a href="/stitna-zlaza" class="nav-link" data-i18n="nav_thyroid">Štítná žláza</a>
       <div class="nav-dropdown">
         <span class="nav-dropdown-toggle" data-i18n="nav_diets_toggle">Diety &amp; intolerance ▾</span>
@@ -1264,6 +1273,7 @@
       <div class="nav-mobile-sep"></div>
       <a href="/30-dni" class="nav-mobile-link" data-i18n="nav_30days">30 dní s BOOOMEREM</a>
       <a href="/hyrox-pacing" class="nav-mobile-link" data-i18n="nav_mobile_hyrox_calc">🏃 Hyrox kalkulačka</a>
+      <a href="/blog" class="nav-mobile-link">Blog</a>
       <a href="/stitna-zlaza" class="nav-mobile-link" data-i18n="nav_thyroid">Štítná žláza</a>
       <div class="nav-mobile-dd">
         <button class="nav-mobile-dd-toggle"><span data-i18n="nav_diets_mobile">Diety &amp; intolerance</span><span class="nav-mobile-dd-arrow">▾</span></button>
@@ -1791,6 +1801,11 @@
       <a href="/30-dni"><span>30 dní s BOOOMEROM</span><span>→</span></a>
       <a href="/stitna-zlaza"><span>Štítna žľaza</span><span>→</span></a>
       <a href="/dieta/hashimoto"><span>Hashimoto: diéta a liečba</span><span>→</span></a>
+      <a href="/blog"><span>Blog: všetky články</span><span>→</span></a>
+      <a href="/blog/treningovy-dennik"><span>Tréningový denník: ako začať</span><span>→</span></a>
+      <a href="/blog/progresivne-pretazenie"><span>Progresívne preťaženie</span><span>→</span></a>
+      <a href="/blog/kolko-bielkovin-denne"><span>Koľko bielkovín denne</span><span>→</span></a>
+      <a href="/blog/hyrox-priprava-8-tyzdnov"><span>Hyrox príprava na 8 týždňov</span><span>→</span></a>
       <a href="/faq"><span>Časté otázky</span><span>→</span></a>
     </div>
   </div>
@@ -1984,6 +1999,7 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="#" data-i18n="footer_about">O nás</a>
         <a href="/30-dni">30 dní s BOOOMEROM</a>
+        <a href="/blog">Blog</a>
         <a href="/hyrox-pacing">Hyrox pacing kalkulačka</a>
         <a href="/1rm-kalkulacka">1RM kalkulačka</a>
         <a href="/kalorie-kalkulacka">Kalorická kalkulačka</a>

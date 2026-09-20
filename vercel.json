@@ -79,6 +79,26 @@
     {
       "source": "/de",
       "destination": "/de/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/treningovy-dennik",
+      "destination": "/blog/treningovy-dennik.html"
+    },
+    {
+      "source": "/blog/progresivne-pretazenie",
+      "destination": "/blog/progresivne-pretazenie.html"
+    },
+    {
+      "source": "/blog/kolko-bielkovin-denne",
+      "destination": "/blog/kolko-bielkovin-denne.html"
+    },
+    {
+      "source": "/blog/hyrox-priprava-8-tyzdnov",
+      "destination": "/blog/hyrox-priprava-8-tyzdnov.html"
     }
   ],
   "headers": [
