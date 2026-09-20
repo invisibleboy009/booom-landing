@@ -442,3 +442,9 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - **Prepojenia**: `build-i18n.mjs` krok 4 vklada blok "Dalsie nastroje a sprievodcovia" pred `<footer>` kazdej obsahovej stranky (medzi znackami `site-links:start/end`); nastroje/clanky pridavaj do `SL_GROUPS`.
 - **Kalkulacky**: 1RM, kalorie, Hyrox pacing a percento tuku (nova kalkulacka US Navy) maju rozsirene texty; FAQ v HTML a FAQPage JSON-LD musia zostat zhodne.
 - **Nav na home**: hamburger pod 1500 px, od 1500 do 1699 px sa socialne pilulky skryju (ostavaju v menu a pateke), od 1700 px je vsetko. Najdlhsie su ukrajinske popisky, s nimi je to overene.
+
+## Preklady kalkulaciek a nahladove obrazky (2026-09-20)
+
+- Kalkulacky maju EN a CS verzie: `en/1rm-calculator`, `en/calorie-calculator`, `en/hyrox-pacing-calculator`, `en/body-fat-calculator` a `cs/1rm-kalkulacka`, `cs/kaloricka-kalkulacka`, `cs/hyrox-pacing-kalkulacka`, `cs/procento-telesneho-tuku` (rucne HTML, kopie SK stranok s prelozenymi textami a JS retazcami; logika sa nesmie rozchadzat, pri oprave vzorca uprav vsetky tri). Rewrites su vo `vercel.json`, hreflang zhluky v `BLOG_CLUSTERS` (`build-i18n.mjs`, polozky 5+ su nastroje), lokalizovane linky na EN/CS home v `TOOLS_LOCAL`, blok suvisiacich odkazov v `SL_LANG`.
+- Nahladove obrazky (og:image) pre clanky a nastroje: `python blog-src/make_og.py` (Pillow, font Segoe UI Bold z Windows) zapise `assets/og/<jazyk>-<kluc>.jpg`; `make_blog.py` ich dosadzuje do clankov, nastroje ich maju v HTML.
+- Recenzie: home uz nevklada Review JSON-LD (Search Console: "viacero recenzii bez aggregateRating"). Referencie ostavaju viditelne; funkcia `markup()` v `index.html` ostala nevyuzita.

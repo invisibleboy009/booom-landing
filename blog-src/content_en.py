@@ -71,7 +71,7 @@ ARTICLES.append(dict(
     </ol>'''),
         ('progres', 'How to read progress from your log', '''    <p>Don’t track everything. Three things are enough:</p>
     <ul>
-      <li><strong>Your best set in the main lifts.</strong> From it you can also estimate your 1RM in the <a href="/1rm-kalkulacka">1RM calculator</a> (Slovak) and compare it over time.</li>
+      <li><strong>Your best set in the main lifts.</strong> From it you can also estimate your 1RM in the <a href="/en/1rm-calculator">1RM calculator</a> and compare it over time.</li>
       <li><strong>Weekly volume</strong> (sets × reps × weight) for each muscle group. It rises gradually, with an occasional lighter week.</li>
       <li><strong>Training frequency.</strong> The number of completed workouts per week is a simple indicator of consistency.</li>
     </ul>
@@ -163,12 +163,12 @@ ARTICLES.append(dict(
         ('deload', 'The lighter week (deload)', '''    <p>Fatigue builds up faster than you think. Once every 4 to 8 weeks, or when your performance drops over several workouts in a row, cut both volume and load by roughly a third to a half. After a week you come back fresh and often beat your previous records.</p>'''),
         ('stagnacia', 'What to do when you plateau', '''    <ol>
       <li><strong>Check your sleep.</strong> Regularly getting less than 7 hours shows up in both strength and recovery.</li>
-      <li><strong>Check your intake.</strong> In a chronic deficit, strength stalls. Work out your needs in the <a href="/kalorie-kalkulacka">calorie calculator</a> (Slovak) and your protein using the article <a href="/en/blog/how-much-protein-per-day">How much protein per day</a>.</li>
+      <li><strong>Check your intake.</strong> In a chronic deficit, strength stalls. Work out your needs in the <a href="/en/calorie-calculator">calorie calculator</a> and your protein using the article <a href="/en/blog/how-much-protein-per-day">How much protein per day</a>.</li>
       <li><strong>Change the stimulus.</strong> A different rep range, an exercise variation or tempo.</li>
       <li><strong>Check your technique.</strong> Film a set on video.</li>
       <li><strong>Take a deload.</strong></li>
     </ol>
-    <p>You can roughly estimate your current strength in the <a href="/1rm-kalkulacka">1RM calculator</a> (Slovak) and compare it after a few weeks.</p>'''),
+    <p>You can roughly estimate your current strength in the <a href="/en/1rm-calculator">1RM calculator</a> and compare it after a few weeks.</p>'''),
     ],
 ))
 
@@ -213,7 +213,7 @@ ARTICLES.append(dict(
         <tr><td>Losing weight with strength training</td><td class="n">1.8 to 2.2</td></tr>
       </tbody>
     </table>
-    <p>In a calorie deficit it pays to aim for the upper end: it helps preserve muscle mass and keeps you fuller. You can set your deficit in the <a href="/kalorie-kalkulacka">calorie calculator</a> (Slovak).</p>'''),
+    <p>In a calorie deficit it pays to aim for the upper end: it helps preserve muscle mass and keeps you fuller. You can set your deficit in the <a href="/en/calorie-calculator">calorie calculator</a>.</p>'''),
         ('rozlozenie', 'How to spread it across the day', '''    <p>A practical goal is 3 to 5 meals with about <strong>0.3 to 0.4 g of protein per kg</strong> in each meal. For 80 kg that is roughly 25 to 35 g. The exact timing around your workout matters less than your total daily intake.</p>'''),
         ('potraviny', 'How much protein common foods have', '''    <table>
       <thead><tr><th>Food</th><th class="n">Protein (approx.)</th></tr></thead>
@@ -267,7 +267,7 @@ ARTICLES.append(dict(
         ('Are 8 weeks enough for a first Hyrox?', 'If you can run 5 km in one go and train at least 3 times a week, yes, for finishing your first race. If not, extend the base phase.'),
         ('How much should I run per week?', 'In this plan roughly 15 to 25 km per week, most of it at an easy pace. Consistency matters more than kilometres.'),
         ('Can I prepare at home?', 'Partly: runs and strength training with dumbbells and bodyweight. Try the specific stations (SkiErg, sled, rowing) in a gym at least a few times before the race.'),
-        ('How should I prepare for pacing?', 'Use the <a href="/hyrox-pacing">Hyrox pacing calculator</a> (Slovak): enter your target time and you get run paces and station times. After the simulation, replace them with your actual splits.'),
+        ('How should I prepare for pacing?', 'Use the <a href="/en/hyrox-pacing-calculator">Hyrox pacing calculator</a>: enter your target time and you get run paces and station times. After the simulation, replace them with your actual splits.'),
     ],
     sections=[
         ('pre-koho', 'Who the plan is for', '''    <ul>
@@ -315,8 +315,8 @@ ARTICLES.append(dict(
       <li><strong>Don’t try new things.</strong> Food, shoes and clothing must be proven in training.</li>
       <li><strong>Sleep.</strong> In the last days before the race, sleep is the best preparation.</li>
       <li><strong>Start slowly.</strong> The first kilometre feels easy on adrenaline, and you’ll pay for an overeager pace in the second half.</li>
-      <li><strong>Hold your pacing.</strong> Work out your target pace in the <a href="/hyrox-pacing">Hyrox pacing calculator</a> (Slovak).</li>
+      <li><strong>Hold your pacing.</strong> Work out your target pace in the <a href="/en/hyrox-pacing-calculator">Hyrox pacing calculator</a>.</li>
     </ul>'''),
-        ('sledovanie', 'How to track progress', '''    <p>After each simulation, write down the splits of all runs and stations. You’ll see where you lose time and can focus your training there. Track strength progress in the <a href="/1rm-kalkulacka">1RM calculator</a> (Slovak) and in your <a href="/en/blog/training-log">training log</a>.</p>'''),
+        ('sledovanie', 'How to track progress', '''    <p>After each simulation, write down the splits of all runs and stations. You’ll see where you lose time and can focus your training there. Track strength progress in the <a href="/en/1rm-calculator">1RM calculator</a> and in your <a href="/en/blog/training-log">training log</a>.</p>'''),
     ],
 ))

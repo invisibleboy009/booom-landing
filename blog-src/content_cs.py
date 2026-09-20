@@ -72,7 +72,7 @@ ARTICLES.append(dict(
     </ol>'''),
         ('progres', 'Jak z deníku vyčíst pokrok', '''    <p>Nesleduj všechno. Stačí tři věci:</p>
     <ul>
-      <li><strong>Nejlepší série v hlavních cvicích.</strong> Z ní si můžeš odhadnout i 1RM v <a href="/1rm-kalkulacka">kalkulačce 1RM</a> (slovensky) a porovnat ho v čase.</li>
+      <li><strong>Nejlepší série v hlavních cvicích.</strong> Z ní si můžeš odhadnout i 1RM v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a porovnat ho v čase.</li>
       <li><strong>Týdenní objem</strong> (série × opakování × váha) pro každou svalovou skupinu. Roste postupně, s občasným odlehčením.</li>
       <li><strong>Frekvenci tréninků.</strong> Počet dokončených tréninků za týden je jednoduchý ukazatel konzistence.</li>
     </ul>
@@ -164,12 +164,12 @@ ARTICLES.append(dict(
         ('deload', 'Odlehčený týden (deload)', '''    <p>Únava se nahromadí rychleji, než si myslíš. Jednou za 4 až 8 týdnů, nebo když ti výkon klesá několik tréninků po sobě, sniž objem i zátěž zhruba o třetinu až polovinu. Po týdnu se vrátíš s čerstvými silami a často překonáš předchozí rekordy.</p>'''),
         ('stagnacia', 'Co dělat při stagnaci', '''    <ol>
       <li><strong>Zkontroluj spánek.</strong> Pravidelně méně než 7 hodin se projeví na síle i regeneraci.</li>
-      <li><strong>Zkontroluj příjem.</strong> Při chronickém deficitu síla stagnuje. Spočítej si potřebu v <a href="/kalorie-kalkulacka">kalorické kalkulačce</a> (slovensky) a bílkoviny podle článku <a href="/cs/blog/kolik-bilkovin-denne">Kolik bílkovin denně</a>.</li>
+      <li><strong>Zkontroluj příjem.</strong> Při chronickém deficitu síla stagnuje. Spočítej si potřebu v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a> a bílkoviny podle článku <a href="/cs/blog/kolik-bilkovin-denne">Kolik bílkovin denně</a>.</li>
       <li><strong>Změň podnět.</strong> Jiný rozsah opakování, variantu cviku nebo tempo.</li>
       <li><strong>Zkontroluj techniku.</strong> Natoč si sérii na video.</li>
       <li><strong>Dej si deload.</strong></li>
     </ol>
-    <p>Aktuální sílu si můžeš orientačně odhadnout v <a href="/1rm-kalkulacka">kalkulačce 1RM</a> (slovensky) a po pár týdnech porovnat.</p>'''),
+    <p>Aktuální sílu si můžeš orientačně odhadnout v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a po pár týdnech porovnat.</p>'''),
     ],
 ))
 
@@ -214,7 +214,7 @@ ARTICLES.append(dict(
         <tr><td>Hubnutí se silovým tréninkem</td><td class="n">1,8 až 2,2</td></tr>
       </tbody>
     </table>
-    <p>V kalorickém deficitu se vyplatí být spíš u horní hranice, pomáhá to zachovat svalovou hmotu a lépe tě zasytí. Deficit si můžeš nastavit v <a href="/kalorie-kalkulacka">kalorické kalkulačce</a> (slovensky).</p>'''),
+    <p>V kalorickém deficitu se vyplatí být spíš u horní hranice, pomáhá to zachovat svalovou hmotu a lépe tě zasytí. Deficit si můžeš nastavit v <a href="/cs/kaloricka-kalkulacka">kalorické kalkulačce</a>.</p>'''),
         ('rozlozenie', 'Jak si je rozložit během dne', '''    <p>Praktický cíl jsou 3 až 5 jídel s přibližně <strong>0,3 až 0,4 g bílkovin na kg</strong> v jednom jídle. Pro 80 kg je to zhruba 25 až 35 g. Přesné načasování kolem tréninku je méně důležité než celkový denní příjem.</p>'''),
         ('potraviny', 'Kolik bílkovin mají běžné potraviny', '''    <table>
       <thead><tr><th>Potravina</th><th class="n">Bílkoviny (orientačně)</th></tr></thead>
@@ -268,7 +268,7 @@ ARTICLES.append(dict(
         ('Stačí 8 týdnů na první Hyrox?', 'Pokud umíš uběhnout 5 km vkuse a trénuješ aspoň 3krát týdně, na dokončení prvních závodů ano. Pokud ne, prodluž si základní fázi.'),
         ('Kolik mám běhat týdně?', 'V tomto plánu orientačně 15 až 25 km týdně, většinu v klidném tempu. Důležitější než kilometry je pravidelnost.'),
         ('Můžu se připravit doma?', 'Část ano: běhy, silový trénink s činkami a vlastní vahou. Specifické stanice (SkiErg, sáně, veslování) si vyzkoušej v gymu aspoň několikrát před závodem.'),
-        ('Jak se mám připravit na pacing?', 'Použij <a href="/hyrox-pacing">kalkulačku Hyrox pacing</a> (slovensky): zadej cílový čas a získáš tempo běhů a časy stanic. Po simulaci je nahraď skutečnými splity.'),
+        ('Jak se mám připravit na pacing?', 'Použij <a href="/cs/hyrox-pacing-kalkulacka">kalkulačku Hyrox pacing</a>: zadej cílový čas a získáš tempo běhů a časy stanic. Po simulaci je nahraď skutečnými splity.'),
     ],
     sections=[
         ('pre-koho', 'Pro koho je plán', '''    <ul>
@@ -316,8 +316,8 @@ ARTICLES.append(dict(
       <li><strong>Nezkoušej nové věci.</strong> Jídlo, obuv a oblečení musí být ověřené z tréninku.</li>
       <li><strong>Spi.</strong> V posledních dnech před závodem je spánek nejlepší příprava.</li>
       <li><strong>Startuj pomalu.</strong> První kilometr se na adrenalin zdá lehký a přehnané tempo zaplatíš ve druhé polovině.</li>
-      <li><strong>Drž pacing.</strong> Cílové tempo si spočítej v <a href="/hyrox-pacing">kalkulačce Hyrox pacing</a> (slovensky).</li>
+      <li><strong>Drž pacing.</strong> Cílové tempo si spočítej v <a href="/cs/hyrox-pacing-kalkulacka">kalkulačce Hyrox pacing</a>.</li>
     </ul>'''),
-        ('sledovanie', 'Jak sledovat pokrok', '''    <p>Po každé simulaci si zapiš splity všech běhů a stanic. Uvidíš, kde ztrácíš čas, a můžeš tam zaměřit trénink. Silový pokrok sleduj v <a href="/1rm-kalkulacka">kalkulačce 1RM</a> (slovensky) a v <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a>.</p>'''),
+        ('sledovanie', 'Jak sledovat pokrok', '''    <p>Po každé simulaci si zapiš splity všech běhů a stanic. Uvidíš, kde ztrácíš čas, a můžeš tam zaměřit trénink. Silový pokrok sleduj v <a href="/cs/1rm-kalkulacka">kalkulačce 1RM</a> a v <a href="/cs/blog/treninkovy-denik">tréninkovém deníku</a>.</p>'''),
     ],
 ))

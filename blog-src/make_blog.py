@@ -243,6 +243,7 @@ def build_article(l, i):
 ''' % dict(fav=FAVICON, font=FONT, ld='\n'.join(ld(x) for x in schema), css=CSS, header=header(l, urls), home=home_href(l), prefix=m.PREFIX, blog=ui['blog'],
            crumb=a['crumb'], h1=a['h1'], updated=ui['updated'], date=ui['date_sk'], mins=mins, read=ui['read'], lead=a['lead'], toc_aria=ui['toc_aria'],
            toc_t=ui['toc'], toc=toc, faq_t=ui['faq'], body=body, cta=cta_l(ui, a['cta'][0], a['cta'][1]), faq=faq_html, disc=a.get('disc', ''), footer=footer(l))
+    page = page.replace('/assets/og-image.png', '/assets/og/%s-%s.jpg' % (l, a['slug']))
     p = out_path(l, a['slug'])
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8', newline='').write(page)
@@ -285,6 +286,7 @@ def build_hub(l, cards):
 </html>
 ''' % dict(fav=FAVICON, font=FONT, ld='\n'.join(ld(x) for x in schema), css=CSS, header=header(l, urls), home=home_href(l), blog=ui['blog'], h1=h['h1'],
            lead=h['lead'], cards=cards_html, cta=cta_l(ui, h['cta'][0], h['cta'][1]), footer=footer(l))
+    page = page.replace('/assets/og-image.png', '/assets/og/%s-blog.jpg' % l)
     p = out_path(l)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8', newline='').write(page)

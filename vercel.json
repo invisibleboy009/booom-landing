@@ -139,6 +139,38 @@
     {
       "source": "/cs/blog/hyrox-priprava-8-tydnu",
       "destination": "/cs/blog/hyrox-priprava-8-tydnu.html"
+    },
+    {
+      "source": "/en/1rm-calculator",
+      "destination": "/en/1rm-calculator.html"
+    },
+    {
+      "source": "/cs/1rm-kalkulacka",
+      "destination": "/cs/1rm-kalkulacka.html"
+    },
+    {
+      "source": "/en/calorie-calculator",
+      "destination": "/en/calorie-calculator.html"
+    },
+    {
+      "source": "/cs/kaloricka-kalkulacka",
+      "destination": "/cs/kaloricka-kalkulacka.html"
+    },
+    {
+      "source": "/en/hyrox-pacing-calculator",
+      "destination": "/en/hyrox-pacing-calculator.html"
+    },
+    {
+      "source": "/cs/hyrox-pacing-kalkulacka",
+      "destination": "/cs/hyrox-pacing-kalkulacka.html"
+    },
+    {
+      "source": "/en/body-fat-calculator",
+      "destination": "/en/body-fat-calculator.html"
+    },
+    {
+      "source": "/cs/procento-telesneho-tuku",
+      "destination": "/cs/procento-telesneho-tuku.html"
     }
   ],
   "headers": [
@@ -228,6 +260,15 @@
     },
     {
       "source": "/assets/google-play-badge.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/og/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

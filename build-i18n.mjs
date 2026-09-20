@@ -39,9 +39,30 @@ const BLOG_CLUSTERS = [
   { sk: '/blog/progresivne-pretazenie', en: '/en/blog/progressive-overload', cs: '/cs/blog/progresivni-pretizeni' },
   { sk: '/blog/kolko-bielkovin-denne', en: '/en/blog/how-much-protein-per-day', cs: '/cs/blog/kolik-bilkovin-denne' },
   { sk: '/blog/hyrox-priprava-8-tyzdnov', en: '/en/blog/hyrox-8-week-training-plan', cs: '/cs/blog/hyrox-priprava-8-tydnu' },
+  // tools (BLOG_LOCAL only walks the first five entries)
+  { sk: '/1rm-kalkulacka', en: '/en/1rm-calculator', cs: '/cs/1rm-kalkulacka' },
+  { sk: '/kalorie-kalkulacka', en: '/en/calorie-calculator', cs: '/cs/kaloricka-kalkulacka' },
+  { sk: '/hyrox-pacing', en: '/en/hyrox-pacing-calculator', cs: '/cs/hyrox-pacing-kalkulacka' },
+  { sk: '/percento-telesneho-tuku', en: '/en/body-fat-calculator', cs: '/cs/procento-telesneho-tuku' },
 ]
 const clusterOf = {}
 for (const c of BLOG_CLUSTERS) for (const k of ['sk', 'en', 'cs']) clusterOf[c[k]] = c
+
+// Localized calculator pages: hrefs and the plain-text labels the home page uses for them.
+const TOOLS_LOCAL = {
+  EN: {
+    '/hyrox-pacing': { href: '/en/hyrox-pacing-calculator', labels: [['Hyrox pacing kalkulačka', 'Hyrox pacing calculator']] },
+    '/1rm-kalkulacka': { href: '/en/1rm-calculator', labels: [['1RM kalkulačka', '1RM calculator']] },
+    '/kalorie-kalkulacka': { href: '/en/calorie-calculator', labels: [['Kalorická kalkulačka (BMR/TDEE)', 'Calorie calculator (BMR/TDEE)'], ['Kalorická kalkulačka', 'Calorie calculator']] },
+    '/percento-telesneho-tuku': { href: '/en/body-fat-calculator', labels: [['Percento telesného tuku', 'Body fat percentage']] },
+  },
+  CS: {
+    '/hyrox-pacing': { href: '/cs/hyrox-pacing-kalkulacka', labels: [] },
+    '/1rm-kalkulacka': { href: '/cs/1rm-kalkulacka', labels: [['1RM kalkulačka', 'Kalkulačka 1RM']] },
+    '/kalorie-kalkulacka': { href: '/cs/kaloricka-kalkulacka', labels: [] },
+    '/percento-telesneho-tuku': { href: '/cs/procento-telesneho-tuku', labels: [['Percento telesného tuku', 'Procento tělesného tuku']] },
+  },
+}
 
 // Localized blog links for the en/cs home pages (nav, footer, guides grid).
 const BLOG_LOCAL = {
@@ -128,6 +149,10 @@ function localize(src, L) {
   // Blog: the nav, footer and guides links point at the language's own blog.
   if (BLOG_LOCAL[L]) {
     const bl = BLOG_LOCAL[L]
+    for (const [skHref, tl] of Object.entries(TOOLS_LOCAL[L])) {
+      html = html.split(`href="${skHref}"`).join(`href="${tl.href}"`)
+      for (const [skLabel, label] of tl.labels) html = html.split(`>${skLabel}<`).join(`>${label}<`)
+    }
     html = html.replace(/href="\/blog"/g, `href="${bl.hub}"`)
     for (const [i, art] of bl.articles.entries()) {
       const skRe = new RegExp(`<a href="${BLOG_CLUSTERS[i + 1].sk}"><span>[^<]*</span>`)
@@ -271,11 +296,11 @@ const SL_LANG = {
       ['/en/blog/hyrox-8-week-training-plan', 'Hyrox prep in 8 weeks'],
       ['/en/blog', 'All articles'],
     ]],
-    ['Calculators (Slovak)', [
-      ['/hyrox-pacing', 'Hyrox pacing calculator'],
-      ['/1rm-kalkulacka', '1RM calculator'],
-      ['/kalorie-kalkulacka', 'Calorie calculator (BMR and TDEE)'],
-      ['/percento-telesneho-tuku', 'Body fat percentage'],
+    ['Calculators', [
+      ['/en/hyrox-pacing-calculator', 'Hyrox pacing calculator'],
+      ['/en/1rm-calculator', '1RM calculator'],
+      ['/en/calorie-calculator', 'Calorie calculator (BMR and TDEE)'],
+      ['/en/body-fat-calculator', 'Body fat calculator'],
     ]],
   ], 'More articles and tools'],
   cs: [[
@@ -286,11 +311,11 @@ const SL_LANG = {
       ['/cs/blog/hyrox-priprava-8-tydnu', 'Hyrox příprava na 8 týdnů'],
       ['/cs/blog', 'Všechny články'],
     ]],
-    ['Kalkulačky (slovensky)', [
-      ['/hyrox-pacing', 'Hyrox pacing kalkulačka'],
-      ['/1rm-kalkulacka', 'Kalkulačka 1RM'],
-      ['/kalorie-kalkulacka', 'Kalorická kalkulačka (BMR a TDEE)'],
-      ['/percento-telesneho-tuku', 'Procento tělesného tuku'],
+    ['Kalkulačky', [
+      ['/cs/hyrox-pacing-kalkulacka', 'Hyrox pacing kalkulačka'],
+      ['/cs/1rm-kalkulacka', 'Kalkulačka 1RM'],
+      ['/cs/kaloricka-kalkulacka', 'Kalorická kalkulačka (BMR a TDEE)'],
+      ['/cs/procento-telesneho-tuku', 'Kalkulačka tělesného tuku'],
     ]],
   ], 'Další články a nástroje'],
 }

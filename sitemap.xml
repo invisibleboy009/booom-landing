@@ -119,18 +119,30 @@
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
   </url>
   <url>
     <loc>https://booom.fit/1rm-kalkulacka</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/1rm-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/1rm-kalkulacka"/>
   </url>
   <url>
     <loc>https://booom.fit/kalorie-kalkulacka</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/kalorie-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/calorie-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/kaloricka-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/kalorie-kalkulacka"/>
   </url>
   <url>
     <loc>https://booom.fit/hyrox-pre-zaciatocnikov</loc>
@@ -149,6 +161,10 @@
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/percento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/body-fat-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/procento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/percento-telesneho-tuku"/>
   </url>
   <url>
     <loc>https://booom.fit/30-dni</loc>
@@ -305,5 +321,85 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/blog/hyrox-8-week-training-plan"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/blog/hyrox-priprava-8-tydnu"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/blog/hyrox-priprava-8-tyzdnov"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/1rm-calculator</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/1rm-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/1rm-kalkulacka"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/1rm-kalkulacka</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/1rm-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/1rm-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/1rm-kalkulacka"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/calorie-calculator</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/kalorie-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/calorie-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/kaloricka-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/kalorie-kalkulacka"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/kaloricka-kalkulacka</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/kalorie-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/calorie-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/kaloricka-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/kalorie-kalkulacka"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/hyrox-pacing-calculator</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/hyrox-pacing-kalkulacka</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/en/body-fat-calculator</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/percento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/body-fat-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/procento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/percento-telesneho-tuku"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/cs/procento-telesneho-tuku</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/percento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/body-fat-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/procento-telesneho-tuku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/percento-telesneho-tuku"/>
   </url>
 </urlset>
