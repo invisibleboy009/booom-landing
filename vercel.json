@@ -1,1 +1,179 @@
-{"rewrites": [{"source": "/stitna-zlaza", "destination": "/stitna-zlaza.html"}, {"source": "/dieta/bezlaktozova", "destination": "/dieta/bezlaktozova.html"}, {"source": "/dieta/bezlepkova", "destination": "/dieta/bezlepkova.html"}, {"source": "/dieta/histaminova", "destination": "/dieta/histaminova.html"}, {"source": "/dieta/hashimoto", "destination": "/dieta/hashimoto.html"}, {"source": "/privacy", "destination": "/privacy.html"}, {"source": "/terms", "destination": "/terms.html"}, {"source": "/faq", "destination": "/faq.html"}, {"source": "/hyrox-pacing", "destination": "/hyrox-pacing.html"}, {"source": "/1rm-kalkulacka", "destination": "/1rm-kalkulacka.html"}, {"source": "/kalorie-kalkulacka", "destination": "/kalorie-kalkulacka.html"}, {"source": "/hyrox-pre-zaciatocnikov", "destination": "/hyrox-pre-zaciatocnikov.html"}, {"source": "/crossfit-pre-zaciatocnikov", "destination": "/crossfit-pre-zaciatocnikov.html"}, {"source": "/percento-telesneho-tuku", "destination": "/percento-telesneho-tuku.html"}, {"source": "/30-dni", "destination": "/september.html"}, {"source": "/en", "destination": "/en/index.html"}, {"source": "/cs", "destination": "/cs/index.html"}, {"source": "/pl", "destination": "/pl/index.html"}, {"source": "/uk", "destination": "/uk/index.html"}, {"source": "/de", "destination": "/de/index.html"}]}
+{
+  "rewrites": [
+    {
+      "source": "/stitna-zlaza",
+      "destination": "/stitna-zlaza.html"
+    },
+    {
+      "source": "/dieta/bezlaktozova",
+      "destination": "/dieta/bezlaktozova.html"
+    },
+    {
+      "source": "/dieta/bezlepkova",
+      "destination": "/dieta/bezlepkova.html"
+    },
+    {
+      "source": "/dieta/histaminova",
+      "destination": "/dieta/histaminova.html"
+    },
+    {
+      "source": "/dieta/hashimoto",
+      "destination": "/dieta/hashimoto.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/hyrox-pacing",
+      "destination": "/hyrox-pacing.html"
+    },
+    {
+      "source": "/1rm-kalkulacka",
+      "destination": "/1rm-kalkulacka.html"
+    },
+    {
+      "source": "/kalorie-kalkulacka",
+      "destination": "/kalorie-kalkulacka.html"
+    },
+    {
+      "source": "/hyrox-pre-zaciatocnikov",
+      "destination": "/hyrox-pre-zaciatocnikov.html"
+    },
+    {
+      "source": "/crossfit-pre-zaciatocnikov",
+      "destination": "/crossfit-pre-zaciatocnikov.html"
+    },
+    {
+      "source": "/percento-telesneho-tuku",
+      "destination": "/percento-telesneho-tuku.html"
+    },
+    {
+      "source": "/30-dni",
+      "destination": "/september.html"
+    },
+    {
+      "source": "/en",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/cs",
+      "destination": "/cs/index.html"
+    },
+    {
+      "source": "/pl",
+      "destination": "/pl/index.html"
+    },
+    {
+      "source": "/uk",
+      "destination": "/uk/index.html"
+    },
+    {
+      "source": "/de",
+      "destination": "/de/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/hero/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/lang.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/booomer-avatar.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/app-store-badge.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/google-play-badge.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/google-play-badge.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ]
+}

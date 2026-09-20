@@ -168,14 +168,31 @@
   var chatInitialised = false;
   var currentConvoId = null;
 
-  // ── Supabase init ──────────────────────────────────────────────────────────
-  function initSupabase() {
-    if (window.supabase && window.supabase.createClient) {
-      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      return true;
-    }
-    return false;
+  // ── Supabase (loaded on demand) ────────────────────────────────────────────
+  // supabase-js is ~170 kB and is only needed for the email sign-in step. Someone who never
+  // opens the chat, or already has an email stored, should not pay for it on every page view.
+  // window.loadSupabase is shared with the testimonials block on the home page.
+  var SB_SRC = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+  function loadSupabaseLib() {
+    if (window.supabase && window.supabase.createClient) return Promise.resolve();
+    if (window.__sbLoading) return window.__sbLoading;
+    window.__sbLoading = new Promise(function (resolve, reject) {
+      var el = document.createElement('script');
+      el.src = SB_SRC;
+      el.onload = function () { resolve(); };
+      el.onerror = function () { window.__sbLoading = null; reject(new Error('supabase-js failed to load')); };
+      document.head.appendChild(el);
+    });
+    return window.__sbLoading;
   }
+  window.loadSupabase = loadSupabaseLib;
+  function getClient() {
+    return loadSupabaseLib().then(function () {
+      if (!supabaseClient) supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      return supabaseClient;
+    });
+  }
+  function track(name, params) { if (window.boomTrack) window.boomTrack(name, params); }
 
   // ── Conversation persistence ───────────────────────────────────────────────
   function loadConversations() {
@@ -644,7 +661,7 @@
     btn.textContent = S().sending;
     errEl.style.display = 'none';
 
-    supabaseClient.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } })
+    getClient().then(function (sb) { return sb.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } }); })
       .then(function (result) {
         if (result.error) throw result.error;
         pendingEmail = email;
@@ -691,7 +708,7 @@
     btn.textContent = S().verifying;
     errEl.style.display = 'none';
 
-    supabaseClient.auth.verifyOtp({ email: pendingEmail, token: token, type: 'email' })
+    getClient().then(function (sb) { return sb.auth.verifyOtp({ email: pendingEmail, token: token, type: 'email' }); })
       .then(function (result) {
         if (result.error) throw result.error;
         return supabaseClient.from('landing_leads').upsert(
@@ -702,6 +719,7 @@
       .then(function () {
         localStorage.setItem(LS_EMAIL, pendingEmail);
         userEmail = pendingEmail;
+        track('generate_lead', { method: 'boomer_chat', page: window.location.pathname });
         showChat();
       })
       .catch(function (err) {
@@ -881,8 +899,10 @@
     var bubble = document.getElementById('boomer-bubble');
     if (bubble) bubble.style.opacity = '0';
 
+    track('boomer_open', { page: window.location.pathname });
     var body = document.getElementById('boomer-body');
     if (!userEmail) {
+      loadSupabaseLib().catch(function () {});   // warm it up while the gate is read
       if (body.childElementCount === 0) showEmailGate();
     } else if (!chatInitialised) {
       showChat();
@@ -959,16 +979,7 @@
     }, 8000);
   }
 
-  function init() {
-    if (initSupabase()) {
-      setup();
-    } else {
-      setTimeout(function () {
-        if (initSupabase()) setup();
-        else console.warn('Boomer: supabase-js not loaded.');
-      }, 600);
-    }
-  }
+  function init() { setup(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
