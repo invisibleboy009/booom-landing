@@ -431,3 +431,14 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - Ten isty skript generuje `sitemap.xml` (lastmod z gitu, hreflang alternates) a FAQPage JSON-LD v `faq.html`.
 - `lang.js`: na strankach s `data-static-lang` prepnutie jazyka NAVIGUJE na URL jazyka; boty (UA bot/crawl/headless...) sa nikdy nepresmeruju. Podstranky (kalkulacky, sprievodcovia) prekladaju in-place ako predtym.
 - `vercel.json` uz nema catch-all na index.html; neexistujuce URL vracaju `404.html`.
+
+## Vykon, meranie a obsah (2026-09-20)
+
+- **Pismo**: Inter je self-hosted v `assets/fonts/Inter-{latin,latin-ext,cyrillic}.woff2` (variable). Kazda stranka ma inline `@font-face` + preload; Google Fonts uz sa nenacitava.
+- **supabase-js** sa uz nenacitava synchronne: `boomer-chat.js` vystavuje `window.loadSupabase()` (nacita sa pri otvoreni chatu; testimonials na home ho nacitaju tesne pred zobrazenim alebo po 4 s).
+- **`vercel.json` headers**: fonty 1 rok immutable, obrazky 7 dni, skripty 1 h, + nosniff / referrer / frame / permissions hlavicky.
+- **Meranie**: `assets/js/track.js` (deferred na kazdej stranke) posiela GA4 udalosti `store_click`, `webapp_click`, `social_click`, `plan_download`, `calculator_use` (element s `data-calc`), `language_switch`, `boomer_open`, `generate_lead`. Odchadzajuce linky na app dostavaju UTM (`utm_campaign` = slug stranky, `utm_content` = sekcia), Play `referrer`, App Store `ct`. V GA4 Admin treba oznacit `store_click`, `webapp_click`, `generate_lead` ako key events.
+- **Blog**: `/blog` (`blog/index.html`) + 4 clanky v `blog/*.html`. Clanky su rucne HTML (generator bol jednorazovy skript, nie je v repe), novy clanok = skopiruj existujuci, uprav obsah + JSON-LD, pridaj rewrite do `vercel.json` a odkaz do bloku v `build-i18n.mjs` (`SL_GROUPS`).
+- **Prepojenia**: `build-i18n.mjs` krok 4 vklada blok "Dalsie nastroje a sprievodcovia" pred `<footer>` kazdej obsahovej stranky (medzi znackami `site-links:start/end`); nastroje/clanky pridavaj do `SL_GROUPS`.
+- **Kalkulacky**: 1RM, kalorie, Hyrox pacing a percento tuku (nova kalkulacka US Navy) maju rozsirene texty; FAQ v HTML a FAQPage JSON-LD musia zostat zhodne.
+- **Nav na home**: hamburger pod 1500 px, od 1500 do 1699 px sa socialne pilulky skryju (ostavaju v menu a pateke), od 1700 px je vsetko. Najdlhsie su ukrajinske popisky, s nimi je to overene.
