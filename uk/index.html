@@ -2301,7 +2301,10 @@
         placeholders[i].parentNode.removeChild(placeholders[i]);
       }
 
-      markup(rows);
+      // 2026-09-20: no review JSON-LD. Search Console flagged "multiple reviews without
+      // aggregateRating"; an average over an admin-picked subset would misstate the rating, so the
+      // quotes stay visible on the page and are simply not sent as structured data. markup() is
+      // kept for the day the app has a real, complete rating to publish.
       startCarousel();
     }, function () { /* network — placeholders stand */ });
   }
