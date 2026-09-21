@@ -4,12 +4,12 @@
 # no qualification claim on purpose: the page says openly that this is a practical point of view.
 # Section tuples: (id, h2, html body). The figures are the ones already public on the home page.
 SOCIALS = [
-    ('Instagram', 'https://www.instagram.com/the.booom.app'),
+    ('Instagram', 'https://www.instagram.com/booom_fitness_app'),
     ('TikTok', 'https://www.tiktok.com/@booom.fitness.app'),
     ('Facebook', 'https://www.facebook.com/booom.fit'),
 ]
 SOCIALS_EN = [
-    ('Instagram', 'https://www.instagram.com/the.booom.app'),
+    ('Instagram', 'https://www.instagram.com/booom_fitness_app'),
     ('TikTok', 'https://www.tiktok.com/@getbooom'),
     ('Facebook', 'https://www.facebook.com/booom.fit'),
 ]
