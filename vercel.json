@@ -219,6 +219,18 @@
     {
       "source": "/cs/blog/regenerace-a-spanek",
       "destination": "/cs/blog/regenerace-a-spanek.html"
+    },
+    {
+      "source": "/o-nas",
+      "destination": "/o-nas.html"
+    },
+    {
+      "source": "/en/about",
+      "destination": "/en/about.html"
+    },
+    {
+      "source": "/cs/o-nas",
+      "destination": "/cs/o-nas.html"
     }
   ],
   "headers": [

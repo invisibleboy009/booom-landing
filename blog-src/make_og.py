@@ -25,6 +25,9 @@ TAG = {'sk': ('BLOG', 'NÁSTROJ ZADARMO', 'Zadarmo pre iOS, Android aj web'),
        'en': ('BLOG', 'FREE TOOL', 'Free for iOS, Android and web'),
        'cs': ('BLOG', 'NÁSTROJ ZDARMA', 'Zdarma pro iOS, Android i web')}
 
+from about_content import ABOUT
+ABOUT_TAG = {'sk': 'O NÁS', 'en': 'ABOUT', 'cs': 'O NÁS'}
+
 def wrap(draw, text, font, max_w):
     words, lines, cur = text.split(), [], ''
     for w in words:
@@ -73,6 +76,7 @@ for lang in ('sk', 'en', 'cs'):
     for a in mod.ARTICLES:
         card(a['h1'], TAG[lang][0], TAG[lang][2], os.path.join(OUT, '%s-%s.jpg' % (lang, a['slug']))); n += 1
     card(mod.HUB['h1'], TAG[lang][0], TAG[lang][2], os.path.join(OUT, '%s-blog.jpg' % lang)); n += 1
+    card(ABOUT[lang]['h1'], ABOUT_TAG[lang], TAG[lang][2], os.path.join(OUT, '%s-about.jpg' % lang)); n += 1
     for key, title in TOOLS[lang].items():
         card(title, TAG[lang][1], TAG[lang][2], os.path.join(OUT, '%s-%s.jpg' % (lang, key))); n += 1
 print(n, 'images in', os.path.normpath(OUT))

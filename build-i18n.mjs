@@ -37,6 +37,7 @@ const urlFor = L => L === 'SK' ? `${SITE}/` : `${SITE}/${HTML_LANG[L]}/`
 const MANIFEST = JSON.parse(readFileSync('blog-src/manifest.json', 'utf8'))
 const PFX = { sk: '', en: '/en', cs: '/cs' }
 const BLOG_CLUSTERS = [
+  { sk: '/o-nas', en: '/en/about', cs: '/cs/o-nas' },
   { sk: '/blog', en: '/en/blog', cs: '/cs/blog' },
   ...MANIFEST.articles.map(a => ({ sk: `/blog/${a.sk.slug}`, en: `/en/blog/${a.en.slug}`, cs: `/cs/blog/${a.cs.slug}` })),
   // tools
@@ -51,12 +52,14 @@ for (const c of BLOG_CLUSTERS) for (const k of ['sk', 'en', 'cs']) clusterOf[c[k
 // Localized calculator pages: hrefs and the plain-text labels the home page uses for them.
 const TOOLS_LOCAL = {
   EN: {
+    '/o-nas': { href: '/en/about', labels: [] },
     '/hyrox-pacing': { href: '/en/hyrox-pacing-calculator', labels: [['Hyrox pacing kalkulačka', 'Hyrox pacing calculator']] },
     '/1rm-kalkulacka': { href: '/en/1rm-calculator', labels: [['1RM kalkulačka', '1RM calculator']] },
     '/kalorie-kalkulacka': { href: '/en/calorie-calculator', labels: [['Kalorická kalkulačka (BMR/TDEE)', 'Calorie calculator (BMR/TDEE)'], ['Kalorická kalkulačka', 'Calorie calculator']] },
     '/percento-telesneho-tuku': { href: '/en/body-fat-calculator', labels: [['Percento telesného tuku', 'Body fat percentage']] },
   },
   CS: {
+    '/o-nas': { href: '/cs/o-nas', labels: [] },
     '/hyrox-pacing': { href: '/cs/hyrox-pacing-kalkulacka', labels: [] },
     '/1rm-kalkulacka': { href: '/cs/1rm-kalkulacka', labels: [['1RM kalkulačka', 'Kalkulačka 1RM']] },
     '/kalorie-kalkulacka': { href: '/cs/kaloricka-kalkulacka', labels: [] },
@@ -154,6 +157,9 @@ function localize(src, L) {
     html = html.replace(/<!-- blog-links:start -->[\s\S]*?<!-- blog-links:end -->/, blogGuides(L.toLowerCase()))
     html = html.replace(/href="\/blog"/g, `href="${bl.hub}"`)
   }
+
+  // The About page exists in sk / en / cs; the other home pages link the English one.
+  if (['PL', 'UK', 'DE'].includes(L)) html = html.split('href="/o-nas"').join('href="/en/about"')
 
   // Font preloads: index.html carries latin + latin-ext (Slovak); other languages keep only what they need.
   const PRELOAD_BY_LANG = { EN: '', DE: '', CS: 'Inter-latin-ext', PL: 'Inter-latin-ext', UK: 'Inter-cyrillic' }
@@ -272,6 +278,10 @@ const SL_GROUPS = [
     ['/dieta/histaminova', 'Histamínová diéta'],
   ]],
   blogGroup('sk'),
+  ['BOOOM', [
+    ['/o-nas', 'O nás'],
+    ['/faq', 'Časté otázky'],
+  ]],
 ]
 const SL_CSS = '.sl{max-width:820px;margin:44px auto 0;padding:24px 20px 0;border-top:1px solid #1e1e1e;font-family:Inter,"Inter Fallback",-apple-system,BlinkMacSystemFont,sans-serif;text-align:left}' +
   '.sl-h{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#00e676;margin:0 0 16px}' +
@@ -296,6 +306,7 @@ const SL_LANG = {
       ['/en/calorie-calculator', 'Calorie calculator (BMR and TDEE)'],
       ['/en/body-fat-calculator', 'Body fat calculator'],
     ]],
+    ['BOOOM', [['/en/about', 'About']]],
   ], 'More articles and tools'],
   cs: [[
     blogGroup('cs'),
@@ -305,6 +316,7 @@ const SL_LANG = {
       ['/cs/kaloricka-kalkulacka', 'Kalorická kalkulačka (BMR a TDEE)'],
       ['/cs/procento-telesneho-tuku', 'Kalkulačka tělesného tuku'],
     ]],
+    ['BOOOM', [['/cs/o-nas', 'O nás']]],
   ], 'Další články a nástroje'],
 }
 const slPages = new Map()   // route -> file

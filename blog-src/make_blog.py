@@ -121,6 +121,8 @@ for l in LANGS[1:]:
     for a, b in zip(mods['sk'].ARTICLES, mods[l].ARTICLES):
         assert [s[0] for s in a['sections']] == [s[0] for s in b['sections']], (l, a['slug'])
 
+from about_content import ABOUT, EMAIL
+def about_url(l): return SITE + ABOUT[l]['route']
 def hub_url(l): return SITE + mods[l].PREFIX + '/blog'
 def art_url(l, i): return '%s%s/blog/%s' % (SITE, mods[l].PREFIX, mods[l].ARTICLES[i]['slug'])
 def home_href(l): return (mods[l].PREFIX or '') + '/'
@@ -191,8 +193,8 @@ def header(l, urls):
 def footer(l):
     ui = mods[l].UI
     return '''    <footer>
-      <a href="%s">BOOOM</a> · Train. Track. Dominate. · <a href="/privacy">%s</a>
-    </footer>''' % (home_href(l), ui['privacy'])
+      <a href="%s">BOOOM</a> · <a href="%s">%s</a> · Train. Track. Dominate. · <a href="/privacy">%s</a>
+    </footer>''' % (home_href(l), ABOUT[l]['route'], ABOUT[l]['label'], ui['privacy'])
 
 def build_article(l, i):
     m = mods[l]; ui = m.UI; a = m.ARTICLES[i]
@@ -254,6 +256,8 @@ def build_article(l, i):
            crumb=a['crumb'], h1=a['h1'], updated=ui['updated'], date=ui['date_sk'], mins=mins, read=ui['read'], lead=a['lead'], toc_aria=ui['toc_aria'],
            toc_t=ui['toc'], toc=toc, faq_t=ui['faq'], body=body, cta=cta_l(ui, a['cta'][0], a['cta'][1]), faq=faq_html, disc=a.get('disc', ''), footer=footer(l))
     page = page.replace('/assets/og-image.png', '/assets/og/%s-%s.jpg' % (l, a['slug']))
+    if a.get('disc') == m.DISC_HEALTH:   # health articles point to the About page ("practical viewpoint, no credentials")
+        page = page.replace(m.DISC_HEALTH, m.DISC_HEALTH + '\n    <p class="disc">%s</p>' % ABOUT[l]['note'], 1)
     p = out_path(l, a['slug'])
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8', newline='').write(page)
@@ -301,10 +305,68 @@ def build_hub(l, cards):
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8', newline='').write(page)
 
+ABOUT_CSS = '''  <style>
+    .soc{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:10px}.soc li{margin:0}
+    .soc a{display:inline-block;padding:10px 16px;border:1px solid var(--border);border-radius:10px;color:#ddd;text-decoration:none;font-size:14px;font-weight:600}
+    .soc a:hover{border-color:rgba(0,230,118,.5)}
+  </style>'''
+
+def build_about(l):
+    m = mods[l]; ui = m.UI; a = ABOUT[l]
+    urls = {o: about_url(o) for o in LANGS}
+    url = urls[l]
+    body = '\n\n'.join('    <section class="s"><h2 id="%s">%s</h2>\n      %s</section>' % (sid, t, b) for sid, t, b in a['sections'])
+    socials = '\n'.join('        <li><a href="%s" target="_blank" rel="noopener me">%s</a></li>' % (u, n) for n, u in a['socials'])
+    contact = '''    <section class="s"><h2 id="kontakt">%s</h2>
+      <p>%s <a href="mailto:%s">%s</a></p>
+      <ul class="soc">
+%s
+      </ul></section>''' % (a['contact_h'], a['contact_p'], EMAIL, EMAIL, socials)
+    same_as = [u for _, u in a['socials']] + ['https://apps.apple.com/sk/app/id6788675497', 'https://play.google.com/store/apps/details?id=fit.booom.app']
+    org = {"@type": "Organization", "name": "BOOOM", "url": SITE + home_href(l), "logo": SITE + "/icon-512.png", "email": EMAIL, "sameAs": same_as}
+    schema = [
+        {"@context": "https://schema.org", "@type": "AboutPage", "name": a['h1'], "description": a['desc'], "url": url, "inLanguage": ui['html_lang'],
+         "dateModified": DATE, "mainEntity": org, "mainEntityOfPage": {"@type": "WebPage", "@id": url}},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "BOOOM", "item": SITE + home_href(l)},
+            {"@type": "ListItem", "position": 2, "name": a['crumb'], "item": url}]},
+    ]
+    page = page_head(l, a['title_tag'], a['desc'], a['kw'], 'website', a['og_title'], url, urls) + '''
+%(fav)s
+%(font)s
+%(ld)s
+%(css)s
+%(acss)s
+</head>
+<body>
+  <main class="wrap">
+%(header)s
+
+    <div class="crumb"><a href="%(home)s">BOOOM</a> › %(crumb)s</div>
+    <h1>%(h1)s</h1>
+    <p class="lead">%(lead)s</p>
+
+%(body)s
+
+%(contact)s
+
+    %(cta)s
+
+%(footer)s
+  </main>
+</body>
+</html>
+''' % dict(fav=FAVICON, font=FONT, ld='\n'.join(ld(x) for x in schema), css=CSS, acss=ABOUT_CSS, header=header(l, urls), home=home_href(l), crumb=a['crumb'],
+           h1=a['h1'], lead=a['lead'], body=body, contact=contact, cta=cta_l(ui, a['cta'][0], a['cta'][1]), footer=footer(l))
+    page = page.replace('/assets/og-image.png', '/assets/og/%s-about.jpg' % l)
+    os.makedirs(os.path.dirname(a['path']) or '.', exist_ok=True)
+    open(a['path'], 'w', encoding='utf-8', newline='').write(page)
+
 for l in LANGS:
     cards = [build_article(l, i) for i in range(len(mods[l].ARTICLES))]
     build_hub(l, cards)
-    print(l, [c['slug'] + ' ' + str(c['mins']) + 'min' for c in cards])
+    build_about(l)
+    print(l, [c['slug'] + ' ' + str(c['mins']) + 'min' for c in cards], ABOUT[l]['path'])
 
 # ── manifest (read by build-i18n.mjs) + vercel rewrites ──────────────────────────────────
 n_articles = len(mods['sk'].ARTICLES)
@@ -318,7 +380,7 @@ vj = json.load(open('vercel.json', encoding='utf-8'))
 have = {r['source'] for r in vj['rewrites']}
 added = 0
 for l in LANGS:
-    routes = [('%s/blog' % mods[l].PREFIX, '/' + out_path(l))] + [('%s/blog/%s' % (mods[l].PREFIX, a['slug']), '/' + out_path(l, a['slug'])) for a in mods[l].ARTICLES]
+    routes = [(ABOUT[l]['route'], '/' + ABOUT[l]['path']), ('%s/blog' % mods[l].PREFIX, '/' + out_path(l))] + [('%s/blog/%s' % (mods[l].PREFIX, a['slug']), '/' + out_path(l, a['slug'])) for a in mods[l].ARTICLES]
     for src, dst in routes:
         if src not in have:
             vj['rewrites'].append({'source': src, 'destination': dst}); added += 1
