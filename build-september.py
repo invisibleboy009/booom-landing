@@ -80,12 +80,12 @@ HTML = f"""<!DOCTYPE html>
 <html lang="sk" data-lang="SK">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-48KJX7NJZR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
-    gtag('config', 'G-V29R9X94FM');
+    gtag('config', 'G-48KJX7NJZR');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -308,7 +308,7 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - **Build:** Static site (no build step required)
 
 ### Google Analytics
-- **Tracking ID:** G-V29R9X94FM
+- **Tracking ID:** G-48KJX7NJZR
 - **Deployed on:** 2026-06-08
 - **Pages:** All HTML pages include GA script
 
@@ -470,3 +470,9 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - Prelinkovanie: pata blogovych clankov ("O nas"), zdravotne clanky (`DISC_HEALTH`) maju pod upozornenim odkaz na About, `stitna-zlaza.html` (upozornenie hore), paticka a mobilne menu na home (`/o-nas`, EN/CS home na svoju verziu, PL/UK/DE na `/en/about`), blok suvisiacich odkazov ("BOOOM": O nas, Caste otazky) a sitemap hreflang cluster v `build-i18n.mjs`.
 - Oprava faktu: stitna zlaza fungovala na priblizne 10 % (predtym "necelych 20 %") v `lang.js` `story_p7` vo vsetkych 6 jazykoch.
 - Postup pri zmene textu: uprav `about_content.py`, potom `python blog-src/make_blog.py`, `python blog-src/make_og.py`, `node build-i18n.mjs`, commit.
+
+## Google Analytics: novy webovy stream (2026-09-21)
+
+- Zistenie: v GA ucte BOOOM (vlastnost `booom-f64cc`) boli len aplikacne streamy (Android/iOS) a ziadny webovy; predchadzajuci merací kod webu `G-V29R9X94FM` sa v tomto ucte nenasiel a vlastnost hlasila 0 udajov z webu.
+- Riesenie: v tej istej vlastnosti vznikol webovy stream "booom.fit web" (`https://booom.fit`, ID streamu 15816741080), merací kod `G-48KJX7NJZR`. Kod je vymeneny vo vsetkych strankach a v generatoroch (`blog-src/make_blog.py`, `build-september.py`). Zalozne subory `index.html.backup` a `lab.html.disabled` maju stary kod zamerne.
+- Kluce udalosti (`store_click`, `webapp_click`, `generate_lead`): oznacuju sa v GA Admin > Kluce udalosti > Nova kluca udalost (nazov presne ako udalost). Udalosti sa v zozname ukazu az po prvom spusteni.

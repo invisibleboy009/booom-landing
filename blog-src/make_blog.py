@@ -95,10 +95,10 @@ HEAD_TOP = '''<!DOCTYPE html>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-V29R9X94FM');
+    gtag('config', 'G-48KJX7NJZR');
     /* gtag.js is fetched after load + idle (it cost 500-800 ms of main thread on a throttled phone) */
     (function () {
-      function add() { var e = document.createElement('script'); e.async = true; e.src = 'https://www.googletagmanager.com/gtag/js?id=G-V29R9X94FM'; document.head.appendChild(e); }
+      function add() { var e = document.createElement('script'); e.async = true; e.src = 'https://www.googletagmanager.com/gtag/js?id=G-48KJX7NJZR'; document.head.appendChild(e); }
       if (document.readyState === 'complete') setTimeout(add, 0);
       else window.addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(add, { timeout: 2500 }); });
     }());
