@@ -476,3 +476,11 @@ aaa7dfd feat: complete i18n audit - 100% translation coverage
 - Zistenie: v GA ucte BOOOM (vlastnost `booom-f64cc`) boli len aplikacne streamy (Android/iOS) a ziadny webovy; predchadzajuci merací kod webu `G-V29R9X94FM` sa v tomto ucte nenasiel a vlastnost hlasila 0 udajov z webu.
 - Riesenie: v tej istej vlastnosti vznikol webovy stream "booom.fit web" (`https://booom.fit`, ID streamu 15816741080), merací kod `G-48KJX7NJZR`. Kod je vymeneny vo vsetkych strankach a v generatoroch (`blog-src/make_blog.py`, `build-september.py`). Zalozne subory `index.html.backup` a `lab.html.disabled` maju stary kod zamerne.
 - Kluce udalosti (`store_click`, `webapp_click`, `generate_lead`): oznacuju sa v GA Admin > Kluce udalosti > Nova kluca udalost (nazov presne ako udalost). Udalosti sa v zozname ukazu az po prvom spusteni.
+
+## Search Console a Analytics: stav k 2026-09-21 vecer
+
+- Kluce udalosti v GA4 (vlastnost booom-f64cc): `store_click` a `webapp_click` su oznacene ako kluce udalosti (Udalosti > Nedavne udalosti > hviezdicka). `generate_lead` este nie je v zozname, objavi sa po prvom skutocnom leade z chatu Boomer.
+- Sitemap: `https://booom.fit/sitemap.xml` je v poriadku (platne XML, 57 URL, vsetky vzorky 200). Search Console ho ale stale vedie ako "Nie je mozne nacitat" (posledne nacitanie 19. 9.); je to strana Googlu, znovu odoslany. Skontrolovat 23.-24. 9.
+- Ziadosti o indexovanie (Kontrola webovej adresy > Vyziadat indexovanie) hotove dnes (11): /o-nas, /en/about, /cs/o-nas, /blog, /blog/hyrox-priprava-8-tyzdnov, /blog/treningovy-dennik, /hyrox-pacing, /stitna-zlaza, /1rm-kalkulacka, /kalorie-kalkulacka, /blog/progresivne-pretazenie. Potom Google vratil "Kvota bola prekrocena" (denny limit).
+- Zostava vyziadat (dalsie dni): SK /blog/kolko-bielkovin-denne, /blog/chudnutie-bez-straty-svalov, /blog/treningovy-split, /blog/hyrox-stanice-technika, /blog/regeneracia-a-spanok, /percento-telesneho-tuku, /hyrox-pre-zaciatocnikov, /crossfit-pre-zaciatocnikov; potom /en/blog, /cs/blog, 8+8 clankov, 4+4 kalkulacky (EN/CS), /en/ a /cs/.
+- Lighthouse (mobil, 2026-09-21): /o-nas a / maju vsade 100 (po oprave `<nav role="banner">`). Vykon (LCP) dnes nemerany.
