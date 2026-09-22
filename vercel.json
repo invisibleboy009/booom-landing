@@ -243,6 +243,10 @@
     {
       "source": "/hry/boomer-hovori",
       "destination": "/hry/boomer-hovori.html"
+    },
+    {
+      "source": "/hry/pravda-alebo-mytus",
+      "destination": "/hry/pravda-alebo-mytus.html"
     }
   ],
   "headers": [
