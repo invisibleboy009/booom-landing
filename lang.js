@@ -264,7 +264,9 @@ const translations = {
     lab_cta_title: 'Sleduj svoje zdravie. Nie výhovorky.',
     // New index.html translations
     nav_features: 'Funkcie',
+    nav_games: 'Hry',
     nav_thyroid: 'Štítna žľaza',
+    nav_mobile_games: '🎮 Hry',
     nav_diets_toggle: 'Diéty & intolerancie ▾',
     nav_diets_mobile: 'Diéty & intolerancie',
     nav_diet_lactose: '🥛 Bezlaktózová diéta',
@@ -640,7 +642,9 @@ const translations = {
     lab_cta_title: 'Track your health. No excuses.',
     // New index.html translations
     nav_features: 'Features',
+    nav_games: 'Games',
     nav_thyroid: 'Thyroid',
+    nav_mobile_games: '🎮 Games',
     nav_diets_toggle: 'Diets & Intolerances ▾',
     nav_diets_mobile: 'Diets & Intolerances',
     nav_diet_lactose: '🥛 Lactose-Free Diet',
@@ -1013,7 +1017,9 @@ const translations = {
     detection_strength_desc: 'Bench 160 kg při 80 kg tělesné váze a 8 % tuku? Anavar + Tren stack. Natural limit je daleko níže.',
     // New index.html translations
     nav_features: 'Funkce',
+    nav_games: 'Hry',
     nav_thyroid: 'Štítná žláza',
+    nav_mobile_games: '🎮 Hry',
     nav_diets_toggle: 'Diety & intolerance ▾',
     nav_diets_mobile: 'Diety & intolerance',
     nav_diet_lactose: '🥛 Bezlaktózová dieta',
@@ -1384,7 +1390,9 @@ const translations = {
     detection_strength_desc: 'Bench 160 kg przy 80 kg wagi ciała i 8% tłuszczu? Anavar + Tren stack. Natural limit jest dużo niżej.',
     // New index.html translations
     nav_features: 'Funkcje',
+    nav_games: 'Gry',
     nav_thyroid: 'Tarczyca',
+    nav_mobile_games: '🎮 Gry',
     nav_diets_toggle: 'Diety & nietolerancje ▾',
     nav_diets_mobile: 'Diety & nietolerancje',
     nav_diet_lactose: '🥛 Dieta bezlaktozowa',
@@ -1755,7 +1763,9 @@ const translations = {
     detection_strength_desc: 'Bench 160 кг при 80 кг вага тіла та 8% жиру? Anavar + Tren stack. Natural limit набагато нижче.',
     // New index.html translations
     nav_features: 'Функції',
+    nav_games: 'Ігри',
     nav_thyroid: 'Щитовидна залоза',
+    nav_mobile_games: '🎮 Ігри',
     nav_diets_toggle: 'Дієти & непереносимість ▾',
     nav_diets_mobile: 'Дієти & непереносимість',
     nav_diet_lactose: '🥛 Безлактозна дієта',
@@ -2129,7 +2139,9 @@ const translations = {
     lab_cta_title: 'Tracke deine Gesundheit. Keine Ausreden.',
     // New index.html translations
     nav_features: 'Features',
+    nav_games: 'Spiele',
     nav_thyroid: 'Schilddrüse',
+    nav_mobile_games: '🎮 Spiele',
     nav_diets_toggle: 'Diäten & Unverträglichkeiten ▾',
     nav_diets_mobile: 'Diäten & Unverträglichkeiten',
     nav_diet_lactose: '🥛 Laktosefreie Diät',
