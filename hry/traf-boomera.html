@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0a">
-<title>Traf Boomera! — BOOOM Hry</title>
-<meta name="description" content="Medicinbalová výzva. Traf zelenú zónu presne v správny moment a pošli Boomera k zemi. 5 hodov, rastúca rýchlosť.">
-<meta property="og:title" content="Traf Boomera! — BOOOM">
+<title>Traf BOOOMERA! — BOOOM Hry</title>
+<meta name="description" content="Medicinbalová výzva. Traf zelenú zónu presne v správny moment a pošli BOOOMERA k zemi. 5 hodov, rastúca rýchlosť.">
+<meta property="og:title" content="Traf BOOOMERA! — BOOOM">
 <meta property="og:description" content="5 lôpt. 1 veľké ego. Traf zelenú zónu presne v správny moment.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://booom.fit/hry/traf-boomera">
@@ -109,8 +109,8 @@ a{color:inherit}
 <div class="wrap">
 
   <div id="screenIntro" class="intro">
-    <h1>Traf<br><span class="hl">Boomera!</span></h1>
-    <p>5 lôpt. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle Boomera k zemi, netrafíš a uhne sa.</p>
+    <h1>Traf<br><span class="hl">BOOOMERA!</span></h1>
+    <p>5 lôpt. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle BOOOMERA k zemi, netrafíš a uhne sa.</p>
     <button class="startBtn" id="startBtn">Hodiť prvú loptu →</button>
     <div class="statsRow">
       <div><b id="bestDisplay">0</b>rekord</div>
@@ -122,7 +122,7 @@ a{color:inherit}
     <div class="arena" id="arena">
       <div class="arenaTop"><span>HOD <b id="throwNum">1</b>/5</span><span>SKÓRE <b id="liveScore">0</b></span></div>
       <div class="stage" id="stage">
-        <img class="boomerImg breathe" id="boomerImg" src="/assets/games/boomer-medball-ready.webp" alt="Boomer">
+        <img class="boomerImg breathe" id="boomerImg" src="/assets/games/boomer-medball-ready.webp" alt="BOOOMER">
         <img class="ball" id="ballImg" src="/assets/games/boomer-medball-ball.webp" alt="">
       </div>
       <div class="quote" id="quote">„Mňa netrafíš. Stavíme sa?“</div>
@@ -239,7 +239,7 @@ function setupThrow(){
   quote.innerHTML = pick(QUOTES_IDLE);
   throwNumEl.textContent = String(throwIdx+1);
   liveScoreEl.textContent = String(score);
-  tickSweep();
+  rafId = requestAnimationFrame(tickSweep);
 }
 
 function tickSweep(ts){
@@ -318,11 +318,11 @@ document.getElementById("startBtn").addEventListener("click", startGame);
 document.getElementById("btnRetry").addEventListener("click", startGame);
 
 function getTier(sc){
-  if (sc >= 650) return { name:"Postrach Posilky", badge:"LEGENDA", color:"#ff4d6d", desc:"5 z 5, väčšina s bonusom. Boomer už o tebe rozpráva všetkým." };
+  if (sc >= 650) return { name:"Postrach Posilky", badge:"LEGENDA", color:"#ff4d6d", desc:"5 z 5, väčšina s bonusom. BOOOMER už o tebe rozpráva všetkým." };
   if (sc >= 450) return { name:"Ostrý Oko", badge:"EXPERT", color:"#00e676", desc:"Skoro dokonalé časovanie. Chýbalo máličko k plnému skóre." };
   if (sc >= 250) return { name:"Solídna Ruka", badge:"POKROČILÝ", color:"#00d4ff", desc:"Väčšinu si trafil. Ešte pár pokusov a budeš v tom majster." };
   if (sc >= 100) return { name:"Ešte Sa Rozohrievaš", badge:"PRIEMER", color:"#f97316", desc:"Pár zásahov máš, časovanie ešte chce cvik." };
-  return { name:"Boomer Sa Smeje", badge:"NOVIC", color:"#888", desc:"Nula, alebo skoro nula. Skús to znova, tentokrát sleduj stred." };
+  return { name:"BOOOMER Sa Smeje", badge:"NOVÁČIK", color:"#888", desc:"Nula, alebo skoro nula. Skús to znova, tentokrát sleduj stred." };
 }
 
 function finish(){
@@ -356,7 +356,7 @@ function drawShareCard(tier, sc, hitCount, streakVal){
   ctx.fillStyle = "#00e676"; ctx.font = "900 46px Inter, Arial, sans-serif"; ctx.textAlign = "left";
   ctx.fillText("BOOOM", 70, 130);
   ctx.fillStyle = "#666"; ctx.font = "700 24px Inter, Arial, sans-serif";
-  ctx.fillText("TRAF BOOMERA!", 70, 168);
+  ctx.fillText("TRAF BOOOMERA!", 70, 168);
 
   roundRect(ctx, W/2-170, 220, 340, 60, 30);
   ctx.fillStyle = tier.color; ctx.fill();

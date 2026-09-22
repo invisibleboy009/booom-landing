@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0a">
-<title>Boomer hovorí — BOOOM Hry</title>
-<meta name="description" content="Simon Says s gym príkazmi. Boomer hovorí — poslúchni. Boomer len povie — nehýb sa. Zrýchľuje sa, kým neurobíš chybu.">
-<meta property="og:title" content="Boomer hovorí — BOOOM">
-<meta property="og:description" content="Simon Says s gym príkazmi. Ako dlho vydržíš, kým Boomer zrýchli natoľko, že spravíš chybu?">
+<title>BOOOMER hovorí — BOOOM Hry</title>
+<meta name="description" content="Simon Says s gym príkazmi. BOOOMER hovorí — poslúchni. BOOOMER len povie — nehýb sa. Zrýchľuje sa, kým neurobíš chybu.">
+<meta property="og:title" content="BOOOMER hovorí — BOOOM">
+<meta property="og:description" content="Simon Says s gym príkazmi. Ako dlho vydržíš, kým BOOOMER zrýchli natoľko, že spravíš chybu?">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://booom.fit/hry/boomer-hovori">
 <link rel="canonical" href="https://booom.fit/hry/boomer-hovori">
@@ -99,10 +99,10 @@ a{color:inherit}
 <div class="wrap">
 
   <div id="screenIntro" class="intro">
-    <h1>Boomer<br><span class="hl">hovorí</span></h1>
-    <p>Klasický Simon Says, gym edícia. Počúvaj pozorne — Boomer sa ťa snaží nachytať.</p>
+    <h1>BOOOMER<br><span class="hl">hovorí</span></h1>
+    <p>Klasický Simon Says, gym edícia. Počúvaj pozorne — BOOOMER sa ťa snaží nachytať.</p>
     <div class="rule">
-      Keď Boomer povie <b class="y">"BOOMER HOVORÍ: [príkaz]"</b> → tresni ten príkaz, kým nevyprší čas.<br><br>
+      Keď BOOOMER povie <b class="y">"BOOOMER HOVORÍ: [príkaz]"</b> → tresni ten príkaz, kým nevyprší čas.<br><br>
       Keď povie <b class="n">len [príkaz]</b> bez toho → NEROB NIČ. Je to pasca.<br><br>
       Jedna chyba = koniec. Každé kolo je rýchlejšie.
     </div>
@@ -244,7 +244,7 @@ function nextRound(){
   promptCard.classList.remove("ok", "bad");
   currentTarget = pick(COMMANDS);
   currentIsReal = Math.random() < 0.65;
-  promptPrefix.textContent = currentIsReal ? "BOOMER HOVORÍ" : "POZOR, LEN TOTO";
+  promptPrefix.textContent = currentIsReal ? "BOOOMER HOVORÍ" : "POZOR, LEN TOTO";
   promptPrefix.className = "promptPrefix " + (currentIsReal ? "real" : "trap");
   promptEmoji.textContent = currentTarget.em;
   promptLabel.textContent = currentTarget.label;
@@ -329,7 +329,7 @@ function drawShareCard(finalScore, best, isNewBest, streakVal){
   ctx.fillText("BOOOM", 70, 130);
   ctx.fillStyle = "#666";
   ctx.font = "700 24px Inter, Arial, sans-serif";
-  ctx.fillText("BOOMER HOVORÍ", 70, 168);
+  ctx.fillText("BOOOMER HOVORÍ", 70, 168);
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#ff4d6d";
