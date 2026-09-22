@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Boomer hovorí — BOOOM Hry</title>
+<meta name="description" content="Simon Says s gym príkazmi. Boomer hovorí — poslúchni. Boomer len povie — nehýb sa. Zrýchľuje sa, kým neurobíš chybu.">
+<meta property="og:title" content="Boomer hovorí — BOOOM">
+<meta property="og:description" content="Simon Says s gym príkazmi. Ako dlho vydržíš, kým Boomer zrýchli natoľko, že spravíš chybu?">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry/boomer-hovori">
+<link rel="canonical" href="https://booom.fit/hry/boomer-hovori">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
+a{color:inherit}
+.top{width:100%;max-width:460px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.back:hover{border-color:var(--green);color:var(--green)}
+.wrap{width:100%;max-width:460px;flex:1;display:flex;flex-direction:column}
+
+.intro{text-align:center;padding:20px 6px 8px}
+.intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro h1 .hl{color:var(--green)}
+.intro p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:0 0 8px}
+.rule{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:14px;padding:14px 16px;margin:16px 0;text-align:left;font-size:14px;line-height:1.6}
+.rule b.y{color:var(--green)}
+.rule b.n{color:var(--red)}
+.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#04150c;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s;margin-top:6px}
+.startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,230,118,.28)}
+.statsRow{margin-top:22px;display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--muted)}
+.statsRow b{color:var(--text);display:block;font-size:22px}
+
+.gameTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.scoreBox{font-size:13px;color:var(--muted)}
+.scoreBox b{color:var(--cyan);font-size:22px;display:block}
+.bestBox{font-size:13px;color:var(--muted);text-align:right}
+.bestBox b{color:var(--gold);font-size:18px;display:block}
+
+.timerTrack{height:8px;background:var(--bg-card-border);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.timerFill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:100%;transform-origin:left;transition:none}
+
+.promptCard{background:var(--bg-card);border:2px solid var(--bg-card-border);border-radius:22px;padding:34px 20px;text-align:center;margin-bottom:22px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:border-color .15s,background .15s}
+.promptCard.ok{border-color:var(--green);background:rgba(0,230,118,.06)}
+.promptCard.bad{border-color:var(--red);background:rgba(255,77,109,.08)}
+.promptPrefix{font-size:12.5px;font-weight:800;letter-spacing:1.5px;margin-bottom:10px;text-transform:uppercase}
+.promptPrefix.real{color:var(--green)}
+.promptPrefix.trap{color:var(--red)}
+.promptEmoji{font-size:52px;line-height:1;margin-bottom:8px}
+.promptLabel{font-size:26px;font-weight:900;letter-spacing:0.5px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cell{background:var(--bg-card);border:2px solid var(--bg-card-border);border-radius:16px;padding:16px 6px;text-align:center;cursor:pointer;transition:transform .08s,border-color .12s,background .12s;user-select:none}
+.cell:active{transform:scale(.94)}
+.cell .em{font-size:28px;display:block;margin-bottom:4px}
+.cell .lb{font-size:11.5px;font-weight:800;letter-spacing:.5px}
+.cell.flashOk{border-color:var(--green);background:rgba(0,230,118,.12)}
+.cell.flashBad{border-color:var(--red);background:rgba(255,77,109,.14)}
+
+.hint{text-align:center;color:var(--muted);font-size:12px;margin-top:16px}
+
+.resultWrap{display:none;text-align:center;padding-top:6px}
+.resultWrap.show{display:block}
+.tierBadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;color:var(--bg);background:var(--red);padding:6px 16px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.bigScore{font-size:clamp(48px,14vw,72px);font-weight:900;color:var(--cyan);line-height:1;margin:0 0 4px}
+.bigScoreLabel{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:18px;text-transform:uppercase}
+.newBest{color:var(--gold);font-weight:800;font-size:14.5px;margin-bottom:18px}
+.shareCanvasWrap{border-radius:20px;overflow:hidden;border:1px solid var(--bg-card-border);margin-bottom:20px;line-height:0}
+.shareCanvasWrap canvas{width:100%;height:auto;display:block}
+.resultBtns{display:flex;flex-direction:column;gap:10px}
+.rBtn{border:none;border-radius:14px;padding:15px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .1s;text-decoration:none;display:block}
+.rBtn:active{transform:scale(.98)}
+.rBtn.primary{background:var(--green);color:#04150c}
+.rBtn.secondary{background:transparent;border:1px solid var(--bg-card-border);color:var(--text);text-align:center}
+.streakNote{margin-top:18px;font-size:13px;color:var(--muted)}
+.streakNote b{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
+  <a href="/hry" class="back">← Späť na hry</a>
+</div>
+
+<div class="wrap">
+
+  <div id="screenIntro" class="intro">
+    <h1>Boomer<br><span class="hl">hovorí</span></h1>
+    <p>Klasický Simon Says, gym edícia. Počúvaj pozorne — Boomer sa ťa snaží nachytať.</p>
+    <div class="rule">
+      Keď Boomer povie <b class="y">"BOOMER HOVORÍ: [príkaz]"</b> → tresni ten príkaz, kým nevyprší čas.<br><br>
+      Keď povie <b class="n">len [príkaz]</b> bez toho → NEROB NIČ. Je to pasca.<br><br>
+      Jedna chyba = koniec. Každé kolo je rýchlejšie.
+    </div>
+    <button class="startBtn" id="startBtn">Začať →</button>
+    <div class="statsRow">
+      <div><b id="bestDisplay">0</b>rekord</div>
+      <div><b id="streakDisplay">0</b>dní v sérii</div>
+    </div>
+  </div>
+
+  <div id="screenGame" style="display:none">
+    <div class="gameTop">
+      <div class="scoreBox">SKÓRE<b id="liveScore">0</b></div>
+      <div class="bestBox">REKORD<b id="liveBest">0</b></div>
+    </div>
+    <div class="timerTrack"><div class="timerFill" id="timerFill"></div></div>
+    <div class="promptCard" id="promptCard">
+      <div class="promptPrefix" id="promptPrefix">&nbsp;</div>
+      <div class="promptEmoji" id="promptEmoji">🤔</div>
+      <div class="promptLabel" id="promptLabel">Priprav sa...</div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="hint">Tresni správny príkaz, alebo nerob nič ak je to pasca</div>
+  </div>
+
+  <div id="screenResult" class="resultWrap">
+    <div class="tierBadge">KONIEC HRY</div>
+    <div class="bigScore" id="finalScore">0</div>
+    <div class="bigScoreLabel">Kôl prežitých</div>
+    <div class="newBest" id="newBestNote" style="display:none">🏆 Nový osobný rekord!</div>
+    <div class="shareCanvasWrap"><canvas id="shareCanvas" width="1080" height="1350"></canvas></div>
+    <div class="resultBtns">
+      <button class="rBtn primary" id="btnDownload">📲 Stiahnuť obrázok na zdieľanie</button>
+      <button class="rBtn secondary" id="btnRetry">Skúsiť znova</button>
+      <a class="rBtn secondary" href="/hry">Ďalšie hry</a>
+    </div>
+    <div class="streakNote">Séria: <b id="streakAfter">1</b> deň v rade.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var COMMANDS = [
+  { key: "CURL",  label: "CURL",  em: "💪" },
+  { key: "TLAK",  label: "TLAK",  em: "🫸" },
+  { key: "DREP",  label: "DREP",  em: "🦵" },
+  { key: "TAH",   label: "ŤAH",   em: "🫷" },
+  { key: "VYPAD", label: "VÝPAD", em: "🚶" },
+  { key: "PLANK", label: "PLANK", em: "🧘" }
+];
+
+var LS_BEST = "booom_boomersays_best";
+var LS_STREAK = "booom_boomersays_streak";
+var LS_LASTDAY = "booom_boomersays_lastday";
+
+function dayKey(d){
+  var y = d.getFullYear(), m = ("0"+(d.getMonth()+1)).slice(-2), day = ("0"+d.getDate()).slice(-2);
+  return y+"-"+m+"-"+day;
+}
+var todayKey = dayKey(new Date());
+
+function readBest(){ try { return parseInt(localStorage.getItem(LS_BEST) || "0", 10); } catch(e){ return 0; } }
+function writeBest(v){ try { localStorage.setItem(LS_BEST, String(v)); } catch(e){} }
+function readStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    return last ? streak : 0;
+  } catch(e){ return 0; }
+}
+function bumpStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    if (last === todayKey) return streak || 1;
+    var lastD = last ? new Date(last + "T00:00:00") : null;
+    var today = new Date(todayKey + "T00:00:00");
+    var diffDays = lastD ? Math.round((today - lastD) / 86400000) : null;
+    var next = (diffDays === 1) ? streak + 1 : 1;
+    localStorage.setItem(LS_STREAK, String(next));
+    localStorage.setItem(LS_LASTDAY, todayKey);
+    return next;
+  } catch(e){ return 1; }
+}
+
+document.getElementById("bestDisplay").textContent = String(readBest());
+document.getElementById("streakDisplay").textContent = String(readStreak());
+
+var screenIntro = document.getElementById("screenIntro");
+var screenGame = document.getElementById("screenGame");
+var screenResult = document.getElementById("screenResult");
+var grid = document.getElementById("grid");
+var promptCard = document.getElementById("promptCard");
+var promptPrefix = document.getElementById("promptPrefix");
+var promptEmoji = document.getElementById("promptEmoji");
+var promptLabel = document.getElementById("promptLabel");
+var timerFill = document.getElementById("timerFill");
+var liveScoreEl = document.getElementById("liveScore");
+var liveBestEl = document.getElementById("liveBest");
+
+var score = 0;
+var roundTimer = null;
+var roundActive = false;
+var currentIsReal = false;
+var currentTarget = null;
+var roundDurationMs = 1550;
+
+function buildGrid(){
+  grid.innerHTML = "";
+  COMMANDS.forEach(function(cmd){
+    var cell = document.createElement("div");
+    cell.className = "cell";
+    cell.dataset.key = cmd.key;
+    cell.innerHTML = '<span class="em">' + cmd.em + '</span><span class="lb">' + cmd.label + '</span>';
+    cell.addEventListener("click", function(){ onCellTap(cmd.key, cell); });
+    grid.appendChild(cell);
+  });
+}
+
+function pick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+function startGame(){
+  score = 0;
+  roundDurationMs = 1550;
+  liveScoreEl.textContent = "0";
+  liveBestEl.textContent = String(readBest());
+  screenIntro.style.display = "none";
+  screenResult.classList.remove("show");
+  screenGame.style.display = "block";
+  buildGrid();
+  setTimeout(nextRound, 500);
+}
+
+function nextRound(){
+  if (roundTimer) { clearTimeout(roundTimer); roundTimer = null; }
+  promptCard.classList.remove("ok", "bad");
+  currentTarget = pick(COMMANDS);
+  currentIsReal = Math.random() < 0.65;
+  promptPrefix.textContent = currentIsReal ? "BOOMER HOVORÍ" : "POZOR, LEN TOTO";
+  promptPrefix.className = "promptPrefix " + (currentIsReal ? "real" : "trap");
+  promptEmoji.textContent = currentTarget.em;
+  promptLabel.textContent = currentTarget.label;
+  roundActive = true;
+
+  timerFill.style.transition = "none";
+  timerFill.style.width = "100%";
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      timerFill.style.transition = "width " + roundDurationMs + "ms linear";
+      timerFill.style.width = "0%";
+    });
+  });
+
+  roundTimer = setTimeout(function(){
+    roundActive = false;
+    if (currentIsReal) {
+      endGame();
+    } else {
+      roundSuccess(null);
+    }
+  }, roundDurationMs);
+}
+
+function roundSuccess(cellEl){
+  if (roundTimer) { clearTimeout(roundTimer); roundTimer = null; }
+  roundActive = false;
+  score++;
+  liveScoreEl.textContent = String(score);
+  promptCard.classList.add("ok");
+  if (cellEl) { cellEl.classList.add("flashOk"); setTimeout(function(){ cellEl.classList.remove("flashOk"); }, 260); }
+  roundDurationMs = Math.max(520, roundDurationMs - 55);
+  setTimeout(nextRound, 320);
+}
+
+function onCellTap(key, cellEl){
+  if (!roundActive) return;
+  if (currentIsReal && key === currentTarget.key) {
+    roundSuccess(cellEl);
+  } else {
+    roundActive = false;
+    if (roundTimer) { clearTimeout(roundTimer); roundTimer = null; }
+    promptCard.classList.add("bad");
+    cellEl.classList.add("flashBad");
+    setTimeout(endGame, 260);
+  }
+}
+
+function endGame(){
+  screenGame.style.display = "none";
+  var best = readBest();
+  var isNewBest = score > best;
+  if (isNewBest) { writeBest(score); best = score; }
+  var streakVal = bumpStreak();
+
+  document.getElementById("finalScore").textContent = String(score);
+  document.getElementById("newBestNote").style.display = isNewBest ? "block" : "none";
+  document.getElementById("streakAfter").textContent = String(streakVal);
+
+  drawShareCard(score, best, isNewBest, streakVal);
+  screenResult.classList.add("show");
+}
+
+function drawShareCard(finalScore, best, isNewBest, streakVal){
+  var canvas = document.getElementById("shareCanvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, "#0d0d0d");
+  grad.addColorStop(1, "#050505");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,W,H);
+
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(30,30,W-60,H-60);
+
+  ctx.fillStyle = "#00e676";
+  ctx.font = "900 46px Inter, Arial, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("BOOOM", 70, 130);
+  ctx.fillStyle = "#666";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("BOOMER HOVORÍ", 70, 168);
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#ff4d6d";
+  ctx.font = "900 26px Inter, Arial, sans-serif";
+  ctx.fillText(isNewBest ? "🏆 NOVÝ REKORD" : "KONIEC HRY", W/2, 300);
+
+  ctx.fillStyle = "#00d4ff";
+  ctx.font = "900 240px Inter, Arial, sans-serif";
+  ctx.fillText(String(finalScore), W/2, 560);
+  ctx.fillStyle = "#888";
+  ctx.font = "700 30px Inter, Arial, sans-serif";
+  ctx.fillText("KÔL PREŽITÝCH", W/2, 620);
+
+  ctx.fillStyle = "#ccc";
+  ctx.font = "600 32px Inter, Arial, sans-serif";
+  ctx.fillText("Osobný rekord: " + best, W/2, 730);
+
+  ctx.fillStyle = "#f97316";
+  ctx.font = "800 28px Inter, Arial, sans-serif";
+  ctx.fillText("🔥 " + streakVal + " " + (streakVal===1 ? "deň" : "dni") + " v sérii", W/2, 1120);
+
+  ctx.fillStyle = "#555";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("Zahraj si na booom.fit/hry/boomer-hovori", W/2, 1230);
+  ctx.fillStyle = "#00d4ff";
+  ctx.font = "900 30px Inter, Arial, sans-serif";
+  ctx.fillText("booom.fit", W/2, 1275);
+}
+
+document.getElementById("startBtn").addEventListener("click", startGame);
+document.getElementById("btnRetry").addEventListener("click", startGame);
+
+document.getElementById("btnDownload").addEventListener("click", function(){
+  var canvas = document.getElementById("shareCanvas");
+  canvas.toBlob(function(blob){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "booom-boomer-hovori.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }, "image/png");
+});
+
+})();
+</script>
+</body>
+</html>

@@ -239,6 +239,10 @@
     {
       "source": "/hry/gym-bro-quiz",
       "destination": "/hry/gym-bro-quiz.html"
+    },
+    {
+      "source": "/hry/boomer-hovori",
+      "destination": "/hry/boomer-hovori.html"
     }
   ],
   "headers": [
