@@ -247,6 +247,10 @@
     {
       "source": "/hry/pravda-alebo-mytus",
       "destination": "/hry/pravda-alebo-mytus.html"
+    },
+    {
+      "source": "/hry/traf-boomera",
+      "destination": "/hry/traf-boomera.html"
     }
   ],
   "headers": [
@@ -345,6 +349,15 @@
     },
     {
       "source": "/assets/og/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/games/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

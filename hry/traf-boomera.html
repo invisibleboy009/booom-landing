@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Traf Boomera! — BOOOM Hry</title>
+<meta name="description" content="Medicinbalová výzva. Traf zelenú zónu presne v správny moment a pošli Boomera k zemi. 5 hodov, rastúca rýchlosť.">
+<meta property="og:title" content="Traf Boomera! — BOOOM">
+<meta property="og:description" content="5 lôpt. 1 veľké ego. Traf zelenú zónu presne v správny moment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry/traf-boomera">
+<link rel="canonical" href="https://booom.fit/hry/traf-boomera">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/games/boomer-medball-ready.webp" as="image">
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
+a{color:inherit}
+.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.back:hover{border-color:var(--green);color:var(--green)}
+.wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
+
+.intro{text-align:center;padding:18px 6px 8px}
+.intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro h1 .hl{color:var(--green)}
+.intro p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:0 0 18px}
+.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#04150c;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,230,118,.28)}
+.statsRow{margin-top:20px;display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--muted)}
+.statsRow b{color:var(--text);display:block;font-size:22px}
+
+.arena{position:relative;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:22px;padding:18px 18px 22px;margin-bottom:16px;overflow:hidden}
+.arenaTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12.5px;color:var(--muted)}
+.arenaTop b{color:var(--cyan)}
+.stage{position:relative;height:210px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.boomerImg{position:relative;height:200px;width:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.5));transition:transform .12s ease;z-index:2}
+.boomerImg.breathe{animation:breathe 3.2s ease-in-out infinite}
+.boomerImg.hitpose{animation:knockback .55s cubic-bezier(.3,.6,.3,1)}
+.boomerImg.dodgepose{animation:dodge .4s ease-out}
+@keyframes breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.015)}}
+@keyframes knockback{0%{transform:translateY(0) rotate(0)}30%{transform:translateY(6px) rotate(-6deg) scale(.97)}55%{transform:translateY(-30px) rotate(8deg) scale(1.02)}100%{transform:translateY(0) rotate(0) scale(1)}}
+@keyframes dodge{0%{transform:translateX(0) rotate(0)}40%{transform:translateX(-18px) rotate(-8deg)}100%{transform:translateX(0) rotate(0)}}
+.ball{position:absolute;width:44px;height:44px;bottom:6px;right:6px;opacity:0;z-index:3;pointer-events:none}
+.ball.flying{animation:throwBall var(--flightMs,420ms) cubic-bezier(.2,.7,.4,1) forwards}
+@keyframes throwBall{
+  0%{opacity:1;left:calc(100% - 40px);top:70%;transform:translate(0,0) scale(.6) rotate(0deg)}
+  60%{opacity:1;left:38%;top:12%;transform:translate(0,0) scale(1.05) rotate(320deg)}
+  100%{opacity:0;left:34%;top:8%;transform:translate(0,0) scale(1.1) rotate(420deg)}
+}
+.ball{left:0;top:0}
+.flashOverlay{position:absolute;inset:0;pointer-events:none;opacity:0;border-radius:22px}
+.flashOverlay.ok{background:radial-gradient(circle at 35% 30%, rgba(0,230,118,.35), transparent 65%);animation:flashPulse .5s ease-out}
+.flashOverlay.bad{background:radial-gradient(circle at 35% 30%, rgba(255,77,109,.3), transparent 65%);animation:flashPulse .5s ease-out}
+@keyframes flashPulse{0%{opacity:1}100%{opacity:0}}
+.shakeMe{animation:shakeArena .35s}
+@keyframes shakeArena{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.quote{margin-top:10px;text-align:center;font-size:13.5px;color:#ccc;min-height:18px}
+.quote b{color:var(--green)}
+
+.barZone{margin-top:8px}
+.barLabels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.barTrack{position:relative;height:26px;background:#1a1a1a;border-radius:8px;overflow:hidden}
+.zoneGreen{position:absolute;top:0;bottom:0;background:rgba(0,230,118,.4);border-left:2px solid var(--green);border-right:2px solid var(--green)}
+.zoneGold{position:absolute;top:0;bottom:0;background:rgba(255,215,0,.55)}
+.marker{position:absolute;top:-3px;bottom:-3px;width:4px;background:#fff;border-radius:2px;box-shadow:0 0 8px rgba(255,255,255,.8)}
+
+.throwBtn{margin-top:14px;width:100%;background:var(--green);color:#04150c;border:none;border-radius:14px;padding:16px;font-weight:900;font-size:16px;cursor:pointer;transition:transform .1s}
+.throwBtn:active{transform:scale(.98)}
+.hint{text-align:center;color:var(--muted);font-size:12px;margin-top:10px}
+
+.resultWrap{display:none;text-align:center;padding-top:10px}
+.resultWrap.show{display:block}
+.tierBadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;color:var(--bg);background:var(--green);padding:6px 16px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.tierName{font-size:clamp(24px,7vw,32px);font-weight:900;line-height:1.15;margin:0 0 6px;letter-spacing:-0.5px}
+.tierScore{font-size:15px;color:var(--muted);margin-bottom:18px}
+.tierScore b{color:var(--green);font-size:22px}
+.tierDesc{font-size:15px;line-height:1.55;color:#ddd;max-width:400px;margin:0 auto 26px}
+.shareCanvasWrap{border-radius:20px;overflow:hidden;border:1px solid var(--bg-card-border);margin-bottom:20px;line-height:0}
+.shareCanvasWrap canvas{width:100%;height:auto;display:block}
+.resultBtns{display:flex;flex-direction:column;gap:10px}
+.rBtn{border:none;border-radius:14px;padding:15px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .1s;text-decoration:none;display:block}
+.rBtn:active{transform:scale(.98)}
+.rBtn.primary{background:var(--green);color:#04150c}
+.rBtn.secondary{background:transparent;border:1px solid var(--bg-card-border);color:var(--text);text-align:center}
+.streakNote{margin-top:18px;font-size:13px;color:var(--muted)}
+.streakNote b{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
+  <a href="/hry" class="back">← Späť na hry</a>
+</div>
+
+<div class="wrap">
+
+  <div id="screenIntro" class="intro">
+    <h1>Traf<br><span class="hl">Boomera!</span></h1>
+    <p>5 lôpt. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle Boomera k zemi, netrafíš a uhne sa.</p>
+    <button class="startBtn" id="startBtn">Hodiť prvú loptu →</button>
+    <div class="statsRow">
+      <div><b id="bestDisplay">0</b>rekord</div>
+      <div><b id="streakDisplay">0</b>dní v sérii</div>
+    </div>
+  </div>
+
+  <div id="screenGame" style="display:none">
+    <div class="arena" id="arena">
+      <div class="arenaTop"><span>HOD <b id="throwNum">1</b>/5</span><span>SKÓRE <b id="liveScore">0</b></span></div>
+      <div class="stage" id="stage">
+        <img class="boomerImg breathe" id="boomerImg" src="/assets/games/boomer-medball-ready.webp" alt="Boomer">
+        <img class="ball" id="ballImg" src="/assets/games/boomer-medball-ball.webp" alt="">
+      </div>
+      <div class="quote" id="quote">„Mňa netrafíš. Stavíme sa?“</div>
+      <div class="flashOverlay" id="flashOverlay"></div>
+    </div>
+    <div class="barZone">
+      <div class="barLabels"><span>ZELENÁ = 100</span><span>STRED = BONUS</span></div>
+      <div class="barTrack" id="barTrack">
+        <div class="zoneGreen" id="zoneGreen"></div>
+        <div class="zoneGold" id="zoneGold"></div>
+        <div class="marker" id="marker"></div>
+      </div>
+    </div>
+    <button class="throwBtn" id="throwBtn">HOD! 🏐</button>
+    <div class="hint">Ťukni na tlačidlo alebo stlač medzerník presne v zelenej zóne</div>
+  </div>
+
+  <div id="screenResult" class="resultWrap">
+    <div class="tierBadge" id="tierBadge">VÝSLEDOK</div>
+    <h2 class="tierName" id="tierName">—</h2>
+    <div class="tierScore">Skóre: <b id="tierScoreNum">0</b></div>
+    <p class="tierDesc" id="tierDesc">—</p>
+    <div class="shareCanvasWrap"><canvas id="shareCanvas" width="1080" height="1350"></canvas></div>
+    <div class="resultBtns">
+      <button class="rBtn primary" id="btnDownload">📲 Stiahnuť obrázok na zdieľanie</button>
+      <button class="rBtn secondary" id="btnRetry">Skúsiť znova</button>
+      <a class="rBtn secondary" href="/hry">Ďalšie hry</a>
+    </div>
+    <div class="streakNote">Séria: <b id="streakAfter">1</b> deň v rade.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var QUOTES_IDLE = ["„Mňa netrafíš. Stavíme sa?“","„Poď, skús to.“","„Vidím ťa triasť sa.“","„Toto bude ľahké.“","„Ukáž, čo vieš.“"];
+var QUOTES_HIT = ["„Dobrá rana...“","„OK, to bolelo.“","„Pekný zásah.“","„Rešpekt.“","„Ešte raz to nedovolím.“"];
+var QUOTES_MISS = ["„Pekný pokus. Pre niekoho za mnou.“","„To bolo mimo.“","„Skús to znova.“","„Ani zblízka.“"];
+
+var LS_BEST = "booom_trafboomera_best";
+var LS_STREAK = "booom_trafboomera_streak";
+var LS_LASTDAY = "booom_trafboomera_lastday";
+
+function dayKey(d){ var y=d.getFullYear(),m=("0"+(d.getMonth()+1)).slice(-2),day=("0"+d.getDate()).slice(-2); return y+"-"+m+"-"+day; }
+var todayKey = dayKey(new Date());
+function readBest(){ try { return parseInt(localStorage.getItem(LS_BEST)||"0",10); } catch(e){ return 0; } }
+function writeBest(v){ try { localStorage.setItem(LS_BEST, String(v)); } catch(e){} }
+function readStreak(){ try { var last=localStorage.getItem(LS_LASTDAY); var s=parseInt(localStorage.getItem(LS_STREAK)||"0",10); return last? s:0; } catch(e){ return 0; } }
+function bumpStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK)||"0",10);
+    if (last === todayKey) return streak || 1;
+    var lastD = last ? new Date(last+"T00:00:00") : null;
+    var today = new Date(todayKey+"T00:00:00");
+    var diffDays = lastD ? Math.round((today-lastD)/86400000) : null;
+    var next = (diffDays===1) ? streak+1 : 1;
+    localStorage.setItem(LS_STREAK, String(next));
+    localStorage.setItem(LS_LASTDAY, todayKey);
+    return next;
+  } catch(e){ return 1; }
+}
+
+document.getElementById("bestDisplay").textContent = String(readBest());
+document.getElementById("streakDisplay").textContent = String(readStreak());
+
+var screenIntro = document.getElementById("screenIntro");
+var screenGame = document.getElementById("screenGame");
+var screenResult = document.getElementById("screenResult");
+var arena = document.getElementById("arena");
+var boomerImg = document.getElementById("boomerImg");
+var ballImg = document.getElementById("ballImg");
+var quote = document.getElementById("quote");
+var flashOverlay = document.getElementById("flashOverlay");
+var barTrack = document.getElementById("barTrack");
+var zoneGreen = document.getElementById("zoneGreen");
+var zoneGold = document.getElementById("zoneGold");
+var marker = document.getElementById("marker");
+var throwBtn = document.getElementById("throwBtn");
+var throwNumEl = document.getElementById("throwNum");
+var liveScoreEl = document.getElementById("liveScore");
+
+var THROWS_TOTAL = 5;
+var throwIdx = 0;
+var score = 0;
+var hits = 0;
+var sweepDir = 1;
+var sweepPos = 0;
+var sweepSpeed = 0.9;
+var rafId = null;
+var lastTs = null;
+var locked = false;
+
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+function setupThrow(){
+  locked = false;
+  var greenWidth = Math.max(14, 26 - throwIdx*2.5);
+  var greenCenter = 35 + Math.random()*30;
+  zoneGreen.style.left = (greenCenter - greenWidth/2) + "%";
+  zoneGreen.style.width = greenWidth + "%";
+  zoneGold.style.left = (greenCenter - 2.5) + "%";
+  zoneGold.style.width = "5%";
+  barTrack.dataset.greenMin = greenCenter - greenWidth/2;
+  barTrack.dataset.greenMax = greenCenter + greenWidth/2;
+  barTrack.dataset.goldMin = greenCenter - 2.5;
+  barTrack.dataset.goldMax = greenCenter + 2.5;
+  sweepSpeed = 0.7 + throwIdx*0.16;
+  sweepPos = 0;
+  sweepDir = 1;
+  lastTs = null;
+  quote.innerHTML = pick(QUOTES_IDLE);
+  throwNumEl.textContent = String(throwIdx+1);
+  liveScoreEl.textContent = String(score);
+  tickSweep();
+}
+
+function tickSweep(ts){
+  if (locked) return;
+  if (lastTs === null) lastTs = ts;
+  var dt = ts ? (ts - lastTs) : 16;
+  lastTs = ts;
+  sweepPos += sweepDir * sweepSpeed * (dt/16);
+  if (sweepPos >= 100){ sweepPos = 100; sweepDir = -1; }
+  if (sweepPos <= 0){ sweepPos = 0; sweepDir = 1; }
+  marker.style.left = sweepPos + "%";
+  rafId = requestAnimationFrame(tickSweep);
+}
+
+function startGame(){
+  score = 0; hits = 0; throwIdx = 0;
+  screenIntro.style.display = "none";
+  screenResult.classList.remove("show");
+  screenGame.style.display = "block";
+  boomerImg.src = "/assets/games/boomer-medball-ready.webp";
+  boomerImg.className = "boomerImg breathe";
+  setupThrow();
+}
+
+function doThrow(){
+  if (locked) return;
+  locked = true;
+  cancelAnimationFrame(rafId);
+
+  var pos = sweepPos;
+  var gMin = parseFloat(barTrack.dataset.greenMin), gMax = parseFloat(barTrack.dataset.greenMax);
+  var goldMin = parseFloat(barTrack.dataset.goldMin), goldMax = parseFloat(barTrack.dataset.goldMax);
+  var isGold = pos >= goldMin && pos <= goldMax;
+  var isGreen = pos >= gMin && pos <= gMax;
+  var gained = isGold ? 150 : (isGreen ? 100 : 0);
+  score += gained;
+  if (gained > 0) hits++;
+
+  ballImg.style.left = "0"; ballImg.style.top = "0";
+  ballImg.style.setProperty("--flightMs", "420ms");
+  ballImg.classList.remove("flying");
+  void ballImg.offsetWidth;
+  ballImg.classList.add("flying");
+
+  setTimeout(function(){
+    if (gained > 0){
+      boomerImg.src = "/assets/games/boomer-medball-knocked.webp";
+      boomerImg.className = "boomerImg hitpose";
+      flashOverlay.className = "flashOverlay ok";
+      arena.classList.add("shakeMe");
+      quote.innerHTML = pick(QUOTES_HIT) + (isGold ? " <b>+150 BONUS</b>" : " <b>+100</b>");
+    } else {
+      boomerImg.src = "/assets/games/boomer-medball-lean.webp";
+      boomerImg.className = "boomerImg dodgepose";
+      flashOverlay.className = "flashOverlay bad";
+      quote.textContent = pick(QUOTES_MISS);
+    }
+    setTimeout(function(){
+      arena.classList.remove("shakeMe");
+      flashOverlay.className = "flashOverlay";
+      boomerImg.src = "/assets/games/boomer-medball-ready.webp";
+      boomerImg.className = "boomerImg breathe";
+      ballImg.classList.remove("flying");
+      throwIdx++;
+      if (throwIdx >= THROWS_TOTAL){ finish(); }
+      else { setupThrow(); }
+    }, 700);
+  }, 300);
+}
+
+throwBtn.addEventListener("click", doThrow);
+document.addEventListener("keydown", function(e){
+  if (e.code === "Space" && screenGame.style.display !== "none"){ e.preventDefault(); doThrow(); }
+});
+document.getElementById("startBtn").addEventListener("click", startGame);
+document.getElementById("btnRetry").addEventListener("click", startGame);
+
+function getTier(sc){
+  if (sc >= 650) return { name:"Postrach Posilky", badge:"LEGENDA", color:"#ff4d6d", desc:"5 z 5, väčšina s bonusom. Boomer už o tebe rozpráva všetkým." };
+  if (sc >= 450) return { name:"Ostrý Oko", badge:"EXPERT", color:"#00e676", desc:"Skoro dokonalé časovanie. Chýbalo máličko k plnému skóre." };
+  if (sc >= 250) return { name:"Solídna Ruka", badge:"POKROČILÝ", color:"#00d4ff", desc:"Väčšinu si trafil. Ešte pár pokusov a budeš v tom majster." };
+  if (sc >= 100) return { name:"Ešte Sa Rozohrievaš", badge:"PRIEMER", color:"#f97316", desc:"Pár zásahov máš, časovanie ešte chce cvik." };
+  return { name:"Boomer Sa Smeje", badge:"NOVIC", color:"#888", desc:"Nula, alebo skoro nula. Skús to znova, tentokrát sleduj stred." };
+}
+
+function finish(){
+  screenGame.style.display = "none";
+  var tier = getTier(score);
+  var streakVal = bumpStreak();
+  var best = readBest();
+  if (score > best) { writeBest(score); best = score; }
+
+  document.getElementById("tierBadge").textContent = tier.badge;
+  document.getElementById("tierBadge").style.background = tier.color;
+  document.getElementById("tierName").textContent = tier.name;
+  document.getElementById("tierName").style.color = tier.color;
+  document.getElementById("tierScoreNum").textContent = String(score);
+  document.getElementById("tierDesc").textContent = tier.desc + " (" + hits + "/5 zásahov)";
+  document.getElementById("streakAfter").textContent = String(streakVal);
+
+  drawShareCard(tier, score, hits, streakVal);
+  screenResult.classList.add("show");
+}
+
+function drawShareCard(tier, sc, hitCount, streakVal){
+  var canvas = document.getElementById("shareCanvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,"#0d0d0d"); grad.addColorStop(1,"#050505");
+  ctx.fillStyle = grad; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle = "rgba(255,255,255,0.06)"; ctx.lineWidth = 2; ctx.strokeRect(30,30,W-60,H-60);
+
+  ctx.fillStyle = "#00e676"; ctx.font = "900 46px Inter, Arial, sans-serif"; ctx.textAlign = "left";
+  ctx.fillText("BOOOM", 70, 130);
+  ctx.fillStyle = "#666"; ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("TRAF BOOMERA!", 70, 168);
+
+  roundRect(ctx, W/2-170, 220, 340, 60, 30);
+  ctx.fillStyle = tier.color; ctx.fill();
+  ctx.fillStyle = "#0a0a0a"; ctx.textAlign = "center"; ctx.font = "900 24px Inter, Arial, sans-serif";
+  ctx.fillText(tier.badge, W/2, 258);
+
+  ctx.fillStyle = "#fff"; ctx.font = "900 58px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.name, W/2, 390, W-140, 66);
+
+  ctx.fillStyle = tier.color; ctx.font = "900 190px Inter, Arial, sans-serif";
+  ctx.fillText(String(sc), W/2, 640);
+  ctx.fillStyle = "#888"; ctx.font = "700 26px Inter, Arial, sans-serif";
+  ctx.fillText(hitCount + "/5 ZÁSAHOV", W/2, 690);
+
+  ctx.fillStyle = "#ccc"; ctx.font = "500 30px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.desc, W/2, 800, W-160, 42);
+
+  ctx.fillStyle = "#f97316"; ctx.font = "800 28px Inter, Arial, sans-serif";
+  ctx.fillText("🔥 " + streakVal + " " + (streakVal===1?"deň":"dni") + " v sérii", W/2, 1120);
+
+  ctx.fillStyle = "#555"; ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("Zahraj si na booom.fit/hry/traf-boomera", W/2, 1230);
+  ctx.fillStyle = "#00d4ff"; ctx.font = "900 30px Inter, Arial, sans-serif";
+  ctx.fillText("booom.fit", W/2, 1275);
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath(); ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight){
+  var words=text.split(" "),line="",lines=[];
+  for (var n=0;n<words.length;n++){
+    var t=line+words[n]+" ";
+    if (ctx.measureText(t).width>maxWidth && n>0){ lines.push(line); line=words[n]+" "; } else line=t;
+  }
+  lines.push(line);
+  var startY=y-((lines.length-1)*lineHeight)/2;
+  for (var i=0;i<lines.length;i++) ctx.fillText(lines[i].trim(), x, startY+i*lineHeight);
+}
+
+document.getElementById("btnDownload").addEventListener("click", function(){
+  var canvas = document.getElementById("shareCanvas");
+  canvas.toBlob(function(blob){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "booom-traf-boomera.png";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }, "image/png");
+});
+
+})();
+</script>
+</body>
+</html>
