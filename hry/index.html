@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>BOOOM Hry — zahraj si niečo cez pauzu</title>
+<meta name="description" content="Rýchle hry od BOOOM. Kvízy, reflexovky a výzvy — zahraj si, poraz kamošov, vráť sa zajtra na nový set.">
+<meta property="og:title" content="BOOOM Hry">
+<meta property="og:description" content="Rýchle hry od BOOOM — zahraj si cez pauzu.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry">
+<link rel="canonical" href="https://booom.fit/hry">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 60px}
+a{color:inherit;text-decoration:none}
+.top{width:100%;max-width:900px;display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.home{font-size:13px;color:var(--muted);border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.home:hover{border-color:var(--green);color:var(--green)}
+.hero{text-align:center;max-width:640px;margin-bottom:40px}
+.hero h1{font-size:clamp(30px,7vw,46px);font-weight:900;line-height:1.05;margin:0 0 12px;letter-spacing:-0.5px}
+.hero h1 .hl{color:var(--green)}
+.hero p{color:var(--muted);font-size:15.5px;line-height:1.5;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;width:100%;max-width:900px}
+.tile{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .15s,border-color .15s}
+.tile:not(.soon):hover{transform:translateY(-3px);border-color:var(--green)}
+.tile .emoji{font-size:38px;line-height:1}
+.tile h3{margin:0;font-size:19px;font-weight:800}
+.tile p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.45;flex:1}
+.tag{display:inline-block;align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:0.8px;padding:4px 10px;border-radius:12px;text-transform:uppercase}
+.tag.live{background:rgba(0,230,118,.15);color:var(--green)}
+.tag.soon{background:rgba(255,255,255,.06);color:var(--muted)}
+.tile.soon{opacity:.55;cursor:default}
+.tile.soon:hover{transform:none;border-color:var(--bg-card-border)}
+.cta{margin-top:50px;text-align:center;color:var(--muted);font-size:13.5px}
+.cta a{color:var(--green);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/" class="brand"><span class="b">BOOOM</span></a>
+  <a href="/" class="home">← Domov</a>
+</div>
+
+<div class="hero">
+  <h1>BOOOM <span class="hl">Hry</span></h1>
+  <p>Rýchle hry na zabitie pauzy medzi sériami. Nový obsah pravidelne, žiadna registrácia.</p>
+</div>
+
+<div class="grid">
+
+  <a class="tile" href="/hry/gym-bro-quiz">
+    <div class="emoji">🏋️</div>
+    <span class="tag live">Hraj teraz</span>
+    <h3>Gym Bro alebo Gym Rat?</h3>
+    <p>10 tvrdení o tvojom správaní v posilke. Swipni, buď úprimný, zisti svoje Gym Menace skóre a pošli ho kamošom.</p>
+  </a>
+
+  <a class="tile" href="https://play.booom.fit" target="_blank" rel="noopener">
+    <div class="emoji">🥎</div>
+    <span class="tag live">Hraj teraz</span>
+    <h3>Traf Boomera!</h3>
+    <p>Medicinbalová výzva — traf zelenú zónu a pošli Boomera k zemi. 5 hodov, spoločný rebríček TOP 50.</p>
+  </a>
+
+  <div class="tile soon">
+    <div class="emoji">🗣️</div>
+    <span class="tag soon">Čoskoro</span>
+    <h3>Boomer hovorí</h3>
+    <p>Simon Says s gym príkazmi — zrýchľuje sa, kým neurobíš chybu. Ako dlho vydržíš?</p>
+  </div>
+
+  <div class="tile soon">
+    <div class="emoji">🎡</div>
+    <span class="tag soon">Čoskoro</span>
+    <h3>BOOOM Ruleta</h3>
+    <p>Roztoč koleso, dostaneš finišer výzvu. Odfoť dôkaz, označ 3 kamošov.</p>
+  </div>
+
+</div>
+
+<div class="cta">Chceš tréning myslieť vážne? <a href="/">Stiahni BOOOM appku zadarmo →</a></div>
+
+</body>
+</html>

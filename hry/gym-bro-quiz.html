@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Gym Bro alebo Gym Rat? — BOOOM Hry</title>
+<meta name="description" content="10 otázok. Buď úprimný. Zisti, či si Vzorný Člen Posilky alebo Certifikovaný Gym Menace — a pošli výsledok kamošom.">
+<meta property="og:title" content="Gym Bro alebo Gym Rat? — BOOOM">
+<meta property="og:description" content="10 otázok o tvojom správaní v posilke. Buď úprimný.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry/gym-bro-quiz">
+<link rel="canonical" href="https://booom.fit/hry/gym-bro-quiz">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
+a{color:inherit}
+.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.back:hover{border-color:var(--green);color:var(--green)}
+.wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
+.intro{text-align:center;padding:24px 6px 8px}
+.intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro h1 .hl{color:var(--green)}
+.intro p{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px}
+.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#04150c;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,230,118,.28)}
+.rules{margin-top:26px;display:flex;justify-content:center;gap:22px;font-size:13px;color:var(--muted)}
+.rules b{color:var(--text);display:block;font-size:20px}
+
+.progressRow{display:flex;gap:5px;margin:4px 0 20px}
+.dot{flex:1;height:4px;border-radius:2px;background:var(--bg-card-border);transition:background .2s}
+.dot.done{background:var(--green)}
+.dot.now{background:var(--cyan)}
+
+.cardStage{position:relative;height:340px;margin-bottom:22px}
+.card{position:absolute;inset:0;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px 26px;user-select:none;touch-action:pan-y;cursor:grab;transition:transform .25s ease, opacity .25s ease}
+.card:active{cursor:grabbing}
+.card .num{color:var(--muted);font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:14px}
+.card .stmt{font-size:clamp(18px,5vw,23px);font-weight:800;line-height:1.35}
+.card .tagYes,.card .tagNo{position:absolute;top:22px;font-weight:900;font-size:15px;letter-spacing:1px;padding:6px 14px;border-radius:8px;border:3px solid;opacity:0;transform:scale(.8);transition:opacity .1s,transform .1s}
+.card .tagYes{right:18px;color:var(--green);border-color:var(--green);transform:rotate(8deg) scale(.8)}
+.card .tagNo{left:18px;color:var(--red);border-color:var(--red);transform:rotate(-8deg) scale(.8)}
+
+.swipeBtns{display:flex;gap:14px;margin-bottom:8px}
+.swBtn{flex:1;border-radius:16px;border:2px solid var(--bg-card-border);background:var(--bg-card);padding:16px 10px;font-weight:800;font-size:14.5px;cursor:pointer;transition:border-color .15s,transform .1s,background .15s;color:var(--text)}
+.swBtn:active{transform:scale(.97)}
+.swBtn.no{border-color:rgba(255,77,109,.35)}
+.swBtn.no:hover{border-color:var(--red);background:rgba(255,77,109,.08)}
+.swBtn.yes{border-color:rgba(0,230,118,.35)}
+.swBtn.yes:hover{border-color:var(--green);background:rgba(0,230,118,.08)}
+.swBtn .em{display:block;font-size:22px;margin-bottom:4px}
+
+.hint{text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px}
+
+.resultWrap{display:none;text-align:center;padding-top:10px}
+.resultWrap.show{display:block}
+.tierBadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;color:var(--bg);background:var(--green);padding:6px 16px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.tierName{font-size:clamp(26px,7vw,36px);font-weight:900;line-height:1.1;margin:0 0 6px;letter-spacing:-0.5px}
+.tierPct{font-size:15px;color:var(--muted);margin-bottom:18px}
+.tierPct b{color:var(--cyan);font-size:17px}
+.tierDesc{font-size:15.5px;line-height:1.55;color:#ddd;max-width:400px;margin:0 auto 26px}
+.shareCanvasWrap{border-radius:20px;overflow:hidden;border:1px solid var(--bg-card-border);margin-bottom:20px;line-height:0}
+.shareCanvasWrap canvas{width:100%;height:auto;display:block}
+.resultBtns{display:flex;flex-direction:column;gap:10px}
+.rBtn{border:none;border-radius:14px;padding:15px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .1s}
+.rBtn:active{transform:scale(.98)}
+.rBtn.primary{background:var(--green);color:#04150c}
+.rBtn.secondary{background:transparent;border:1px solid var(--bg-card-border);color:var(--text)}
+.streakNote{margin-top:18px;font-size:13px;color:var(--muted)}
+.streakNote b{color:var(--orange)}
+.replayNote{margin-top:8px;font-size:12px;color:#555}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
+  <a href="/hry" class="back">← Späť na hry</a>
+</div>
+
+<div class="wrap">
+
+  <div id="screenIntro" class="intro">
+    <h1>Gym Bro<br>alebo <span class="hl">Gym Rat?</span></h1>
+    <p>10 tvrdení o správaní v posilke. Swipni doprava ak "to som ja", doľava ak "nikdy v živote". Buď úprimný — nikto sa nepozerá. No počkať, celé Slovensko sa pozerá.</p>
+    <button class="startBtn" id="startBtn">Začať kvíz →</button>
+    <div class="rules">
+      <div><b id="todayCount">10</b>otázok</div>
+      <div><b id="streakDisplay">0</b>dní v sérii</div>
+    </div>
+  </div>
+
+  <div id="screenQuiz" style="display:none">
+    <div class="progressRow" id="progressRow"></div>
+    <div class="cardStage" id="cardStage"></div>
+    <div class="swipeBtns">
+      <button class="swBtn no" id="btnNo"><span class="em">✋</span>Nikdy v živote</button>
+      <button class="swBtn yes" id="btnYes"><span class="em">😅</span>To som ja</button>
+    </div>
+    <div class="hint">Swipni kartu prstom, alebo použi tlačidlá</div>
+  </div>
+
+  <div id="screenResult" class="resultWrap">
+    <div class="tierBadge" id="tierBadge">VÝSLEDOK</div>
+    <h2 class="tierName" id="tierName">—</h2>
+    <div class="tierPct">Gym Menace skóre: <b id="tierPctNum">0%</b></div>
+    <p class="tierDesc" id="tierDesc">—</p>
+    <div class="shareCanvasWrap"><canvas id="shareCanvas" width="1080" height="1350"></canvas></div>
+    <div class="resultBtns">
+      <button class="rBtn primary" id="btnDownload">📲 Stiahnuť obrázok na zdieľanie</button>
+      <button class="rBtn secondary" id="btnRetry">Zahrať znova (zamiešať)</button>
+      <a class="rBtn secondary" style="display:block;text-decoration:none;text-align:center" href="/hry">Ďalšie hry</a>
+    </div>
+    <div class="streakNote">Séria: <b id="streakAfter">1</b> deň v rade — nový set otázok zajtra.</div>
+    <div class="replayNote">Dnešný kvíz je pre všetkých rovnaký. Zdieľaj a porovnaj sa s kamošmi.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var POOL = [
+  "Nevraciaš kotúče na stojan po sete.",
+  "Robíš bicepsové zdvihy v drepovej ráčke.",
+  "Natáčaš sa v zrkadle uprostred cudzieho tréningu.",
+  "Scrollovanie telefónu medzi sériami ti trvá dlhšie ako samotný set.",
+  "Nosíš tielko bez rukávov aj v januári.",
+  "Kričíš pri poslednom opakovaní tak, že to počuje celá posilka.",
+  "Odmietaš robiť nohy, lebo \"dnes je tlak\".",
+  "Máš vlastný šejker s menom vygravírovaným na boku.",
+  "Predbiehaš rady na stroj, lebo \"len jeden set\".",
+  "Fotíš jedlo pred jedením, aj keď je to len banán.",
+  "Máš názor na to, ako iní cvičia, aj keď sa ťa nikto nepýtal.",
+  "Chodíš do posilky na Silvestra, lebo \"vtedy je prázdno\".",
+  "Máš viac fitness tielok než bežného oblečenia.",
+  "Rátaš makrá aj na rodinnej oslave.",
+  "Odfotíš sa pred zrkadlom v posilke aspoň raz za tréning.",
+  "Poznáš presný dátum svojho posledného PR naspamäť.",
+  "Odmietaš cvičiť bez predtréningového \"pumpu\".",
+  "Máš viac appiek na sledovanie tréningu ako appiek na sociálne siete.",
+  "Nosíš pás na cvičenia, kde ho fakt netreba.",
+  "Trénoval/a si aj s teplotou, lebo \"séria sa nesmie pretrhnúť\"."
+];
+
+var TIERS = [
+  { max: 20, name: "Vzorný Člen Posilky", badge: "Svätec", color: "#00e676", desc: "Rešpekt. Cvičíš, vraciaš kotúče a nikoho neotravuješ. Posilka by potrebovala viac takých ako ty. Trochu nudné, ale rešpekt." },
+  { max: 40, name: "Bežný Smrteľník", badge: "NORMÁLNY ČLOVEK", color: "#00d4ff", desc: "Máš pár zlozvykov, ale nikto ťa kvôli tomu nenávidí. Priemer posilky. Skús aspoň tie kotúče vracať." },
+  { max: 60, name: "Gym Rat v Tréningu", badge: "V PROCESE", color: "#a78bfa", desc: "Cítiš to už na sebe. Šejker, fotky jedla, názor na cudzí tréning — je to len otázka času." },
+  { max: 80, name: "Certifikovaný Gym Bro", badge: "OFICIÁLNE", color: "#f97316", desc: "Toto je level, kde ťa už poznajú aj ľudia, čo tam nechcú byť. Vieš presne, o čom hovoríme." },
+  { max: 101, name: "Gym Menace / Postrach Posilky", badge: "LEGENDA", color: "#ff4d6d", desc: "Si dôvod, prečo ostatní nosia slúchadlá. Plný gain, plné ego, nulová sebareflexia. Rešpekt aj strach zároveň." }
+];
+
+function dayKey(d){
+  var y = d.getFullYear(), m = ("0"+(d.getMonth()+1)).slice(-2), day = ("0"+d.getDate()).slice(-2);
+  return y+"-"+m+"-"+day;
+}
+function seededShuffle(arr, seed){
+  var a = arr.slice();
+  var s = seed;
+  function rnd(){ s = (s * 9301 + 49297) % 233280; return s / 233280; }
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(rnd() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+function seedFromString(str){
+  var h = 0;
+  for (var i = 0; i < str.length; i++){ h = (h * 31 + str.charCodeAt(i)) | 0; }
+  return Math.abs(h) || 1;
+}
+
+var todayKey = dayKey(new Date());
+var seed = seedFromString(todayKey);
+var todaysQuestions = seededShuffle(POOL, seed).slice(0, 10);
+
+var LS_STREAK = "booom_gymbro_streak";
+var LS_LASTDAY = "booom_gymbro_lastday";
+var LS_LASTRESULT = "booom_gymbro_lastresult";
+
+function readStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    if (!last) return 0;
+    var lastD = new Date(last + "T00:00:00");
+    var today = new Date(todayKey + "T00:00:00");
+    var diffDays = Math.round((today - lastD) / 86400000);
+    if (diffDays === 0) return streak;
+    if (diffDays === 1) return streak;
+    return 0;
+  } catch (e) { return 0; }
+}
+function bumpStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    if (last === todayKey) { return streak || 1; }
+    var lastD = last ? new Date(last + "T00:00:00") : null;
+    var today = new Date(todayKey + "T00:00:00");
+    var diffDays = lastD ? Math.round((today - lastD) / 86400000) : null;
+    var next = (diffDays === 1) ? streak + 1 : 1;
+    localStorage.setItem(LS_STREAK, String(next));
+    localStorage.setItem(LS_LASTDAY, todayKey);
+    return next;
+  } catch (e) { return 1; }
+}
+
+document.getElementById("todayCount").textContent = String(todaysQuestions.length);
+document.getElementById("streakDisplay").textContent = String(readStreak());
+
+var idx = 0;
+var answers = [];
+var currentCardEl = null;
+
+var screenIntro = document.getElementById("screenIntro");
+var screenQuiz = document.getElementById("screenQuiz");
+var screenResult = document.getElementById("screenResult");
+var cardStage = document.getElementById("cardStage");
+var progressRow = document.getElementById("progressRow");
+
+function buildProgress(){
+  progressRow.innerHTML = "";
+  for (var i = 0; i < todaysQuestions.length; i++){
+    var d = document.createElement("div");
+    d.className = "dot" + (i < idx ? " done" : (i === idx ? " now" : ""));
+    progressRow.appendChild(d);
+  }
+}
+
+function renderCard(){
+  buildProgress();
+  cardStage.innerHTML = "";
+  if (idx >= todaysQuestions.length){ finish(); return; }
+  var card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML =
+    '<div class="tagNo">NIKDY</div>' +
+    '<div class="tagYes">TO SOM JA</div>' +
+    '<div class="num">TVRDENIE ' + (idx+1) + ' / ' + todaysQuestions.length + '</div>' +
+    '<div class="stmt">' + todaysQuestions[idx] + '</div>';
+  cardStage.appendChild(card);
+  currentCardEl = card;
+  attachDrag(card);
+}
+
+function attachDrag(card){
+  var startX = 0, curX = 0, active = false;
+  function pointerDown(e){
+    active = true;
+    startX = (e.touches ? e.touches[0].clientX : e.clientX);
+    card.style.transition = "none";
+  }
+  function pointerMove(e){
+    if (!active) return;
+    curX = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+    card.style.transform = "translateX(" + curX + "px) rotate(" + (curX/18) + "deg)";
+    var yesTag = card.querySelector(".tagYes");
+    var noTag = card.querySelector(".tagNo");
+    if (curX > 20) { yesTag.style.opacity = Math.min(1, curX/90); yesTag.style.transform = "rotate(8deg) scale(1)"; noTag.style.opacity = 0; }
+    else if (curX < -20) { noTag.style.opacity = Math.min(1, -curX/90); noTag.style.transform = "rotate(-8deg) scale(1)"; yesTag.style.opacity = 0; }
+    else { yesTag.style.opacity = 0; noTag.style.opacity = 0; }
+  }
+  function pointerUp(){
+    if (!active) return;
+    active = false;
+    card.style.transition = "transform .25s ease, opacity .25s ease";
+    if (curX > 90) { answerSwipe(true); }
+    else if (curX < -90) { answerSwipe(false); }
+    else { card.style.transform = ""; }
+    curX = 0;
+  }
+  card.addEventListener("mousedown", pointerDown);
+  window.addEventListener("mousemove", pointerMove);
+  window.addEventListener("mouseup", pointerUp);
+  card.addEventListener("touchstart", pointerDown, {passive:true});
+  card.addEventListener("touchmove", pointerMove, {passive:true});
+  card.addEventListener("touchend", pointerUp);
+}
+
+function answerSwipe(yes){
+  if (!currentCardEl) return;
+  var card = currentCardEl;
+  currentCardEl = null;
+  card.style.transform = "translateX(" + (yes ? 600 : -600) + "px) rotate(" + (yes ? 30 : -30) + "deg)";
+  card.style.opacity = "0";
+  answers.push(yes);
+  idx++;
+  setTimeout(renderCard, 220);
+}
+
+document.getElementById("btnYes").addEventListener("click", function(){ answerSwipe(true); });
+document.getElementById("btnNo").addEventListener("click", function(){ answerSwipe(false); });
+
+document.getElementById("startBtn").addEventListener("click", function(){
+  screenIntro.style.display = "none";
+  screenQuiz.style.display = "block";
+  idx = 0; answers = [];
+  renderCard();
+});
+
+function getTier(pct){
+  for (var i = 0; i < TIERS.length; i++){ if (pct <= TIERS[i].max) return TIERS[i]; }
+  return TIERS[TIERS.length-1];
+}
+
+function finish(){
+  screenQuiz.style.display = "none";
+  var yesCount = answers.filter(function(a){return a;}).length;
+  var pct = Math.round((yesCount / todaysQuestions.length) * 100);
+  var tier = getTier(pct);
+  var streakVal = bumpStreak();
+
+  document.getElementById("tierBadge").textContent = tier.badge;
+  document.getElementById("tierBadge").style.background = tier.color;
+  document.getElementById("tierName").textContent = tier.name;
+  document.getElementById("tierName").style.color = tier.color;
+  document.getElementById("tierPctNum").textContent = pct + "%";
+  document.getElementById("tierDesc").textContent = tier.desc;
+  document.getElementById("streakAfter").textContent = String(streakVal);
+
+  drawShareCard(tier, pct, streakVal);
+  screenResult.classList.add("show");
+
+  try {
+    localStorage.setItem(LS_LASTRESULT, JSON.stringify({date: todayKey, pct: pct, tier: tier.name}));
+  } catch(e){}
+}
+
+function drawShareCard(tier, pct, streakVal){
+  var canvas = document.getElementById("shareCanvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, "#0d0d0d");
+  grad.addColorStop(1, "#050505");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,W,H);
+
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(30,30,W-60,H-60);
+
+  ctx.fillStyle = "#00e676";
+  ctx.font = "900 46px Inter, Arial, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("BOOOM", 70, 130);
+  ctx.fillStyle = "#666";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("GYM BRO ALEBO GYM RAT?", 70, 168);
+
+  roundRect(ctx, W/2 - 170, 230, 340, 60, 30);
+  ctx.fillStyle = tier.color; ctx.fill();
+  ctx.fillStyle = "#0a0a0a";
+  ctx.textAlign = "center";
+  ctx.font = "900 24px Inter, Arial, sans-serif";
+  ctx.fillText(tier.badge, W/2, 268);
+
+  ctx.fillStyle = "#fff";
+  ctx.font = "900 62px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.name, W/2, 400, W-140, 68);
+
+  ctx.fillStyle = tier.color;
+  ctx.font = "900 130px Inter, Arial, sans-serif";
+  ctx.fillText(pct + "%", W/2, 660);
+  ctx.fillStyle = "#888";
+  ctx.font = "700 26px Inter, Arial, sans-serif";
+  ctx.fillText("GYM MENACE SKÓRE", W/2, 700);
+
+  ctx.fillStyle = "#ccc";
+  ctx.font = "500 30px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.desc, W/2, 800, W-160, 42);
+
+  ctx.fillStyle = "#f97316";
+  ctx.font = "800 28px Inter, Arial, sans-serif";
+  ctx.fillText("🔥 " + streakVal + " " + (streakVal===1 ? "deň" : "dni") + " v sérii", W/2, 1120);
+
+  ctx.fillStyle = "#555";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("Zahraj si na booom.fit/hry/gym-bro-quiz", W/2, 1230);
+  ctx.fillStyle = "#00d4ff";
+  ctx.font = "900 30px Inter, Arial, sans-serif";
+  ctx.fillText("booom.fit", W/2, 1275);
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  var words = text.split(" ");
+  var line = "";
+  var lines = [];
+  for (var n = 0; n < words.length; n++){
+    var testLine = line + words[n] + " ";
+    if (ctx.measureText(testLine).width > maxWidth && n > 0){
+      lines.push(line);
+      line = words[n] + " ";
+    } else { line = testLine; }
+  }
+  lines.push(line);
+  var startY = y - ((lines.length-1) * lineHeight)/2;
+  for (var i = 0; i < lines.length; i++){
+    ctx.fillText(lines[i].trim(), x, startY + i*lineHeight);
+  }
+}
+
+document.getElementById("btnDownload").addEventListener("click", function(){
+  var canvas = document.getElementById("shareCanvas");
+  canvas.toBlob(function(blob){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "booom-gym-bro-quiz.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }, "image/png");
+});
+
+document.getElementById("btnRetry").addEventListener("click", function(){
+  var s = seedFromString(todayKey + "-" + Date.now());
+  todaysQuestions = seededShuffle(POOL, s).slice(0, 10);
+  screenResult.classList.remove("show");
+  screenQuiz.style.display = "block";
+  idx = 0; answers = [];
+  renderCard();
+});
+
+})();
+</script>
+</body>
+</html>
