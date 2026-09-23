@@ -50,7 +50,7 @@ a{color:inherit}
 .intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
 .intro h1 .hl{color:var(--green)}
 .intro p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:0 0 4px}
-.statsRow{margin:18px 0 4px;display:flex;justify-content:center;gap:12px;width:100%;max-width:320px}
+.statsRow{margin:18px auto 4px;display:flex;justify-content:center;gap:12px;width:100%;max-width:320px}
 .statCard{flex:1;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:16px;padding:12px 8px 10px;text-align:center}
 .statIcon{width:20px;height:20px;color:var(--green);margin-bottom:4px}
 .statNum{font-size:21px;font-weight:900;color:#fff;line-height:1.1}
@@ -60,7 +60,7 @@ a{color:inherit}
 .rim{position:absolute;top:-14px;left:-14px;right:-14px;bottom:-14px;border-radius:50%;background:conic-gradient(from 0deg,#f4f4f4,#8a8a8a 12%,#3a3a3a 25%,#dcdcdc 37%,#6e6e6e 50%,#f4f4f4 62%,#8a8a8a 75%,#3a3a3a 87%,#f4f4f4 100%);box-shadow:0 12px 28px rgba(0,0,0,.55),inset 0 2px 4px rgba(255,255,255,.4),inset 0 -2px 6px rgba(0,0,0,.5)}
 .pointer{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:24px solid var(--green);z-index:5;filter:drop-shadow(0 0 10px rgba(0,230,118,.85)) drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 .wheel{position:relative;width:320px;height:320px;border-radius:50%;border:5px solid #1a1a1a;box-shadow:0 0 0 2px #3a3a3a,inset 0 0 20px rgba(0,0,0,.6);transition:transform 4.2s cubic-bezier(.15,.85,.15,1);will-change:transform;overflow:hidden;z-index:2}
-.segLabel{position:absolute;width:114px;margin-left:-57px;margin-top:-9px;text-align:center;display:block;white-space:nowrap;font-family:'Inter',Arial,sans-serif;font-weight:800;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 5px rgba(0,0,0,.6);letter-spacing:.1px}
+.segLabel{position:absolute;width:118px;margin-left:-59px;margin-top:-9px;text-align:center;display:block;white-space:nowrap;font-family:'Inter',Arial,sans-serif;font-weight:800;font-size:12px;line-height:18px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 5px rgba(0,0,0,.6);letter-spacing:0}
 .hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#3d3d3d,#0a0a0a 72%);border:3px solid #4a4a4a;display:flex;align-items:center;justify-content:center;z-index:4;box-shadow:inset 0 2px 5px rgba(255,255,255,.18),inset 0 -3px 8px rgba(0,0,0,.7),0 4px 12px rgba(0,0,0,.55)}
 .hub svg{width:26px;height:26px;filter:drop-shadow(0 0 5px rgba(0,230,118,.75))}
 
@@ -242,7 +242,7 @@ function buildWheel(){
   }
   wheel.style.background = "conic-gradient(" + gradParts.join(",") + ")";
 
-  var R = 92;
+  var R = 95;
   for (var j = 0; j < SEG_COUNT; j++){
     var midAngle = j * ANGLE + ANGLE/2;
     var rad = midAngle * Math.PI / 180;
@@ -252,22 +252,12 @@ function buildWheel(){
     var label = document.createElement("div");
     label.className = "segLabel";
     label.textContent = SEGMENTS[j].short;
-    label.style.fontSize = labelFontSize(SEGMENTS[j].short) + "px";
     label.style.left = x + "px";
     label.style.top = y + "px";
     label.style.transform = "rotate(" + (midAngle - 90) + "deg)";
 
     wheel.appendChild(label);
   }
-}
-
-function labelFontSize(text){
-  var len = text.length;
-  if (len <= 6) return 14;
-  if (len <= 9) return 12.5;
-  if (len <= 12) return 11;
-  if (len <= 15) return 9.5;
-  return 8.5;
 }
 buildWheel();
 
