@@ -53,11 +53,13 @@ a{color:inherit}
 .statsRow{margin:16px 0 4px;display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--muted)}
 .statsRow b{color:var(--text);display:block;font-size:22px}
 
-.wheelStage{position:relative;width:300px;height:300px;margin:18px auto 22px}
+.wheelStage{position:relative;width:320px;height:320px;margin:18px auto 22px}
 .pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:22px solid var(--orange);z-index:5;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
-.wheel{position:relative;width:300px;height:300px;border-radius:50%;border:6px solid var(--bg-card-border);box-shadow:0 0 0 3px var(--bg), 0 10px 30px rgba(0,0,0,.5);transition:transform 4.2s cubic-bezier(.15,.85,.15,1);will-change:transform;overflow:hidden}
-.seg{position:absolute;width:50%;height:50%;top:50%;left:50%;transform-origin:0% 0%;display:flex;align-items:flex-start;justify-content:center}
-.segLabel{margin-top:34px;font-size:34px;line-height:1;text-shadow:0 2px 4px rgba(0,0,0,.6)}
+.wheel{position:relative;width:320px;height:320px;border-radius:50%;border:6px solid var(--bg-card-border);box-shadow:0 0 0 3px var(--bg), 0 10px 30px rgba(0,0,0,.5);transition:transform 4.2s cubic-bezier(.15,.85,.15,1);will-change:transform;overflow:hidden}
+.seg{position:absolute;width:50%;height:50%;top:50%;left:50%;transform-origin:0% 0%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.segEmoji{margin-top:20px;font-size:22px;line-height:1;text-shadow:0 2px 4px rgba(0,0,0,.6)}
+.segLabelWrap{margin-top:6px;width:92px;display:flex;align-items:center;justify-content:center;transform:rotate(90deg)}
+.segLabel{display:inline-block;white-space:nowrap;font-family:'Inter',Arial,sans-serif;font-weight:800;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.85);letter-spacing:.1px}
 .hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--bg-card);border:4px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:26px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.5)}
 
 .spinBtn{width:100%;background:var(--orange);color:#2b0f00;border:none;border-radius:14px;padding:17px;font-weight:900;font-size:17px;cursor:pointer;transition:transform .1s,opacity .15s}
@@ -144,18 +146,18 @@ a{color:inherit}
 "use strict";
 
 var SEGMENTS = [
-  { name: "Bombardér", emoji: "💣", line: "Keď nabehne na lavičku, ostatní si sadnú a sledujú." },
-  { name: "Drtič", emoji: "🦾", line: "Pre neho je posledné opakovanie len rozcvička." },
-  { name: "Železný Vlk", emoji: "🐺", line: "Trénuje sám, ale celá posilka to vie." },
-  { name: "Kotúčový Kráľ", emoji: "👑", line: "Jeho osa má vlastný poštový smerovací kód." },
-  { name: "Šelma Zo Šatne", emoji: "🐆", line: "Prichádza potichu, odchádza s rekordom." },
-  { name: "Rannoranný Bojovník", emoji: "🌅", line: "O piatej ráno, keď spí celé mesto, on už dvíha." },
-  { name: "Postrach Lavice", emoji: "😈", line: "Bench press sa ho bojí viac, než on jeho." },
-  { name: "Génius Bez Dňa Voľna", emoji: "📅", line: "Sviatky, nedele, Silvester — jemu je to jedno." },
-  { name: "Tichý Zabijak", emoji: "🥷", line: "Nekričí. Len sa díva a pridáva ďalší kotúč." },
-  { name: "Kráľ Posledného Opakovania", emoji: "🔥", line: "Keď všetci povedia dosť, on povie ešte jedno." },
-  { name: "Legenda Šatne", emoji: "🏆", line: "Rozprávajú sa o ňom aj ľudia, čo ho nikdy necvičiť nevideli." },
-  { name: "Pumpovací Prorok", emoji: "🔮", line: "Vidí pumpu skôr, než príde." }
+  { name: "Bombardér", short: "Bombardér", emoji: "💣", line: "Keď nabehne na lavičku, ostatní si sadnú a sledujú." },
+  { name: "Drtič", short: "Drtič", emoji: "🦾", line: "Pre neho je posledné opakovanie len rozcvička." },
+  { name: "Železný Vlk", short: "Železný Vlk", emoji: "🐺", line: "Trénuje sám, ale celá posilka to vie." },
+  { name: "Kotúčový Kráľ", short: "Kotúčový Kráľ", emoji: "👑", line: "Jeho osa má vlastný poštový smerovací kód." },
+  { name: "Šelma Zo Šatne", short: "Šelma Šatne", emoji: "🐆", line: "Prichádza potichu, odchádza s rekordom." },
+  { name: "Ranný Bojovník", short: "Ranný Bojovník", emoji: "🌅", line: "O piatej ráno, keď spí celé mesto, on už dvíha." },
+  { name: "Postrach Lavice", short: "Postrach Lavice", emoji: "😈", line: "Bench press sa ho bojí viac, než on jeho." },
+  { name: "Génius Bez Dňa Voľna", short: "Bez Dňa Voľna", emoji: "📅", line: "Sviatky, nedele, Silvester — jemu je to jedno." },
+  { name: "Tichý Zabijak", short: "Tichý Zabijak", emoji: "🥷", line: "Nekričí. Len sa díva a pridáva ďalší kotúč." },
+  { name: "Kráľ Posledného Opakovania", short: "Kráľ Opakovania", emoji: "🔥", line: "Keď všetci povedia dosť, on povie ešte jedno." },
+  { name: "Legenda Šatne", short: "Legenda Šatne", emoji: "🏆", line: "Rozprávajú sa o ňom aj ľudia, čo ho nikdy necvičiť nevideli." },
+  { name: "Pumpovací Prorok", short: "Pumpovací Prorok", emoji: "🔮", line: "Vidí pumpu skôr, než príde." }
 ];
 
 var COLORS = ["#00e676", "#00d4ff", "#a78bfa", "#f97316", "#ffd700", "#ff4d6d"];
@@ -235,12 +237,32 @@ function buildWheel(){
     seg.className = "seg";
     var midAngle = j * ANGLE + ANGLE/2;
     seg.style.transform = "rotate(" + (midAngle - 90) + "deg)";
+
+    var emoji = document.createElement("div");
+    emoji.className = "segEmoji";
+    emoji.textContent = SEGMENTS[j].emoji;
+    seg.appendChild(emoji);
+
+    var wrap = document.createElement("div");
+    wrap.className = "segLabelWrap";
     var label = document.createElement("div");
     label.className = "segLabel";
-    label.textContent = SEGMENTS[j].emoji;
-    seg.appendChild(label);
+    label.textContent = SEGMENTS[j].short;
+    label.style.fontSize = labelFontSize(SEGMENTS[j].short) + "px";
+    wrap.appendChild(label);
+    seg.appendChild(wrap);
+
     wheel.appendChild(seg);
   }
+}
+
+function labelFontSize(text){
+  var len = text.length;
+  if (len <= 6) return 14;
+  if (len <= 9) return 12.5;
+  if (len <= 12) return 11;
+  if (len <= 15) return 9.5;
+  return 8.5;
 }
 buildWheel();
 
