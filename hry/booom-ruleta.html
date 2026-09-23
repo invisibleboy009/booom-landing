@@ -232,9 +232,11 @@ var wheelSection = document.getElementById("wheelSection");
 var currentRotation = 0;
 var currentSeg = null;
 var spinning = false;
+var segLabels = [];
 
 function buildWheel(){
   wheel.innerHTML = "";
+  segLabels = [];
   var gradParts = [];
   for (var i = 0; i < SEG_COUNT; i++){
     var from = i * ANGLE, to = (i+1) * ANGLE;
@@ -259,11 +261,20 @@ function buildWheel(){
     label.style.fontSize = "11.5px";
     label.style.color = "#fff";
     label.style.textShadow = (j % 2 === 0) ? "0 1px 2px rgba(0,0,0,.6)" : "0 1px 2px rgba(0,0,0,.9)";
+    label.style.transition = "opacity .25s";
     label.style.transform = "rotate(" + (-segAngle) + "deg)";
     wrap.appendChild(label);
     seg.appendChild(wrap);
 
     wheel.appendChild(seg);
+    segLabels.push({ el: label, segAngle: segAngle });
+  }
+  orientLabels(0);
+}
+
+function orientLabels(rotation){
+  for (var k = 0; k < segLabels.length; k++){
+    segLabels[k].el.style.transform = "rotate(" + (-(segLabels[k].segAngle + rotation)) + "deg)";
   }
 }
 buildWheel();
@@ -273,6 +284,7 @@ function spin(){
   spinning = true;
   spinBtn.disabled = true;
   revealCard.classList.remove("show");
+  segLabels.forEach(function(l){ l.el.style.opacity = "0"; });
 
   var targetIndex = Math.floor(Math.random() * SEG_COUNT);
   var fullSpins = 5 + Math.floor(Math.random()*2);
@@ -287,6 +299,8 @@ function spin(){
   setTimeout(function(){
     spinning = false;
     spinBtn.disabled = false;
+    orientLabels(currentRotation);
+    segLabels.forEach(function(l){ l.el.style.opacity = "1"; });
     currentSeg = SEGMENTS[targetIndex];
     revealEmoji.textContent = currentSeg.emoji;
     revealName.textContent = currentSeg.name;
