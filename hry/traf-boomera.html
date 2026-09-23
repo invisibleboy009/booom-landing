@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0a">
 <title>Traf BOOOMERA! — BOOOM Hry</title>
-<meta name="description" content="Medicinbalová výzva. Traf zelenú zónu presne v správny moment a pošli BOOOMERA k zemi. 5 hodov, rastúca rýchlosť.">
+<meta name="description" content="Tortová výzva. Traf zelenú zónu presne v správny moment a hoď BOOOMEROVI tortu do tváre. 5 hodov, rastúca rýchlosť.">
 <meta property="og:title" content="Traf BOOOMERA! — BOOOM">
-<meta property="og:description" content="5 lôpt. 1 veľké ego. Traf zelenú zónu presne v správny moment.">
+<meta property="og:description" content="5 tort. 1 veľké ego. Traf zelenú zónu presne v správny moment.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://booom.fit/hry/traf-boomera">
 <link rel="canonical" href="https://booom.fit/hry/traf-boomera">
@@ -48,12 +48,12 @@ a{color:inherit}
 .stage{position:relative;height:210px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
 .boomerImg{position:relative;height:200px;width:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.5));transition:transform .12s ease;z-index:2}
 .boomerImg.breathe{animation:breathe 3.2s ease-in-out infinite}
-.boomerImg.hitpose{animation:knockback .55s cubic-bezier(.3,.6,.3,1)}
+.boomerImg.hitpose{animation:knockback .6s cubic-bezier(.25,.65,.3,1.1)}
 .boomerImg.dodgepose{animation:dodge .4s ease-out}
 @keyframes breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-4px) scale(1.015)}}
-@keyframes knockback{0%{transform:translateY(0) rotate(0)}30%{transform:translateY(6px) rotate(-6deg) scale(.97)}55%{transform:translateY(-30px) rotate(8deg) scale(1.02)}100%{transform:translateY(0) rotate(0) scale(1)}}
+@keyframes knockback{0%{transform:translate(0,0) rotate(0) scale(1)}18%{transform:translate(6px,10px) rotate(-9deg) scale(.94)}45%{transform:translate(-10px,-34px) rotate(11deg) scale(1.08)}70%{transform:translate(4px,-12px) rotate(-4deg) scale(1.02)}100%{transform:translate(0,0) rotate(0) scale(1)}}
 @keyframes dodge{0%{transform:translateX(0) rotate(0)}40%{transform:translateX(-18px) rotate(-8deg)}100%{transform:translateX(0) rotate(0)}}
-.ball{position:absolute;width:44px;height:44px;bottom:6px;right:6px;opacity:0;z-index:3;pointer-events:none}
+.ball{position:absolute;width:56px;height:auto;bottom:6px;right:6px;opacity:0;z-index:3;pointer-events:none}
 .ball.flying{animation:throwBall var(--flightMs,420ms) cubic-bezier(.2,.7,.4,1) forwards}
 @keyframes throwBall{
   0%{opacity:1;left:calc(100% - 40px);top:70%;transform:translate(0,0) scale(.6) rotate(0deg)}
@@ -110,8 +110,8 @@ a{color:inherit}
 
   <div id="screenIntro" class="intro">
     <h1>Traf<br><span class="hl">BOOOMERA!</span></h1>
-    <p>5 lôpt. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle BOOOMERA k zemi, netrafíš a uhne sa.</p>
-    <button class="startBtn" id="startBtn">Hodiť prvú loptu →</button>
+    <p>5 tort. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle tortu rovno do tváre, netrafíš a BOOOMER sa uhne.</p>
+    <button class="startBtn" id="startBtn">Hodiť prvú tortu →</button>
     <div class="statsRow">
       <div><b id="bestDisplay">0</b>rekord</div>
       <div><b id="streakDisplay">0</b>dní v sérii</div>
@@ -123,7 +123,7 @@ a{color:inherit}
       <div class="arenaTop"><span>HOD <b id="throwNum">1</b>/5</span><span>SKÓRE <b id="liveScore">0</b></span></div>
       <div class="stage" id="stage">
         <img class="boomerImg breathe" id="boomerImg" src="/assets/games/boomer-medball-ready.webp" alt="BOOOMER">
-        <img class="ball" id="ballImg" src="/assets/games/boomer-medball-ball.webp" alt="">
+        <img class="ball" id="ballImg" src="/assets/games/boomer-medball-pie.webp" alt="">
       </div>
       <div class="quote" id="quote">„Mňa netrafíš. Stavíme sa?“</div>
       <div class="flashOverlay" id="flashOverlay"></div>
@@ -136,7 +136,7 @@ a{color:inherit}
         <div class="marker" id="marker"></div>
       </div>
     </div>
-    <button class="throwBtn" id="throwBtn">HOD! 🏐</button>
+    <button class="throwBtn" id="throwBtn">HOD! 🥧</button>
     <div class="hint">Ťukni na tlačidlo alebo stlač medzerník presne v zelenej zóne</div>
   </div>
 
@@ -161,8 +161,8 @@ a{color:inherit}
 "use strict";
 
 var QUOTES_IDLE = ["„Mňa netrafíš. Stavíme sa?“","„Poď, skús to.“","„Vidím ťa triasť sa.“","„Toto bude ľahké.“","„Ukáž, čo vieš.“"];
-var QUOTES_HIT = ["„Dobrá rana...“","„OK, to bolelo.“","„Pekný zásah.“","„Rešpekt.“","„Ešte raz to nedovolím.“"];
-var QUOTES_MISS = ["„Pekný pokus. Pre niekoho za mnou.“","„To bolo mimo.“","„Skús to znova.“","„Ani zblízka.“"];
+var QUOTES_HIT = ["„Priamo do tváre! GG.“","„OK, TOTO bolelo.“","„Nikdy nezabudnem na tento deň.“","„Rešpekt. Fakt.“","„A presne takto vyzerá presnosť.“","„Mám šľahačku v oku, ale stojí to za to.“","„Toto ide na moju nástenku hanby.“","„Dobre, uznávam — mal si to premyslené.“","„Ešte jedna takáto a končím tréning.“","„Zapamätaj si tento pocit. Presne tak sa cíti pokrok.“","„Fér, vyhral si toto kolo.“"];
+var QUOTES_MISS = ["„Pekný pokus. Pre niekoho za mnou.“","„To bolo mimo.“","„Skús to znova.“","„Ani zblízka.“","„Torta padla na zem. Škoda torty.“","„Musíš byť rýchlejší než to.“"];
 
 var LS_BEST = "booom_trafboomera_best";
 var LS_STREAK = "booom_trafboomera_streak";
@@ -286,7 +286,7 @@ function doThrow(){
 
   setTimeout(function(){
     if (gained > 0){
-      boomerImg.src = "/assets/games/boomer-medball-knocked.webp";
+      boomerImg.src = "/assets/games/boomer-medball-piehit.webp";
       boomerImg.className = "boomerImg hitpose";
       flashOverlay.className = "flashOverlay ok";
       arena.classList.add("shakeMe");

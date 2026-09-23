@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Spoznaj Sval! — BOOOM Hry</title>
+<meta name="description" content="BOOOMER ukáže na časť tela — ty uhádni, ako sa volá. 8 svalov, ktoré by mal poznať každý, kto trénuje.">
+<meta property="og:title" content="Spoznaj Sval! — BOOOM">
+<meta property="og:description" content="Poznáš vlastné telo? BOOOMER ukazuje, ty hádaš.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry/spoznaj-sval">
+<link rel="canonical" href="https://booom.fit/hry/spoznaj-sval">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/games/boomer-anatomy-shirtless.webp" as="image">
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
+a{color:inherit}
+.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.back:hover{border-color:var(--green);color:var(--green)}
+.wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
+
+.intro{text-align:center;padding:18px 6px 8px}
+.intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro h1 .hl{color:var(--purple)}
+.intro p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:0 0 18px}
+.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#160a2e;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(167,139,250,.3)}
+.statsRow{margin-top:20px;display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--muted)}
+.statsRow b{color:var(--text);display:block;font-size:22px}
+
+.progressRow{display:flex;gap:5px;margin:4px 0 16px}
+.dot{flex:1;height:4px;border-radius:2px;background:var(--bg-card-border);transition:background .2s}
+.dot.correct{background:var(--green)}
+.dot.wrong{background:var(--red)}
+.dot.now{background:var(--purple)}
+
+.figureWrap{position:relative;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:22px;padding:14px;margin-bottom:16px;display:flex;justify-content:center}
+.figureInner{position:relative;display:inline-block}
+.figureInner img{display:block;height:340px;width:auto;filter:drop-shadow(0 10px 16px rgba(0,0,0,.45))}
+.marker{position:absolute;width:34px;height:34px;margin-left:-17px;margin-top:-17px;border-radius:50%;border:3px solid var(--purple);box-shadow:0 0 0 6px rgba(167,139,250,.18);animation:markerPulse 1.3s ease-in-out infinite}
+.marker::after{content:"";position:absolute;inset:9px;border-radius:50%;background:var(--purple)}
+@keyframes markerPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.7}}
+
+.qLabel{text-align:center;font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.qLabel b{color:var(--text)}
+
+.answerGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.aBtn{border-radius:14px;border:2px solid var(--bg-card-border);background:var(--bg-card);padding:14px 8px;font-weight:700;font-size:13.5px;cursor:pointer;transition:border-color .15s,transform .1s,background .15s;color:var(--text);line-height:1.25}
+.aBtn:active{transform:scale(.97)}
+.aBtn:hover{border-color:var(--purple);background:rgba(167,139,250,.08)}
+
+.revealCard{display:none;background:var(--bg-card);border:2px solid var(--bg-card-border);border-radius:22px;padding:26px 22px;text-align:center;margin-bottom:16px}
+.revealCard.show{display:block}
+.revealCard.correct{border-color:var(--green)}
+.revealCard.wrong{border-color:var(--red)}
+.revealTag{font-size:13px;font-weight:900;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase}
+.revealTag.correct{color:var(--green)}
+.revealTag.wrong{color:var(--red)}
+.revealAnswer{font-size:17px;font-weight:800;margin-bottom:10px;color:var(--text)}
+.revealFact{font-size:13.5px;line-height:1.55;color:#ccc;margin-bottom:20px}
+.nextBtn{background:var(--text);color:var(--bg);border:none;border-radius:12px;padding:13px 26px;font-weight:800;font-size:14.5px;cursor:pointer}
+
+.scoreRow{text-align:right;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.scoreRow b{color:var(--purple)}
+
+.resultWrap{display:none;text-align:center;padding-top:10px}
+.resultWrap.show{display:block}
+.tierBadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;color:var(--bg);background:var(--purple);padding:6px 16px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.tierName{font-size:clamp(22px,7vw,30px);font-weight:900;line-height:1.15;margin:0 0 6px;letter-spacing:-0.5px}
+.tierScore{font-size:15px;color:var(--muted);margin-bottom:18px}
+.tierScore b{color:var(--purple);font-size:20px}
+.tierDesc{font-size:15px;line-height:1.55;color:#ddd;max-width:400px;margin:0 auto 26px}
+.shareCanvasWrap{border-radius:20px;overflow:hidden;border:1px solid var(--bg-card-border);margin-bottom:20px;line-height:0}
+.shareCanvasWrap canvas{width:100%;height:auto;display:block}
+.resultBtns{display:flex;flex-direction:column;gap:10px}
+.rBtn{border:none;border-radius:14px;padding:15px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .1s;text-decoration:none;display:block}
+.rBtn:active{transform:scale(.98)}
+.rBtn.primary{background:var(--purple);color:#160a2e}
+.rBtn.secondary{background:transparent;border:1px solid var(--bg-card-border);color:var(--text);text-align:center}
+.streakNote{margin-top:18px;font-size:13px;color:var(--muted)}
+.streakNote b{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
+  <a href="/hry" class="back">← Späť na hry</a>
+</div>
+
+<div class="wrap">
+
+  <div id="screenIntro" class="intro">
+    <h1>Spoznaj<br><span class="hl">Sval!</span></h1>
+    <p>BOOOMER ukáže na časť tela — ty uhádni, ako sa volá. 8 svalov, ktoré by mal poznať každý, kto berie tréning vážne.</p>
+    <button class="startBtn" id="startBtn">Otestovať sa →</button>
+    <div class="statsRow">
+      <div><b id="bestDisplay">0</b>rekord</div>
+      <div><b id="streakDisplay">0</b>dní v sérii</div>
+    </div>
+  </div>
+
+  <div id="screenQuiz" style="display:none">
+    <div class="progressRow" id="progressRow"></div>
+    <div class="scoreRow">Skóre: <b id="liveScore">0</b>/<span id="liveTotal">8</span></div>
+    <div class="figureWrap">
+      <div class="figureInner">
+        <img src="/assets/games/boomer-anatomy-shirtless.webp" alt="BOOOMER">
+        <div class="marker" id="marker"></div>
+      </div>
+    </div>
+    <div class="qLabel">Ako sa volá <b>označená časť tela</b>?</div>
+    <div class="answerGrid" id="answerGrid"></div>
+    <div class="revealCard" id="revealCard">
+      <div class="revealTag" id="revealTag">SPRÁVNE</div>
+      <div class="revealAnswer" id="revealAnswer">—</div>
+      <div class="revealFact" id="revealFact">—</div>
+      <button class="nextBtn" id="nextBtn">Ďalej →</button>
+    </div>
+  </div>
+
+  <div id="screenResult" class="resultWrap">
+    <div class="tierBadge" id="tierBadge">VÝSLEDOK</div>
+    <h2 class="tierName" id="tierName">—</h2>
+    <div class="tierScore">Skóre: <b id="tierScoreNum">0/8</b></div>
+    <p class="tierDesc" id="tierDesc">—</p>
+    <div class="shareCanvasWrap"><canvas id="shareCanvas" width="1080" height="1350"></canvas></div>
+    <div class="resultBtns">
+      <button class="rBtn primary" id="btnDownload">📲 Stiahnuť obrázok na zdieľanie</button>
+      <button class="rBtn secondary" id="btnRetry">Zahrať znova (zamiešať)</button>
+      <a class="rBtn secondary" href="/hry">Ďalšie hry</a>
+    </div>
+    <div class="streakNote">Séria: <b id="streakAfter">1</b> deň v rade — nový set otázok zajtra.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var POOL = [
+  { name: "Biceps", left: 18, top: 31,
+    opts: ["Biceps", "Triceps", "Predlaktie", "Rameno"],
+    fact: "Biceps ohýba lakeť — zapája sa pri každom zdvihu predmetu smerom k telu, napríklad pri bicepsovom zdvihu." },
+  { name: "Rameno (deltový sval)", left: 28, top: 20,
+    opts: ["Rameno (deltový sval)", "Biceps", "Trapéz", "Prsný sval"],
+    fact: "Deltový sval má tri hlavy — prednú, strednú a zadnú — a je to on, kto robí ramená okrúhle a široké." },
+  { name: "Prsné svaly", left: 50, top: 27,
+    opts: ["Prsné svaly", "Brušné svaly", "Rameno", "Šikmé svaly"],
+    fact: "Prsné svaly robia tlakové pohyby — bench press, kliky, aj tlak nad hlavu čiastočne." },
+  { name: "Brušné svaly", left: 50, top: 36,
+    opts: ["Brušné svaly", "Šikmé brušné svaly", "Prsné svaly", "Predné stehno"],
+    fact: "„Six-pack\" nie je viacero svalov — je to jeden priamy brušný sval, rozdelený šľachovými pruhmi." },
+  { name: "Šikmé brušné svaly", left: 35, top: 37,
+    opts: ["Šikmé brušné svaly", "Brušné svaly", "Predlaktie", "Stehno"],
+    fact: "Šikmé svaly zabezpečujú rotáciu trupu — zapájajú sa napríklad pri „drevorubačskom\" ťahu." },
+  { name: "Predlaktie", left: 8, top: 50,
+    opts: ["Predlaktie", "Biceps", "Lýtko", "Triceps"],
+    fact: "Sila stisku ruky pochádza hlavne zo svalov predlaktia, nie z dlane samotnej." },
+  { name: "Predné stehno (kvadriceps)", left: 35, top: 68,
+    opts: ["Predné stehno (kvadriceps)", "Zadné stehno", "Lýtko", "Sedací sval"],
+    fact: "Kvadriceps sú štyri svaly na prednej strane stehna — hlavný hýbateľ pri drepe aj výpade." },
+  { name: "Lýtko", left: 37, top: 88,
+    opts: ["Lýtko", "Predné stehno", "Predlaktie", "Achilovka"],
+    fact: "Lýtkový sval má dve časti — povrchový gastrocnemius a hlbší soleus pod ním." }
+];
+
+var TIERS = [
+  { min: 0, name: "Telo Je Pre Teba Záhada", badge: "NOVÁČIK", color: "#ff4d6d", desc: "Zatiaľ hádaš viac, než vieš. Presne na to je táto hra." },
+  { min: 3, name: "Základy Máš", badge: "ZAČIATOČNÍK", color: "#f97316", desc: "Pár svalov poznáš isto, pár ťa prekvapilo. Solídny štart." },
+  { min: 5, name: "Slušný Prehľad", badge: "PRIEMER", color: "#00d4ff", desc: "Väčšinu bežných svalov už vieš pomenovať. Presne toľko by mal vedieť každý, kto trénuje." },
+  { min: 7, name: "Takmer Kineziológ", badge: "POKROČILÝ", color: "#a78bfa", desc: "Toto už nie je náhoda. Svoje telo poznáš naozaj dobre." },
+  { min: 8, name: "Poznáš Sa Ako Svoje Boty", badge: "EXPERT", color: "#00e676", desc: "Plný počet. Vieš presne, čo pri tréningu pracuje a prečo." }
+];
+
+function dayKey(d){ var y=d.getFullYear(),m=("0"+(d.getMonth()+1)).slice(-2),day=("0"+d.getDate()).slice(-2); return y+"-"+m+"-"+day; }
+function seededShuffle(arr, seed){
+  var a = arr.slice(); var s = seed;
+  function rnd(){ s = (s*9301+49297)%233280; return s/233280; }
+  for (var i=a.length-1;i>0;i--){ var j=Math.floor(rnd()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+function seedFromString(str){ var h=0; for (var i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))|0; } return Math.abs(h)||1; }
+
+var todayKey = dayKey(new Date());
+var seed = seedFromString(todayKey + "-sval");
+var todaysQuestions = seededShuffle(POOL, seed);
+
+var LS_STREAK = "booom_sval_streak";
+var LS_LASTDAY = "booom_sval_lastday";
+var LS_BEST = "booom_sval_best";
+
+function readStreak(){ try { var last=localStorage.getItem(LS_LASTDAY); var s=parseInt(localStorage.getItem(LS_STREAK)||"0",10); return last? s:0; } catch(e){ return 0; } }
+function bumpStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK)||"0",10);
+    if (last === todayKey) return streak || 1;
+    var lastD = last ? new Date(last+"T00:00:00") : null;
+    var today = new Date(todayKey+"T00:00:00");
+    var diffDays = lastD ? Math.round((today-lastD)/86400000) : null;
+    var next = (diffDays===1) ? streak+1 : 1;
+    localStorage.setItem(LS_STREAK, String(next));
+    localStorage.setItem(LS_LASTDAY, todayKey);
+    return next;
+  } catch(e){ return 1; }
+}
+function readBest(){ try { return parseInt(localStorage.getItem(LS_BEST)||"0",10); } catch(e){ return 0; } }
+function writeBest(v){ try { localStorage.setItem(LS_BEST, String(v)); } catch(e){} }
+
+document.getElementById("liveTotal").textContent = String(todaysQuestions.length);
+document.getElementById("bestDisplay").textContent = String(readBest());
+document.getElementById("streakDisplay").textContent = String(readStreak());
+
+var idx = 0;
+var score = 0;
+var results = [];
+
+var screenIntro = document.getElementById("screenIntro");
+var screenQuiz = document.getElementById("screenQuiz");
+var screenResult = document.getElementById("screenResult");
+var progressRow = document.getElementById("progressRow");
+var marker = document.getElementById("marker");
+var answerGrid = document.getElementById("answerGrid");
+var revealCard = document.getElementById("revealCard");
+var revealTag = document.getElementById("revealTag");
+var revealAnswer = document.getElementById("revealAnswer");
+var revealFact = document.getElementById("revealFact");
+var liveScoreEl = document.getElementById("liveScore");
+
+function buildProgress(){
+  progressRow.innerHTML = "";
+  for (var i=0;i<todaysQuestions.length;i++){
+    var cls = "dot";
+    if (i < results.length) cls += results[i] ? " correct" : " wrong";
+    else if (i === idx) cls += " now";
+    var d = document.createElement("div"); d.className = cls;
+    progressRow.appendChild(d);
+  }
+}
+
+function shuffleOpts(opts, seed){
+  return seededShuffle(opts, seed);
+}
+
+function renderQuestion(){
+  buildProgress();
+  liveScoreEl.textContent = String(score);
+  if (idx >= todaysQuestions.length){ finish(); return; }
+  var q = todaysQuestions[idx];
+  marker.style.left = q.left + "%";
+  marker.style.top = q.top + "%";
+  var opts = shuffleOpts(q.opts, seed + idx*7 + 3);
+  answerGrid.innerHTML = "";
+  answerGrid.style.display = "grid";
+  revealCard.classList.remove("show", "correct", "wrong");
+  opts.forEach(function(opt){
+    var btn = document.createElement("button");
+    btn.className = "aBtn";
+    btn.textContent = opt;
+    btn.addEventListener("click", function(){ answer(opt, q); });
+    answerGrid.appendChild(btn);
+  });
+}
+
+function answer(said, q){
+  var correct = (said === q.name);
+  results.push(correct);
+  if (correct) score++;
+  answerGrid.style.display = "none";
+  revealCard.classList.add("show", correct ? "correct" : "wrong");
+  revealTag.textContent = correct ? "SPRÁVNE" : "NESPRÁVNE";
+  revealTag.className = "revealTag " + (correct ? "correct" : "wrong");
+  revealAnswer.textContent = q.name;
+  revealFact.textContent = q.fact;
+}
+
+document.getElementById("nextBtn").addEventListener("click", function(){
+  idx++;
+  renderQuestion();
+});
+
+document.getElementById("startBtn").addEventListener("click", function(){
+  screenIntro.style.display = "none";
+  screenQuiz.style.display = "block";
+  idx = 0; score = 0; results = [];
+  renderQuestion();
+});
+
+function getTier(sc){
+  var t = TIERS[0];
+  for (var i=0;i<TIERS.length;i++){ if (sc >= TIERS[i].min) t = TIERS[i]; }
+  return t;
+}
+
+function finish(){
+  screenQuiz.style.display = "none";
+  var tier = getTier(score);
+  var streakVal = bumpStreak();
+  var best = readBest();
+  if (score > best) { writeBest(score); best = score; }
+
+  document.getElementById("tierBadge").textContent = tier.badge;
+  document.getElementById("tierBadge").style.background = tier.color;
+  document.getElementById("tierName").textContent = tier.name;
+  document.getElementById("tierName").style.color = tier.color;
+  document.getElementById("tierScoreNum").textContent = score + "/" + todaysQuestions.length;
+  document.getElementById("tierDesc").textContent = tier.desc;
+  document.getElementById("streakAfter").textContent = String(streakVal);
+
+  drawShareCard(tier, score, todaysQuestions.length, streakVal);
+  screenResult.classList.add("show");
+}
+
+function drawShareCard(tier, sc, total, streakVal){
+  var canvas = document.getElementById("shareCanvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,"#0d0d0d"); grad.addColorStop(1,"#050505");
+  ctx.fillStyle = grad; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle = "rgba(255,255,255,0.06)"; ctx.lineWidth = 2; ctx.strokeRect(30,30,W-60,H-60);
+
+  ctx.fillStyle = "#00e676"; ctx.font = "900 46px Inter, Arial, sans-serif"; ctx.textAlign = "left";
+  ctx.fillText("BOOOM", 70, 130);
+  ctx.fillStyle = "#666"; ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("SPOZNAJ SVAL!", 70, 168);
+
+  roundRect(ctx, W/2-190, 220, 380, 60, 30);
+  ctx.fillStyle = tier.color; ctx.fill();
+  ctx.fillStyle = "#0a0a0a"; ctx.textAlign = "center"; ctx.font = "900 22px Inter, Arial, sans-serif";
+  ctx.fillText(tier.badge, W/2, 258);
+
+  ctx.fillStyle = "#fff"; ctx.font = "900 52px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.name, W/2, 390, W-140, 62);
+
+  ctx.fillStyle = tier.color; ctx.font = "900 150px Inter, Arial, sans-serif";
+  ctx.fillText(sc + "/" + total, W/2, 660);
+  ctx.fillStyle = "#888"; ctx.font = "700 26px Inter, Arial, sans-serif";
+  ctx.fillText("SPRÁVNYCH SVALOV", W/2, 700);
+
+  ctx.fillStyle = "#ccc"; ctx.font = "500 30px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.desc, W/2, 800, W-160, 42);
+
+  ctx.fillStyle = "#f97316"; ctx.font = "800 28px Inter, Arial, sans-serif";
+  ctx.fillText("🔥 " + streakVal + " " + (streakVal===1?"deň":"dni") + " v sérii", W/2, 1120);
+
+  ctx.fillStyle = "#555"; ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("Zahraj si na booom.fit/hry/spoznaj-sval", W/2, 1230);
+  ctx.fillStyle = "#00d4ff"; ctx.font = "900 30px Inter, Arial, sans-serif";
+  ctx.fillText("booom.fit", W/2, 1275);
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath(); ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight){
+  var words=text.split(" "),line="",lines=[];
+  for (var n=0;n<words.length;n++){
+    var t=line+words[n]+" ";
+    if (ctx.measureText(t).width>maxWidth && n>0){ lines.push(line); line=words[n]+" "; } else line=t;
+  }
+  lines.push(line);
+  var startY=y-((lines.length-1)*lineHeight)/2;
+  for (var i=0;i<lines.length;i++) ctx.fillText(lines[i].trim(), x, startY+i*lineHeight);
+}
+
+document.getElementById("btnDownload").addEventListener("click", function(){
+  var canvas = document.getElementById("shareCanvas");
+  canvas.toBlob(function(blob){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "booom-spoznaj-sval.png";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }, "image/png");
+});
+
+document.getElementById("btnRetry").addEventListener("click", function(){
+  var s = seedFromString(todayKey + "-sval-" + Date.now());
+  todaysQuestions = seededShuffle(POOL, s);
+  screenResult.classList.remove("show");
+  screenQuiz.style.display = "block";
+  idx = 0; score = 0; results = [];
+  renderQuestion();
+});
+
+})();
+</script>
+</body>
+</html>

@@ -241,16 +241,16 @@
       "destination": "/hry/gym-bro-quiz.html"
     },
     {
-      "source": "/hry/boomer-hovori",
-      "destination": "/hry/boomer-hovori.html"
-    },
-    {
       "source": "/hry/pravda-alebo-mytus",
       "destination": "/hry/pravda-alebo-mytus.html"
     },
     {
       "source": "/hry/traf-boomera",
       "destination": "/hry/traf-boomera.html"
+    },
+    {
+      "source": "/hry/spoznaj-sval",
+      "destination": "/hry/spoznaj-sval.html"
     }
   ],
   "headers": [
