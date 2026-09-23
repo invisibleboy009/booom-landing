@@ -57,7 +57,7 @@ a{color:inherit}
 .pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:22px solid var(--orange);z-index:5;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 .wheel{position:relative;width:300px;height:300px;border-radius:50%;border:6px solid var(--bg-card-border);box-shadow:0 0 0 3px var(--bg), 0 10px 30px rgba(0,0,0,.5);transition:transform 4.2s cubic-bezier(.15,.85,.15,1);will-change:transform;overflow:hidden}
 .seg{position:absolute;width:50%;height:50%;top:50%;left:50%;transform-origin:0% 0%;display:flex;align-items:flex-start;justify-content:center}
-.segLabel{margin-top:12px;font-size:9.5px;font-weight:800;text-align:center;line-height:1.2;width:78px;transform:rotate(90deg);text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.segLabel{margin-top:34px;font-size:34px;line-height:1;text-shadow:0 2px 4px rgba(0,0,0,.6)}
 .hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--bg-card);border:4px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:26px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.5)}
 
 .spinBtn{width:100%;background:var(--orange);color:#2b0f00;border:none;border-radius:14px;padding:17px;font-weight:900;font-size:17px;cursor:pointer;transition:transform .1s,opacity .15s}
@@ -222,7 +222,11 @@ function buildWheel(){
   var gradParts = [];
   for (var i = 0; i < SEG_COUNT; i++){
     var from = i * ANGLE, to = (i+1) * ANGLE;
-    gradParts.push((i % 2 === 0 ? "#141414" : "#1c1c1c") + " " + from + "deg " + to + "deg");
+    var base = i % 2 === 0 ? "#141414" : "#1a1a1a";
+    var accent = COLORS[i % COLORS.length];
+    gradParts.push(base + " " + from + "deg " + (from+1) + "deg");
+    gradParts.push(base + " " + (from+1) + "deg " + (to-1) + "deg");
+    gradParts.push(accent + " " + (to-1) + "deg " + to + "deg");
   }
   wheel.style.background = "conic-gradient(" + gradParts.join(",") + ")";
 
@@ -233,8 +237,7 @@ function buildWheel(){
     seg.style.transform = "rotate(" + (midAngle - 90) + "deg)";
     var label = document.createElement("div");
     label.className = "segLabel";
-    label.style.color = COLORS[j % COLORS.length];
-    label.textContent = SEGMENTS[j].emoji + " " + SEGMENTS[j].name;
+    label.textContent = SEGMENTS[j].emoji;
     seg.appendChild(label);
     wheel.appendChild(seg);
   }

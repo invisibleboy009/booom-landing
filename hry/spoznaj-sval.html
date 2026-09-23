@@ -30,6 +30,7 @@
 <link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/games/boomer-anatomy-shirtless.webp" as="image">
+<link rel="preload" href="/assets/games/boomer-anatomy-back.webp" as="image">
 <style>
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -121,7 +122,7 @@ a{color:inherit}
 
   <div id="screenIntro" class="intro">
     <h1>Spoznaj<br><span class="hl">Sval!</span></h1>
-    <p>BOOOMER ukáže na časť tela — ty uhádni, ako sa volá. 8 svalov, ktoré by mal poznať každý, kto berie tréning vážne.</p>
+    <p>BOOOMER ukáže na časť tela — ty uhádni, ako sa volá. Ku každej aj 2 cviky, ktorými ju trénuješ.</p>
     <button class="startBtn" id="startBtn">Otestovať sa →</button>
     <div class="statsRow">
       <div><b id="bestDisplay">0</b>rekord</div>
@@ -134,7 +135,7 @@ a{color:inherit}
     <div class="scoreRow">Skóre: <b id="liveScore">0</b>/<span id="liveTotal">8</span></div>
     <div class="figureWrap">
       <div class="figureInner">
-        <img src="/assets/games/boomer-anatomy-shirtless.webp" alt="BOOOMER">
+        <img id="figureImg" src="/assets/games/boomer-anatomy-shirtless.webp" alt="BOOOMER">
         <div class="marker" id="marker"></div>
       </div>
     </div>
@@ -168,39 +169,94 @@ a{color:inherit}
 (function(){
 "use strict";
 
+var IMG_FRONT = "/assets/games/boomer-anatomy-shirtless.webp";
+var IMG_BACK = "/assets/games/boomer-anatomy-back.webp";
+
 var POOL = [
-  { name: "Biceps", left: 18, top: 31,
+  { name: "Biceps", left: 18, top: 31, view: "front",
     opts: ["Biceps", "Triceps", "Predlaktie", "Rameno"],
-    fact: "Biceps ohýba lakeť — zapája sa pri každom zdvihu predmetu smerom k telu, napríklad pri bicepsovom zdvihu." },
-  { name: "Rameno (deltový sval)", left: 28, top: 20,
+    fact: "Biceps ohýba lakeť — zapája sa pri každom zdvihu predmetu smerom k telu, napríklad pri bicepsovom zdvihu.",
+    exercises: ["bicepsový zdvih s činkou", "zhyby podhmatom"] },
+  { name: "Rameno (deltový sval)", left: 28, top: 20, view: "front",
     opts: ["Rameno (deltový sval)", "Biceps", "Trapéz", "Prsný sval"],
-    fact: "Deltový sval má tri hlavy — prednú, strednú a zadnú — a je to on, kto robí ramená okrúhle a široké." },
-  { name: "Prsné svaly", left: 50, top: 23,
+    fact: "Deltový sval má tri hlavy — prednú, strednú a zadnú — a je to on, kto robí ramená okrúhle a široké.",
+    exercises: ["tlak nad hlavou (OHP)", "bočné vzpažovanie"] },
+  { name: "Prsné svaly", left: 50, top: 23, view: "front",
     opts: ["Prsné svaly", "Brušné svaly", "Rameno", "Šikmé svaly"],
-    fact: "Prsné svaly robia tlakové pohyby — bench press, kliky, aj tlak nad hlavu čiastočne." },
-  { name: "Brušné svaly", left: 50, top: 36,
+    fact: "Prsné svaly robia tlakové pohyby — bench press, kliky, aj tlak nad hlavu čiastočne.",
+    exercises: ["bench press", "kliky"] },
+  { name: "Brušné svaly", left: 50, top: 36, view: "front",
     opts: ["Brušné svaly", "Šikmé brušné svaly", "Prsné svaly", "Predné stehno"],
-    fact: "„Six-pack\" nie je viacero svalov — je to jeden priamy brušný sval, rozdelený šľachovými pruhmi." },
-  { name: "Šikmé brušné svaly", left: 35, top: 37,
+    fact: "„Six-pack\" nie je viacero svalov — je to jeden priamy brušný sval, rozdelený šľachovými pruhmi.",
+    exercises: ["crunch", "zdvih nôh vo vise"] },
+  { name: "Šikmé brušné svaly", left: 35, top: 37, view: "front",
     opts: ["Šikmé brušné svaly", "Brušné svaly", "Predlaktie", "Stehno"],
-    fact: "Šikmé svaly zabezpečujú rotáciu trupu — zapájajú sa napríklad pri „drevorubačskom\" ťahu." },
-  { name: "Predlaktie", left: 8, top: 50,
+    fact: "Šikmé svaly zabezpečujú rotáciu trupu — zapájajú sa napríklad pri „drevorubačskom\" ťahu.",
+    exercises: ["ruský twist", "bočný plank"] },
+  { name: "Predlaktie", left: 8, top: 50, view: "front",
     opts: ["Predlaktie", "Biceps", "Lýtko", "Triceps"],
-    fact: "Sila stisku ruky pochádza hlavne zo svalov predlaktia, nie z dlane samotnej." },
-  { name: "Predné stehno (kvadriceps)", left: 35, top: 68,
+    fact: "Sila stisku ruky pochádza hlavne zo svalov predlaktia, nie z dlane samotnej.",
+    exercises: ["zdvih zápästia s činkou", "farmer's walk"] },
+  { name: "Predné stehno (kvadriceps)", left: 35, top: 68, view: "front",
     opts: ["Predné stehno (kvadriceps)", "Zadné stehno", "Lýtko", "Sedací sval"],
-    fact: "Kvadriceps sú štyri svaly na prednej strane stehna — hlavný hýbateľ pri drepe aj výpade." },
-  { name: "Lýtko", left: 35, top: 80,
+    fact: "Kvadriceps sú štyri svaly na prednej strane stehna — hlavný hýbateľ pri drepe aj výpade.",
+    exercises: ["drep", "leg press"] },
+  { name: "Lýtko", left: 35, top: 80, view: "front",
     opts: ["Lýtko", "Predné stehno", "Predlaktie", "Achilovka"],
-    fact: "Lýtkový sval má dve časti — povrchový gastrocnemius a hlbší soleus pod ním." }
+    fact: "Lýtkový sval má dve časti — povrchový gastrocnemius a hlbší soleus pod ním.",
+    exercises: ["výpony v stoji", "výskoky"] },
+  { name: "Predný pílovitý sval", left: 66, top: 33, view: "front",
+    opts: ["Predný pílovitý sval", "Šikmé brušné svaly", "Prsné svaly", "Medzirebrové svaly"],
+    fact: "Predný pílovitý sval (serratus anterior) vidno ako „prsty\" na boku hrudníka — pomáha lopatke pri tlakoch nad hlavu.",
+    exercises: ["pullover s činkou", "kliky s výsunom lopatky"] },
+  { name: "Krk (SCM sval)", left: 40, top: 11, view: "front",
+    opts: ["Krk (SCM sval)", "Trapéz", "Rameno", "Prsné svaly"],
+    fact: "Sternocleidomastoideus (SCM) otáča a predkláňa hlavu — bežne sa posilňuje len nepriamo, cez iné cviky.",
+    exercises: ["úklony hlavy s odporom", "cvičenie krku so záťažou"] },
+  { name: "Vnútorné stehno (adduktory)", left: 47, top: 71, view: "front",
+    opts: ["Vnútorné stehno (adduktory)", "Predné stehno", "Zadné stehno", "Sedací sval"],
+    fact: "Adduktory priťahujú nohu k telu — podceňovaná partia, dôležitá napríklad pri zmene smeru pri behu.",
+    exercises: ["sumo drep", "addukcia na stroji"] },
+  { name: "Trapéz", left: 50, top: 19, view: "back",
+    opts: ["Trapéz", "Rameno (deltový sval)", "Chrbtové krídla", "Stredná časť chrbta"],
+    fact: "Trapéz ťahá lopatky nahor a k sebe — preto máš po drepoch s veľkou váhou na pleciach často stuhnutý krk.",
+    exercises: ["vzpieranie ramien s činkami (shrugs)", "mŕtvy ťah"] },
+  { name: "Zadné rameno (zadný deltový sval)", left: 26, top: 23, view: "back",
+    opts: ["Zadné rameno (zadný deltový sval)", "Trapéz", "Triceps", "Chrbtové krídla"],
+    fact: "Zadná hlava deltového svalu sa najviac zanedbáva, hoci robí ramená vyváženými zospredu aj zozadu.",
+    exercises: ["reverse fly", "face pull"] },
+  { name: "Triceps", left: 14, top: 34, view: "back",
+    opts: ["Triceps", "Biceps", "Predlaktie", "Zadné rameno"],
+    fact: "Triceps tvorí až dve tretiny objemu paže — väčšie paže rastú skôr z tlakov než z bicepsových zdvihov.",
+    exercises: ["kliky na bradlách (dipy)", "francúzsky tlak"] },
+  { name: "Chrbtové krídla", left: 30, top: 29, view: "back",
+    opts: ["Chrbtové krídla", "Trapéz", "Stredná časť chrbta", "Sedací sval"],
+    fact: "Široký chrbát (\"krídla\") robia práve tieto svaly (latissimus dorsi) — najviac sa zapájajú pri ťahoch zhora.",
+    exercises: ["zhyby nadhmatom", "sťahovanie kladky zhora (lat pulldown)"] },
+  { name: "Stredná časť chrbta", left: 50, top: 27, view: "back",
+    opts: ["Stredná časť chrbta", "Chrbtové krídla", "Spodná časť chrbta", "Trapéz"],
+    fact: "Stredná časť chrbta ťahá lopatky k sebe a je kľúčová pre vzpriamené držanie tela.",
+    exercises: ["veslovanie v predklone", "sťahovanie kladky k telu (seated row)"] },
+  { name: "Spodná časť chrbta", left: 50, top: 42, view: "back",
+    opts: ["Spodná časť chrbta", "Stredná časť chrbta", "Sedací sval", "Zadné stehno"],
+    fact: "Vzpriamovače chrbta v spodnej časti stabilizujú chrbticu pri každom zdvihu zo zeme.",
+    exercises: ["mŕtvy ťah", "hyperextenzia"] },
+  { name: "Sedací sval", left: 50, top: 54, view: "back",
+    opts: ["Sedací sval", "Zadné stehno", "Spodná časť chrbta", "Predné stehno"],
+    fact: "Sedací sval (gluteus maximus) je najsilnejší sval v tele — hlavný hýbateľ pri drepe aj mŕtvom ťahu.",
+    exercises: ["hip thrust", "bulharský drep"] },
+  { name: "Zadné stehno (hamstring)", left: 35, top: 68, view: "back",
+    opts: ["Zadné stehno (hamstring)", "Sedací sval", "Lýtko", "Predné stehno"],
+    fact: "Zadné stehno ohýba koleno a naťahuje bok — často zranený sval pri šprinte bez rozcvičky.",
+    exercises: ["rumunský mŕtvy ťah", "leg curl"] }
 ];
 
 var TIERS = [
   { min: 0, name: "Telo Je Pre Teba Záhada", badge: "NOVÁČIK", color: "#ff4d6d", desc: "Zatiaľ hádaš viac, než vieš. Presne na to je táto hra." },
-  { min: 3, name: "Základy Máš", badge: "ZAČIATOČNÍK", color: "#f97316", desc: "Pár svalov poznáš isto, pár ťa prekvapilo. Solídny štart." },
-  { min: 5, name: "Slušný Prehľad", badge: "PRIEMER", color: "#00d4ff", desc: "Väčšinu bežných svalov už vieš pomenovať. Presne toľko by mal vedieť každý, kto trénuje." },
-  { min: 7, name: "Takmer Kineziológ", badge: "POKROČILÝ", color: "#a78bfa", desc: "Toto už nie je náhoda. Svoje telo poznáš naozaj dobre." },
-  { min: 8, name: "Poznáš Sa Ako Svoje Boty", badge: "EXPERT", color: "#00e676", desc: "Plný počet. Vieš presne, čo pri tréningu pracuje a prečo." }
+  { min: 4, name: "Základy Máš", badge: "ZAČIATOČNÍK", color: "#f97316", desc: "Pár svalov poznáš isto, pár ťa prekvapilo. Solídny štart." },
+  { min: 7, name: "Slušný Prehľad", badge: "PRIEMER", color: "#00d4ff", desc: "Väčšinu bežných svalov už vieš pomenovať. Presne toľko by mal vedieť každý, kto trénuje." },
+  { min: 10, name: "Takmer Kineziológ", badge: "POKROČILÝ", color: "#a78bfa", desc: "Toto už nie je náhoda. Svoje telo poznáš naozaj dobre." },
+  { min: 12, name: "Poznáš Sa Ako Svoje Boty", badge: "EXPERT", color: "#00e676", desc: "Plný počet. Vieš presne, čo pri tréningu pracuje a prečo." }
 ];
 
 function dayKey(d){ var y=d.getFullYear(),m=("0"+(d.getMonth()+1)).slice(-2),day=("0"+d.getDate()).slice(-2); return y+"-"+m+"-"+day; }
@@ -214,7 +270,7 @@ function seedFromString(str){ var h=0; for (var i=0;i<str.length;i++){ h=(h*31+s
 
 var todayKey = dayKey(new Date());
 var seed = seedFromString(todayKey + "-sval");
-var todaysQuestions = seededShuffle(POOL, seed);
+var todaysQuestions = seededShuffle(POOL, seed).slice(0, 12);
 
 var LS_STREAK = "booom_sval_streak";
 var LS_LASTDAY = "booom_sval_lastday";
@@ -251,6 +307,7 @@ var screenQuiz = document.getElementById("screenQuiz");
 var screenResult = document.getElementById("screenResult");
 var progressRow = document.getElementById("progressRow");
 var marker = document.getElementById("marker");
+var figureImg = document.getElementById("figureImg");
 var answerGrid = document.getElementById("answerGrid");
 var revealCard = document.getElementById("revealCard");
 var revealTag = document.getElementById("revealTag");
@@ -278,6 +335,7 @@ function renderQuestion(){
   liveScoreEl.textContent = String(score);
   if (idx >= todaysQuestions.length){ finish(); return; }
   var q = todaysQuestions[idx];
+  figureImg.src = (q.view === "back") ? IMG_BACK : IMG_FRONT;
   marker.style.left = q.left + "%";
   marker.style.top = q.top + "%";
   var opts = shuffleOpts(q.opts, seed + idx*7 + 3);
@@ -302,7 +360,7 @@ function answer(said, q){
   revealTag.textContent = correct ? "SPRÁVNE" : "NESPRÁVNE";
   revealTag.className = "revealTag " + (correct ? "correct" : "wrong");
   revealAnswer.textContent = q.name;
-  revealFact.textContent = q.fact;
+  revealFact.textContent = q.fact + " Cviky: " + q.exercises.join(", ") + ".";
 }
 
 document.getElementById("nextBtn").addEventListener("click", function(){
@@ -409,7 +467,7 @@ document.getElementById("btnDownload").addEventListener("click", function(){
 
 document.getElementById("btnRetry").addEventListener("click", function(){
   var s = seedFromString(todayKey + "-sval-" + Date.now());
-  todaysQuestions = seededShuffle(POOL, s);
+  todaysQuestions = seededShuffle(POOL, s).slice(0, 12);
   screenResult.classList.remove("show");
   screenQuiz.style.display = "block";
   idx = 0; score = 0; results = [];
