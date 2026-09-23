@@ -230,7 +230,7 @@ function buildWheel(){
     var seg = document.createElement("div");
     seg.className = "seg";
     var midAngle = j * ANGLE + ANGLE/2;
-    seg.style.transform = "rotate(" + midAngle + "deg)";
+    seg.style.transform = "rotate(" + (midAngle - 90) + "deg)";
     var label = document.createElement("div");
     label.className = "segLabel";
     label.style.color = COLORS[j % COLORS.length];
