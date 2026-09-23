@@ -416,13 +416,49 @@ function wrapText(ctx,text,x,y,maxWidth,lineHeight){
 document.getElementById("btnDownload").addEventListener("click", function(){
   var canvas = document.getElementById("shareCanvas");
   canvas.toBlob(function(blob){
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url; a.download = "booom-traf-boomera.png";
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+    var file;
+    try { file = new File([blob], "booom-traf-boomera.png", { type: "image/png" }); } catch(e){ file = null; }
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({
+        files: [file],
+        title: "BOOOM Traf BOOOMERA!",
+        text: "Máš na to reflexy? booom.fit/hry/traf-boomera"
+      }).catch(function(){ fallbackSaveCard(canvas, blob, "booom-traf-boomera.png"); });
+      return;
+    }
+    fallbackSaveCard(canvas, blob, "booom-traf-boomera.png");
   }, "image/png");
 });
+
+function fallbackSaveCard(canvas, blob, filename){
+  try {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  } catch (e) { /* niektore in-app prehliadace (napr. Instagram) blokuju aj toto — preto nasleduje overlay */ }
+  showSaveOverlay(canvas);
+}
+
+function showSaveOverlay(canvas){
+  if (document.getElementById("saveOverlay")) return;
+  var ov = document.createElement("div");
+  ov.id = "saveOverlay";
+  ov.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px";
+  var img = document.createElement("img");
+  img.src = canvas.toDataURL("image/png");
+  img.style.cssText = "max-width:88vw;max-height:65vh;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.6)";
+  var hint = document.createElement("div");
+  hint.textContent = "Podrž prst na obrázku a vyber „Uložiť obrázok\"";
+  hint.style.cssText = "color:#fff;font:700 15px Inter,Arial,sans-serif;text-align:center;max-width:80vw";
+  var close = document.createElement("button");
+  close.textContent = "Zavrieť";
+  close.style.cssText = "background:transparent;border:1px solid #333;color:#aaa;padding:11px 20px;border-radius:12px;font:700 13px Inter,Arial,sans-serif";
+  close.onclick = function(){ ov.remove(); };
+  ov.appendChild(img); ov.appendChild(hint); ov.appendChild(close);
+  document.body.appendChild(ov);
+}
 
 })();
 </script>
