@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-48KJX7NJZR');
+    (function () {
+      function add() { var e = document.createElement('script'); e.async = true; e.src = 'https://www.googletagmanager.com/gtag/js?id=G-48KJX7NJZR'; document.head.appendChild(e); }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { (window.requestIdleCallback || setTimeout)(add, { timeout: 2500 }); });
+    }());
+  </script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>Ktorý Sval To Trénuje? — BOOOM Hry</title>
+<meta name="description" content="Ukážeme ti cvik, ty klikneš, ktorý sval trénuje najviac. 42 cvikov, štyri možnosti, skúšaj kým to netrafíš.">
+<meta property="og:title" content="Ktorý Sval To Trénuje? — BOOOM">
+<meta property="og:description" content="Cvik → sval. Klikacia hra pre každého, kto cvičí s hlavou.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://booom.fit/hry/ktory-sval">
+<link rel="canonical" href="https://booom.fit/hry/ktory-sval">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='22' font-weight='900' text-anchor='middle' fill='%2300ff88'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/Inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --green:#00e676; --cyan:#00d4ff; --purple:#a78bfa; --gold:#ffd700; --red:#ff4d6d; --orange:#f97316;
+  --bg:#0a0a0a; --bg-card:#111111; --bg-card-border:#1e1e1e; --text:#ffffff; --muted:#888888;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
+a{color:inherit}
+.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
+.brand span.b{color:var(--green)}
+.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
+.back:hover{border-color:var(--green);color:var(--green)}
+.wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
+
+.intro{text-align:center;padding:24px 6px 8px}
+.intro h1{font-size:clamp(26px,7vw,36px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro h1 .hl{color:var(--gold)}
+.intro .sub{color:var(--muted);font-size:12.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.intro p{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px}
+.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#241d00;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,215,0,.28)}
+.rules{margin-top:26px;display:flex;justify-content:center;gap:22px;font-size:13px;color:var(--muted)}
+.rules b{color:var(--text);display:block;font-size:20px}
+
+.progressRow{display:flex;gap:5px;margin:4px 0 20px}
+.dot{flex:1;height:4px;border-radius:2px;background:var(--bg-card-border);transition:background .2s}
+.dot.correct{background:var(--green)}
+.dot.wrong{background:var(--orange)}
+.dot.now{background:var(--gold)}
+
+.scoreRow{display:flex;justify-content:flex-end;margin-bottom:6px;font-size:13px;color:var(--muted)}
+.scoreRow b{color:var(--gold)}
+
+.qCard{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:22px;padding:32px 24px;text-align:center;margin-bottom:18px;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.qCard .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.qCard .stmt{font-size:clamp(20px,6vw,28px);font-weight:900;line-height:1.25}
+
+.answerGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.aBtn{border-radius:14px;border:2px solid var(--bg-card-border);background:var(--bg-card);padding:16px 8px;font-weight:700;font-size:14px;cursor:pointer;transition:border-color .15s,transform .1s,background .15s,opacity .15s;color:var(--text);line-height:1.25}
+.aBtn:active:not(:disabled){transform:scale(.97)}
+.aBtn:hover:not(:disabled){border-color:var(--gold);background:rgba(255,215,0,.08)}
+.aBtn.isWrong{border-color:var(--red);background:rgba(255,77,109,.06);opacity:.4;text-decoration:line-through;cursor:default}
+.aBtn.isCorrect{border-color:var(--green);background:rgba(0,230,118,.12)}
+.aBtn:disabled{cursor:default}
+
+.revealCard{display:none;background:var(--bg-card);border:2px solid var(--bg-card-border);border-radius:22px;padding:28px 24px;text-align:center;margin-bottom:18px}
+.revealCard.show{display:block}
+.revealCard.correct{border-color:var(--green)}
+.revealTag{font-size:13px;font-weight:900;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase;color:var(--green)}
+.revealAnswer{font-size:20px;font-weight:900;margin-bottom:10px;color:var(--text)}
+.revealExplain{font-size:14px;line-height:1.55;color:#ccc;margin-bottom:20px}
+.nextBtn{background:var(--text);color:var(--bg);border:none;border-radius:12px;padding:13px 26px;font-weight:800;font-size:14.5px;cursor:pointer}
+
+.resultWrap{display:none;text-align:center;padding-top:10px}
+.resultWrap.show{display:block}
+.tierBadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;color:var(--bg);background:var(--gold);padding:6px 16px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.tierName{font-size:clamp(24px,7vw,32px);font-weight:900;line-height:1.15;margin:0 0 6px;letter-spacing:-0.5px}
+.tierScore{font-size:15px;color:var(--muted);margin-bottom:18px}
+.tierScore b{color:var(--gold);font-size:20px}
+.tierDesc{font-size:15px;line-height:1.55;color:#ddd;max-width:400px;margin:0 auto 26px}
+.shareCanvasWrap{border-radius:20px;overflow:hidden;border:1px solid var(--bg-card-border);margin-bottom:20px;line-height:0}
+.shareCanvasWrap canvas{width:100%;height:auto;display:block}
+.resultBtns{display:flex;flex-direction:column;gap:10px}
+.rBtn{border:none;border-radius:14px;padding:15px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .1s;text-decoration:none;display:block}
+.rBtn:active{transform:scale(.98)}
+.rBtn.primary{background:var(--gold);color:#241d00}
+.rBtn.secondary{background:transparent;border:1px solid var(--bg-card-border);color:var(--text);text-align:center}
+.streakNote{margin-top:18px;font-size:13px;color:var(--muted)}
+.streakNote b{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
+  <a href="/hry" class="back">← Späť na hry</a>
+</div>
+
+<div class="wrap">
+
+  <div id="screenIntro" class="intro">
+    <div class="sub">Cvik → Sval Edícia</div>
+    <h1>Ktorý Sval<br>To <span class="hl">Trénuje?</span></h1>
+    <p>Ukážeme ti cvik, ty klikneš, ktorý sval pri ňom robí najviac roboty. Štyri možnosti, žiadne písanie — zlú odpoveď len vyradíme a skúšaš ďalej, kým to netrafíš.</p>
+    <button class="startBtn" id="startBtn">Otestovať sa →</button>
+    <div class="rules">
+      <div><b id="todayCount">12</b>cvikov</div>
+      <div><b id="streakDisplay">0</b>dní v sérii</div>
+    </div>
+  </div>
+
+  <div id="screenQuiz" style="display:none">
+    <div class="progressRow" id="progressRow"></div>
+    <div class="scoreRow">Na prvý pokus: <b id="liveScore">0</b>/<span id="liveTotal">12</span></div>
+    <div class="qCard" id="qCard">
+      <div class="eyebrow">Aký sval pri tomto cviku pracuje najviac?</div>
+      <div class="stmt" id="qStmt">—</div>
+    </div>
+    <div class="answerGrid" id="answerGrid"></div>
+    <div class="revealCard" id="revealCard">
+      <div class="revealTag">Správne</div>
+      <div class="revealAnswer" id="revealAnswer">—</div>
+      <div class="revealExplain" id="revealExplain">—</div>
+      <button class="nextBtn" id="nextBtn">Ďalej →</button>
+    </div>
+  </div>
+
+  <div id="screenResult" class="resultWrap">
+    <div class="tierBadge" id="tierBadge">VÝSLEDOK</div>
+    <h2 class="tierName" id="tierName">—</h2>
+    <div class="tierScore">Na prvý pokus: <b id="tierScoreNum">0/12</b></div>
+    <p class="tierDesc" id="tierDesc">—</p>
+    <div class="shareCanvasWrap"><canvas id="shareCanvas" width="1080" height="1350"></canvas></div>
+    <div class="resultBtns">
+      <button class="rBtn primary" id="btnDownload">📲 Zdieľať / stiahnuť kartu</button>
+      <button class="rBtn secondary" id="btnRetry">Zahrať znova (zamiešať)</button>
+      <a class="rBtn secondary" href="/hry">Ďalšie hry</a>
+    </div>
+    <div class="streakNote">Séria: <b id="streakAfter">1</b> deň v rade — nový set cvikov zajtra.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var POOL = [
+  { exercise: "Bench press", correct: "Prsné svaly", wrong: ["Triceps", "Predné rameno", "Predný pílovitý sval"], fact: "Pri tlaku pred telom pracujú prsné svaly najviac — triceps a rameno len dotláčajú na konci pohybu." },
+  { exercise: "Šikmý bench press (Incline)", correct: "Prsné svaly", wrong: ["Bočné rameno", "Triceps", "Predné rameno"], fact: "Sklonená lavica presunie dôraz na hornú časť prsného svalu, hlavný sval sa ale nemení." },
+  { exercise: "Kliky", correct: "Prsné svaly", wrong: ["Triceps", "Predné rameno", "Brušné svaly"], fact: "Kliky sú v podstate bench press s vlastnou váhou — rovnaký hlavný sval, iný odpor." },
+  { exercise: "Rozpaženie s jednoručkami (fly)", correct: "Prsné svaly", wrong: ["Bočné rameno", "Predné rameno", "Predný pílovitý sval"], fact: "Fly izoluje prsné svaly bez pomoci tricepsu, ktorý pri tlakoch inak veľa preberá." },
+  { exercise: "Zhyby nadhmatom (wide grip)", correct: "Chrbtové krídla", wrong: ["Biceps", "Stredná časť chrbta", "Trapéz"], fact: "Široký nadhmat cieli priamo na latissimus dorsi — svaly, ktoré robia chrbát široký." },
+  { exercise: "Sťahovanie kladky zhora (lat pulldown)", correct: "Chrbtové krídla", wrong: ["Biceps", "Zadné rameno", "Trapéz"], fact: "Ťah zhora nadol kopíruje zhyb — rovnaký hlavný sval, nastaviteľná záťaž." },
+  { exercise: "Veslovanie v predklone", correct: "Stredná časť chrbta", wrong: ["Chrbtové krídla", "Biceps", "Zadné rameno"], fact: "Ťah smerom k trupu zapája hlavne svaly medzi lopatkami, nie tie na bokoch chrbta." },
+  { exercise: "Sťahovanie kladky k telu (seated row)", correct: "Stredná časť chrbta", wrong: ["Chrbtové krídla", "Biceps", "Trapéz"], fact: "Sediaci ťah k telu drží rovnaký smer ako veslovanie — sťahuje lopatky k sebe." },
+  { exercise: "Mŕtvy ťah", correct: "Spodná časť chrbta", wrong: ["Sedací sval", "Zadné stehno", "Trapéz"], fact: "Vzpriamovače chrbta v spodnej časti stabilizujú chrbticu pri každom zdvihu zo zeme." },
+  { exercise: "Hyperextenzia", correct: "Spodná časť chrbta", wrong: ["Sedací sval", "Zadné stehno", "Stredná časť chrbta"], fact: "Hyperextenzia priamo posilňuje vzpriamovače chrbta — presne to, čo drží chrbticu pri mŕtvom ťahu." },
+  { exercise: "Vzpieranie ramien s činkami (shrugs)", correct: "Trapéz", wrong: ["Zadné rameno", "Stredná časť chrbta", "Bočné rameno"], fact: "Shrugs ťahajú lopatky priamo nahor — presne pohyb, ktorý robí trapéz." },
+  { exercise: "Tlak činky k brade (upright row)", correct: "Trapéz", wrong: ["Bočné rameno", "Zadné rameno", "Predné rameno"], fact: "Zdvih lakťov popri tele zapája hornú časť trapézu spolu s ramenom." },
+  { exercise: "Tlak nad hlavou (OHP)", correct: "Predné rameno", wrong: ["Bočné rameno", "Triceps", "Prsné svaly"], fact: "Tlak nad hlavu ide predovšetkým cez prednú hlavu deltového svalu." },
+  { exercise: "Predpažovanie s jednoručkami", correct: "Predné rameno", wrong: ["Bočné rameno", "Prsné svaly", "Zadné rameno"], fact: "Zdvih paže dopredu izoluje presne prednú hlavu ramena." },
+  { exercise: "Bočné vzpažovanie s jednoručkami", correct: "Bočné rameno", wrong: ["Predné rameno", "Zadné rameno", "Trapéz"], fact: "Zdvih do strany trénuje strednú hlavu deltového svalu — tú, čo robí ramená vizuálne najširšie." },
+  { exercise: "Reverse fly", correct: "Zadné rameno", wrong: ["Bočné rameno", "Stredná časť chrbta", "Trapéz"], fact: "Rozpaženie v predklone cieli na zadnú hlavu ramena, ktorá sa pri tlakoch najviac zanedbáva." },
+  { exercise: "Face pull", correct: "Zadné rameno", wrong: ["Trapéz", "Stredná časť chrbta", "Bočné rameno"], fact: "Ťah lana k tvári posilňuje zadné rameno aj vonkajšiu rotáciu, ktorá chráni pred zraneniami." },
+  { exercise: "Bicepsový zdvih s činkou", correct: "Biceps", wrong: ["Brachialis", "Predlaktie", "Triceps"], fact: "Klasický zdvih pred telom je najpriamejší spôsob, ako zaťažiť biceps." },
+  { exercise: "Zhyby podhmatom (chin-ups)", correct: "Biceps", wrong: ["Chrbtové krídla", "Brachialis", "Predlaktie"], fact: "Podhmat pridáva do zhybu výrazne viac bicepsu než nadhmat." },
+  { exercise: "Kladivový zdvih (hammer curl)", correct: "Brachialis", wrong: ["Biceps", "Predlaktie", "Triceps"], fact: "Neutrálny úchop presúva dôraz z bicepsu na brachialis, ktorý leží pod ním." },
+  { exercise: "Kliky na bradlách (dipy)", correct: "Triceps", wrong: ["Prsné svaly", "Predné rameno", "Biceps"], fact: "Narovnávanie lakťa vo vzpore robí z dipov jeden z najlepších cvikov na triceps." },
+  { exercise: "Francúzsky tlak (skull crusher)", correct: "Triceps", wrong: ["Biceps", "Predné rameno", "Brachialis"], fact: "Narovnávanie lakťa nad hlavou izoluje triceps takmer bez pomoci ostatných svalov." },
+  { exercise: "Zdvih zápästia s činkou", correct: "Predlaktie", wrong: ["Biceps", "Brachialis", "Triceps"], fact: "Pohyb len v zápästí trénuje priamo svaly predlaktia, ktoré riadia stisk." },
+  { exercise: "Farmer's walk", correct: "Predlaktie", wrong: ["Trapéz", "Sedací sval", "Brušné svaly"], fact: "Nosenie ťažkých činiek v rukách je jeden z najúčinnejších spôsobov, ako budovať silu stisku." },
+  { exercise: "Crunch", correct: "Brušné svaly", wrong: ["Šikmé brušné svaly", "Predný pílovitý sval", "Predné stehno"], fact: "Skracovanie trupu smerom k panve zapája priamo brušný sval." },
+  { exercise: "Zdvih nôh vo vise", correct: "Brušné svaly", wrong: ["Šikmé brušné svaly", "Vnútorné stehno", "Predné stehno"], fact: "Zdvíhanie nôh vo vise trénuje spodnú časť brušného svalu, ktorú crunch veľmi nezasiahne." },
+  { exercise: "Ruský twist", correct: "Šikmé brušné svaly", wrong: ["Brušné svaly", "Predný pílovitý sval", "Spodná časť chrbta"], fact: "Rotácia trupu do strán je presne pohyb, ktorý ovládajú šikmé svaly." },
+  { exercise: "Bočný plank", correct: "Šikmé brušné svaly", wrong: ["Brušné svaly", "Predný pílovitý sval", "Sedací sval"], fact: "Udržanie tela na boku vyžaduje statickú prácu šikmých svalov proti gravitácii." },
+  { exercise: "Drep (squat)", correct: "Predné stehno", wrong: ["Sedací sval", "Zadné stehno", "Lýtko"], fact: "Narovnávanie kolena pri drepe je hlavná práca kvadricepsu na prednej strane stehna." },
+  { exercise: "Leg press", correct: "Predné stehno", wrong: ["Sedací sval", "Zadné stehno", "Vnútorné stehno"], fact: "Leg press kopíruje pohyb drepu bez záťaže na chrbát — rovnaký hlavný sval." },
+  { exercise: "Výpady", correct: "Predné stehno", wrong: ["Sedací sval", "Zadné stehno", "Vnútorné stehno"], fact: "Výpad je jednonohá verzia drepu — kvadriceps robí väčšinu roboty." },
+  { exercise: "Rumunský mŕtvy ťah (RDL)", correct: "Zadné stehno", wrong: ["Sedací sval", "Spodná časť chrbta", "Predné stehno"], fact: "Predklon s minimálnym pokrčením kolena naťahuje a zaťažuje hlavne zadné stehno." },
+  { exercise: "Leg curl", correct: "Zadné stehno", wrong: ["Predné stehno", "Sedací sval", "Lýtko"], fact: "Pokrčenie kolena v ľahu izoluje zadné stehno bez pomoci ostatných svalov nohy." },
+  { exercise: "Hip thrust", correct: "Sedací sval", wrong: ["Zadné stehno", "Predné stehno", "Spodná časť chrbta"], fact: "Vytláčanie bokov nahor je najpriamejší spôsob, ako zaťažiť sedací sval." },
+  { exercise: "Bulharský drep", correct: "Sedací sval", wrong: ["Predné stehno", "Zadné stehno", "Vnútorné stehno"], fact: "Zadná noha zvýšená na lavičke pridáva do jednonohého drepu výrazne viac sedacieho svalu." },
+  { exercise: "Sumo drep", correct: "Vnútorné stehno", wrong: ["Predné stehno", "Sedací sval", "Zadné stehno"], fact: "Široký postoj so špičkami von zapája adduktory oveľa viac než klasický drep." },
+  { exercise: "Addukcia na stroji", correct: "Vnútorné stehno", wrong: ["Predné stehno", "Zadné stehno", "Lýtko"], fact: "Stláčanie kolien k sebe proti odporu izoluje presne vnútornú stranu stehna." },
+  { exercise: "Výpony v stoji (calf raise)", correct: "Lýtko", wrong: ["Predné stehno", "Zadné stehno", "Vnútorné stehno"], fact: "Zdvih na špičky je najpriamejší spôsob, ako zaťažiť lýtkový sval." },
+  { exercise: "Výskoky (jump squats)", correct: "Lýtko", wrong: ["Predné stehno", "Sedací sval", "Zadné stehno"], fact: "Odraz zo zeme pri výskoku ide vo veľkej miere cez explozívnu prácu lýtok." },
+  { exercise: "Pullover s činkou", correct: "Predný pílovitý sval", wrong: ["Prsné svaly", "Šikmé brušné svaly", "Chrbtové krídla"], fact: "Pohyb paží za hlavu a späť zapája serratus anterior, ktorý drží lopatku pri tlakoch nad hlavou." },
+  { exercise: "Kliky s výsunom lopatky", correct: "Predný pílovitý sval", wrong: ["Prsné svaly", "Triceps", "Šikmé brušné svaly"], fact: "Výsun hrudníka hore v hornej fáze kliku priamo trénuje predný pílovitý sval." },
+  { exercise: "Úklony hlavy s odporom", correct: "Krk (SCM sval)", wrong: ["Trapéz", "Predné rameno", "Prsné svaly"], fact: "Otáčanie a predklon hlavy proti odporu je jeden z mála spôsobov, ako priamo trénovať krk." }
+];
+
+var TIERS = [
+  { min: 0, name: "Cvičíš Poslepiačky", badge: "NOVÁČIK", color: "#ff4d6d", desc: "Zatiaľ tipuješ viac, než vieš, čo pri cviku naozaj robí robotu. Presne na to je táto hra." },
+  { min: 4, name: "Vieš Čo, Nie Prečo", badge: "ZAČIATOČNÍK", color: "#f97316", desc: "Cviky poznáš, ale spojenie so svalom ešte nesedí vždy na prvý pokus." },
+  { min: 6, name: "Rozumieš Svojmu Tréningu", badge: "PRIEMER", color: "#00d4ff", desc: "Väčšinu bežných cvikov už vieš správne priradiť. Solídny základ." },
+  { min: 8, name: "Trénuješ S Hlavou", badge: "POKROČILÝ", color: "#a78bfa", desc: "Chápeš, prečo robíš to, čo robíš — nielen že to robíš." },
+  { min: 10, name: "Osobný Tréner Level", badge: "EXPERT", color: "#ffd700", desc: "Toto je level, kde ostatní chodia za tebou po radu, nie naopak." }
+];
+
+function dayKey(d){
+  var y = d.getFullYear(), m = ("0"+(d.getMonth()+1)).slice(-2), day = ("0"+d.getDate()).slice(-2);
+  return y+"-"+m+"-"+day;
+}
+function seededShuffle(arr, seed){
+  var a = arr.slice();
+  var s = seed;
+  function rnd(){ s = (s * 9301 + 49297) % 233280; return s / 233280; }
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(rnd() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+function seedFromString(str){
+  var h = 0;
+  for (var i = 0; i < str.length; i++){ h = (h * 31 + str.charCodeAt(i)) | 0; }
+  return Math.abs(h) || 1;
+}
+
+var todayKey = dayKey(new Date());
+var seed = seedFromString(todayKey + "-ktorysval");
+var todaysQuestions = seededShuffle(POOL, seed).slice(0, 12);
+
+var LS_STREAK = "booom_ktorysval_streak";
+var LS_LASTDAY = "booom_ktorysval_lastday";
+var LS_BEST = "booom_ktorysval_best";
+
+function readStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    return last ? streak : 0;
+  } catch (e) { return 0; }
+}
+function bumpStreak(){
+  try {
+    var last = localStorage.getItem(LS_LASTDAY);
+    var streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10);
+    if (last === todayKey) return streak || 1;
+    var lastD = last ? new Date(last + "T00:00:00") : null;
+    var today = new Date(todayKey + "T00:00:00");
+    var diffDays = lastD ? Math.round((today - lastD) / 86400000) : null;
+    var next = (diffDays === 1) ? streak + 1 : 1;
+    localStorage.setItem(LS_STREAK, String(next));
+    localStorage.setItem(LS_LASTDAY, todayKey);
+    return next;
+  } catch (e) { return 1; }
+}
+function readBest(){ try { return parseInt(localStorage.getItem(LS_BEST) || "0", 10); } catch(e){ return 0; } }
+function writeBest(v){ try { localStorage.setItem(LS_BEST, String(v)); } catch(e){} }
+
+document.getElementById("todayCount").textContent = String(todaysQuestions.length);
+document.getElementById("streakDisplay").textContent = String(readStreak());
+document.getElementById("liveTotal").textContent = String(todaysQuestions.length);
+
+var idx = 0;
+var score = 0;
+var results = [];
+var firstTry = true;
+var retryRun = 0;
+
+var screenIntro = document.getElementById("screenIntro");
+var screenQuiz = document.getElementById("screenQuiz");
+var screenResult = document.getElementById("screenResult");
+var progressRow = document.getElementById("progressRow");
+var qCard = document.getElementById("qCard");
+var qStmt = document.getElementById("qStmt");
+var answerGrid = document.getElementById("answerGrid");
+var revealCard = document.getElementById("revealCard");
+var revealAnswer = document.getElementById("revealAnswer");
+var revealExplain = document.getElementById("revealExplain");
+var liveScoreEl = document.getElementById("liveScore");
+
+function buildProgress(){
+  progressRow.innerHTML = "";
+  for (var i = 0; i < todaysQuestions.length; i++){
+    var cls = "dot";
+    if (i < results.length) cls += results[i] ? " correct" : " wrong";
+    else if (i === idx) cls += " now";
+    var d = document.createElement("div");
+    d.className = cls;
+    progressRow.appendChild(d);
+  }
+}
+
+function renderQuestion(){
+  buildProgress();
+  liveScoreEl.textContent = String(score);
+  if (idx >= todaysQuestions.length){ finish(); return; }
+  var q = todaysQuestions[idx];
+  qStmt.textContent = q.exercise;
+  qCard.style.display = "flex";
+  answerGrid.style.display = "grid";
+  answerGrid.innerHTML = "";
+  revealCard.classList.remove("show", "correct");
+  firstTry = true;
+
+  var opts = seededShuffle([q.correct].concat(q.wrong), seedFromString(todayKey + "-ks-opt-" + idx + "-" + retryRun));
+  opts.forEach(function(opt){
+    var btn = document.createElement("button");
+    btn.className = "aBtn";
+    btn.textContent = opt;
+    btn.addEventListener("click", function(){ pick(opt, btn, q); });
+    answerGrid.appendChild(btn);
+  });
+}
+
+function pick(opt, btn, q){
+  if (btn.disabled) return;
+  if (opt === q.correct){
+    if (firstTry) score++;
+    results.push(firstTry);
+    btn.classList.add("isCorrect");
+    Array.prototype.forEach.call(answerGrid.children, function(b){ b.disabled = true; });
+    setTimeout(function(){
+      qCard.style.display = "none";
+      answerGrid.style.display = "none";
+      revealCard.classList.add("show", "correct");
+      revealAnswer.textContent = q.correct;
+      revealExplain.textContent = q.fact;
+    }, 350);
+  } else {
+    btn.classList.add("isWrong");
+    btn.disabled = true;
+    firstTry = false;
+  }
+}
+
+document.getElementById("nextBtn").addEventListener("click", function(){
+  idx++;
+  renderQuestion();
+});
+
+document.getElementById("startBtn").addEventListener("click", function(){
+  screenIntro.style.display = "none";
+  screenQuiz.style.display = "block";
+  idx = 0; score = 0; results = []; retryRun = 0;
+  renderQuestion();
+});
+
+function getTier(sc){
+  var t = TIERS[0];
+  for (var i = 0; i < TIERS.length; i++){ if (sc >= TIERS[i].min) t = TIERS[i]; }
+  return t;
+}
+
+function finish(){
+  screenQuiz.style.display = "none";
+  var tier = getTier(score);
+  var streakVal = bumpStreak();
+  var best = readBest();
+  if (score > best) { writeBest(score); best = score; }
+
+  document.getElementById("tierBadge").textContent = tier.badge;
+  document.getElementById("tierBadge").style.background = tier.color;
+  document.getElementById("tierName").textContent = tier.name;
+  document.getElementById("tierName").style.color = tier.color;
+  document.getElementById("tierScoreNum").textContent = score + "/" + todaysQuestions.length;
+  document.getElementById("tierDesc").textContent = tier.desc;
+  document.getElementById("streakAfter").textContent = String(streakVal);
+
+  drawShareCard(tier, score, todaysQuestions.length, streakVal);
+  screenResult.classList.add("show");
+}
+
+function drawShareCard(tier, sc, total, streakVal){
+  var canvas = document.getElementById("shareCanvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, "#0d0d0d");
+  grad.addColorStop(1, "#050505");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,W,H);
+
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(30,30,W-60,H-60);
+
+  ctx.fillStyle = "#00e676";
+  ctx.font = "900 46px Inter, Arial, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("BOOOM", 70, 130);
+  ctx.fillStyle = "#666";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("KTORÝ SVAL TO TRÉNUJE?", 70, 168);
+
+  roundRect(ctx, W/2 - 180, 220, 360, 60, 30);
+  ctx.fillStyle = tier.color; ctx.fill();
+  ctx.fillStyle = "#0a0a0a";
+  ctx.textAlign = "center";
+  ctx.font = "900 24px Inter, Arial, sans-serif";
+  ctx.fillText(tier.badge, W/2, 258);
+
+  ctx.fillStyle = "#fff";
+  ctx.font = "900 58px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.name, W/2, 390, W-140, 66);
+
+  ctx.fillStyle = tier.color;
+  ctx.font = "900 150px Inter, Arial, sans-serif";
+  ctx.fillText(sc + "/" + total, W/2, 660);
+  ctx.fillStyle = "#888";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("SPRÁVNE NA PRVÝ POKUS", W/2, 700);
+
+  ctx.fillStyle = "#ccc";
+  ctx.font = "500 30px Inter, Arial, sans-serif";
+  wrapText(ctx, tier.desc, W/2, 800, W-160, 42);
+
+  ctx.fillStyle = "#f97316";
+  ctx.font = "800 28px Inter, Arial, sans-serif";
+  ctx.fillText("🔥 " + streakVal + " " + (streakVal===1 ? "deň" : "dni") + " v sérii", W/2, 1120);
+
+  ctx.fillStyle = "#555";
+  ctx.font = "700 24px Inter, Arial, sans-serif";
+  ctx.fillText("Zahraj si na booom.fit/hry/ktory-sval", W/2, 1230);
+  ctx.fillStyle = "#00d4ff";
+  ctx.font = "900 30px Inter, Arial, sans-serif";
+  ctx.fillText("booom.fit", W/2, 1275);
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  var words = text.split(" ");
+  var line = "";
+  var lines = [];
+  for (var n = 0; n < words.length; n++){
+    var testLine = line + words[n] + " ";
+    if (ctx.measureText(testLine).width > maxWidth && n > 0){
+      lines.push(line);
+      line = words[n] + " ";
+    } else { line = testLine; }
+  }
+  lines.push(line);
+  var startY = y - ((lines.length-1) * lineHeight)/2;
+  for (var i = 0; i < lines.length; i++){
+    ctx.fillText(lines[i].trim(), x, startY + i*lineHeight);
+  }
+}
+
+document.getElementById("btnDownload").addEventListener("click", function(){
+  var canvas = document.getElementById("shareCanvas");
+  canvas.toBlob(function(blob){
+    var file;
+    try { file = new File([blob], "booom-ktory-sval.png", { type: "image/png" }); } catch(e){ file = null; }
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({
+        files: [file],
+        title: "BOOOM Ktorý Sval To Trénuje?",
+        text: "Koľko cvikov vieš správne priradiť? booom.fit/hry/ktory-sval"
+      }).catch(function(){ fallbackSaveCard(canvas, blob, "booom-ktory-sval.png"); });
+      return;
+    }
+    fallbackSaveCard(canvas, blob, "booom-ktory-sval.png");
+  }, "image/png");
+});
+
+function fallbackSaveCard(canvas, blob, filename){
+  try {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  } catch (e) { /* niektore in-app prehliadace (napr. Instagram) blokuju aj toto — preto nasleduje overlay */ }
+  showSaveOverlay(canvas);
+}
+
+function showSaveOverlay(canvas){
+  if (document.getElementById("saveOverlay")) return;
+  var ov = document.createElement("div");
+  ov.id = "saveOverlay";
+  ov.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:16px";
+  var img = document.createElement("img");
+  img.src = canvas.toDataURL("image/png");
+  img.style.cssText = "max-width:88vw;max-height:65vh;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.6)";
+  var hint = document.createElement("div");
+  hint.textContent = "Podrž prst na obrázku a vyber „Uložiť obrázok\"";
+  hint.style.cssText = "color:#fff;font:700 15px Inter,Arial,sans-serif;text-align:center;max-width:80vw";
+  var close = document.createElement("button");
+  close.textContent = "Zavrieť";
+  close.style.cssText = "background:transparent;border:1px solid #333;color:#aaa;padding:11px 20px;border-radius:12px;font:700 13px Inter,Arial,sans-serif";
+  close.onclick = function(){ ov.remove(); };
+  ov.appendChild(img); ov.appendChild(hint); ov.appendChild(close);
+  document.body.appendChild(ov);
+}
+
+document.getElementById("btnRetry").addEventListener("click", function(){
+  retryRun++;
+  var s = seedFromString(todayKey + "-ktorysval-" + Date.now());
+  todaysQuestions = seededShuffle(POOL, s).slice(0, 12);
+  screenResult.classList.remove("show");
+  screenQuiz.style.display = "block";
+  idx = 0; score = 0; results = [];
+  renderQuestion();
+});
+
+})();
+</script>
+</body>
+</html>

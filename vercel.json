@@ -255,6 +255,10 @@
     {
       "source": "/hry/booom-ruleta",
       "destination": "/hry/booom-ruleta.html"
+    },
+    {
+      "source": "/hry/ktory-sval",
+      "destination": "/hry/ktory-sval.html"
     }
   ],
   "headers": [
