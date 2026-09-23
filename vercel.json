@@ -251,6 +251,10 @@
     {
       "source": "/hry/spoznaj-sval",
       "destination": "/hry/spoznaj-sval.html"
+    },
+    {
+      "source": "/hry/booom-ruleta",
+      "destination": "/hry/booom-ruleta.html"
     }
   ],
   "headers": [
