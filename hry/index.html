@@ -40,28 +40,40 @@
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
 body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 60px}
 a{color:inherit;text-decoration:none}
-.top{width:100%;max-width:900px;display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+.top{width:100%;max-width:1040px;display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
 .brand{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;letter-spacing:-0.5px}
 .brand span.b{color:var(--green)}
 .home{font-size:13px;color:var(--muted);border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
 .home:hover{border-color:var(--green);color:var(--green)}
-.hero{text-align:center;max-width:640px;margin-bottom:40px}
-.hero h1{font-size:clamp(30px,7vw,46px);font-weight:900;line-height:1.05;margin:0 0 12px;letter-spacing:-0.5px}
-.hero h1 .hl{color:var(--green)}
-.hero p{color:var(--muted);font-size:15.5px;line-height:1.5;margin:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;width:100%;max-width:900px}
-.tile{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:10px;transition:transform .15s,border-color .15s}
-.tile:not(.soon):hover{transform:translateY(-3px);border-color:var(--green)}
-.tile .emoji{font-size:38px;line-height:1}
-.tile h3{margin:0;font-size:19px;font-weight:800}
+
+.heroBanner{position:relative;width:100%;max-width:1040px;overflow:hidden;border-radius:28px;border:1px solid var(--bg-card-border);background:radial-gradient(ellipse 900px 500px at 15% 20%, rgba(0,230,118,.16), transparent 60%),linear-gradient(135deg,#0f140f,#0a0a0a 55%);padding:44px 40px;margin-bottom:34px;display:flex;align-items:center;gap:24px}
+.heroBanner .heroText{position:relative;z-index:2;flex:1;min-width:0}
+.heroBadge{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--green);border:1px solid rgba(0,230,118,.35);background:rgba(0,230,118,.08);padding:7px 14px;border-radius:20px;margin-bottom:18px;text-transform:uppercase}
+.heroBanner h1{font-size:clamp(38px,6.5vw,64px);font-weight:900;line-height:.95;margin:0 0 12px;letter-spacing:-1px}
+.heroBanner h1 .hl{color:var(--green)}
+.heroBanner p{color:#ccc;font-size:16px;line-height:1.5;margin:0;max-width:420px}
+.heroBanner .heroImgWrap{position:relative;z-index:1;flex-shrink:0;align-self:flex-end;width:220px;height:260px;margin:-44px -12px -44px 0}
+.heroBanner .heroImgWrap img{width:100%;height:100%;object-fit:cover;object-position:center 8%;-webkit-mask-image:linear-gradient(to bottom, #000 75%, transparent 100%);mask-image:linear-gradient(to bottom, #000 75%, transparent 100%)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;width:100%;max-width:1040px}
+.tile{background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-3px);border-color:var(--green)}
+.tile .thumbWrap{width:100%;aspect-ratio:16/9;overflow:hidden;background:#000}
+.tile .thumbWrap img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+.tile .tileBody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tile h3{margin:0;font-size:18px;font-weight:800}
 .tile p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.45;flex:1}
-.tag{display:inline-block;align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:0.8px;padding:4px 10px;border-radius:12px;text-transform:uppercase}
-.tag.live{background:rgba(0,230,118,.15);color:var(--green)}
-.tag.soon{background:rgba(255,255,255,.06);color:var(--muted)}
-.tile.soon{opacity:.55;cursor:default}
-.tile.soon:hover{transform:none;border-color:var(--bg-card-border)}
-.cta{margin-top:50px;text-align:center;color:var(--muted);font-size:13.5px}
-.cta a{color:var(--green);font-weight:700}
+.tile .playBtn{align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#04150c;font-weight:800;font-size:13.5px;padding:9px 16px;border-radius:12px}
+
+.ctaBar{margin-top:44px;width:100%;max-width:1040px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,#0f1c14,#0a0a0a);border:1px solid rgba(0,230,118,.25);border-radius:20px;padding:22px 28px}
+.ctaBar .ctaText{color:#eee;font-size:16px;font-weight:700}
+.ctaBar .ctaText .hl{color:var(--green)}
+.ctaBar a.ctaBtn{background:var(--green);color:#04150c;font-weight:800;font-size:14.5px;padding:13px 22px;border-radius:14px;white-space:nowrap}
+
+@media (max-width: 640px){
+  .heroBanner{flex-direction:column;align-items:flex-start;padding:32px 24px 0}
+  .heroBanner .heroImgWrap{align-self:center;width:100%;max-width:260px;height:220px;margin:16px 0 0}
+}
 </style>
 </head>
 <body>
@@ -71,58 +83,77 @@ a{color:inherit;text-decoration:none}
   <a href="/" class="home">← Domov</a>
 </div>
 
-<div class="hero">
-  <h1>BOOOM <span class="hl">Hry</span></h1>
-  <p>Rýchle hry na zabitie pauzy medzi sériami. Nový obsah pravidelne, žiadna registrácia.</p>
+<div class="heroBanner">
+  <div class="heroText">
+    <div class="heroBadge">6 hier · nové výzvy pravidelne</div>
+    <h1>BOOOM <span class="hl">Hry</span></h1>
+    <p>Rýchle hry medzi sériami. Bez registrácie.</p>
+  </div>
+  <div class="heroImgWrap"><img src="/assets/games/boomer-hero-hub.webp" alt=""></div>
 </div>
 
 <div class="grid">
 
   <a class="tile" href="/hry/gym-bro-quiz">
-    <div class="emoji">🏋️</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>Gym Bro alebo Gym Rat?</h3>
-    <p>10 tvrdení o tvojom správaní v posilke. Swipni, buď úprimný, zisti svoje Gym Menace skóre a pošli ho kamošom.</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-gymbro.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>Gym Bro alebo Gym Rat?</h3>
+      <p>10 tvrdení o tvojom správaní v posilke. Swipni, buď úprimný, zisti svoje Gym Menace skóre.</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
   <a class="tile" href="/hry/spoznaj-sval">
-    <div class="emoji">💪</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>Spoznaj Sval!</h3>
-    <p>BOOOMER ukáže na časť tela, ty uhádni ako sa volá. 21 svalov aj s cvikmi, ktoré by mal poznať každý, kto trénuje.</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-spoznajsval.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>Spoznaj Sval!</h3>
+      <p>BOOOMER ukáže na časť tela, ty uhádni ako sa volá. 21 svalov aj s cvikmi na každý.</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
   <a class="tile" href="/hry/ktory-sval">
-    <div class="emoji">🎯</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>Ktorý Sval To Trénuje?</h3>
-    <p>Ukážeme ti cvik, ty klikneš, ktorý sval trénuje najviac. 42 cvikov, štyri možnosti, skúšaj kým to netrafíš.</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-ktorysval.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>Ktorý Sval To Trénuje?</h3>
+      <p>Ukážeme ti cvik, ty klikneš, ktorý sval trénuje najviac. 42 cvikov, štyri možnosti.</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
   <a class="tile" href="/hry/pravda-alebo-mytus">
-    <div class="emoji">🧠</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>Pravda alebo Mýtus?</h3>
-    <p>Gym a výživové mýty pod lupou. 10 tvrdení denne, po každom vysvetlenie prečo.</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-mytus.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>Pravda alebo Mýtus?</h3>
+      <p>Gym a výživové mýty pod lupou. 10 tvrdení denne, po každom vysvetlenie prečo.</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
   <a class="tile" href="/hry/traf-boomera">
-    <div class="emoji">🥎</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>Traf BOOOMERA!</h3>
-    <p>Medicinbalová výzva — traf zelenú zónu presne v moment a pošli BOOOMERA k zemi. 5 hodov, rastúca rýchlosť.</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-traf.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>Traf BOOOMERA!</h3>
+      <p>Medicinbalová výzva — traf zelenú zónu presne v moment. 5 hodov, rastúca rýchlosť.</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
   <a class="tile" href="/hry/booom-ruleta">
-    <div class="emoji">🎡</div>
-    <span class="tag live">Hraj teraz</span>
-    <h3>BOOOM Ruleta</h3>
-    <p>Roztoč koleso a zisti svoju gym prezývku. Bombardér? Drtič? Legenda šatne?</p>
+    <div class="thumbWrap"><img src="/assets/games/boomer-hero-ruleta.webp" alt=""></div>
+    <div class="tileBody">
+      <h3>BOOOM Ruleta</h3>
+      <p>Roztoč koleso a zisti svoju gym prezývku. Bombardér? Drtič? Legenda šatne?</p>
+      <span class="playBtn">Hraj →</span>
+    </div>
   </a>
 
 </div>
 
-<div class="cta">Chceš tréning myslieť vážne? <a href="/">Stiahni BOOOM appku zadarmo →</a></div>
+<div class="ctaBar">
+  <div class="ctaText">Chceš tréning myslieť <span class="hl">vážne</span>?</div>
+  <a class="ctaBtn" href="/">Stiahni BOOOM zadarmo →</a>
+</div>
 
 </body>
 </html>
