@@ -40,22 +40,30 @@
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
 a{color:inherit}
-.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
-.brand span.b{color:var(--green)}
-.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
-.back:hover{border-color:var(--green);color:var(--green)}
+.heroSection{position:relative;width:calc(100% + 32px);margin:-20px -16px 0;aspect-ratio:4/5;max-height:64vh;overflow:hidden;background:#000;transition:height .15s}
+.heroSection.collapsed{aspect-ratio:auto;max-height:none;height:60px}
+.heroSection.collapsed .heroImg,.heroSection.collapsed .heroFade{display:none}
+.heroImg{width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block}
+.heroFade{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.5) 45%, var(--bg) 92%);pointer-events:none}
+.heroTop{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 16px;z-index:2}
+.iconBtn{width:38px;height:38px;border-radius:50%;background:rgba(10,10,10,.5);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;text-decoration:none;backdrop-filter:blur(6px);line-height:1}
+.heroLogo{font-weight:900;font-size:16px;letter-spacing:-0.3px;color:#fff}
+.heroLogo span{color:var(--green)}
+.streakBadge{display:flex;align-items:center;gap:7px;background:rgba(10,10,10,.5);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:8px 14px 8px 12px;font-weight:800;font-size:14px;color:#fff;backdrop-filter:blur(6px)}
+.streakBadge .sdot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 .wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
 
-.intro{text-align:center;padding:24px 6px 8px}
-.intro h1{font-size:clamp(26px,7vw,36px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro{text-align:left;padding:20px 4px 6px}
+.tagLbl{font-size:12.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;color:var(--cyan)}
+.intro h1{font-size:clamp(28px,8vw,38px);font-weight:900;line-height:1.06;margin:0 0 12px;letter-spacing:-0.5px}
 .intro h1 .hl{color:var(--cyan)}
-.intro .sub{color:var(--muted);font-size:12.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
 .intro p{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px}
-.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:#04150c;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.startBtn{display:block;width:100%;background:var(--cyan);color:#04150c;font-weight:900;font-size:16.5px;border:none;border-radius:16px;padding:18px;cursor:pointer;text-align:center;transition:transform .12s,box-shadow .12s}
 .startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,255,.28)}
-.rules{margin-top:26px;display:flex;justify-content:center;gap:22px;font-size:13px;color:var(--muted)}
-.rules b{color:var(--text);display:block;font-size:20px}
+.rules{display:flex;gap:30px;margin-bottom:22px}
+.rules div{font-size:13px;color:var(--muted)}
+.rules b{display:block;color:#fff;font-size:21px;font-weight:900}
+.footNote{text-align:center;color:var(--muted);font-size:12.5px;margin-top:16px}
 
 .progressRow{display:flex;gap:5px;margin:4px 0 20px}
 .dot{flex:1;height:4px;border-radius:2px;background:var(--bg-card-border);transition:background .2s}
@@ -109,22 +117,28 @@ a{color:inherit}
 </head>
 <body>
 
-<div class="top">
-  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
-  <a href="/hry" class="back">← Späť na hry</a>
+<div class="heroSection" id="heroSection">
+  <img class="heroImg" src="/assets/games/boomer-hero-mytus.webp" alt="">
+  <div class="heroFade"></div>
+  <div class="heroTop">
+    <a href="/hry" class="iconBtn" aria-label="Späť na hry">‹</a>
+    <div class="heroLogo">BOOOM<span>HRY</span></div>
+    <div class="streakBadge"><span class="sdot"></span><b id="streakTop">0</b></div>
+  </div>
 </div>
 
 <div class="wrap">
 
   <div id="screenIntro" class="intro">
-    <div class="sub">Gym & Výživa Edícia</div>
+    <div class="tagLbl">GYM & VÝŽIVA</div>
     <h1>Pravda<br>alebo <span class="hl">Mýtus?</span></h1>
     <p>10 tvrdení, ktoré počuješ v šatni. Niektoré platia, niektoré sú nezmysel starý 20 rokov. Po každej odpovedi ti povieme prečo.</p>
-    <button class="startBtn" id="startBtn">Otestovať sa →</button>
     <div class="rules">
       <div><b id="todayCount">10</b>otázok</div>
       <div><b id="streakDisplay">0</b>dní v sérii</div>
     </div>
+    <button class="startBtn" id="startBtn">Otestovať sa →</button>
+    <div class="footNote">Bez registrácie · výsledok môžeš zdieľať</div>
   </div>
 
   <div id="screenQuiz" style="display:none">
@@ -270,6 +284,7 @@ function writeBest(v){ try { localStorage.setItem(LS_BEST, String(v)); } catch(e
 
 document.getElementById("todayCount").textContent = String(todaysQuestions.length);
 document.getElementById("streakDisplay").textContent = String(readStreak());
+document.getElementById("streakTop").textContent = String(readStreak());
 document.getElementById("liveTotal").textContent = String(todaysQuestions.length);
 
 var idx = 0;
@@ -334,6 +349,7 @@ document.getElementById("nextBtn").addEventListener("click", function(){
 });
 
 document.getElementById("startBtn").addEventListener("click", function(){
+  document.getElementById("heroSection").classList.add("collapsed");
   screenIntro.style.display = "none";
   screenQuiz.style.display = "block";
   idx = 0; score = 0; results = [];

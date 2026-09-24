@@ -41,21 +41,30 @@
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
 a{color:inherit}
-.top{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;font-size:18px;letter-spacing:-0.5px}
-.brand span.b{color:var(--green)}
-.back{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--bg-card-border);padding:7px 12px;border-radius:20px;transition:border-color .15s,color .15s}
-.back:hover{border-color:var(--green);color:var(--green)}
+.heroSection{position:relative;width:calc(100% + 32px);margin:-20px -16px 0;aspect-ratio:4/5;max-height:64vh;overflow:hidden;background:#000;transition:height .15s}
+.heroSection.collapsed{aspect-ratio:auto;max-height:none;height:60px}
+.heroSection.collapsed .heroImg,.heroSection.collapsed .heroFade{display:none}
+.heroImg{width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block}
+.heroFade{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.5) 45%, var(--bg) 92%);pointer-events:none}
+.heroTop{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 16px;z-index:2}
+.iconBtn{width:38px;height:38px;border-radius:50%;background:rgba(10,10,10,.5);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;text-decoration:none;backdrop-filter:blur(6px);line-height:1}
+.heroLogo{font-weight:900;font-size:16px;letter-spacing:-0.3px;color:#fff}
+.heroLogo span{color:var(--green)}
+.streakBadge{display:flex;align-items:center;gap:7px;background:rgba(10,10,10,.5);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:8px 14px 8px 12px;font-weight:800;font-size:14px;color:#fff;backdrop-filter:blur(6px)}
+.streakBadge .sdot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
 .wrap{width:100%;max-width:480px;flex:1;display:flex;flex-direction:column}
 
-.intro{text-align:center;padding:18px 6px 8px}
-.intro h1{font-size:clamp(28px,7vw,38px);font-weight:900;line-height:1.05;margin:0 0 10px;letter-spacing:-0.5px}
+.intro{text-align:left;padding:20px 4px 6px}
+.tagLbl{font-size:12.5px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;color:var(--green)}
+.intro h1{font-size:clamp(28px,8vw,38px);font-weight:900;line-height:1.06;margin:0 0 12px;letter-spacing:-0.5px}
 .intro h1 .hl{color:var(--green)}
-.intro p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:0 0 18px}
-.startBtn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#04150c;font-weight:800;font-size:16px;border:none;border-radius:14px;padding:15px 28px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.intro p{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px}
+.startBtn{display:block;width:100%;background:var(--green);color:#04150c;font-weight:900;font-size:16.5px;border:none;border-radius:16px;padding:18px;cursor:pointer;text-align:center;transition:transform .12s,box-shadow .12s}
 .startBtn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,230,118,.28)}
-.statsRow{margin-top:20px;display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--muted)}
-.statsRow b{color:var(--text);display:block;font-size:22px}
+.statsRow{display:flex;gap:30px;margin-bottom:22px}
+.statsRow div{font-size:13px;color:var(--muted)}
+.statsRow b{display:block;color:#fff;font-size:21px;font-weight:900}
+.footNote{text-align:center;color:var(--muted);font-size:12.5px;margin-top:16px}
 
 .arena{position:relative;background:var(--bg-card);border:1px solid var(--bg-card-border);border-radius:22px;padding:18px 18px 22px;margin-bottom:16px;overflow:hidden}
 .arenaTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12.5px;color:var(--muted)}
@@ -116,21 +125,28 @@ a{color:inherit}
 </head>
 <body>
 
-<div class="top">
-  <a href="/hry" class="brand"><span class="b">BOOOM</span>&nbsp;HRY</a>
-  <a href="/hry" class="back">← Späť na hry</a>
+<div class="heroSection" id="heroSection">
+  <img class="heroImg" src="/assets/games/boomer-hero-traf.webp" alt="">
+  <div class="heroFade"></div>
+  <div class="heroTop">
+    <a href="/hry" class="iconBtn" aria-label="Späť na hry">‹</a>
+    <div class="heroLogo">BOOOM<span>HRY</span></div>
+    <div class="streakBadge"><span class="sdot"></span><b id="streakTop">0</b></div>
+  </div>
 </div>
 
 <div class="wrap">
 
   <div id="screenIntro" class="intro">
+    <div class="tagLbl">REACTION GAME</div>
     <h1>Traf<br><span class="hl">BOOOMERA!</span></h1>
     <p>5 tort. 1 veľké ego. Traf zelenú zónu presne v moment, keď cez ňu prejde ukazovateľ. Zásah pošle tortu rovno do tváre, netrafíš a BOOOMER sa uhne.</p>
-    <button class="startBtn" id="startBtn">Hodiť prvú tortu →</button>
     <div class="statsRow">
       <div><b id="bestDisplay">0</b>rekord</div>
       <div><b id="streakDisplay">0</b>dní v sérii</div>
     </div>
+    <button class="startBtn" id="startBtn">Hodiť prvú tortu →</button>
+    <div class="footNote">Bez registrácie · výsledok môžeš zdieľať</div>
   </div>
 
   <div id="screenGame" style="display:none">
@@ -205,6 +221,7 @@ function bumpStreak(){
 
 document.getElementById("bestDisplay").textContent = String(readBest());
 document.getElementById("streakDisplay").textContent = String(readStreak());
+document.getElementById("streakTop").textContent = String(readStreak());
 
 var screenIntro = document.getElementById("screenIntro");
 var screenGame = document.getElementById("screenGame");
@@ -271,6 +288,7 @@ function tickSweep(ts){
 
 function startGame(){
   score = 0; hits = 0; throwIdx = 0;
+  document.getElementById("heroSection").classList.add("collapsed");
   screenIntro.style.display = "none";
   screenResult.classList.remove("show");
   screenGame.style.display = "block";
