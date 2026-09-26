@@ -39,6 +39,11 @@ html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:
 body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px 48px}
 a{color:inherit}
 .heroSection{position:relative;left:50%;transform:translateX(-50%);width:calc(100% + 32px);max-width:512px;margin-top:-20px;aspect-ratio:4/5;max-height:64vh;overflow:hidden;background:#000;transition:height .15s}
+/* See spoznaj-sval.html for why this needs a wide-viewport override: the bleed trick below
+   overshoots on anything wider than a phone and rams the hero into the top-right corner. */
+@media (min-width:560px){
+  .heroSection{left:auto;transform:none;width:100%}
+}
 .heroSection.collapsed{aspect-ratio:auto;max-height:none;height:60px}
 .heroSection.collapsed .heroImg,.heroSection.collapsed .heroFade{display:none}
 .heroImg{width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block}
