@@ -172,6 +172,18 @@ function localize(src, L) {
     html = html.split('>Hyrox pre začiatočníkov<').join('>Hyrox für Anfänger<')
   }
 
+  // Polish, Ukrainian and German have no calculators or blog of their own (German only the Hyrox
+  // pair above). Until 2026-10-09 their home pages linked the Slovak tools under Slovak labels;
+  // the English versions are the closest a Polish, Ukrainian or German reader can actually read.
+  if (['PL', 'UK', 'DE'].includes(L)) {
+    for (const [skHref, tl] of Object.entries(TOOLS_LOCAL.EN)) {
+      html = html.split(`href="${skHref}"`).join(`href="${tl.href}"`)
+      for (const [skLabel, label] of tl.labels) html = html.split(`>${skLabel}<`).join(`>${label}<`)
+    }
+    html = html.replace(/<!-- blog-links:start -->[\s\S]*?<!-- blog-links:end -->/, blogGuides('en'))
+    html = html.replace(/href="\/blog"/g, `href="${BLOG_LOCAL.EN.hub}"`)
+  }
+
   // Font preloads: index.html carries latin + latin-ext (Slovak); other languages keep only what they need.
   const PRELOAD_BY_LANG = { EN: '', DE: '', CS: 'Inter-latin-ext', PL: 'Inter-latin-ext', UK: 'Inter-cyrillic' }
   if (L in PRELOAD_BY_LANG) {
