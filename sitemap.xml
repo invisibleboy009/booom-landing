@@ -122,6 +122,7 @@
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-pace-rechner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
   </url>
   <url>
@@ -149,6 +150,9 @@
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
   </url>
   <url>
     <loc>https://booom.fit/crossfit-pre-zaciatocnikov</loc>
@@ -370,6 +374,7 @@
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-pace-rechner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
   </url>
   <url>
@@ -380,7 +385,28 @@
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
     <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-pace-rechner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/de/hyrox-pace-rechner</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pacing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-pacing-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://booom.fit/cs/hyrox-pacing-kalkulacka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-pace-rechner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
+  </url>
+  <url>
+    <loc>https://booom.fit/de/hyrox-fuer-anfaenger</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
   </url>
   <url>
     <loc>https://booom.fit/en/body-fat-calculator</loc>
@@ -554,37 +580,43 @@
   </url>
   <url>
     <loc>https://booom.fit/hry</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/hry/gym-bro-quiz</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/hry/pravda-alebo-mytus</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/hry/traf-boomera</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/hry/spoznaj-sval</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booom.fit/hry/booom-ruleta</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booom.fit/hry/ktory-sval</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

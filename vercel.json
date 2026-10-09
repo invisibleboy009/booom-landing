@@ -165,6 +165,14 @@
       "destination": "/cs/hyrox-pacing-kalkulacka.html"
     },
     {
+      "source": "/de/hyrox-pace-rechner",
+      "destination": "/de/hyrox-pace-rechner.html"
+    },
+    {
+      "source": "/de/hyrox-fuer-anfaenger",
+      "destination": "/de/hyrox-fuer-anfaenger.html"
+    },
+    {
       "source": "/en/body-fat-calculator",
       "destination": "/en/body-fat-calculator.html"
     },

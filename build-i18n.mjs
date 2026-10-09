@@ -43,11 +43,14 @@ const BLOG_CLUSTERS = [
   // tools
   { sk: '/1rm-kalkulacka', en: '/en/1rm-calculator', cs: '/cs/1rm-kalkulacka' },
   { sk: '/kalorie-kalkulacka', en: '/en/calorie-calculator', cs: '/cs/kaloricka-kalkulacka' },
-  { sk: '/hyrox-pacing', en: '/en/hyrox-pacing-calculator', cs: '/cs/hyrox-pacing-kalkulacka' },
+  { sk: '/hyrox-pacing', en: '/en/hyrox-pacing-calculator', cs: '/cs/hyrox-pacing-kalkulacka', de: '/de/hyrox-pace-rechner' },
+  // German has only the Hyrox pages so far (Germany is Hyrox's biggest market); a cluster may
+  // therefore carry any subset of languages, and only the ones present get hreflang links.
+  { sk: '/hyrox-pre-zaciatocnikov', de: '/de/hyrox-fuer-anfaenger' },
   { sk: '/percento-telesneho-tuku', en: '/en/body-fat-calculator', cs: '/cs/procento-telesneho-tuku' },
 ]
 const clusterOf = {}
-for (const c of BLOG_CLUSTERS) for (const k of ['sk', 'en', 'cs']) clusterOf[c[k]] = c
+for (const c of BLOG_CLUSTERS) for (const k of Object.keys(c)) clusterOf[c[k]] = c
 
 // Localized calculator pages: hrefs and the plain-text labels the home page uses for them.
 const TOOLS_LOCAL = {
@@ -161,6 +164,14 @@ function localize(src, L) {
   // The About page exists in sk / en / cs; the other home pages link the English one.
   if (['PL', 'UK', 'DE'].includes(L)) html = html.split('href="/o-nas"').join('href="/en/about"')
 
+  // German Hyrox pages exist (2026-10-09); the German home links them instead of the Slovak ones.
+  if (L === 'DE') {
+    html = html.split('href="/hyrox-pacing"').join('href="/de/hyrox-pace-rechner"')
+    html = html.split('href="/hyrox-pre-zaciatocnikov"').join('href="/de/hyrox-fuer-anfaenger"')
+    html = html.split('>Hyrox pacing kalkulačka<').join('>Hyrox Pace Rechner<')
+    html = html.split('>Hyrox pre začiatočníkov<').join('>Hyrox für Anfänger<')
+  }
+
   // Font preloads: index.html carries latin + latin-ext (Slovak); other languages keep only what they need.
   const PRELOAD_BY_LANG = { EN: '', DE: '', CS: 'Inter-latin-ext', PL: 'Inter-latin-ext', UK: 'Inter-cyrillic' }
   if (L in PRELOAD_BY_LANG) {
@@ -214,7 +225,7 @@ const homeEntries = LANGS.map(L => `  <url>
     <priority>${L === 'SK' ? '1.0' : '0.9'}</priority>
 ${alternates}
   </url>`)
-const clusterAlts = c => ['sk', 'en', 'cs'].map(k => `    <xhtml:link rel="alternate" hreflang="${k}" href="${SITE}${c[k]}"/>`)
+const clusterAlts = c => Object.keys(c).map(k => `    <xhtml:link rel="alternate" hreflang="${k}" href="${SITE}${c[k]}"/>`)
   .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${c.sk}"/>`).join('\n')
 const subEntries = subpages.map(p => {
   const route = p.url.replace(SITE, '')
@@ -318,6 +329,19 @@ const SL_LANG = {
     ]],
     ['BOOOM', [['/cs/o-nas', 'O nás']]],
   ], 'Další články a nástroje'],
+  de: [[
+    ['Hyrox', [
+      ['/de/hyrox-pace-rechner', 'Hyrox Pace Rechner'],
+      ['/de/hyrox-fuer-anfaenger', 'Hyrox für Anfänger'],
+    ]],
+    ['Auf Englisch', [
+      ['/en/blog/hyrox-8-week-training-plan', 'Hyrox: 8-Wochen-Trainingsplan'],
+      ['/en/blog/hyrox-stations-technique', 'Hyrox: Technik an den Stationen'],
+      ['/en/1rm-calculator', '1RM-Rechner'],
+      ['/en/calorie-calculator', 'Kalorienrechner'],
+    ]],
+    ['BOOOM', [['/de/', 'Startseite']]],
+  ], 'Weitere Artikel und Rechner'],
 }
 const slPages = new Map()   // route -> file
 for (const r of rewrites) if (/^\/[a-z0-9\-\/]+$/.test(r.source) && r.destination.endsWith('.html') && !/^\/(en|cs|pl|uk|de|privacy|terms)$/.test(r.source)) slPages.set(r.source, r.destination.replace(/^\//, ''))
