@@ -24,14 +24,23 @@
 import { createServer } from 'node:http'
 import { readFile, mkdir, stat } from 'node:fs/promises'
 import { extname, join, normalize } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // Playwright is CommonJS, so a dynamic import lands its exports under
 // .default — unlike a static import, which unwraps them.
 const pw = await import(process.env.PLAYWRIGHT || 'playwright')
 const chromium = (pw.default || pw).chromium
 
-const ROOT = new URL('.', import.meta.url).pathname
+const ROOT = fileURLToPath(new URL('.', import.meta.url))
 const PORT = 5271
+// One set of PDFs per language page (2026-10-09). The Slovak files keep their old names, so
+// links already shared on Instagram keep working.
+const STRANKY = [
+  ['september.html', ''],
+  ['pl/30-dni.html', '-pl'],
+  ['uk/30-dniv.html', '-uk'],
+  ['de/30-tage.html', '-de'],
+]
 const PLANY = [
   ['doma', 'zaciatocnik'],
   ['doma', 'pokrocily'],
@@ -62,19 +71,19 @@ await mkdir(join(ROOT, 'assets', 'plany'), { recursive: true })
 // The sandbox ships Chromium at a fixed path (PLAYWRIGHT_BROWSERS_PATH) and
 // Playwright's own headless-shell download is absent, so point at it directly.
 const browser = await chromium.launch({
-  executablePath: process.env.CHROMIUM || '/opt/pw-browsers/chromium',
+  executablePath: process.env.CHROMIUM || (process.platform === 'win32' ? undefined : '/opt/pw-browsers/chromium'),
 })
 const page = await browser.newPage()
 const chyby = []
 page.on('pageerror', e => chyby.push(e.message))
 
-for (const [kde, uroven] of PLANY) {
-  await page.goto(`http://127.0.0.1:${PORT}/september.html`, { waitUntil: 'networkidle' })
+for (const [stranka, pripona] of STRANKY) for (const [kde, uroven] of PLANY) {
+  await page.goto(`http://127.0.0.1:${PORT}/${stranka}`, { waitUntil: 'networkidle' })
   await page.evaluate(() => document.fonts.ready)
   await page.click(`#kde button[data-v="${kde}"]`)
   await page.click(`#uroven button[data-v="${uroven}"]`)
 
-  const kluc = `${kde}-${uroven}`
+  const kluc = `${kde}-${uroven}${pripona}`
   const out = join(ROOT, 'assets', 'plany', `booom-30-dni-${kluc}.pdf`)
   await page.pdf({
     path: out, format: 'A4', printBackground: true,

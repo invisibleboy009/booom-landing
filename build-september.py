@@ -90,7 +90,12 @@ HTML = f"""<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://booom.fit/30-dni">
-  <title>30 dní s BOOOMEROM — tréningová výzva na september | BOOOM</title>
+  <link rel="alternate" hreflang="sk" href="https://booom.fit/30-dni">
+  <link rel="alternate" hreflang="pl" href="https://booom.fit/pl/30-dni">
+  <link rel="alternate" hreflang="uk" href="https://booom.fit/uk/30-dniv">
+  <link rel="alternate" hreflang="de" href="https://booom.fit/de/30-tage">
+  <link rel="alternate" hreflang="x-default" href="https://booom.fit/30-dni">
+  <title>30 dní s BOOOMEROM — 30-dňová tréningová výzva | BOOOM</title>
   <meta name="description" content="Štyri 30-dňové tréningové plány: doma alebo vo fitku, začiatočník alebo pokročilý. Vyber si a začni. Zadarmo, bez registrácie — od BOOOM.">
   <meta name="keywords" content="tréningový plán, 30 dní, cvičenie doma, plán do fitka, tréning pre začiatočníkov, mesačná výzva, booom">
   <meta property="og:type" content="website">
@@ -343,7 +348,7 @@ HTML = f"""<!DOCTYPE html>
     </header>
 
     <div class="hero">
-      <div class="rail"><i class="znak"></i>BOOOM<em>// SEPTEMBER 2026</em></div>
+      <div class="rail"><i class="znak"></i>BOOOM<em>// 30-DŇOVÁ VÝZVA</em></div>
       <h1>30 dní<br><span>s BOOOMEROM</span></h1>
       <p class="lead">Jeden mesiac, štyri plány, žiadne výhovorky o vybavení.
         Vyber si, kde cvičíš a na čom si — zvyšok je pripravený.</p>
