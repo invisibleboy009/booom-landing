@@ -46,7 +46,15 @@ const BLOG_CLUSTERS = [
   { sk: '/hyrox-pacing', en: '/en/hyrox-pacing-calculator', cs: '/cs/hyrox-pacing-kalkulacka', de: '/de/hyrox-pace-rechner' },
   // German has only the Hyrox pages so far (Germany is Hyrox's biggest market); a cluster may
   // therefore carry any subset of languages, and only the ones present get hreflang links.
-  { sk: '/hyrox-pre-zaciatocnikov', de: '/de/hyrox-fuer-anfaenger' },
+  // Guides translated to pl / uk / de on 2026-10-09 (no en / cs versions yet).
+  { sk: '/hyrox-pre-zaciatocnikov', pl: '/pl/hyrox-dla-poczatkujacych', uk: '/uk/hyrox-dlia-pochatkivtsiv', de: '/de/hyrox-fuer-anfaenger' },
+  { sk: '/crossfit-pre-zaciatocnikov', pl: '/pl/crossfit-dla-poczatkujacych', uk: '/uk/crossfit-dlia-pochatkivtsiv', de: '/de/crossfit-fuer-anfaenger' },
+  { sk: '/30-dni', pl: '/pl/30-dni', uk: '/uk/30-dniv', de: '/de/30-tage' },
+  { sk: '/dieta/bezlaktozova', pl: '/pl/dieta/bez-laktozy', uk: '/uk/dieta/bezlaktozna', de: '/de/diaet/laktosefrei' },
+  { sk: '/dieta/bezlepkova', pl: '/pl/dieta/bezglutenowa', uk: '/uk/dieta/bezgliutenova', de: '/de/diaet/glutenfrei' },
+  { sk: '/dieta/histaminova', pl: '/pl/dieta/histaminowa', uk: '/uk/dieta/histaminova', de: '/de/diaet/histaminarm' },
+  { sk: '/dieta/hashimoto', pl: '/pl/dieta/hashimoto', uk: '/uk/dieta/hashimoto', de: '/de/diaet/hashimoto' },
+  { sk: '/stitna-zlaza', pl: '/pl/tarczyca', uk: '/uk/shchytopodibna-zaloza', de: '/de/schilddruese' },
   { sk: '/percento-telesneho-tuku', en: '/en/body-fat-calculator', cs: '/cs/procento-telesneho-tuku' },
 ]
 const clusterOf = {}
@@ -69,6 +77,17 @@ const TOOLS_LOCAL = {
     '/percento-telesneho-tuku': { href: '/cs/procento-telesneho-tuku', labels: [['Percento telesného tuku', 'Procento tělesného tuku']] },
   },
 }
+
+// Translated guides per home language: Slovak href → own href, and plain-text labels.
+const GUIDES_SK = {"/hyrox-pre-zaciatocnikov": {"pl": "/pl/hyrox-dla-poczatkujacych", "uk": "/uk/hyrox-dlia-pochatkivtsiv", "de": "/de/hyrox-fuer-anfaenger"}, "/crossfit-pre-zaciatocnikov": {"pl": "/pl/crossfit-dla-poczatkujacych", "uk": "/uk/crossfit-dlia-pochatkivtsiv", "de": "/de/crossfit-fuer-anfaenger"}, "/30-dni": {"pl": "/pl/30-dni", "uk": "/uk/30-dniv", "de": "/de/30-tage"}, "/dieta/bezlaktozova": {"pl": "/pl/dieta/bez-laktozy", "uk": "/uk/dieta/bezlaktozna", "de": "/de/diaet/laktosefrei"}, "/dieta/bezlepkova": {"pl": "/pl/dieta/bezglutenowa", "uk": "/uk/dieta/bezgliutenova", "de": "/de/diaet/glutenfrei"}, "/dieta/histaminova": {"pl": "/pl/dieta/histaminowa", "uk": "/uk/dieta/histaminova", "de": "/de/diaet/histaminarm"}, "/dieta/hashimoto": {"pl": "/pl/dieta/hashimoto", "uk": "/uk/dieta/hashimoto", "de": "/de/diaet/hashimoto"}, "/stitna-zlaza": {"pl": "/pl/tarczyca", "uk": "/uk/shchytopodibna-zaloza", "de": "/de/schilddruese"}}
+const GUIDES_LOCAL = {}
+for (const L of ['PL', 'UK', 'DE']) {
+  const k = L.toLowerCase()
+  GUIDES_LOCAL[L] = { hrefs: Object.fromEntries(Object.entries(GUIDES_SK).map(([sk, m]) => [sk, m[k]])), labels: [] }
+}
+GUIDES_LOCAL.PL.labels = [["CrossFit pre začiatočníkov", "CrossFit dla początkujących"], ["30 dní s BOOOMEROM", "30 dni z BOOOMEREM"], ["Hyrox pre začiatočníkov", "Hyrox dla początkujących"], ["Hashimoto: diéta a liečba", "Hashimoto: dieta i leczenie"], ["Štítna žľaza", "Tarczyca"]]
+GUIDES_LOCAL.UK.labels = [["CrossFit pre začiatočníkov", "CrossFit для початківців"], ["30 dní s BOOOMEROM", "30 днів з BOOOMER"], ["Hyrox pre začiatočníkov", "Hyrox для початківців"], ["Hashimoto: diéta a liečba", "Хашимото: дієта і лікування"], ["Štítna žľaza", "Щитоподібна залоза"]]
+GUIDES_LOCAL.DE.labels = [["CrossFit pre začiatočníkov", "CrossFit für Anfänger"], ["30 dní s BOOOMEROM", "30 Tage mit BOOOMER"], ["Hyrox pre začiatočníkov", "Hyrox für Anfänger"], ["Hashimoto: diéta a liečba", "Hashimoto: Ernährung und Behandlung"], ["Štítna žľaza", "Schilddrüse"]]
 
 // Localized blog links for the en/cs home pages (nav, footer, guides grid).
 const blogLinks = lang => MANIFEST.articles.map(a => ({ href: `${PFX[lang]}/blog/${a[lang].slug}`, label: a[lang].label }))
@@ -164,12 +183,15 @@ function localize(src, L) {
   // The About page exists in sk / en / cs; the other home pages link the English one.
   if (['PL', 'UK', 'DE'].includes(L)) html = html.split('href="/o-nas"').join('href="/en/about"')
 
-  // German Hyrox pages exist (2026-10-09); the German home links them instead of the Slovak ones.
+  // German has its own Hyrox calculator; PL / UK / DE have their own guides (2026-10-09). The home
+  // pages link them, with the labels that are plain text in index.html translated here.
   if (L === 'DE') {
     html = html.split('href="/hyrox-pacing"').join('href="/de/hyrox-pace-rechner"')
-    html = html.split('href="/hyrox-pre-zaciatocnikov"').join('href="/de/hyrox-fuer-anfaenger"')
     html = html.split('>Hyrox pacing kalkulačka<').join('>Hyrox Pace Rechner<')
-    html = html.split('>Hyrox pre začiatočníkov<').join('>Hyrox für Anfänger<')
+  }
+  if (GUIDES_LOCAL[L]) {
+    for (const [skHref, href] of Object.entries(GUIDES_LOCAL[L].hrefs)) html = html.split(`href="${skHref}"`).join(`href="${href}"`)
+    for (const [skLabel, label] of GUIDES_LOCAL[L].labels) html = html.split(`>${skLabel}<`).join(`>${label}<`)
   }
 
   // Polish, Ukrainian and German have no calculators or blog of their own (German only the Hyrox
@@ -346,6 +368,15 @@ const SL_LANG = {
       ['/de/hyrox-pace-rechner', 'Hyrox Pace Rechner'],
       ['/de/hyrox-fuer-anfaenger', 'Hyrox für Anfänger'],
     ]],
+    ['Ratgeber', [
+      ['/de/crossfit-fuer-anfaenger', 'CrossFit für Anfänger'],
+      ['/de/30-tage', '30-Tage-Trainingsplan'],
+      ['/de/schilddruese', 'Schilddrüse und Ernährung'],
+      ['/de/diaet/hashimoto', 'Hashimoto: Ernährung und Nahrungsergänzung'],
+      ['/de/diaet/glutenfrei', 'Glutenfreie Ernährung'],
+      ['/de/diaet/laktosefrei', 'Laktosefreie Ernährung'],
+      ['/de/diaet/histaminarm', 'Histaminarme Ernährung'],
+    ]],
     ['Auf Englisch', [
       ['/en/blog/hyrox-8-week-training-plan', 'Hyrox: 8-Wochen-Trainingsplan'],
       ['/en/blog/hyrox-stations-technique', 'Hyrox: Technik an den Stationen'],
@@ -354,6 +385,44 @@ const SL_LANG = {
     ]],
     ['BOOOM', [['/de/', 'Startseite']]],
   ], 'Weitere Artikel und Rechner'],
+  pl: [[
+    ['Poradniki', [
+      ['/pl/hyrox-dla-poczatkujacych', 'Hyrox dla początkujących'],
+      ['/pl/crossfit-dla-poczatkujacych', 'CrossFit dla początkujących'],
+      ['/pl/30-dni', '30-dniowy plan treningowy'],
+      ['/pl/tarczyca', 'Tarczyca i odżywianie'],
+      ['/pl/dieta/hashimoto', 'Hashimoto: dieta i suplementacja'],
+      ['/pl/dieta/bezglutenowa', 'Dieta bezglutenowa'],
+      ['/pl/dieta/bez-laktozy', 'Dieta bez laktozy'],
+      ['/pl/dieta/histaminowa', 'Dieta przy nietolerancji histaminy'],
+    ]],
+    ['Kalkulatory (po angielsku)', [
+      ['/en/hyrox-pacing-calculator', 'Kalkulator tempa Hyrox'],
+      ['/en/1rm-calculator', 'Kalkulator 1RM'],
+      ['/en/calorie-calculator', 'Kalkulator kalorii'],
+      ['/en/body-fat-calculator', 'Kalkulator tkanki tłuszczowej'],
+    ]],
+    ['BOOOM', [['/pl/', 'Strona główna']]],
+  ], 'Więcej poradników i narzędzi'],
+  uk: [[
+    ['Посібники', [
+      ['/uk/hyrox-dlia-pochatkivtsiv', 'Hyrox для початківців'],
+      ['/uk/crossfit-dlia-pochatkivtsiv', 'CrossFit для початківців'],
+      ['/uk/30-dniv', '30-денний план тренувань'],
+      ['/uk/shchytopodibna-zaloza', 'Щитоподібна залоза і харчування'],
+      ['/uk/dieta/hashimoto', 'Хашимото: дієта і добавки'],
+      ['/uk/dieta/bezgliutenova', 'Безглютенова дієта'],
+      ['/uk/dieta/bezlaktozna', 'Безлактозна дієта'],
+      ['/uk/dieta/histaminova', 'Дієта при непереносимості гістаміну'],
+    ]],
+    ['Калькулятори (англійською)', [
+      ['/en/hyrox-pacing-calculator', 'Калькулятор темпу Hyrox'],
+      ['/en/1rm-calculator', 'Калькулятор 1RM'],
+      ['/en/calorie-calculator', 'Калькулятор калорій'],
+      ['/en/body-fat-calculator', 'Калькулятор жиру в тілі'],
+    ]],
+    ['BOOOM', [['/uk/', 'Головна']]],
+  ], 'Більше посібників і інструментів'],
 }
 const slPages = new Map()   // route -> file
 for (const r of rewrites) if (/^\/[a-z0-9\-\/]+$/.test(r.source) && r.destination.endsWith('.html') && !/^\/(en|cs|pl|uk|de|privacy|terms)$/.test(r.source)) slPages.set(r.source, r.destination.replace(/^\//, ''))

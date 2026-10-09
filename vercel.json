@@ -173,6 +173,98 @@
       "destination": "/de/hyrox-fuer-anfaenger.html"
     },
     {
+      "source": "/pl/hyrox-dla-poczatkujacych",
+      "destination": "/pl/hyrox-dla-poczatkujacych.html"
+    },
+    {
+      "source": "/uk/hyrox-dlia-pochatkivtsiv",
+      "destination": "/uk/hyrox-dlia-pochatkivtsiv.html"
+    },
+    {
+      "source": "/pl/crossfit-dla-poczatkujacych",
+      "destination": "/pl/crossfit-dla-poczatkujacych.html"
+    },
+    {
+      "source": "/uk/crossfit-dlia-pochatkivtsiv",
+      "destination": "/uk/crossfit-dlia-pochatkivtsiv.html"
+    },
+    {
+      "source": "/de/crossfit-fuer-anfaenger",
+      "destination": "/de/crossfit-fuer-anfaenger.html"
+    },
+    {
+      "source": "/pl/30-dni",
+      "destination": "/pl/30-dni.html"
+    },
+    {
+      "source": "/uk/30-dniv",
+      "destination": "/uk/30-dniv.html"
+    },
+    {
+      "source": "/de/30-tage",
+      "destination": "/de/30-tage.html"
+    },
+    {
+      "source": "/pl/dieta/bez-laktozy",
+      "destination": "/pl/dieta/bez-laktozy.html"
+    },
+    {
+      "source": "/uk/dieta/bezlaktozna",
+      "destination": "/uk/dieta/bezlaktozna.html"
+    },
+    {
+      "source": "/de/diaet/laktosefrei",
+      "destination": "/de/diaet/laktosefrei.html"
+    },
+    {
+      "source": "/pl/dieta/bezglutenowa",
+      "destination": "/pl/dieta/bezglutenowa.html"
+    },
+    {
+      "source": "/uk/dieta/bezgliutenova",
+      "destination": "/uk/dieta/bezgliutenova.html"
+    },
+    {
+      "source": "/de/diaet/glutenfrei",
+      "destination": "/de/diaet/glutenfrei.html"
+    },
+    {
+      "source": "/pl/dieta/histaminowa",
+      "destination": "/pl/dieta/histaminowa.html"
+    },
+    {
+      "source": "/uk/dieta/histaminova",
+      "destination": "/uk/dieta/histaminova.html"
+    },
+    {
+      "source": "/de/diaet/histaminarm",
+      "destination": "/de/diaet/histaminarm.html"
+    },
+    {
+      "source": "/pl/dieta/hashimoto",
+      "destination": "/pl/dieta/hashimoto.html"
+    },
+    {
+      "source": "/uk/dieta/hashimoto",
+      "destination": "/uk/dieta/hashimoto.html"
+    },
+    {
+      "source": "/de/diaet/hashimoto",
+      "destination": "/de/diaet/hashimoto.html"
+    },
+    {
+      "source": "/pl/tarczyca",
+      "destination": "/pl/tarczyca.html"
+    },
+    {
+      "source": "/uk/shchytopodibna-zaloza",
+      "destination": "/uk/shchytopodibna-zaloza.html"
+    },
+    {
+      "source": "/de/schilddruese",
+      "destination": "/de/schilddruese.html"
+    },
+    {
       "source": "/en/body-fat-calculator",
       "destination": "/en/body-fat-calculator.html"
     },
