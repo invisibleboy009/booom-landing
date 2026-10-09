@@ -2269,9 +2269,20 @@ const pageTitles = {
 // data-static-lang and keep translating in place as before.
 var STATIC_LANG_PATH = { SK: '/', EN: '/en/', CS: '/cs/', PL: '/pl/', UK: '/uk/', DE: '/de/' };
 
+// A translated subpage (e.g. /pl/dieta/hashimoto) carries data-page-lang: its language is fixed,
+// and choosing another one goes to that page's own translation (its hreflang link) or, if there
+// is none, to that language's home. Without it, lang.js re-rendered the nav in whatever language
+// the visitor last picked, on a page whose body is in another language.
 function setLanguage(lang) {
   if (!translations[lang]) return;
   var staticLang = document.documentElement.getAttribute('data-static-lang');
+  var pageLang = document.documentElement.getAttribute('data-page-lang');
+  if (pageLang && lang !== pageLang) {
+    try { localStorage.setItem('booom_lang', lang); } catch (e) {}
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + (lang === 'UK' ? 'uk' : lang.toLowerCase()) + '"]');
+    window.location.href = alt ? alt.getAttribute('href') : STATIC_LANG_PATH[lang];
+    return;
+  }
   if (staticLang && lang !== staticLang) {
     try { localStorage.setItem('booom_lang', lang); } catch (e) {}
     window.location.href = STATIC_LANG_PATH[lang] + window.location.search + window.location.hash;
@@ -2332,7 +2343,10 @@ function setLanguage(lang) {
   var langCode = document.getElementById('langCode');
   if (langCode) langCode.textContent = lang;
 
-  document.title = pageTitles[lang] || pageTitles['SK'];
+  // Only the home pages take their title from here. Every subpage has its own <title>, and
+  // until 2026-10-09 this line replaced it with the home title on every diet and guide page —
+  // which is also what Googlebot saw after rendering.
+  if (staticLang) document.title = pageTitles[lang] || pageTitles['SK'];
 
   try {
     localStorage.setItem('booom_lang', lang);
@@ -2350,6 +2364,8 @@ function setLanguage(lang) {
     : browserLang.startsWith('sk') ? 'SK'
     : browserLang.startsWith('en') ? 'EN' : 'SK';
   var staticLang = document.documentElement.getAttribute('data-static-lang');
+  var pageLang = document.documentElement.getAttribute('data-page-lang');
+  if (pageLang) { setLanguage(pageLang); return; }
 
   if (staticLang) {
     // A crawler must see the page at its own URL, never a redirect: Googlebot renders with
