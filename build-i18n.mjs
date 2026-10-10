@@ -47,7 +47,7 @@ const BLOG_CLUSTERS = [
   // German has only the Hyrox pages so far (Germany is Hyrox's biggest market); a cluster may
   // therefore carry any subset of languages, and only the ones present get hreflang links.
   // Guides translated to pl / uk / de on 2026-10-09 (no en / cs versions yet).
-  { sk: '/hyrox-pre-zaciatocnikov', pl: '/pl/hyrox-dla-poczatkujacych', uk: '/uk/hyrox-dlia-pochatkivtsiv', de: '/de/hyrox-fuer-anfaenger' },
+  { sk: '/hyrox-pre-zaciatocnikov', en: '/en/hyrox-for-beginners', pl: '/pl/hyrox-dla-poczatkujacych', uk: '/uk/hyrox-dlia-pochatkivtsiv', de: '/de/hyrox-fuer-anfaenger' },
   { sk: '/crossfit-pre-zaciatocnikov', pl: '/pl/crossfit-dla-poczatkujacych', uk: '/uk/crossfit-dlia-pochatkivtsiv', de: '/de/crossfit-fuer-anfaenger' },
   { sk: '/30-dni', pl: '/pl/30-dni', uk: '/uk/30-dniv', de: '/de/30-tage' },
   { sk: '/dieta/bezlaktozova', pl: '/pl/dieta/bez-laktozy', uk: '/uk/dieta/bezlaktozna', de: '/de/diaet/laktosefrei' },
@@ -64,6 +64,7 @@ for (const c of BLOG_CLUSTERS) for (const k of Object.keys(c)) clusterOf[c[k]] =
 const TOOLS_LOCAL = {
   EN: {
     '/o-nas': { href: '/en/about', labels: [] },
+    '/hyrox-pre-zaciatocnikov': { href: '/en/hyrox-for-beginners', labels: [['Hyrox pre začiatočníkov', 'Hyrox for beginners']] },
     '/hyrox-pacing': { href: '/en/hyrox-pacing-calculator', labels: [['Hyrox pacing kalkulačka', 'Hyrox pacing calculator']] },
     '/1rm-kalkulacka': { href: '/en/1rm-calculator', labels: [['1RM kalkulačka', '1RM calculator']] },
     '/kalorie-kalkulacka': { href: '/en/calorie-calculator', labels: [['Kalorická kalkulačka (BMR/TDEE)', 'Calorie calculator (BMR/TDEE)'], ['Kalorická kalkulačka', 'Calorie calculator']] },
@@ -348,6 +349,7 @@ const SL_LANG = {
     ['Calculators', [
       ['/en/hyrox-pacing-calculator', 'Hyrox pacing calculator'],
       ['/en/1rm-calculator', '1RM calculator'],
+      ['/en/hyrox-for-beginners', 'Hyrox for beginners'],
       ['/en/calorie-calculator', 'Calorie calculator (BMR and TDEE)'],
       ['/en/body-fat-calculator', 'Body fat calculator'],
     ]],

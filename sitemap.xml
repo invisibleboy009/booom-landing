@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://booom.fit/stitna-zlaza</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/stitna-zlaza"/>
@@ -91,7 +91,7 @@
   </url>
   <url>
     <loc>https://booom.fit/dieta/bezlaktozova</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/dieta/bezlaktozova"/>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://booom.fit/dieta/bezlepkova</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/dieta/bezlepkova"/>
@@ -113,7 +113,7 @@
   </url>
   <url>
     <loc>https://booom.fit/dieta/histaminova</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/dieta/histaminova"/>
@@ -124,7 +124,7 @@
   </url>
   <url>
     <loc>https://booom.fit/dieta/hashimoto</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/dieta/hashimoto"/>
@@ -176,6 +176,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-for-beginners"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/hyrox-dla-poczatkujacych"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/hyrox-dlia-pochatkivtsiv"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
@@ -183,7 +184,7 @@
   </url>
   <url>
     <loc>https://booom.fit/crossfit-pre-zaciatocnikov</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/crossfit-pre-zaciatocnikov"/>
@@ -204,7 +205,7 @@
   </url>
   <url>
     <loc>https://booom.fit/30-dni</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/30-dni"/>
@@ -437,11 +438,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pacing"/>
   </url>
   <url>
+    <loc>https://booom.fit/en/hyrox-for-beginners</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-for-beginners"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/hyrox-dla-poczatkujacych"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/hyrox-dlia-pochatkivtsiv"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+  </url>
+  <url>
     <loc>https://booom.fit/de/hyrox-fuer-anfaenger</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-for-beginners"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/hyrox-dla-poczatkujacych"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/hyrox-dlia-pochatkivtsiv"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
@@ -453,6 +467,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-for-beginners"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/hyrox-dla-poczatkujacych"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/hyrox-dlia-pochatkivtsiv"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>
@@ -464,6 +479,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://booom.fit/hyrox-pre-zaciatocnikov"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booom.fit/en/hyrox-for-beginners"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://booom.fit/pl/hyrox-dla-poczatkujacych"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://booom.fit/uk/hyrox-dlia-pochatkivtsiv"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://booom.fit/de/hyrox-fuer-anfaenger"/>

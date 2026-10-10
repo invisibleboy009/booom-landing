@@ -169,6 +169,10 @@
       "destination": "/de/hyrox-pace-rechner.html"
     },
     {
+      "source": "/en/hyrox-for-beginners",
+      "destination": "/en/hyrox-for-beginners.html"
+    },
+    {
       "source": "/de/hyrox-fuer-anfaenger",
       "destination": "/de/hyrox-fuer-anfaenger.html"
     },
